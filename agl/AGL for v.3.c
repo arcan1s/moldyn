@@ -3,6 +3,7 @@
 #include <conio.h>
 #include <ctype.h> 
 #include <math.h>
+#include <string.h>
 
 
 double cell[3], a[10000][3], c[250][30][3];
@@ -382,21 +383,22 @@ void main(void)
 
 	
 	f=fopen ("input_agl.dat", "r");
-	for (i=0; i<24; i++)
+	for (i=0; i<10; i++)
 		fscanf (f, "%c", &q[i]);
 	fscanf (f, "%s", &name);
-	for (i=0; i<19; i++)
+	for (i=0; i<24; i++)
 		fscanf (f, "%c", &q[i]);
 	fscanf (f, "%i", &agl);
-	for (i=0; i<10; i++)
+	for (i=0; i<15; i++)
 		fscanf (f, "%c", &q[i]);
 	for (i=0; i<3; i++)
 		fscanf (f, "%lf", &cell[i]);
 	fgets (q, 128, f);
-	for (i=0; i<25; i++)
+	for (i=0; i<7; i++)
 		fscanf (f, "%c", &q[i]);
 	fscanf (f, "%s", &out_name);	
 	fclose (f);
+	
 
 	k = strlen (out_name);
 	out_name[k] = out_name[k-4];

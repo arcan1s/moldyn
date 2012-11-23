@@ -172,9 +172,9 @@ void main()
 			j = 1;
 
 	if (j != 1)
-		printf ("\nGraths are isomorthic.\n");
+		printf ("\nGraphs are isomorthic.\n");
 	else
-		printf ("\nGraths aren't isomorthic.\n");
+		printf ("\nGraphs aren't isomorthic.\n");
 	
 	getch();
 }

@@ -1,9 +1,9 @@
-Маска файла:	meth
-Шаги траектории:	1	3	(начальный; конечный)
-Размер ЭЯ:	24.42	24.40	24.49	(a; b; c)
-Параметр счета:	2	(0 - общ.стат.; 1 - общ.стат. с длинами связей; 2 - общ.стат. с длинами связей и формой агломератов; 3 - стат. одной молекулы)
-Тип взаимодействия:	2	(1 - моноатомное; 2 - двухатомное)
-Типы атомов:	6	21	(1ый атом, 2ой атом; или атом)
-Геометрический параметр:	3.2	2.4	(1-1 критерий, 1-2 критерий; или 1-1 критерий)
-Номер мол. для стат.:	4
-Имя файла с результатами:	out_all.dat
+Mask:	meth
+Trajectory step:	1	3	(first; last)
+Cell dimention:	24.42	24.40	24.49	(a; b; c)
+Parametr:	2	(0 - gen.stat; 1 - gen.stat and bonds length; 2 - gen.stat and bonds length and form of agl; 3 - stat for once molecule)
+Interaction:	2	(1 - mono; 2 - di)
+Atom types:	6	21	(1st atom, 2nd atom; or atom)
+Criteria:	3.2	2.4	(1-1 criterion, 1-2 criterion; or 1-1 criterion)
+Num of mol.for stat:	4
+Output:	out_all.dat
