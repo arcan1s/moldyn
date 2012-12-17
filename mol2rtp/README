@@ -1,0 +1,24 @@
+                    mol2rtp 
+Version:                                       1.0
+Author:                Evgeniy Alexeev aka arcanis
+Email:                         esalexeev@gmail.com
+
+
+mol2rtp convert *.mol2 file in GROMACS topology
+file (*.rtp).
+
+Usage:           
+                    mol2rtp [MOL2.FILE] [RTP.FILE]
+For example:
+                      mol2rtp exmpl.mol2 exmpl.rtp
+
+NOTE: You must edit molecular mechanics atom types 
+in output *.rtp-file, because atom types in *.mol2
+file don't match GROMACS atom types.
+
+
+Compile:
+                          gcc mol2rtp.c -o mol2rtp
+Dependence:
+    * gcc
+    * lib: string.h, stdlib.c, stdio.h
