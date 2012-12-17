@@ -21,4 +21,4 @@ Compile:
                           gcc mol2rtp.c -o mol2rtp
 Dependence:
     * gcc
-    * lib: string.h, stdlib.c, stdio.h
+    * libs: string.h, stdlib.h, stdio.h
