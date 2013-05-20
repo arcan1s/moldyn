@@ -86,7 +86,7 @@ void calc()
   for (i=0; i<total_points; i++)
     if ((dist[i][0] <= cc_ref) && (dist[i][1] <= no_ref))
       exists++;
-  printf ("Ionic lock exists: %4i ns\n", exists);
+  printf ("Ionic lock exists: %4i from %4i ns\n", exists, total_points);
   
   t_ratio = total_points - exists;
   t_ratio = exists / t_ratio;
@@ -103,7 +103,7 @@ void disp(int iter)
   for (i=0; i<points_in_model; i++)
   {
     // max of index is ~(total_points-1)
-    index = rand() % ((RAND_MAX % total_points)+1);
+    index = rand() % total_points;
     if ((dist[index][0] <= cc_ref) && (dist[index][1] <= no_ref))
       distrib_exists[iter]++;
   }
