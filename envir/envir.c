@@ -47,7 +47,7 @@ void printing(char output_file[])
   {
     for (i=0; i<at_in_mol[needed_mol[cur_mol]]; i++)
     {
-      fprintf(out, "ATOM  %5i %c%c MOL  %4i    %8.3f%8.3f%8.3f\n", j, atom_type[needed_mol[cur_mol]][i][0], \
+      fprintf(out, "ATOM  %5i %c%c   MOL  %4i    %8.3f%8.3f%8.3f\n", j, atom_type[needed_mol[cur_mol]][i][0], \
           atom_type[needed_mol[cur_mol]][i][1], cur_mol+1, coord[needed_mol[cur_mol]][i][0], \
           coord[needed_mol[cur_mol]][i][1], coord[needed_mol[cur_mol]][i][2]);
       j++;
