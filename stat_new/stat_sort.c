@@ -1,28 +1,38 @@
 /* Library for processing connectivity matrix
  * 
  * Usage:
- *    proc_matrix (number_of_molecules, connect_matrix, max_size_of_aglomerates,
- *                      num_of_molecules_in_aglomerates, aglomerates, statistic)
+ *                             proc_matrix (number_of_molecules, connect_matrix, 
+ *   num_of_molecules_in_aglomerates, aglomerates, statistic, summary_statistic)
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 
-int proc_matrix (int num_mol, const int *connect, int max_size, int *num_mol_agl, int *agl, int *stat)
+int proc_matrix (int num_mol, const int *connect, int *num_mol_agl, int *agl, 
+                 int *stat, int *stat_all)
+/* num_mol          - number of molecules
+ * connect          - connectivity graph for all molecules
+ * num_mol_agl      - massive of numbers of molecule in aglomerates
+ * agl              - massive of aglomerates
+ * stat             - massive of statistics
+ * stat_all         - massive of summary statistics
+ */
 {
   int i, j, k, p, *bin;
+  /* p              - weight / graph index
+   * bin            - binary massive of labels
+   */
   
 //   definition and zeroing
   bin = (int *) malloc (num_mol * sizeof (int));
   for (i=0; i<num_mol; i++)
-    bin[i] = 0;
-  for (i=0; i<max_size; i++)
   {
+    bin[i] = 0;
     stat[i] = 0;
     num_mol_agl[i] = 0;
-    for (j=0; j<max_size; j++)
-      agl[max_size*i+j] = 0;
+    for (j=0; j<num_mol; j++)
+      agl[num_mol*i+j] = 0;
   }
   
 //   select non-bonded molecules
@@ -43,15 +53,15 @@ int proc_matrix (int num_mol, const int *connect, int max_size, int *num_mol_agl
   for (i=0; i<num_mol; i++)
     if (bin[i] == 1)
     {
-      agl[max_size*p+num_mol_agl[p]] = i;
+      agl[num_mol*p+num_mol_agl[p]] = i;
       num_mol_agl[p]++;
       bin[i] = 0;
       
       for (j=0; j<num_mol_agl[p]; j++)
         for (k=0; k<num_mol; k++)
-          if ((connect[agl[max_size*p+j]*num_mol+k] == 1) && (bin[k] == 1))
+          if ((connect[agl[num_mol*p+j]*num_mol+k] == 1) && (bin[k] == 1))
           {
-            agl[max_size*p+num_mol_agl[p]] = k;
+            agl[num_mol*p+num_mol_agl[p]] = k;
             num_mol_agl[p]++;
             bin[k] = 0;
           }
@@ -60,8 +70,11 @@ int proc_matrix (int num_mol, const int *connect, int max_size, int *num_mol_agl
     }
   
 //   filling statistic array
-  for (i=0; i<max_size; i++)
+  for (i=0; i<num_mol; i++)
+  {
     stat[num_mol_agl[i]-1]++;
+    stat_all[num_mol_agl[i]-1]++;
+  }
   
   free (bin);
   

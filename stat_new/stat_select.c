@@ -11,6 +11,9 @@
 
 
 float radii (const float *a, const float *b)
+/* a                - [x, y, z] first point
+ * b                - [x, y, z] second point
+ */
 {
   return sqrt (pow((a[0]-b[0]), 2) + pow((a[1]-b[1]), 2) + pow((a[2]-b[2]), 2));
 }
@@ -19,9 +22,23 @@ float radii (const float *a, const float *b)
 int create_matrix (int num_mol, int num_atoms, const int *label_mol, 
                    const int *type_atoms, const float *coords, int num_of_inter, 
                    const float *crit, int *connect)
+/* num_mol          - number of molecules
+ * num_atoms        - number of atoms
+ * label_mol        - massive of numbers of molecule for atoms
+ * type_atoms       - massive of atom types for atoms
+ * coords           - massive of coordinates
+ * num_of_inter     - number of different interactions
+ * crit             - massive of criteria
+ * connect          - connectivity graph for all molecules
+ */
 {
   float x[2][3];
   int cur_num_inter, i, j, k, l, num_inter, ***label_inter;
+/* x                - temporary coordinates
+ * cur_num_inter    - current number of true interactions
+ * num_inter        - needed number of true interactions
+ * label_inter      - temporary massive of true interactions
+ */
   
   label_inter = (int ***) malloc (num_mol * sizeof (int **));
   for (i=0; i<num_mol; i++)

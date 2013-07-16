@@ -2,7 +2,8 @@
  * 
  * Usage:
  *                    reading_coords (filename, type_interaction, labels, cell, 
- *   &number_of_molecules, &number_of_atoms, label_molecule, type_atoms, coords)
+ *  &number_of_molecules, &number_of_atoms, true_label_molecule, label_molecule, 
+ *                                                           type_atoms, coords)
  */
 
 #include <stdio.h>
@@ -28,13 +29,15 @@ char conv (int fnumb, int dig_pos)
 
 int reading_coords (char *filename, int type_inter, const int *label_atom, 
                     const float *cell, int *num_mol, int *num_atoms, 
-                    int *label_mol, int *type_atoms, float *coords)
+                    int *true_label_mol, int *label_mol, 
+                    int *type_atoms, float *coords)
 /* filename         - name of file with coordinates
  * type_inter       - type interaction (number of molecules for interaction)
  * label_atom       - types of atom for interaction
  * cell             - cell dimension
  * num_mol          - number of molecules for writing coordinates
  * num_atoms        - number of atoms for writing coordinates
+ * true_label_mol   - massive of true numbers of molecule for atoms
  * label_mol        - massive of numbers of molecule for atoms
  * type_atoms       - massive of atom types for atoms
  * coords           - massive of coordinates
@@ -57,7 +60,7 @@ int reading_coords (char *filename, int type_inter, const int *label_atom,
   *num_mol = 0;
   
 //   Reading file
-  inp = fopen (filename, "r+");
+  inp = fopen (filename, "r");
   if (inp == NULL)
     return 1;
   
@@ -77,9 +80,10 @@ int reading_coords (char *filename, int type_inter, const int *label_atom,
         if (ref_mol != atoi (&file_string[53]))
         {
           ref_mol = atoi (&file_string[53]);
+          true_label_mol[*num_mol] = ref_mol;
           *num_mol = *num_mol + 1;
         }
-        label_mol[*num_atoms] = num_mol - 1;
+        label_mol[*num_atoms] = *num_mol - 1;
         type_atoms[*num_atoms] = j;
         
         *num_atoms = *num_atoms + 1;
@@ -287,13 +291,6 @@ int reading_coords (char *filename, int type_inter, const int *label_atom,
     }
   }
   
-//   Reading number of molecules
-//   *num_mol = 1;
-//   ref_mol = label_mol[0];
-//   for (i=0; i<*num_atoms; i++)
-//     if (ref_mol != label_mol[i])
-//       *num_mol = *num_mol + 1;
-//   
   return 0;
 }
 
