@@ -2,7 +2,8 @@
  * 
  * Usage:
  *                  printing_agl (input_file, output_file, number_of_molecules, 
- * true_label_molecules, num_of_molecules_in_aglomerates, aglomerates, statistic)
+ *          true_label_molecules, num_of_molecules_in_aglomerates, aglomerates, 
+ *                                                statistic, type_of_aglomerate)
  */
 
 #include <stdio.h>
@@ -11,7 +12,7 @@
 
 int printing_agl (char *input, char *output, const int *connect, int num_mol, 
                   const int *true_label_mol, const int *num_mol_agl, 
-                  const int *agl, const int *stat)
+                  const int *agl, const int *stat, int *type_agl)
 /* input            - name of file with coordinates
  * output           - name of output file
  * connect          - connectivity graph for all molecules
@@ -20,6 +21,7 @@ int printing_agl (char *input, char *output, const int *connect, int num_mol,
  * num_mol_agl      - massive of numbers of molecule in aglomerates
  * agl              - massive of aglomerates
  * stat             - massive of statistics
+ * type_agl         - massive of numbers of aglomerate types
  */
 {
   int i, iso, j, k, p, type, *label_matrix, **matrix;
@@ -28,7 +30,11 @@ int printing_agl (char *input, char *output, const int *connect, int num_mol,
  * type             - number of cycle in aglomerates
  * label_matrix     - massive of indexes of molecule
  * matrix           - connectivity graph
+ * f_out            - output file
  */
+  
+  type_agl[0] = 0;
+  type_agl[1] = 0;
   
   f_out = fopen (output, "a");
   
@@ -68,9 +74,15 @@ int printing_agl (char *input, char *output, const int *connect, int num_mol,
         for (k=0; k<num_mol_agl[i]; k++)
           p += matrix[i][j];
       if (p == (2*num_mol_agl[i]-2))
+      {
         type = 0;
+        type_agl[0]++;
+      }
       else
+      {
         type = (p - (2*num_mol_agl[i]-2)) / 2;
+        type_agl[1]++;
+      }
       
 //       printing class of aglomerate
       fprintf (f_out, "  %7i=%1i=%-7i\n", num_mol_agl[i], type, iso);
