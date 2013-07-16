@@ -18,7 +18,7 @@ float radii (const float *a, const float *b)
 
 int create_matrix (int num_mol, int num_atoms, const int *label_mol, 
                    const int *type_atoms, const float *coords, int num_of_inter, 
-                   const float *crit, int *connect, int *num_bonds)
+                   const float *crit, int *connect)
 {
   float x[2][3];
   int cur_num_inter, i, j, k, l, num_inter, ***label_inter;
@@ -56,11 +56,8 @@ int create_matrix (int num_mol, int num_atoms, const int *label_mol,
       }
   
   for (i=0; i<num_mol; i++)
-  {
-    num_bonds[i] = 0;
     for (j=0; j<num_mol; j++)
       connect[i*num_mol+j] = 0;
-  }
   
 //   processing of initial connectivity matrix
   for (k=0; k<num_of_inter; k++)
@@ -82,8 +79,6 @@ int create_matrix (int num_mol, int num_atoms, const int *label_mol,
         {
           connect[i*num_mol+j] = 1;
           connect[j*num_mol+i] = 1;
-          num_bonds[i]++;
-          num_bonds[j]++;
         }
       }
   }
