@@ -1,8 +1,10 @@
-/* Usage:
- *                    reading_coords(filename, label, coords)
+/* Library for reading coordinates from input file
+ * 
+ * Usage:
+ *                    reading_coords (filename, type_interaction, labels, cell, 
+ *   &number_of_molecules, &number_of_atoms, label_molecule, type_atoms, coords)
  */
 
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,29 +26,42 @@ char conv (int fnumb, int dig_pos)
 }
 
 
-int reading_coords (char *filename, int type_inter, int *label_atom, float *cell, int *label_mol, int *num_atoms, float *coords, int *type_atoms)
+int reading_coords (char *filename, int type_inter, const int *label_atom, 
+                    const float *cell, int *num_mol, int *num_atoms, 
+                    int *label_mol, int *type_atoms, float *coords)
 /* filename         - name of file with coordinates
  * type_inter       - type interaction (number of molecules for interaction)
  * label_atom       - types of atom for interaction
- * cell             - cell dimention
- * label_mol        - massive of numbers of molecule for atoms
+ * cell             - cell dimension
+ * num_mol          - number of molecules for writing coordinates
  * num_atoms        - number of atoms for writing coordinates
- * coords           - massive of coordinates
+ * label_mol        - massive of numbers of molecule for atoms
  * type_atoms       - massive of atom types for atoms
+ * coords           - massive of coordinates
  */
 {
   char file_string[256];
   int atoms, i, j, tr_num_atoms, ref_mol, x, y, z;
   float not_tr_coords[750000], ref[3];
   FILE *inp;
+/* file_string      - temp string variable
+ * atoms            - total number of atoms in system
+ * tr_num_atoms     - number of translated atoms for writing coordinates (m.b. 8*num_atoms)
+ * ref_mol          - number of molecule for reference
+ * not_tr_coords    - not translated coordinates
+ * ref              - coordinates of reference molecule
+ * inp              - file with input data
+ */
   
   *num_atoms = 0;
+  *num_mol = 0;
   
 //   Reading file
   inp = fopen (filename, "r+");
   if (inp == NULL)
     return 1;
   
+  ref_mol = -1;
   fscanf (inp, "%i", &atoms);
   for (i=0; i<atoms; i++)
   {
@@ -59,7 +74,12 @@ int reading_coords (char *filename, int type_inter, int *label_atom, float *cell
         not_tr_coords[3**num_atoms+1] = atof (&file_string[23]);
         not_tr_coords[3**num_atoms+2] = atof (&file_string[35]);
         
-        label_mol[*num_atoms] = atoi (&file_string[53]);
+        if (ref_mol != atoi (&file_string[53]))
+        {
+          ref_mol = atoi (&file_string[53]);
+          *num_mol = *num_mol + 1;
+        }
+        label_mol[*num_atoms] = num_mol - 1;
         type_atoms[*num_atoms] = j;
         
         *num_atoms = *num_atoms + 1;
@@ -267,13 +287,20 @@ int reading_coords (char *filename, int type_inter, int *label_atom, float *cell
     }
   }
   
+//   Reading number of molecules
+//   *num_mol = 1;
+//   ref_mol = label_mol[0];
+//   for (i=0; i<*num_atoms; i++)
+//     if (ref_mol != label_mol[i])
+//       *num_mol = *num_mol + 1;
+//   
   return 0;
 }
 
 
 int main (int argc, char *argv[])
 {
-//   int i, label_atom[5], label_mol[200000], num_atoms, type_atoms[200000];
+//   int i, label_atom[5], label_mol[200000], num_atoms, num_mol, type_atoms[200000];
 //   float a[600000], cell[3];
 // 
 //   for (i=0; i<5; i++)
@@ -283,7 +310,7 @@ int main (int argc, char *argv[])
 //   cell[1] = 34.7930;
 //   cell[2] = 34.7925;
 // 
-//   reading_coords ("oct.001", 1, label_atom, cell, label_mol, &num_atoms, a, type_atoms);
-  
+//   reading_coords ("oct.001", 1, label_atom, cell, &num_mol, &num_atoms, label_mol, type_atoms, a);
+//   
   return 0;
 }
