@@ -111,9 +111,3 @@ int create_matrix (int num_mol, int num_atoms, const int *label_mol,
   
   return 0;
 }
-
-
-int main (int argc, char *argv[])
-{
-  return 0;
-}

@@ -80,9 +80,3 @@ int proc_matrix (int num_mol, const int *connect, int *num_mol_agl, int *agl,
   
   return 0;
 }
-
-
-int main (int argc, char *argv[])
-{
-  return 0;
-}

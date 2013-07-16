@@ -56,15 +56,9 @@ int summary_statistic (char *filename, int step, int num_mol, const int *type_ag
   type[0] = type_agl[0];
   type[1] = type_agl[1];
   fprintf (f_out, "------------------------------------------------\n");
-  fprintf (f_out, "LINEAR=%7.5f\nCYCLE=%7.5f\n", type[0]/x, type[1]/x);
+  fprintf (f_out, "LINEAR=%.5f\nCYCLE=%.5f\n", type[0]/x, type[1]/x);
   
   fclose (f_out);
   
-  return 0;
-}
-
-
-int main (int argc, char *argv[])
-{
   return 0;
 }

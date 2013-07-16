@@ -33,13 +33,10 @@ int printing_agl (char *input, char *output, const int *connect, int num_mol,
  * f_out            - output file
  */
   
-  type_agl[0] = 0;
-  type_agl[1] = 0;
-  
   f_out = fopen (output, "a");
   
 //   head
-  fprintf (f_out, "FILE=%s\nSTATISTIC:\n|   n   |   N   |\n-----------------", input);
+  fprintf (f_out, "FILE=%s\nSTATISTIC:\n|   n   |   N   |\n-----------------\n", input);
   for (i=0; i<num_mol; i++)
     if (stat[i] != 0)
       fprintf (f_out, " %7i %7i \n", i+1, stat[i]);
@@ -111,11 +108,5 @@ int printing_agl (char *input, char *output, const int *connect, int num_mol,
   
   fclose (f_out);
   fprintf (f_out, "---------------------------------------------------\n");
-  return 0;
-}
-
-
-int main (int argc, char *argv[])
-{
   return 0;
 }

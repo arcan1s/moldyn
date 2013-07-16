@@ -11,22 +11,6 @@
 #include <string.h>
 
 
-char conv (int fnumb, int dig_pos)
-{
-  int d, h, o;
-  char const digit[] = "0123456789";
- 
-  h = fnumb / 100;
-  d = (fnumb % 100) / 10;
-  o = fnumb % 10;
-
-  if (dig_pos == 1) return digit[o];
-  if (dig_pos == 2) return digit[d];
-  if (dig_pos == 3) return digit[h];
-  else return digit[0];
-}
-
-
 int reading_coords (char *filename, int type_inter, const int *label_atom, 
                     const float *cell, int *num_mol, int *num_atoms, 
                     int *true_label_mol, int *label_mol, 
@@ -44,7 +28,7 @@ int reading_coords (char *filename, int type_inter, const int *label_atom,
  */
 {
   char file_string[256];
-  int atoms, i, j, tr_num_atoms, ref_mol, x, y, z;
+  int atoms, i, j, tr_num_atoms, ref_mol, x, y;
   float not_tr_coords[750000], ref[3];
   FILE *inp;
 /* file_string      - temp string variable
@@ -291,23 +275,5 @@ int reading_coords (char *filename, int type_inter, const int *label_atom,
     }
   }
   
-  return 0;
-}
-
-
-int main (int argc, char *argv[])
-{
-//   int i, label_atom[5], label_mol[200000], num_atoms, num_mol, type_atoms[200000];
-//   float a[600000], cell[3];
-// 
-//   for (i=0; i<5; i++)
-//     label_atom[i] = 0;
-//   label_atom[0] = 1;
-//   cell[0] = 34.8616;
-//   cell[1] = 34.7930;
-//   cell[2] = 34.7925;
-// 
-//   reading_coords ("oct.001", 1, label_atom, cell, &num_mol, &num_atoms, label_mol, type_atoms, a);
-//   
   return 0;
 }
