@@ -50,26 +50,26 @@ int printing_agl (char *input, char *output, const int *connect, int num_mol,
       matrix = (int **) malloc (num_mol_agl[i] * sizeof (int *));
       for (j=0; j<num_mol_agl[i]; j++)
       {
-        matrix[i] = (int *) malloc (num_mol_agl[i] * sizeof (int));
+        matrix[j] = (int *) malloc (num_mol_agl[i] * sizeof (int));
         for (k=0; k<num_mol_agl[i]; k++)
-          matrix[i][j] = 0;
+          matrix[j][k] = 0;
       }
       label_matrix = (int *) malloc (num_mol * sizeof (int));
       for (j=0; j<num_mol_agl[i]; j++)
         label_matrix[agl[num_mol*i+j]] = j;
-      for (j=0; j<num_mol; j++)
-        for (k=0; k<num_mol; k++)
-          if (connect[num_mol*j+k] == 1)
+      for (j=0; j<num_mol_agl[i]; j++)
+        for (k=j+1; k<num_mol_agl[i]; k++)
+          if (connect[num_mol*agl[num_mol*i+j]+agl[num_mol*i+k]] == 1)
           {
-            matrix[label_matrix[j]][label_matrix[k]] = 1;
-            matrix[label_matrix[k]][label_matrix[j]] = 1;
+            matrix[label_matrix[agl[num_mol*i+j]]][label_matrix[agl[num_mol*i+k]]] = 1;
+            matrix[label_matrix[agl[num_mol*i+k]]][label_matrix[agl[num_mol*i+j]]] = 1;
           }
 //       TODO: analyze of topology
       iso = 0;
       p = 0;
       for (j=0; j<num_mol_agl[i]; j++)
         for (k=0; k<num_mol_agl[i]; k++)
-          p += matrix[i][j];
+          p += matrix[j][k];
       if (p == (2*num_mol_agl[i]-2))
       {
         type = 0;
@@ -82,19 +82,14 @@ int printing_agl (char *input, char *output, const int *connect, int num_mol,
       }
       
 //       printing class of aglomerate
-      fprintf (f_out, "  %7i=%1i=%-7i\n", num_mol_agl[i], type, iso);
+      fprintf (f_out, "AGL=%i=%i=%i\n", num_mol_agl[i], type, iso);
       for (j=0; j<num_mol_agl[i]; j++)
       {
         fprintf (f_out, "%7i=", true_label_mol[agl[num_mol*i+j]]);
         for (k=0; k<num_mol_agl[i]; k++)
         {
           if (matrix[j][k] == 1)
-          {
-            if (k == 0)
-              fprintf (f_out, "%7i", true_label_mol[agl[num_mol*i+k]]);
-            else
-              fprintf (f_out, ",%7i", true_label_mol[agl[num_mol*i+k]]);
-          }
+            fprintf (f_out, "%i,", true_label_mol[agl[num_mol*i+k]]);
         }
         fprintf (f_out, "\n");
       }
@@ -106,7 +101,7 @@ int printing_agl (char *input, char *output, const int *connect, int num_mol,
       free (label_matrix);
     }
   
-  fclose (f_out);
   fprintf (f_out, "---------------------------------------------------\n");
+  fclose (f_out);
   return 0;
 }

@@ -10,15 +10,6 @@
 #include <stdlib.h>
 
 
-float radii (const float *a, const float *b)
-/* a                - [x, y, z] first point
- * b                - [x, y, z] second point
- */
-{
-  return sqrt (pow((a[0]-b[0]), 2) + pow((a[1]-b[1]), 2) + pow((a[2]-b[2]), 2));
-}
-
-
 int create_matrix (int num_mol, int num_atoms, const int *label_mol, 
                    const int *type_atoms, const float *coords, int num_of_inter, 
                    const float *crit, int *connect)
@@ -32,9 +23,9 @@ int create_matrix (int num_mol, int num_atoms, const int *label_mol,
  * connect          - connectivity graph for all molecules
  */
 {
-  float x[2][3];
+  float r;
   int cur_num_inter, i, j, k, l, num_inter, ***label_inter;
-/* x                - temporary coordinates
+/* r                - radius
  * cur_num_inter    - current number of true interactions
  * num_inter        - needed number of true interactions
  * label_inter      - temporary massive of true interactions
@@ -58,17 +49,17 @@ int create_matrix (int num_mol, int num_atoms, const int *label_mol,
 //       if atoms from different molecules
       if (label_mol[i] != label_mol[j])
       {
-        for (k=0; k<3; k++)
-        {
-          x[0][k] = coords[3*i+k];
-          x[1][k] = coords[3*j+k];
-        }
+        r = sqrt (pow ((coords[3*i+0]-coords[3*j+0]), 2) + 
+          pow ((coords[3*i+1]-coords[3*j+1]), 2) + 
+          pow ((coords[3*i+2]-coords[3*j+2]), 2));
         for (k=0; k<num_of_inter; k++)
           if (crit[16*k+4*type_atoms[i]+type_atoms[j]] != 0.0)
-            if (radii (x[0], x[1]) <= crit[16*k+4*type_atoms[i]+type_atoms[j]])
+            if (r < crit[16*k+4*type_atoms[i]+type_atoms[j]])
             {
               label_inter[label_mol[i]][label_mol[j]][4*type_atoms[i]+type_atoms[j]] = 1;
+              label_inter[label_mol[i]][label_mol[j]][4*type_atoms[j]+type_atoms[i]] = 1;
               label_inter[label_mol[j]][label_mol[i]][4*type_atoms[i]+type_atoms[j]] = 1;
+              label_inter[label_mol[j]][label_mol[i]][4*type_atoms[j]+type_atoms[i]] = 1;
             }
       }
   
@@ -86,7 +77,7 @@ int create_matrix (int num_mol, int num_atoms, const int *label_mol,
         num_inter++;
     
     for (i=0; i<num_mol; i++)
-      for (j=0; j<num_mol; j++)
+      for (j=i+1; j<num_mol; j++)
       {
         cur_num_inter = 0;
         for (l=0; l<16; l++)

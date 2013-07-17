@@ -7,7 +7,7 @@ SOURCES=main.c coords.c int2str.c stat_print.c stat_select.c stat_sort.c summary
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=statgen
 
-$(STATGEN): $(SOURCES) $(EXECUTABLE)
+$(PROJECT): $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@

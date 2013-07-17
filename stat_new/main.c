@@ -4,6 +4,18 @@
 #include <string.h>
 
 
+// prototypes
+char conv (int, int);
+int create_matrix (int, int, const int *, const int *, const float *, int, 
+                   const float *, int *);
+int printing_agl (char *, char *, const int *, int, const int *, const int *, 
+                  const int *, const int *, int *);
+int proc_matrix (int, const int *, int *, int *, int *, int *);
+int reading_coords (char *, int, const int *, const float *, int *, int *, 
+                    int *, int *, int *, float *);
+int summary_statistic (char *, int, int, const int *, const int *);
+
+
 int error_checking (const float *cell, int from, const char *input, 
                     int num_of_inter, const char *output, int to, int type_inter)
 {
@@ -276,10 +288,10 @@ int main (int argc, char *argv[])
     return 1;
   fscanf (f_inp, "%i", &num_atoms);
   fclose (f_inp);
-  coords = (float *) malloc (3 * num_atoms * sizeof (float));
-  label_mol = (int *) malloc (num_atoms * sizeof (int));
-  true_label_mol = (int *) malloc (num_atoms * sizeof (int));
-  type_atoms = (int *) malloc (num_atoms * sizeof (int));
+  coords = (float *) malloc (3 * 8 * num_atoms * sizeof (float));
+  label_mol = (int *) malloc (8 * num_atoms * sizeof (int));
+  true_label_mol = (int *) malloc (8 * num_atoms * sizeof (int));
+  type_atoms = (int *) malloc (8 * num_atoms * sizeof (int));
   
 //   head
   printing_head (output, log, quiet, input, from, to, cell, type_inter, label_atom, 
@@ -302,29 +314,36 @@ int main (int argc, char *argv[])
       agl = (int *) malloc (num_mol * num_mol * sizeof (int));
       connect = (int *) malloc (num_mol * num_mol * sizeof (int));
       num_mol_agl = (int *) malloc (num_mol * sizeof (int));
-      if (num_mol_agl != NULL)
-        printf ("error\n");
       stat = (int *) malloc (num_mol * sizeof (int));
       stat_all = (int *) malloc (num_mol * sizeof (int));
     }
     
-//     analyze
-    if (error == 0)
+    for (j=0; j<num_mol; j++)
     {
-      error = create_matrix (num_mol, num_atoms, label_mol, type_atoms, coords, 
-                             num_of_inter, crit, connect);
-      if (error == 0)
-      {
-        error = proc_matrix (num_mol, connect, num_mol_agl, agl, stat, stat_all);
-        if (error == 0)
-          printing_agl (filename, output, connect, num_mol, true_label_mol, 
-                        num_mol_agl, agl, stat, type_agl);
-      }
+      num_mol_agl[j] = j;
+      printf ("%i - %i\n", j, num_mol_agl[j]);
     }
     
-//     tail
-    summary_statistic (output, step, num_mol, type_agl, stat_all);
+//     analyze
+    error = 1;
+    error = create_matrix (num_mol, num_atoms, label_mol, type_atoms, coords, 
+                          num_of_inter, crit, connect);
+    if (error == 0)
+    {
+      error = 1;
+      error = proc_matrix (num_mol, connect, num_mol_agl, agl, stat, stat_all);
+      if (error == 0)
+        printing_agl (filename, output, connect, num_mol, true_label_mol, 
+                      num_mol_agl, agl, stat, type_agl);
+    }
+    
   }
+  num_mol_agl[num_mol-1] = num_mol;
+  printf ("%i - %i\n", num_mol-1, num_mol_agl[num_mol]);
+
+//     tail
+  summary_statistic (output, step, num_mol, type_agl, stat_all);
+  printf ("%i - %i\n", num_mol-1, num_mol_agl[num_mol]);
 
 //   free memory
   free (agl);
@@ -332,7 +351,8 @@ int main (int argc, char *argv[])
   free (coords);
   free (crit);
   free (label_mol);
-  free (num_mol_agl);
+//   memory crash here
+  free(num_mol_agl);
 //   free (stat);
 //   free (stat_all);
   free (true_label_mol);

@@ -35,7 +35,7 @@ int summary_statistic (char *filename, int step, int num_mol, const int *type_ag
   fprintf (f_out, "SUMMARY STATISTIC:\n");
   fprintf (f_out, "|   n   |   N   |    C    |    p    |    pn    |\n------------------------------------------------\n");
   
-  for (i=0; i<index; i++)
+  for (i=0; i<index+1; i++)
   {
 //     calculating concentrates
     x = stat_all[i];
@@ -48,7 +48,7 @@ int summary_statistic (char *filename, int step, int num_mol, const int *type_ag
     p = x / y;
     pn = (i + 1) * p;
     
-    fprintf (f_out, " %7i %7i %9.2f %9.5f %9.5f\n", i+1, stat_all[i], conc, p, pn);
+    fprintf (f_out, " %7i %7i %9.2f %9.5f %10.5f\n", i+1, stat_all[i], conc, p, pn);
   }
   
 //   types of aglomerates

@@ -28,7 +28,7 @@ int proc_matrix (int num_mol, const int *connect, int *num_mol_agl, int *agl,
   bin = (int *) malloc (num_mol * sizeof (int));
   for (i=0; i<num_mol; i++)
   {
-    bin[i] = 0;
+    bin[i] = 1;
     stat[i] = 0;
     num_mol_agl[i] = 0;
     for (j=0; j<num_mol; j++)
@@ -45,6 +45,7 @@ int proc_matrix (int num_mol, const int *connect, int *num_mol_agl, int *agl,
     {
       bin[i] = 0;
       stat[0]++;
+      stat_all[0]++;
     }
   }
   

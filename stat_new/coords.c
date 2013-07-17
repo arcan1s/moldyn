@@ -194,8 +194,8 @@ int reading_coords (char *filename, int type_inter, const int *label_atom,
 //       if x and y >= 0.0 A and z < 0.0 A
     {
       coords[3*tr_num_atoms+0] = not_tr_coords[3*i+0] - cell[0];
-      coords[3*tr_num_atoms+0] = not_tr_coords[3*i+0] - cell[0];
-      coords[3*tr_num_atoms+0] = not_tr_coords[3*i+0] + cell[0];
+      coords[3*tr_num_atoms+1] = not_tr_coords[3*i+1] - cell[1];
+      coords[3*tr_num_atoms+2] = not_tr_coords[3*i+2] + cell[2];
       
       label_mol[tr_num_atoms] = label_mol[i];
       type_atoms[tr_num_atoms] = type_atoms[i];
