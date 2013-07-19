@@ -10,8 +10,8 @@
 #include <stdlib.h>
 
 
-int create_matrix (int num_mol, int num_atoms, const int *label_mol, 
-                   const int *type_atoms, const float *coords, int num_of_inter, 
+int create_matrix (const int num_mol, const int num_atoms, const int *label_mol, 
+                   const int *type_atoms, const float *coords, const int num_of_inter, 
                    const float *crit, int *connect)
 /* num_mol          - number of molecules
  * num_atoms        - number of atoms

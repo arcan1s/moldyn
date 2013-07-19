@@ -9,7 +9,7 @@
 #include <stdlib.h>
 
 
-int proc_matrix (int num_mol, const int *connect, int *num_mol_agl, int *agl, 
+int proc_matrix (const int num_mol, const int *connect, int *num_mol_agl, int *agl, 
                  int *stat, int *stat_all)
 /* num_mol          - number of molecules
  * connect          - connectivity graph for all molecules

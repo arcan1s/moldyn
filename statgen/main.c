@@ -6,16 +6,16 @@
 
 
 // prototypes
-char conv (int, int);
-int create_matrix (int, int, const int *, const int *, const float *, int, 
-                   const float *, int *);
-int message (int, int, const char *, FILE *);
-int printing_agl (char *, char *, const int *, int, const int *, const int *, 
-                  const int *, const int *, int *);
-int proc_matrix (int, const int *, int *, int *, int *, int *);
-int reading_coords (char *, int, const int *, const float *, int *, int *, 
-                    int *, int *, int *, float *);
-int summary_statistic (char *, int, int, const int *, const int *);
+char conv (const int, const int);
+int create_matrix (const int, const int, const int *, const int *, const float *, 
+                   const int, const float *, int *);
+int message (const int, const int, const char *, FILE *);
+int printing_agl (const char *, const char *, const int *, const int, 
+                  const int *, const int *, const int *, const int *, int *);
+int proc_matrix (const int, const int *, int *, int *, int *, int *);
+int reading_coords (const char *, const int, const int *, const float *, int *, 
+                    int *, int *, int *, int *, float *);
+int summary_statistic (const char *, const int, const int, const int *, const int *);
 
 
 int error_checking (const float *cell, int from, const char *input, 

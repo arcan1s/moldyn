@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 
-char conv (int fnumb, int dig_pos)
+char conv (const int fnumb, const int dig_pos)
 /* fnumb            - integer
  * dig_pos          - position
  */

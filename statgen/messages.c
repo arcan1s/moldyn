@@ -9,7 +9,7 @@
 #include <time.h>
 
 
-int message (int log, int mode, const char *text, FILE *stdout)
+int message (const int log, const int mode, const char *text, FILE *stdout)
 /* mode             - number of message
  * text             - additional text
  */

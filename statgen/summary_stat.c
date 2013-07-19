@@ -8,7 +8,8 @@
 #include <stdlib.h>
 
 
-int summary_statistic (char *filename, int step, int num_mol, const int *type_agl, const int *stat_all)
+int summary_statistic (const char *filename, const int step, const int num_mol, 
+                       const int *type_agl, const int *stat_all)
 /* filename         - name of output file
  * step             - number of steps
  * num_mol          - number of molecules

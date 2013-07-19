@@ -11,9 +11,9 @@
 #include <string.h>
 
 
-int reading_coords (char *filename, int type_inter, const int *label_atom, 
-                    const float *cell, int *num_mol, int *num_atoms, 
-                    int *true_label_mol, int *label_mol, 
+int reading_coords (const char *filename, const int type_inter, 
+                    const int *label_atom, const float *cell, int *num_mol, 
+                    int *num_atoms, int *true_label_mol, int *label_mol, 
                     int *type_atoms, float *coords)
 /* filename         - name of file with coordinates
  * type_inter       - type interaction (number of molecules for interaction)

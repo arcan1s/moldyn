@@ -10,8 +10,8 @@
 #include <stdlib.h>
 
 
-int printing_agl (char *input, char *output, const int *connect, int num_mol, 
-                  const int *true_label_mol, const int *num_mol_agl, 
+int printing_agl (const char *input, const char *output, const int *connect, 
+                  const int num_mol, const int *true_label_mol, const int *num_mol_agl, 
                   const int *agl, const int *stat, int *type_agl)
 /* input            - name of file with coordinates
  * output           - name of output file
