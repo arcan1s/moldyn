@@ -10,6 +10,10 @@
 #include <stdlib.h>
 
 
+// prototype
+int graph_analyze (const int, const int *, const int, char *);
+
+
 int printing_agl (const char *input, const char *output, const int *connect, 
                   const int num_mol, const int *true_label_mol, const int *num_mol_agl, 
                   const int *agl, const int *stat, int *type_agl)
@@ -24,10 +28,10 @@ int printing_agl (const char *input, const char *output, const int *connect,
  * type_agl         - massive of numbers of aglomerate types
  */
 {
-  int i, iso, j, k, p, type, *label_matrix, **matrix;
+  char iso[256];
+  int i, j, k, *label_matrix, *matrix;
   FILE *f_out;
 /* iso              - isomorphic graph in database
- * type             - number of cycle in aglomerates
  * label_matrix     - massive of indexes of molecule
  * matrix           - connectivity graph
  * f_out            - output file
@@ -47,13 +51,10 @@ int printing_agl (const char *input, const char *output, const int *connect,
     if (num_mol_agl[i] > 0)
     {
 //       creating connectivity graph
-      matrix = (int **) malloc (num_mol_agl[i] * sizeof (int *));
+      matrix = (int *) malloc (num_mol_agl[i] * num_mol_agl[i] * sizeof (int));
       for (j=0; j<num_mol_agl[i]; j++)
-      {
-        matrix[j] = (int *) malloc (num_mol_agl[i] * sizeof (int));
         for (k=0; k<num_mol_agl[i]; k++)
-          matrix[j][k] = 0;
-      }
+          matrix[num_mol_agl[i]*j+k] = 0;
       label_matrix = (int *) malloc (num_mol * sizeof (int));
       if ((matrix == NULL) ||
         (label_matrix == NULL))
@@ -65,42 +66,27 @@ int printing_agl (const char *input, const char *output, const int *connect,
         for (k=j+1; k<num_mol_agl[i]; k++)
           if (connect[num_mol*agl[num_mol*i+j]+agl[num_mol*i+k]] == 1)
           {
-            matrix[label_matrix[agl[num_mol*i+j]]][label_matrix[agl[num_mol*i+k]]] = 1;
-            matrix[label_matrix[agl[num_mol*i+k]]][label_matrix[agl[num_mol*i+j]]] = 1;
+            matrix[label_matrix[agl[num_mol*i+j]]*num_mol_agl[i]+label_matrix[agl[num_mol*i+k]]] = 1;
+            matrix[label_matrix[agl[num_mol*i+k]]*num_mol_agl[i]+label_matrix[agl[num_mol*i+j]]] = 1;
           }
-//       TODO: analyze of topology
-      iso = 0;
-      p = 0;
-      for (j=0; j<num_mol_agl[i]; j++)
-        for (k=0; k<num_mol_agl[i]; k++)
-          p += matrix[j][k];
-      if (p == (2*num_mol_agl[i]-2))
-      {
-        type = 0;
-        type_agl[0]++;
-      }
-      else
-      {
-        type = (p - (2*num_mol_agl[i]-2)) / 2;
-        type_agl[1]++;
-      }
+
+//       graph topology analyze
+      graph_analyze (num_mol_agl[i], matrix, 3, iso);
       
 //       printing class of aglomerate
-      fprintf (f_out, "AGL=%i=%i=%i\n", num_mol_agl[i], type, iso);
+      fprintf (f_out, "AGL=%i=%s\n", num_mol_agl[i], iso);
       for (j=0; j<num_mol_agl[i]; j++)
       {
         fprintf (f_out, "%7i=", true_label_mol[agl[num_mol*i+j]]);
         for (k=0; k<num_mol_agl[i]; k++)
         {
-          if (matrix[j][k] == 1)
+          if (matrix[j*num_mol_agl[i]+k] == 1)
             fprintf (f_out, "%i,", true_label_mol[agl[num_mol*i+k]]);
         }
         fprintf (f_out, "\n");
       }
       
 //       free memory
-      for (j=0; j<num_mol_agl[i]; j++)
-        free (matrix[j]);
       free (matrix);
       free (label_matrix);
     }
