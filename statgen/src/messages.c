@@ -1,14 +1,14 @@
-/* Library for printing messages at stdout
+/* Library for printing messages at output
  *
  * Usage:
- *                                             message (log, mode, text, stdout)
+ *                                             message (log, mode, text, output)
  */
 
 #include <stdio.h>
 #include <time.h>
 
 
-int message (const int log, const int mode, const char *text, FILE *stdout)
+int message (const int log, const int mode, const char *text, FILE *output)
 /* mode             - number of message
  * text             - additional text
  */
@@ -18,17 +18,17 @@ int message (const int log, const int mode, const char *text, FILE *stdout)
   if (log == 1)
   {
     char time_str[256];
-    time_t t = time(NULL);
-    struct tm* aTm = localtime(&t);
-    sprintf(time_str, "[%04d-%02d-%02d %02d:%02d:%02d] [%2i]: ", aTm->tm_year+1900, 
+    time_t t = time (NULL);
+    struct tm* aTm = localtime (&t);
+    sprintf (time_str, "[%04d-%02d-%02d %02d:%02d:%02d] [%2i]: ", aTm->tm_year+1900, 
             aTm->tm_mon+1, aTm->tm_mday, aTm->tm_hour, aTm->tm_min, aTm->tm_sec, mode);
-    fputs (time_str, stdout);
+    fputs (time_str, output);
   }
   
   switch (mode)
   {
     case 0:
-      sprintf (out, "Starting program: '%s' (Ver.1.0.0)\n", text);
+      sprintf (out, "Starting program: '%s'\n", text);
       break;
     case 1:
       sprintf (out, "Checking errors\n");
@@ -79,6 +79,6 @@ int message (const int log, const int mode, const char *text, FILE *stdout)
       break;
   }
   
-  fputs (out, stdout);
+  fputs (out, output);
   return 0;
 }

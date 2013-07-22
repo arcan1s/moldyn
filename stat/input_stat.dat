@@ -1,9 +1,0 @@
-Mask:	meth
-Trajectory step:	1	3	(first; last)
-Cell dimention:	24.42	24.40	24.49	(a; b; c)
-Parametr:	2	(0 - gen.stat; 1 - gen.stat and bonds length; 2 - gen.stat and bonds length and form of agl; 3 - stat for once molecule)
-Interaction:	2	(1 - mono; 2 - di)
-Atom types:	6	21	(1st atom, 2nd atom; or atom)
-Criteria:	3.2	2.4	(1-1 criterion, 1-2 criterion; or 1-1 criterion)
-Num of mol.for stat:	4
-Output:	out_all.dat

@@ -27,7 +27,7 @@ int printing_agl (const char *input, const char *output, const int *connect,
  * type_agl         - massive of numbers of aglomerate types
  */
 {
-  int i, *iso, j, k, *label_matrix, *matrix;
+  int error, i, *iso, j, k, *label_matrix, *matrix;
   FILE *f_out;
 /* iso              - isomorphic graph in database
  * label_matrix     - massive of indexes of molecule
@@ -36,6 +36,8 @@ int printing_agl (const char *input, const char *output, const int *connect,
  */
   
   iso = (int *) malloc (max_depth * sizeof (int));
+  if (iso == NULL)
+    return 1;
   f_out = fopen (output, "a");
   
 //   head
@@ -50,14 +52,14 @@ int printing_agl (const char *input, const char *output, const int *connect,
     if (num_mol_agl[i] > 0)
     {
 //       creating connectivity graph
-      matrix = (int *) malloc (num_mol_agl[i] * num_mol_agl[i] * sizeof (int));
-      for (j=0; j<num_mol_agl[i]; j++)
-        for (k=0; k<num_mol_agl[i]; k++)
-          matrix[num_mol_agl[i]*j+k] = 0;
       label_matrix = (int *) malloc (num_mol * sizeof (int));
+      matrix = (int *) malloc (num_mol_agl[i] * num_mol_agl[i] * sizeof (int));
       if ((matrix == NULL) ||
         (label_matrix == NULL))
         return 1;
+      for (j=0; j<num_mol_agl[i]; j++)
+        for (k=0; k<num_mol_agl[i]; k++)
+          matrix[num_mol_agl[i]*j+k] = 0;
       
       for (j=0; j<num_mol_agl[i]; j++)
         label_matrix[agl[num_mol*i+j]] = j;
@@ -71,7 +73,9 @@ int printing_agl (const char *input, const char *output, const int *connect,
 
 //       graph topology analyze
       if (max_depth > 0)
-        graph_analyze (num_mol_agl[i], matrix, max_depth, iso);
+        error = graph_analyze (num_mol_agl[i], matrix, max_depth, iso);
+      if (error > 0)
+        return 1;
       
 //       printing class of aglomerate
       fprintf (f_out, "AGL=%i=", num_mol_agl[i]);

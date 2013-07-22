@@ -2,6 +2,9 @@
  */
 
 #include <stdio.h>
+#include <string.h>
+
+// #include "messages.h"
 
 
 int error_checking (const float *cell, const int from, const char *input, 
@@ -36,7 +39,7 @@ int printing_head (const char *output, const int log, const int quiet,
   FILE *f_out;
   
   f_out = fopen (output, "w");
-  fprintf (f_out, "statgen ::: V.1.0.0 ::: 2013-07-17\n\n");
+  fprintf (f_out, "statgen ::: V.1.0.1 ::: 2013-07-23\n\n");
   fprintf (f_out, "CONFIGURATION\n");
   
   fprintf (f_out, "LOG=%i\nQUIET=%i\n", log, quiet);
@@ -59,6 +62,18 @@ int printing_head (const char *output, const int log, const int quiet,
   
   fprintf (f_out, "END\n\n");
   fclose (f_out);
+  
+  return 0;
+}
+
+
+int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log, 
+                   const int mode, const char *str)
+{  
+  if (quiet != 1)
+    message (0, mode, str, std_output);
+  if (log == 1)
+    message (1, mode, str, f_log);
   
   return 0;
 }

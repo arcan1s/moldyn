@@ -78,7 +78,7 @@ int main (int argc, char *argv[])
     {
       sprintf (tmp_str, "                                        statgen\n");
       sprintf (tmp_str, "%sProgram for analyze molecular dynamic trajectories\n", tmp_str);
-      sprintf (tmp_str, "%sVersion : 1.0.0                                                    License : GPL\n", tmp_str);
+      sprintf (tmp_str, "%sVersion : 1.0.1                                                    License : GPL\n", tmp_str);
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);
@@ -132,6 +132,8 @@ int main (int argc, char *argv[])
           type_inter++;
       
       label_atom = (int *) malloc (type_inter * sizeof (int));
+      if (label_atom == NULL)
+        return 1;
       switch (type_inter)
       {
         case 1:
@@ -198,16 +200,8 @@ int main (int argc, char *argv[])
   if (log == 1)
     f_log = fopen (logfile, "w");
   
-  if (quiet != 1)
-  {
-    message (0, 0, argv[0], stdout);
-    message (0, 1, argv[0], stdout);
-  }
-  if (log == 1)
-  {
-    message (1, 0, argv[0], f_log);
-    message (1, 1, argv[0], f_log);
-  }
+  print_message (quiet, stdout, log, f_log, 0, argv[0]);
+  print_message (quiet, stdout, log, f_log, 1, argv[0]);
   
   //   error checking
   error = error_checking (cell, from, input, max_depth, num_of_inter, output, to, 
@@ -221,10 +215,7 @@ int main (int argc, char *argv[])
     return 1;
   }
   
-  if (quiet != 1)
-    message (0, 2, argv[0], stdout);
-  if (log == 1)
-    message (1, 2, argv[0], f_log);
+  print_message (quiet, stdout, log, f_log, 2, argv[0]);
   
 //   processing
 //   initial variables
@@ -235,10 +226,7 @@ int main (int argc, char *argv[])
   filename[k+2] = conv (from, 2);
   filename[k+3] = conv (from, 1);
   filename[k+4] = '\0';
-  if (quiet != 1)
-    message (0, 3, filename, stdout);
-  if (log == 1)
-    message (1, 3, filename, f_log);
+  print_message (quiet, stdout, log, f_log, 3, filename);
   f_inp = fopen (filename, "r");
   if (f_inp == NULL)
   {
@@ -282,58 +270,31 @@ int main (int argc, char *argv[])
 //   set type_agl to zero
   for (i=0; i<max_depth+2; i++)
     type_agl[i] = 0;
-  if (quiet != 1)
-  {
-    sprintf (tmp_str, "%6cOutput file: '%s';\n%6cLog: %i;\n%6cQuiet: %i;\n\
+  sprintf (tmp_str, "%6cOutput file: '%s';\n%6cLog: %i;\n%6cQuiet: %i;\n\
 %6cMask: %s;\n%6cFirst step: %i;\n%6cLast step: %i;\n%6cCell size: %.4f, %.4f, %.4f;\n\
 %6cSelect atoms: %i", ' ', output, ' ', log, ' ', quiet, ' ', input, ' ', from, 
 ' ' , to, ' ', cell[0], cell[1], cell[2], ' ' , label_atom[0]);
-    for (i=1; i<type_inter; i++)
-      sprintf (tmp_str, "%s,%i", tmp_str, label_atom[i]);
-    sprintf (tmp_str, "%s;\n", tmp_str);
-    for (i=0; i<num_of_inter; i++)
-    {
-      sprintf (tmp_str, "%s%6cInteraction: ", tmp_str, ' ');
-      for (j=0; j<16; j++)
-        if ((crit[16*i+j] != 0.0) && 
-          ((j != 4) && (j != 8) && (j != 9) && (j != 12) && (j != 13) && (j != 14)))
-          sprintf (tmp_str, "%s%i-%i:%4.2f,", tmp_str, j/4, j%4, crit[16*i+j]);
-      sprintf (tmp_str, "%s;\n", tmp_str);
-    }
-    sprintf (tmp_str, "%s%6cIsomorphism check: %i\n", tmp_str, ' ', max_depth);
-    message (0, 5, tmp_str, stdout);
-  }
-  if (log == 1)
+  for (i=1; i<type_inter; i++)
+    sprintf (tmp_str, "%s,%i", tmp_str, label_atom[i]);
+  sprintf (tmp_str, "%s;\n", tmp_str);
+  for (i=0; i<num_of_inter; i++)
   {
-    sprintf (tmp_str, "%34cOutput file: '%s';\n%34cLog: %i;\n%34cQuiet: %i;\n\
-%34cMask: %s;\n%34cFirst step: %i;\n%34cLast step: %i;\n%34cCell size: %.4f, %.4f, %.4f;\n\
-%34cSelect atoms: %i", ' ', output, ' ', log, ' ', quiet, ' ', input, ' ', from, 
-' ' , to, ' ', cell[0], cell[1], cell[2], ' ' , label_atom[0]);
-    for (i=1; i<type_inter; i++)
-      sprintf (tmp_str, "%s,%i", tmp_str, label_atom[i]);
+    sprintf (tmp_str, "%s%6cInteraction: ", tmp_str, ' ');
+    for (j=0; j<16; j++)
+      if ((crit[16*i+j] != 0.0) && 
+        ((j != 4) && (j != 8) && (j != 9) && (j != 12) && (j != 13) && (j != 14)))
+        sprintf (tmp_str, "%s%i-%i:%4.2f,", tmp_str, j/4, j%4, crit[16*i+j]);
     sprintf (tmp_str, "%s;\n", tmp_str);
-    for (i=0; i<num_of_inter; i++)
-    {
-      sprintf (tmp_str, "%s%34cInteraction: ", tmp_str, ' ');
-      for (j=0; j<16; j++)
-        if ((crit[16*i+j] != 0.0) && 
-          ((j != 4) && (j != 8) && (j != 9) && (j != 12) && (j != 13) && (j != 14)))
-          sprintf (tmp_str, "%s%i-%i:%4.2f,", tmp_str, j/4, j%4, crit[16*i+j]);
-      sprintf (tmp_str, "%s;\n", tmp_str);
-    }
-    sprintf (tmp_str, "%s%34cIsomorphism check: %i\n", tmp_str, ' ', max_depth);
-    message (1, 5, tmp_str, f_log);
   }
+  sprintf (tmp_str, "%s%6cIsomorphism check: %i\n", tmp_str, ' ', max_depth);
+  print_message (quiet, stdout, log, f_log, 5, tmp_str);
   
 //   head
   printing_head (output, log, quiet, input, from, to, cell, type_inter, label_atom, 
                  num_of_inter, crit, max_depth);
   
 //   main cycle
-  if (quiet != 1)
-    message (0, 6, argv[0], stdout);
-  if (log == 1)
-    message (1, 6, argv[0], f_log);
+  print_message (quiet, stdout, log, f_log, 6, argv[0]);
   for (i=from; i<to+1; i++)
   {
 //     reading coordinates
@@ -341,26 +302,14 @@ int main (int argc, char *argv[])
     filename[k+2] = conv (i, 2);
     filename[k+3] = conv (i, 1);
     filename[k+4] = '\0';
-    if (quiet != 1)
-      message (0, 7, filename, stdout);
-    if (log == 1)
-      message (1, 7, filename, f_log);
+    print_message (quiet, stdout, log, f_log, 7, filename);
     error = reading_coords (filename, type_inter, label_atom, cell, &num_mol, 
                             &num_atoms, true_label_mol, label_mol, type_atoms, coords);
     if (error != 1)
     {
-      if (quiet != 1)
-      {
-        sprintf (tmp_str, "%6cNumber of molecules: %i\n%6cNumber of atoms: %i\n", 
+      sprintf (tmp_str, "%6cNumber of molecules: %i; %6cNumber of atoms: %i\n", 
                  ' ', num_mol, ' ', num_atoms);
-        message (0, 8, tmp_str, stdout);
-      }
-      if (log == 1)
-      {
-        sprintf (tmp_str, "%6cNumber of molecules: %i\n%34cNumber of atoms: %i\n", 
-                 ' ', num_mol, ' ', num_atoms);
-        message (1, 8, tmp_str, f_log);
-      }
+      print_message (quiet, stdout, log, f_log, 8, tmp_str);
     }
     
 //     resize dynamic arrays
@@ -387,62 +336,37 @@ int main (int argc, char *argv[])
         fputs (tmp_str, f_log);
       return 18;
     }
-    if (quiet != 1)
-      message (0, 9, argv[0], stdout);
-    if (log == 1)
-      message (1, 9, argv[0], f_log);
+    print_message (quiet, stdout, log, f_log, 9, argv[0]);
     
 //     analyze
     if (error == 0)
     {
       error = 1;
       error = create_matrix (num_mol, num_atoms, label_mol, type_atoms, coords, 
-                            num_of_inter, crit, connect);
+                             num_of_inter, crit, connect);
       if (error == 0)
       {
-        if (quiet != 1)
-          message (0, 10, argv[0], stdout);
-        if (log == 1)
-          message (1, 10, argv[0], f_log);
+        print_message (quiet, stdout, log, f_log, 10, argv[0]);
         error = 1;
         error = proc_matrix (num_mol, connect, num_mol_agl, agl, stat, stat_all);
         if (error == 0)
         {
-          if (quiet != 1)
-            message (0, 11, argv[0], stdout);
-          if (log == 1)
-            message (1, 11, argv[0], f_log);
+          print_message (quiet, stdout, log, f_log, 11, argv[0]);
           error = printing_agl (filename, output, connect, num_mol, true_label_mol, 
                                 num_mol_agl, agl, stat, max_depth, type_agl);
           if (error == 0)
-          {
-            if (quiet != 1)
-              message (0, 12, output, stdout);
-            if (log == 1)
-              message (1, 12, output, f_log);
-          }
+            print_message (quiet, stdout, log, f_log, 12, output);
         }
       }
     }
   }
   
-  if (quiet != 1)
-  {
-    message (0, 13, argv[0], stdout);
-    message (0, 14, output, stdout);
-  }
-  if (log == 1)
-  {
-    message (1, 13, argv[0], f_log);
-    message (1, 14, output, f_log);
-  }
+  print_message (quiet, stdout, log, f_log, 13, argv[0]);
+  print_message (quiet, stdout, log, f_log, 14, output);
 //     tail
   summary_statistic (output, step, num_mol, max_depth, type_agl, stat_all);
   
-  if (quiet != 1)
-    message (0, 15, argv[0], stdout);
-  if (log == 1)
-    message (1, 15, argv[0], f_log);
+  print_message (quiet, stdout, log, f_log, 15, argv[0]);
 //   free memory
   free (agl);
   free (connect);
@@ -456,10 +380,7 @@ int main (int argc, char *argv[])
   free (type_agl);
   free (type_atoms);
   
-  if (quiet != 1)
-    message (0, 16, argv[0], stdout);
-  if (log == 1)
-    message (1, 16, argv[0], f_log);
+  print_message (quiet, stdout, log, f_log, 16, argv[0]);
   
   if (log == 1)
     fclose (f_log);

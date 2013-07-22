@@ -13,15 +13,7 @@ set (PRIVATE_CLASSES)
 # headers only files
 SET (HEADERS_ONLY)
 # public srcs
-set (PUBLIC_CLASSES add_main 
-                    coords 
-                    graph 
-                    int2char 
-                    messages 
-                    stat_print 
-                    stat_select 
-                    stat_sort 
-                    summary_stat)
+set (PUBLIC_CLASSES)
 # public headers
 set (PUBLIC_HEADERS)
 # shared libraries
@@ -31,6 +23,17 @@ else ()
   set (ADDITIONAL_LIB)
 endif()
 set (SOURCES)
+# for library
+set (LIBRARY_NAME stat)
+set (LIB_SOURCES add_main 
+                 coords 
+                 graph 
+                 int2char 
+                 messages 
+                 stat_print 
+                 stat_select 
+                 stat_sort 
+                 summary_stat)
 
 # append list
 foreach (class ${PRIVATE_CLASSES})
@@ -49,12 +52,15 @@ foreach (class ${PUBLIC_CLASSES})
 endforeach ()
 
 # link libraries and compile
+add_library (${LIBRARY_NAME} SHARED ${LIB_SOURCES})
 add_executable (${PROJECT} ${MAIN_SOURCES} ${SOURCES})
-target_link_libraries (${PROJECT} ${ADDITIONAL_LIB})
+target_link_libraries (${PROJECT} ${ADDITIONAL_LIB} ${LIBRARY_NAME})
 
 # install properties
 INSTALL (TARGETS ${PROJECT} 
          DESTINATION bin)
+INSTALL (TARGETS ${LIBRARY_NAME} 
+         DESTINATION lib${LIB_SUFFIX})
 if (ADD_INCLUDE)
   INSTALL (FILES ${PUBLIC_HEADERS} 
            DESTINATION include/${PROJECT})

@@ -105,6 +105,9 @@ int graph_analyze (const int N, const int *matrix, const int max_depth, int *iso
 //   convert to matrix of weight
   pn = (int *) malloc (N * sizeof (int));
   n_cycle = (int *) malloc ((depth - 2) * sizeof (int));
+  if ((pn == NULL) || 
+    (n_cycle == NULL))
+    return 1;
   for (i=0; i<N; i++)
     pn[i] = 0;
   for (i=0; i<N; i++)
@@ -129,5 +132,5 @@ int graph_analyze (const int N, const int *matrix, const int max_depth, int *iso
   free (n_cycle);
   free (pn);
   
-  return 1;
+  return 0;
 }
