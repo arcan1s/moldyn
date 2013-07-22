@@ -10,8 +10,8 @@ include (${PROJECT}.cmake)
 
 
 # additional options
-OPTION (WITH_DEBUG_MODE "Build with debug mode" ON)
-OPTION (ADD_INCLUDE "Add include files" ON)
+OPTION (WITH_DEBUG_MODE "Build with debug mode" OFF)
+OPTION (ADD_INCLUDE "Add include files" OFF)
 
 # set libraries
 set (LIBRARIES)
@@ -27,7 +27,5 @@ set (LIBRARIES)
 # additional targets
 set (TARGETS "")
 set (HEADERS "")
-
-message (STATUS "SOURCES: ${SOURCES}")
 
 add_subdirectory (src)
