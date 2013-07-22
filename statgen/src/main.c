@@ -4,14 +4,14 @@
 #include <string.h>
 #include <time.h>
 
-#include "add_main.h"
-#include "coords.h"
-#include "int2char.h"
-#include "messages.h"
-#include "stat_print.h"
-#include "stat_select.h"
-#include "stat_sort.h"
-#include "summary_stat.h"
+// #include "add_main.h"
+// #include "coords.h"
+// #include "int2char.h"
+// #include "messages.h"
+// #include "stat_print.h"
+// #include "stat_select.h"
+// #include "stat_sort.h"
+// #include "summary_stat.h"
 
 
 int main (int argc, char *argv[])

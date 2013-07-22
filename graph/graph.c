@@ -162,7 +162,14 @@ void main()
 	for (i=0; i<n; i++)
 		p[i] = 0;
 	iso();
-
+    
+    for (i=0; i<n; i++)
+      for (j=0; j<n; j++)
+        printf ("%lf\n", a[i][j]);
+      printf ("\n");
+    for (i=0; i<n; i++)
+      for (j=0; j<n; j++)
+        printf ("%lf\n", b[i][j]);
 
 	for (i=0; i<n; i++)
 		printf ("%i\t", p[i]);
@@ -176,5 +183,5 @@ void main()
 	else
 		printf ("\nGraphs aren't isomorthic.\n");
 	
-	getch();
+// 	getch();
 }

@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "graph.h"
+// #include "graph.h"
 
 
 int printing_agl (const char *input, const char *output, const int *connect, 
