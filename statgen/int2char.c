@@ -3,9 +3,6 @@
  *                                                char = conv (number, position)
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-
 
 char conv (const int fnumb, const int dig_pos)
 /* fnumb            - integer

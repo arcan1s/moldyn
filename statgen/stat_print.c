@@ -3,20 +3,18 @@
  * Usage:
  *                  printing_agl (input_file, output_file, number_of_molecules, 
  *          true_label_molecules, num_of_molecules_in_aglomerates, aglomerates, 
- *                                                statistic, type_of_aglomerate)
+ *                                     statistic, max_depth, type_of_aglomerate)
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-
-// prototype
-int graph_analyze (const int, const int *, const int, char *);
+#include "graph.h"
 
 
 int printing_agl (const char *input, const char *output, const int *connect, 
                   const int num_mol, const int *true_label_mol, const int *num_mol_agl, 
-                  const int *agl, const int *stat, int *type_agl)
+                  const int *agl, const int *stat, const int max_depth, int *type_agl)
 /* input            - name of file with coordinates
  * output           - name of output file
  * connect          - connectivity graph for all molecules
@@ -25,11 +23,11 @@ int printing_agl (const char *input, const char *output, const int *connect,
  * num_mol_agl      - massive of numbers of molecule in aglomerates
  * agl              - massive of aglomerates
  * stat             - massive of statistics
+ * max_depth        - max depth for check cycles in graph analyze
  * type_agl         - massive of numbers of aglomerate types
  */
 {
-  char iso[256];
-  int i, j, k, *label_matrix, *matrix;
+  int i, *iso, j, k, *label_matrix, *matrix;
   FILE *f_out;
 /* iso              - isomorphic graph in database
  * label_matrix     - massive of indexes of molecule
@@ -37,6 +35,7 @@ int printing_agl (const char *input, const char *output, const int *connect,
  * f_out            - output file
  */
   
+  iso = (int *) malloc (max_depth * sizeof (int));
   f_out = fopen (output, "a");
   
 //   head
@@ -71,10 +70,36 @@ int printing_agl (const char *input, const char *output, const int *connect,
           }
 
 //       graph topology analyze
-      graph_analyze (num_mol_agl[i], matrix, 3, iso);
+      if (max_depth > 0)
+        graph_analyze (num_mol_agl[i], matrix, max_depth, iso);
       
 //       printing class of aglomerate
-      fprintf (f_out, "AGL=%i=%s\n", num_mol_agl[i], iso);
+      fprintf (f_out, "AGL=%i=", num_mol_agl[i]);
+      for (j=0; j<max_depth; j++)
+      {
+//         number of tails
+        if (j == 0)
+          if (iso[j] > 2)
+//             branched
+            type_agl[3]++;
+          else
+//             not branched
+            type_agl[2]++;
+//         number of cycles
+        else if (j == 1)
+          if (iso[j] > 0)
+//             cycle
+            type_agl[1]++;
+          else
+//             linear
+            type_agl[0]++;
+        else if (j > 1)
+//           number of n_cycles
+          type_agl[j+2] += iso[j];
+        
+        fprintf (f_out, "%i.", iso[j]);
+      }
+      fprintf (f_out, "\n");
       for (j=0; j<num_mol_agl[i]; j++)
       {
         fprintf (f_out, "%7i=", true_label_mol[agl[num_mol*i+j]]);
@@ -93,5 +118,6 @@ int printing_agl (const char *input, const char *output, const int *connect,
   
   fprintf (f_out, "---------------------------------------------------\n");
   fclose (f_out);
+  free (iso);
   return 0;
 }

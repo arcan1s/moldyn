@@ -5,7 +5,6 @@
  *   num_of_molecules_in_aglomerates, aglomerates, statistic, summary_statistic)
  */
 
-#include <stdio.h>
 #include <stdlib.h>
 
 

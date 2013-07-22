@@ -8,7 +8,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 
 int reading_coords (const char *filename, const int type_inter, 
@@ -27,11 +26,12 @@ int reading_coords (const char *filename, const int type_inter,
  * coords           - massive of coordinates
  */
 {
-  char file_string[256];
-  int atoms, i, j, tr_num_atoms, ref_mol, x, y;
-  float not_tr_coords[750000], ref[3];
+  char at_symb[32], file_string[256];
+  int atoms, cur_at_num, cur_at_type, cur_mol, i, j, tr_num_atoms, ref_mol, x, y;
+  float cur_coords[3], not_tr_coords[750000], ref[3];
   FILE *inp;
-/* file_string      - temp string variable
+/* cur_*, at_symb   - temp variables
+ * file_string      - temp string variable
  * atoms            - total number of atoms in system
  * tr_num_atoms     - number of translated atoms for writing coordinates (m.b. 8*num_atoms)
  * ref_mol          - number of molecule for reference
@@ -50,20 +50,23 @@ int reading_coords (const char *filename, const int type_inter,
   
   ref_mol = -1;
   fscanf (inp, "%i", &atoms);
+  fgets (file_string, 256, inp);
   for (i=0; i<atoms; i++)
   {
     fgets (file_string, 256, inp);
+    sscanf (file_string, "%i%s%f%f%f%i%i", &cur_at_num, at_symb, &cur_coords[0], 
+            &cur_coords[1], &cur_coords[2], &cur_at_type, &cur_mol);
     
     for (j=0; j<type_inter; j++)
-      if (atoi (&file_string[47]) == label_atom[j])
+      if (cur_at_type == label_atom[j])
       {
-        not_tr_coords[3**num_atoms+0] = atof (&file_string[10]);
-        not_tr_coords[3**num_atoms+1] = atof (&file_string[23]);
-        not_tr_coords[3**num_atoms+2] = atof (&file_string[35]);
+        not_tr_coords[3**num_atoms+0] = cur_coords[0];
+        not_tr_coords[3**num_atoms+1] = cur_coords[1];
+        not_tr_coords[3**num_atoms+2] = cur_coords[2];
         
-        if (ref_mol != atoi (&file_string[53]))
+        if (ref_mol != cur_mol)
         {
-          ref_mol = atoi (&file_string[53]);
+          ref_mol = cur_mol;
           true_label_mol[*num_mol] = ref_mol;
           *num_mol = *num_mol + 1;
         }
