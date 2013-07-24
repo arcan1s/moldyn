@@ -2,7 +2,6 @@
  */
 
 #include <stdio.h>
-#include <string.h>
 
 // #include "messages.h"
 
@@ -70,7 +69,7 @@ int printing_head (const char *output, const int log, const int quiet,
 int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log, 
                    const int mode, const char *str)
 {  
-  if (quiet != 1)
+  if ((quiet != 1) && (std_output != stderr))
     message (0, mode, str, std_output);
   if (log == 1)
     message (1, mode, str, f_log);

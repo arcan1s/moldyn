@@ -1,0 +1,22 @@
+# set directories
+set (${PROJECT}_BINARY_DIR bin)
+set (${PROJECT}_SOURCE_DIR src:include)
+set (${PROJECT}_LIB_DIR lib)
+
+set (CMAKE_INCLUDE_PATH ${${PROJECT}_SOURCE_DIR})
+set (CMAKE_LIBRARY_PATH ${${PROJECT}_LIB_DIR})
+set (EXECUTABLE_OUTPUT_PATH ${${PROJECT}_BINARY_DIR})
+set (CMAKE_VERBOSE_MAKEFILE ON)
+
+if ( WITH_DEBUG_MODE )
+  ADD_DEFINITIONS ( -DDEBUG_MODE=1 )
+endif ()
+
+if ( CMAKE_COMPILER_IS_GNUCXX )
+  set (ADD_CXX_FLAGS  "-Wall")
+  set (CMAKE_CXX_FLAGS "-O0 ${ADD_CXX_FLAGS}")
+  set (CMAKE_CXX_FLAGS_DEBUG "-g -O0")
+  set (CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
+else ()
+  message (STATUS "Flags not enabled")
+endif ()

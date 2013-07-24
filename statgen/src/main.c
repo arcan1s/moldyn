@@ -208,10 +208,7 @@ int main (int argc, char *argv[])
                           type_inter);
   if (error != 0)
   {
-    sprintf (tmp_str, "Something wrong (error code: %i)!\nSee 'statgen -h' for more details\n", error);
-    fputs (tmp_str, stderr);
-    if (log == 1)
-      fputs (tmp_str, f_log);
+    print_message (quiet, stderr, log, f_log, 17, argv[0]);
     return 1;
   }
   
@@ -230,17 +227,14 @@ int main (int argc, char *argv[])
   f_inp = fopen (filename, "r");
   if (f_inp == NULL)
   {
-    sprintf (tmp_str, "\nFile '%s' not found\nError", filename);
-    fputs (tmp_str, stderr);
-    if (log == 1)
-      fputs (tmp_str, f_log);
+    print_message (quiet, stderr, log, f_log, 18, filename);
     return 1;
   }
   fscanf (f_inp, "%i", &num_atoms);
   fclose (f_inp);
   coords = (float *) malloc (3 * 8 * num_atoms * sizeof (float));
   label_mol = (int *) malloc (8 * num_atoms * sizeof (int));
-  true_label_mol = (int *) malloc (8 * num_atoms * sizeof (int));
+  true_label_mol = (int *) malloc (num_atoms * sizeof (int));
   type_agl = (int *) malloc ((max_depth + 2) * sizeof (int));
   type_atoms = (int *) malloc (8 * num_atoms * sizeof (int));
 //   temporary declaration of variables
@@ -261,10 +255,7 @@ int main (int argc, char *argv[])
     (stat == NULL) || 
     (stat_all == NULL))
   {
-    sprintf (tmp_str, "\nMemory error (error code: 17)\n");
-    fputs (tmp_str, stderr);
-    if (log == 1)
-      fputs (tmp_str, f_log);
+    print_message (quiet, stderr, log, f_log, 19, argv[0]);
     return 17;
   }
 //   set type_agl to zero
@@ -303,12 +294,13 @@ int main (int argc, char *argv[])
     filename[k+3] = conv (i, 1);
     filename[k+4] = '\0';
     print_message (quiet, stdout, log, f_log, 7, filename);
-    error = reading_coords (filename, type_inter, label_atom, cell, &num_mol, 
-                            &num_atoms, true_label_mol, label_mol, type_atoms, coords);
+    error = reading_coords (0, filename, type_inter, label_atom, cell, &num_mol, 
+                            &num_atoms, true_label_mol, label_mol, type_atoms, 
+                            coords, tmp_str);
     if (error != 1)
     {
       sprintf (tmp_str, "%6cNumber of molecules: %i; %6cNumber of atoms: %i\n", 
-                 ' ', num_mol, ' ', num_atoms);
+               ' ', num_mol, ' ', num_atoms);
       print_message (quiet, stdout, log, f_log, 8, tmp_str);
     }
     
@@ -330,10 +322,7 @@ int main (int argc, char *argv[])
       (stat == NULL) || 
       (stat_all == NULL))
     {
-      sprintf (tmp_str, "\nMemory error (error code: 18)\n");
-      fputs (tmp_str, stderr);
-      if (log == 1)
-        fputs (tmp_str, f_log);
+      print_message (quiet, stderr, log, f_log, 19, argv[0]);
       return 18;
     }
     print_message (quiet, stdout, log, f_log, 9, argv[0]);
