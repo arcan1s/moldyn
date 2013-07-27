@@ -1,12 +1,13 @@
-/* Additional library for main.c (envir)
+/* Additional library for main.c (agl)
  */
 
 #include <stdio.h>
 
-#include "messages.h"
+// #include "messages.h"
 
 
-int error_checking (const float *cell, const char *input, const char *output)
+int error_checking (const char *aglinp, const float *cell, const char *input, 
+                    const char *output)
 {
   if ((cell[0] == 0.0) || (cell[1] == 0.0) || (cell[2] == 0.0))
     return 11;
@@ -14,6 +15,8 @@ int error_checking (const float *cell, const char *input, const char *output)
     return 12;
   if (output[0] == '#')
     return 13;
+  if (aglinp[0] == '#')
+    return 14;
   
   return 0;
 }
@@ -31,11 +34,12 @@ int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log
 }
 
 
-int set_defaults (float *cell, char *input, int *log, int *num_of_mol, char *output, 
-                  int *quiet, float *rad)
+int set_defaults (char aglinp, float *cell, char *input, int *log, int *num_of_mol, 
+                  char *output, int *quiet, float *rad)
 {
   int i;
   
+  aglinp[0] = '#';
   for (i=0; i<3; i++)
     cell[i] = 0.0;
   input[0] = '#';

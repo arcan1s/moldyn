@@ -1,12 +1,22 @@
-/* Library for converting integer to string
- * Usage
- *                                                char = conv (number, position)
+/**
+ * @file
  */
 
 
+/**
+ * @fn conv
+ */
 char conv (const int fnumb, const int dig_pos)
-/* fnumb            - integer
- * dig_pos          - position
+/**
+ * @brief function that converts from integer to char
+ * @code
+ * char = conv (N, 0);
+ * @endcode
+ * 
+ * @param fnumb           integer
+ * @param dig_pos         position: ones=1, decimals=2, hundreds=3
+ * 
+ * @return char
  */
 {
   int d, h, o;

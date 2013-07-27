@@ -1,17 +1,21 @@
+/**
+ * @file
+ */
+
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 
-// #include "add_main.h"
-// #include "coords.h"
-// #include "int2char.h"
-// #include "messages.h"
-// #include "stat_print.h"
-// #include "stat_select.h"
-// #include "stat_sort.h"
-// #include "summary_stat.h"
+#include "add_main.h"
+#include "coords.h"
+#include "int2char.h"
+#include "messages.h"
+#include "stat_print.h"
+#include "stat_select.h"
+#include "stat_sort.h"
+#include "summary_stat.h"
 
 
 int main (int argc, char *argv[])
@@ -26,40 +30,40 @@ int main (int argc, char *argv[])
   int *agl, *connect, from, *label_atom, *label_mol, log, max_depth, num_atoms, 
       num_mol, *num_mol_agl, num_of_inter, *stat, *stat_all, step, to, 
       *true_label_mol, *type_agl, *type_atoms, type_inter, quiet;
-/* input            - mask of input files
- * logfile          - log file name
- * output           - output file name
+/* input                  mask of trajectory files
+ * logfile                log file name
+ * output                 output file name
  * 
- * cell             - cell dimension
- * coords           - massive of coordinates
- * crit             - massive of criteria
+ * cell                   massive of cell size
+ * coords                 massive of coordinates
+ * crit                   massive of criteria
  * 
- * agl              - massive of aglomerates
- * connect          - connectivity graph for all molecules
- * from             - start point
- * label_atom       - types of atom for interaction
- * label_mol        - massive of numbers of molecule for atoms
- * log              - status of log-mode
- * max_depth        - max depth for check cycles in graph analyze
- * num_atoms        - number of atoms for writing coordinates
- * num_mol          - number of molecules for writing coordinates
- * num_mol_agl      - massive of numbers of molecule in aglomerates
- * num_of_inter     - number of different interactions
- * stat             - massive of statistics
- * stat_all         - massive of summary statistics
- * step             - $(to - from + 1)
- * to               - finish point
- * true_label_mol   - massive of true numbers of molecule for atoms
- * type_agl         - massive of numbers of aglomerate types
- * type_atoms       - massive of atom types for atoms
- * type_inter       - type interaction (number of molecules for interaction)
- * quiet            - status of quiet-mode
+ * agl                    massive of aglomerates
+ * connect                connectivity graph for all molecules
+ * from                   first trajectory step
+ * label_atom             massive of atom types for interactions
+ * label_mol              massive of numbers of molecule for atoms
+ * log                    status of log-mode
+ * max_depth              maximum depth for check cycles in graph analyze
+ * num_atoms              number of atoms
+ * num_mol                number of molecules
+ * num_mol_agl            massive of number of molecules in aglomerates
+ * num_of_inter           number of different interactions
+ * stat                   massive of statistic
+ * stat_all               massive of summary statistic
+ * step                   $(to - from + 1)
+ * to                     last trajectory step
+ * true_label_mol         massive of true numbers of molecule for atoms
+ * type_agl               massive of number of aglomerate types
+ * type_atoms             massive of atom types
+ * type_inter             number of atoms for interactions
+ * quiet                  status of quiet-mode
  */
   
   set_defaults (cell, &from, input, &log, &max_depth, &num_of_inter, output, &to, 
                 &type_inter, &quiet);
   
-//   reading number of interactions
+// reading number of interactions
   for (i=1; i<argc; i++)
     if ((argv[i][0] == '-') && (argv[i][1] == 'r'))
       num_of_inter++;
@@ -71,7 +75,7 @@ int main (int argc, char *argv[])
     num_of_inter = 0;
   }
 
-//   reading arguments
+// reading arguments
   for (i=1; i<argc; i++)
   {
     if ((argv[i][0] == '-') && (argv[i][1] == 'h'))
@@ -99,13 +103,13 @@ int main (int argc, char *argv[])
       return 0;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'i'))
-//       mask of input files
+// mask of input files
     {
       strcpy (input, argv[i+1]);
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 's'))
-//       steps
+// steps
     {
       sscanf (argv[i+1], "%i,%i", &from, &to);
       if (from > to)
@@ -118,13 +122,13 @@ int main (int argc, char *argv[])
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'c'))
-//       cell size
+// cell size
     {
       sscanf (argv[i+1], "%f,%f,%f", &cell[0], &cell[1], &cell[2]);
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'a'))
-//       atom types
+// atom types
     {
       type_inter = 1;
       for (j=0; j<strlen(argv[i+1]); j++)
@@ -153,7 +157,7 @@ int main (int argc, char *argv[])
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'r'))
-//       criteria
+// criteria
     {
       index = 0;
       sscanf (&argv[i+1][index], "%i-%i:%f%s", &label[0], &label[1], &label_fl, tmp_str);
@@ -172,26 +176,26 @@ int main (int argc, char *argv[])
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'o'))
-//       output file
+// output file
     {
       strcpy (output, argv[i+1]);
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'g'))
-//       graph isomorphism scan
+// graph isomorphism scan
     {
       sscanf (argv[i+1], "%i", &max_depth);
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'l'))
-//       log mode
+// log mode
     {
       log = 1;
       strcpy (logfile, argv[i+1]);
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'q'))
-//       quiet mode
+// quiet mode
     {
       quiet = 1;
     }
@@ -203,7 +207,7 @@ int main (int argc, char *argv[])
   print_message (quiet, stdout, log, f_log, 0, argv[0]);
   print_message (quiet, stdout, log, f_log, 1, argv[0]);
   
-  //   error checking
+// error checking
   error = error_checking (cell, from, input, max_depth, num_of_inter, output, to, 
                           type_inter);
   if (error != 0)
@@ -214,8 +218,8 @@ int main (int argc, char *argv[])
   
   print_message (quiet, stdout, log, f_log, 2, argv[0]);
   
-//   processing
-//   initial variables
+// processing
+// initial variables
   k = strlen (input);
   strcpy (filename, input);
   filename[k] = '.';
@@ -237,13 +241,13 @@ int main (int argc, char *argv[])
   true_label_mol = (int *) malloc (num_atoms * sizeof (int));
   type_agl = (int *) malloc ((max_depth + 2) * sizeof (int));
   type_atoms = (int *) malloc (8 * num_atoms * sizeof (int));
-//   temporary declaration of variables
+// temporary declaration of variables
   agl = (int *) malloc (2 * 2 * sizeof (int));
   connect = (int *) malloc (2 * 2 * sizeof (int));
   num_mol_agl = (int *) malloc (2 * sizeof (int));
   stat = (int *) malloc (2 * sizeof (int));
   stat_all = (int *) malloc (2 * sizeof (int));
-//   error checking
+// error checking
   if ((coords == NULL) || 
     (label_mol == NULL) || 
     (true_label_mol == NULL) || 
@@ -258,7 +262,7 @@ int main (int argc, char *argv[])
     print_message (quiet, stderr, log, f_log, 19, argv[0]);
     return 17;
   }
-//   set type_agl to zero
+// set type_agl to zero
   for (i=0; i<max_depth+2; i++)
     type_agl[i] = 0;
   sprintf (tmp_str, "%6cOutput file: '%s';\n%6cLog: %i;\n%6cQuiet: %i;\n\
@@ -280,15 +284,15 @@ int main (int argc, char *argv[])
   sprintf (tmp_str, "%s%6cIsomorphism check: %i\n", tmp_str, ' ', max_depth);
   print_message (quiet, stdout, log, f_log, 5, tmp_str);
   
-//   head
+// head
   printing_head (output, log, quiet, input, from, to, cell, type_inter, label_atom, 
                  num_of_inter, crit, max_depth);
   
-//   main cycle
+// main cycle
   print_message (quiet, stdout, log, f_log, 6, argv[0]);
   for (i=from; i<to+1; i++)
   {
-//     reading coordinates
+// reading coordinates
     filename[k+1] = conv (i, 3);
     filename[k+2] = conv (i, 2);
     filename[k+3] = conv (i, 1);
@@ -304,7 +308,7 @@ int main (int argc, char *argv[])
       print_message (quiet, stdout, log, f_log, 8, tmp_str);
     }
     
-//     resize dynamic arrays
+// resize dynamic arrays
     agl = (int *) realloc (agl, num_mol * num_mol * sizeof (int));
     connect = (int *) realloc (connect, num_mol * num_mol * sizeof (int));
     num_mol_agl = (int *) realloc (num_mol_agl, num_mol * sizeof (int));
@@ -315,7 +319,7 @@ int main (int argc, char *argv[])
       for (j=0; j<num_mol; j++)
         stat_all[j] = 0;
     }
-//     error checking
+// error checking
     if ((agl == NULL) || 
       (connect == NULL) || 
       (num_mol_agl == NULL) || 
@@ -327,7 +331,7 @@ int main (int argc, char *argv[])
     }
     print_message (quiet, stdout, log, f_log, 9, argv[0]);
     
-//     analyze
+// analyze
     if (error == 0)
     {
       error = 1;
@@ -352,11 +356,11 @@ int main (int argc, char *argv[])
   
   print_message (quiet, stdout, log, f_log, 13, argv[0]);
   print_message (quiet, stdout, log, f_log, 14, output);
-//     tail
+// tail
   summary_statistic (output, step, num_mol, max_depth, type_agl, stat_all);
   
   print_message (quiet, stdout, log, f_log, 15, argv[0]);
-//   free memory
+// free memory
   free (agl);
   free (connect);
   free (coords);

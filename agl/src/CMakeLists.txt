@@ -9,16 +9,16 @@ message (STATUS ${${PROJECT}_VERSION})
 # main files
 set (MAIN_SOURCES main)
 # not public srcs
-set (PRIVATE_CLASSES add_main 
-                     coords 
-                     envir_search 
-                     messages 
-                     print_struct 
-                     set_center)
+set (PRIVATE_CLASSES)
 # headers only files
 SET (HEADERS_ONLY)
 # public srcs
-set (PUBLIC_CLASSES)
+set (PUBLIC_CLASSES add_main 
+                    coords 
+                    envir_search 
+                    messages 
+                    print_struct 
+                    set_center)
 # public headers
 set (PUBLIC_HEADERS)
 # shared libraries

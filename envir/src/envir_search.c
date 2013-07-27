@@ -22,6 +22,7 @@ int search_envir (const int num_of_mol, const int num_mol, const float *centr_co
   int i;
 /* r                - radius
  */
+  
   *num_needed_mol = 0;
   
   for (i=0; i<8*num_mol; i++)

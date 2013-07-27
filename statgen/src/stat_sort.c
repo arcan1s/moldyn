@@ -1,29 +1,41 @@
-/* Library for processing connectivity matrix
- * 
- * Usage:
- *                             proc_matrix (number_of_molecules, connect_matrix, 
- *   num_of_molecules_in_aglomerates, aglomerates, statistic, summary_statistic)
+/**
+ * @file
  */
 
 #include <stdlib.h>
 
 
+/**
+ * @fn proc_matrix
+ */
 int proc_matrix (const int num_mol, const int *connect, int *num_mol_agl, int *agl, 
                  int *stat, int *stat_all)
-/* num_mol          - number of molecules
- * connect          - connectivity graph for all molecules
- * num_mol_agl      - massive of numbers of molecule in aglomerates
- * agl              - massive of aglomerates
- * stat             - massive of statistics
- * stat_all         - massive of summary statistics
+/**
+ * @brief function that processes connectivity matrix
+ * @code
+ * proc_matrix (number_of_molecules, connect_matrix, 
+ *  num_of_molecules_in_aglomerates, aglomerates, statistic, summary_statistic);
+ * @endcode
+ * 
+ * @param num_mol         number of molecules
+ * @param connect         connectivity graph for all molecules
+ * @param num_mol_agl     massive of number of molecules in aglomerates
+ * @param agl             massive of aglomerates
+ * @param stat            massive of statistic
+ * @param stat_all        massive of summary statistic
+ * 
+ * @return 1              - memory error
+ * @return 0              - exit without errors
  */
 {
   int i, j, k, p, *bin;
-  /* p              - weight / graph index
-   * bin            - binary massive of labels
+  /* p                    weight / graph index
+   * bin                  binary massive of labels
    */
   
-//   definition and zeroing
+/// <b>Work blocks</b>
+  
+// definition and zeroing
   bin = (int *) malloc (num_mol * sizeof (int));
   if (bin == NULL)
     return 1;
@@ -36,7 +48,7 @@ int proc_matrix (const int num_mol, const int *connect, int *num_mol_agl, int *a
       agl[num_mol*i+j] = 0;
   }
   
-//   select non-bonded molecules
+/// <pre>   select non-bonded molecules </pre>
   for (i=0; i<num_mol; i++)
   {
     p = 0;
@@ -50,7 +62,7 @@ int proc_matrix (const int num_mol, const int *connect, int *num_mol_agl, int *a
     }
   }
   
-//   unwraping of connectivity matrix
+/// <pre>   unwraping of connectivity matrix </pre>
   p = 0;
   for (i=0; i<num_mol; i++)
     if (bin[i] == 1)
@@ -71,7 +83,7 @@ int proc_matrix (const int num_mol, const int *connect, int *num_mol_agl, int *a
       p++;
     }
   
-//   filling statistic array
+/// <pre>   filling statistic array </pre>
   i = 0;
   while (num_mol_agl[i] > 0)
   {
@@ -80,6 +92,7 @@ int proc_matrix (const int num_mol, const int *connect, int *num_mol_agl, int *a
     i++;
   }
   
+/// <pre>   free memory </pre>
   free (bin);
   
   return 0;

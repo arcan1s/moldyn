@@ -1,34 +1,46 @@
-/* Library for creating connectivity matrix
- * 
- * Usage:
- *          create_matrix (number_of_molecules, number_of_atoms, label_molecule,
- *         type_atoms, coords, number_of_interactions, criteria, connect_matrix)
+/**
+ * @file
  */
 
 #include <math.h>
 #include <stdlib.h>
 
 
+/**
+ * @fn create_matrix
+ */
 int create_matrix (const int num_mol, const int num_atoms, const int *label_mol, 
                    const int *type_atoms, const float *coords, const int num_of_inter, 
                    const float *crit, int *connect)
-/* num_mol          - number of molecules
- * num_atoms        - number of atoms
- * label_mol        - massive of numbers of molecule for atoms
- * type_atoms       - massive of atom types for atoms
- * coords           - massive of coordinates
- * num_of_inter     - number of different interactions
- * crit             - massive of criteria
- * connect          - connectivity graph for all molecules
+/**
+ * @brief function that creates connectivity matrix
+ * @code
+ * create_matrix (number_of_molecules, number_of_atoms, label_molecule,
+ *        type_atoms, coords, number_of_interactions, criteria, connect_matrix);
+ * @endcode
+ * 
+ * @param num_mol         number of molecules
+ * @param num_atoms       number of atoms
+ * @param label_mol       massive of numbers of molecule for atoms
+ * @param type_atoms      massive of atom types
+ * @param coords          massive of coordinates
+ * @param num_of_inter    number of different interactions
+ * @param crit            massive of criteria
+ * @param connect         connectivity graph for all molecules
+ * 
+ * @return 1              - memory error
+ * @return 0              - exit without errors
  */
 {
   float r;
   int cur_num_inter, i, j, k, l, num_inter, ***label_inter;
-/* r                - radius
- * cur_num_inter    - current number of true interactions
- * num_inter        - needed number of true interactions
- * label_inter      - temporary massive of true interactions
+/* r                      radius
+ * cur_num_inter          current number of true interactions
+ * num_inter              needed number of true interactions
+ * label_inter            temporary massive of true interactions
  */
+  
+/// <b>Work blocks</b>
   
   label_inter = (int ***) malloc (num_mol * sizeof (int **));
   for (i=0; i<num_mol; i++)
@@ -44,10 +56,10 @@ int create_matrix (const int num_mol, const int num_atoms, const int *label_mol,
   if (label_inter == NULL)
     return 1;
   
-//   creating initial connectivity matrix
+/// <pre>   creating initial connectivity matrix </pre>
   for (i=0; i<num_atoms*8; i++)
     for (j=i+1; j<num_atoms*8; j++)
-//       if atoms from different molecules
+// if atoms from different molecules
       if (label_mol[i] != label_mol[j])
       {
         r = sqrt (pow ((coords[3*i+0]-coords[3*j+0]), 2) + 
@@ -68,10 +80,10 @@ int create_matrix (const int num_mol, const int num_atoms, const int *label_mol,
     for (j=0; j<num_mol; j++)
       connect[i*num_mol+j] = 0;
   
-//   processing of initial connectivity matrix
+/// <pre>   processing of initial connectivity matrix </pre>
   for (k=0; k<num_of_inter; k++)
   {
-//     determination of the number of interactions
+// determination of the number of interactions
     num_inter = 0;
     for (l=0; l<16; l++)
       if (crit[16*k+l] != 0.0)
@@ -92,7 +104,7 @@ int create_matrix (const int num_mol, const int num_atoms, const int *label_mol,
       }
   }
   
-//   free memory
+/// <pre>   free memory</pre>
   for (i=0; i<num_mol; i++)
   {
     for (j=0; j<num_mol; j++)

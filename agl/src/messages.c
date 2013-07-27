@@ -1,27 +1,16 @@
-/**
- * @file
+/* Library for printing messages at output
+ *
+ * Usage:
+ *                                             message (log, mode, text, output)
  */
 
 #include <stdio.h>
 #include <time.h>
 
 
-/**
- * @fn message
- */
 int message (const int log, const int mode, const char *text, FILE *output)
-/**
- * @brief function that prints messages to output
- * @code
- * message (log, mode, text, output);
- * @endcode
- * 
- * @param log             equal to 1 if print to logfile
- * @param mode            number of message
- * @param text            additional text
- * @param output          output file (may be stdout)
- * 
- * @return 0              - exit without errors
+/* mode             - number of message
+ * text             - additional text
  */
 {
   char out[4096];
@@ -29,7 +18,6 @@ int message (const int log, const int mode, const char *text, FILE *output)
   if (log == 1)
   {
     char time_str[256];
-    
     time_t t = time (NULL);
     struct tm* aTm = localtime (&t);
     sprintf (time_str, "[%04d-%02d-%02d %02d:%02d:%02d] [%2i]: ", aTm->tm_year+1900, 

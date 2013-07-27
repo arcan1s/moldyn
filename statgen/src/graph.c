@@ -1,46 +1,77 @@
-/* Library for graph structure analyze
- * Usage:
- *                      graph_analyze (N, connect, max_depth, isomorphism_class)
+/**
+ * @file
  */
 
 #include <math.h>
 #include <stdlib.h>
 
 
+/**
+ * @fn check_cycle
+ */
 int check_cycle (const int N, const int *pn)
-// function to return number of cycles
+/**
+ * @brief function that calculates number of cycles in graph
+ * @code
+ * cycle = check_cycle (N, pn);
+ * @endcode
+ * 
+ * @param N               number of vertexes
+ * @param pn              massive of number of vertexes with weight equals to i
+ * 
+ * @return number of cycles
+ */
 {
   int cycle, i;
-/* cycle            - number of cycle
+/* cycle                  number of cycle
  */
   
   cycle = 0;
   for (i=1; i<N; i++)
     cycle += i*pn[i];
   
-//   for linear (0.5*cycle == N-1)
+// for linear (0.5*cycle == N-1)
   cycle = 0.5 * cycle - (N - 1);
   
   return cycle;
 }
 
 
+/**
+ * @fn check_cycle_size
+ */
 int check_cycle_size (const int N, const int *matrix, const int depth, int *n_cycle)
-// function to return number of cycles of certain size
+/**
+ * @brief function that returns number of cycles different size
+ * @code
+ * check_cycle_size (N, matrix, depth, n_cycle);
+ * @endcode
+ * 
+ * @param N               number of vertexes
+ * @param matrix          connectivity matrix
+ * @param depth           depth of search (maximum number of vertexes in cycle)
+ * @param n_cycle         massive of number of cycle with number of vertexes 
+ *                        equals to i
+ * 
+ * @return 1              - memory error
+ * @return 0              - exit without errors
+ */
 {
   int cur_N, cycle, i, j, k, n, p, *vertex;
-/* cur_N            - current number of elements in submatrix
- * cycle            - if (cycle == 1) that cycle exist
- * n                - number of samples
- * vertex           - vertexes of subgraph
+/* cur_N                  current number of elements in submatrix
+ * cycle                  if (cycle == 1) that cycle exist
+ * n                      number of samples
+ * vertex                 vertexes of subgraph
  */
   
   vertex = (int *) malloc (N * sizeof (int));
+  if (vertex == NULL)
+    return 1;
   for (i=0; i<depth-2; i++)
     n_cycle[i] = 0;
   
-//   matrix generation from
-//   http://wincode.org/acm-icpc/subsets-generation
+// matrix generation from
+// http://wincode.org/acm-icpc/subsets-generation
   n = pow (2, N);
   for (i=0; i<n; i++)
   {
@@ -54,7 +85,7 @@ int check_cycle_size (const int N, const int *matrix, const int depth, int *n_cy
     
     if ((cur_N > 2) && (cur_N <= depth))
     {
-//       copy connectivity matrix
+// copy connectivity matrix
       cycle = 1;
       for (j=0; j<cur_N; j++)
       {
@@ -65,7 +96,7 @@ int check_cycle_size (const int N, const int *matrix, const int depth, int *n_cy
           cycle = 0;
       }
       
-//       analyze subgraph
+// analyze subgraph
       if (cycle == 1)
         n_cycle[cur_N-3]++;
     }
@@ -77,32 +108,56 @@ int check_cycle_size (const int N, const int *matrix, const int depth, int *n_cy
 }
 
 
+/**
+ * @fn check_tail
+ */
 int check_tail (const int *pn)
-// function to return number of tails
+/**
+ * @brief function that calculates number of tails
+ * @code
+ * tails = check_tail (pn);
+ * @endcode
+ * 
+ * @param pn              massive of number of vertexes with weight equals to i
+ * 
+ * @return number of tails
+ */
 {
   return pn[1];
 }
 
 
+/**
+ * @fn graph_analyze
+ */
 int graph_analyze (const int N, const int *matrix, const int max_depth, int *iso)
-/* N                - number of vertex in graph
- * matrix           - connectivity matrix
- * max_depth        - maximum depth for check_cycle_size
- * iso              - isomorphism class
+/**
+ * @brief function that analyzes graph isomorhic class
+ * @code
+ * graph_analyze (N, matrix, max_depth, iso);
+ * @endcode
+ * 
+ * @param N               number of vertexes
+ * @param matrix          connectivity matrix
+ * @param max_depth       maximum depth of search for check_cycle_size
+ * @param iso             isomorphism class
+ * 
+ * @return 1              - memory error
+ * @return 0              - exit without errors
  */
 {
   int depth, i, j, *n_cycle, p, *pn;
-/* depth            - depth for check_cycle_size
- * n_cycle          - number of cycle
- * p                - current weight
- * pn               - total weight
+/* depth                  depth of search for check_cycle_size
+ * n_cycle                number of cycle
+ * p                      current weight
+ * pn                     massive of number of vertexes with weight equals to i
  */
   
   if (max_depth > N)
     depth = N;
   else
     depth = max_depth;
-//   convert to matrix of weight
+// convert to matrix of weight
   pn = (int *) malloc (N * sizeof (int));
   n_cycle = (int *) malloc ((depth - 2) * sizeof (int));
   if ((pn == NULL) || 
@@ -129,6 +184,7 @@ int graph_analyze (const int N, const int *matrix, const int max_depth, int *iso
       iso[i+2] = n_cycle[i];
   }
   
+// free memory
   free (n_cycle);
   free (pn);
   

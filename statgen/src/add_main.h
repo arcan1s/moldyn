@@ -1,5 +1,22 @@
+/**
+ * @file
+ */
+
 #ifndef ADD_MAIN_H
 #define ADD_MAIN_H
+
+/**
+ * @fn error_checking
+ */
+/**
+ * @fn printing_head
+ */
+/**
+ * @fn print_message
+ */
+/**
+ * @fn set_defaults
+ */
 
 int error_checking (const float *, const int, const char *, const int, const int, 
                     const char *, const int, const int);
