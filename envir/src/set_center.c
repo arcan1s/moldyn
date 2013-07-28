@@ -1,3 +1,7 @@
+/**
+ * @file
+ */
+
 /* Library for search center mass of molecules
  * 
  * Usage:
@@ -6,18 +10,30 @@
  */
 
 
+/**
+ * @fn set_center
+ */
 int set_center (const int num_atoms, const int num_mol, const int *label_mol, 
                 const float *coords, float *centr_coords)
-/* num_atoms        - number of atoms for writing coordinates
- * num_mol          - number of molecules for writing coordinates
- * label_mol        - massive of numbers of molecule for atoms
- * coords           - massive of coordinates
- * coords           - massive of coordinates of center molecules
+/**
+ * @brief function that searchs center mass of molecules
+ * @code
+ * set_center (num_of_atoms, num_of_molecules, label_molecules, coords, centr_coords);
+ * @endcode
+ * 
+ * @param num_atoms       number of atoms
+ * @param num_mol         number of molecules
+ * @param label_mol       massive of numbers of molecule for atoms
+ * @param coords          massive of coordinates
+ * @param centr_coords    massive of centered coordinates
+ * 
+ * @return 0              - exit without errors
  */
 {
   int at_in_mol, cur_mol, i, j, k;
-/* at_int_mol       - number of atoms in molecule
- * cur_mol          - current molecule
+  
+/* at_int_mol             number of atoms in molecule
+ * cur_mol                current molecule
  */
   
   for (i=0; i<8*num_mol; i++)

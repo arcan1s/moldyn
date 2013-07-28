@@ -119,6 +119,7 @@ int printing_head (const char *output, const int log, const int quiet,
   return 0;
 }
 
+
 /**
  * @fn print_message
  */
@@ -139,7 +140,7 @@ int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log
  * 
  * @return 0              - exit without errors
  */
-{  
+{
   if ((quiet != 1) && (std_output != stderr))
     message (0, mode, str, std_output);
   if (log == 1)

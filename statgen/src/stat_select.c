@@ -15,8 +15,8 @@ int create_matrix (const int num_mol, const int num_atoms, const int *label_mol,
 /**
  * @brief function that creates connectivity matrix
  * @code
- * create_matrix (number_of_molecules, number_of_atoms, label_molecule,
- *        type_atoms, coords, number_of_interactions, criteria, connect_matrix);
+ * create_matrix (number_of_molecules, number_of_atoms, label_molecule, type_atoms, 
+ *                coords, number_of_interactions, criteria, connect_matrix);
  * @endcode
  * 
  * @param num_mol         number of molecules
@@ -34,6 +34,7 @@ int create_matrix (const int num_mol, const int num_atoms, const int *label_mol,
 {
   float r;
   int cur_num_inter, i, j, k, l, num_inter, ***label_inter;
+  
 /* r                      radius
  * cur_num_inter          current number of true interactions
  * num_inter              needed number of true interactions

@@ -1,12 +1,12 @@
 /*! 
- * @mainpage statgen 
+ * @mainpage envir
  * @image latex ./logo.png
  *
  * @section intro_sec Introduction
- * 
+ *
  * <b>About this program</b>:
  * <ul>
- * <li>Program that analyzes molecular dynamic trajectories using topological analysis
+ * <li>Program that searchs environment for chosen molecule by geometric criterion
  * </ul>
  *
  * <b>Developer</b>:
@@ -21,18 +21,15 @@
  * @section How-To-Use How to use
  * Usage:
  * <pre>
- * statgen -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -r ... -o OUTPUT [ -g DEPTH ] 
- *                                                  [ -l LOGFILE ] [ -q ] [ -h ]
+ * envir -i FILENAME -c X,Y,Z -o FILEMANE [ -n NUM_OF_MOLECULE ] [ -r RADIUS ] 
+ *                                                   [ -l LOGFILE] [ -q ] [ -h ]
  *
  * Parametrs:
- *    -i          - mask of input files
- *    -s          - trajectory steps (integer)
+ *    -i          - input file with coordinates
  *    -c          - cell size (float), A
- *    -a          - atom types (integer). Format: 'ATOM1' or 'ATOM1,ATOM2' or etc
- *    -r          - criteria (float), A. Format: '0-0:2.4,0-1:3.0' means 0-0-interaction
- *                  (<2.4 A) and 0-1 (<3.0) are needed. This flag can be used multiple times
- *    -o          - output file name
- *    -g          - check graph isomorphism. DEPTH is max depth for check cycles (>= 3)
+ *    -o          - output file with coordinates
+ *    -n          - number of molecule for search (integer). Default is 1
+ *    -r          - radius of environment (float). Default is 6.0
  *    -l          - log enable
  *    -q          - quiet enable
  *    -h          - show this help and exit

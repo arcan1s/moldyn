@@ -18,7 +18,16 @@
 #include "summary_stat.h"
 
 
+/**
+ * @fn main
+ */
 int main (int argc, char *argv[])
+/**
+ * @return 1              - error in error_checking
+ * @return 2              - input file does not exist
+ * @return 3              - memory error
+ * @return 0              - exit without errors
+ */
 {
   char filename[256], tmp_str[2048];
   int error, i, index, j, k, label[2];
@@ -30,6 +39,7 @@ int main (int argc, char *argv[])
   int *agl, *connect, from, *label_atom, *label_mol, log, max_depth, num_atoms, 
       num_mol, *num_mol_agl, num_of_inter, *stat, *stat_all, step, to, 
       *true_label_mol, *type_agl, *type_atoms, type_inter, quiet;
+  
 /* input                  mask of trajectory files
  * logfile                log file name
  * output                 output file name
@@ -232,7 +242,7 @@ int main (int argc, char *argv[])
   if (f_inp == NULL)
   {
     print_message (quiet, stderr, log, f_log, 18, filename);
-    return 1;
+    return 2;
   }
   fscanf (f_inp, "%i", &num_atoms);
   fclose (f_inp);
@@ -260,7 +270,7 @@ int main (int argc, char *argv[])
     (stat_all == NULL))
   {
     print_message (quiet, stderr, log, f_log, 19, argv[0]);
-    return 17;
+    return 3;
   }
 // set type_agl to zero
   for (i=0; i<max_depth+2; i++)
@@ -327,7 +337,7 @@ int main (int argc, char *argv[])
       (stat_all == NULL))
     {
       print_message (quiet, stderr, log, f_log, 19, argv[0]);
-      return 18;
+      return 3;
     }
     print_message (quiet, stdout, log, f_log, 9, argv[0]);
     

@@ -1,0 +1,15 @@
+agl - program that creates PDB file with chosen aglomerate
+Version: 1.0.1
+License: GPL
+
+Usage:
+  agl -a FILENAME -i FILENAME -c X,Y,Z -o FILEMANE [ -l LOGFILE] [ -q ] [ -h ]
+
+Parametrs:
+  -a          - input file with aglomerates (in format statgen)
+  -i          - input file with coordinates
+  -c          - cell size (float), A
+  -o          - output file with coordinates
+  -l          - log enable
+  -q          - quiet enable
+  -h          - show this help and exit

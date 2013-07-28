@@ -13,8 +13,8 @@ int proc_matrix (const int num_mol, const int *connect, int *num_mol_agl, int *a
 /**
  * @brief function that processes connectivity matrix
  * @code
- * proc_matrix (number_of_molecules, connect_matrix, 
- *  num_of_molecules_in_aglomerates, aglomerates, statistic, summary_statistic);
+ * proc_matrix (number_of_molecules, connect_matrix, num_of_molecules_in_aglomerates, 
+ *              aglomerates, statistic, summary_statistic);
  * @endcode
  * 
  * @param num_mol         number of molecules
@@ -29,6 +29,7 @@ int proc_matrix (const int num_mol, const int *connect, int *num_mol_agl, int *a
  */
 {
   int i, j, k, p, *bin;
+  
   /* p                    weight / graph index
    * bin                  binary massive of labels
    */

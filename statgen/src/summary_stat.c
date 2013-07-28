@@ -14,7 +14,7 @@ int summary_statistic (const char *filename, const int step, const int num_mol,
  * @brief function that prints summary statistic
  * @code
  * summary_statistic (filename, number_of_step, number_of_molecules, max_depth, 
- *                                       type_of_aglomerate, summary_statistic);
+ *                    type_of_aglomerate, summary_statistic);
  * @endcode
  * 
  * @param filename        output file name
@@ -30,6 +30,7 @@ int summary_statistic (const char *filename, const int step, const int num_mol,
   float conc, p, pn, type[2], x, y;
   int i, index;
   FILE *f_out;
+  
 /* conc                   concentrate of aglomerates
  * p                      probability of aglomerates
  * pn                     weight probability of aglomerates

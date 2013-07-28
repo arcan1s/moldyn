@@ -17,9 +17,9 @@ int printing_agl (const char *input, const char *output, const int *connect,
 /**
  * @brief function that prints aglomerates to output file
  * @code
- * printing_agl (input_file, output_file, number_of_molecules, 
- *          true_label_molecules, num_of_molecules_in_aglomerates, aglomerates, 
- *                                    statistic, max_depth, type_of_aglomerate);
+ * printing_agl (input_file, output_file, number_of_molecules, true_label_molecules, 
+ *               num_of_molecules_in_aglomerates, aglomerates, statistic, max_depth, 
+ *               type_of_aglomerate);
  * @endcode
  * 
  * @param input           input file name
@@ -39,6 +39,7 @@ int printing_agl (const char *input, const char *output, const int *connect,
 {
   int error, i, *iso, j, k, *label_matrix, *matrix;
   FILE *f_out;
+  
 /* iso                    isomorphic graph in database
  * label_matrix           massive of indexes of molecule
  * matrix                 connectivity graph

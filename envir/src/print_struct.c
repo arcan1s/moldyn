@@ -1,3 +1,7 @@
+/**
+ * @file
+ */
+
 /* Library for printing structure to pdb file
  * 
  * Usage:
@@ -8,23 +12,37 @@
 #include <stdio.h>
 
 
+/**
+ * @fn print_structure
+ */
 int print_structure (const char *output, const int num_needed_mol, const int *needed_mol, 
                      const int num_atoms, const int *label_mol, const char *ch_type_atoms, 
                      const float *coords)
-/* output           - output file name
- * num_needed_mol   - number of needed molecules
- * needed_mol       - massive of needed molecules
- * num_atoms        - number of atoms
- * label_mol        - massive of numbers of molecule for atoms
- * ch_type_atoms    - massive of char types for atoms
- * coords           - massive of coordinates
+/**
+ * @brief function that prints structure to pdb file
+ * @code
+ * print_structure (output, num_needed_mol, needed_mol, num_atoms, label_mol, 
+ *                  char_type_atoms, coords);
+ * @endcode
+ * 
+ * @param output          output file name
+ * @param num_needed_mol  number of needed molecules
+ * @param needed_mol      massive of number of needed molecules
+ * @param num_atoms       number of atoms
+ * @param label_mol       massive of numbers of molecule for atoms
+ * @param ch_type_atoms   massive of char atom types
+ * @param coords          massive of coordinates
+ * 
+ * @return 0              - exit without errors
  */
 {
   int cur_atom, cur_atom_num, cur_mol, i, j;
   FILE *f_out;
-/* cur_atom         - current atom
- * cur_atom_num     - true atom number
- * cur_mol          - current molecule
+  
+/* cur_atom               current atom
+ * cur_atom_num           true atom number
+ * cur_mol                current molecule
+ * f_out                  output file
  */
   
   cur_atom = 1;

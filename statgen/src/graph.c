@@ -23,6 +23,7 @@ int check_cycle (const int N, const int *pn)
  */
 {
   int cycle, i;
+  
 /* cycle                  number of cycle
  */
   
@@ -58,6 +59,7 @@ int check_cycle_size (const int N, const int *matrix, const int depth, int *n_cy
  */
 {
   int cur_N, cycle, i, j, k, n, p, *vertex;
+  
 /* cur_N                  current number of elements in submatrix
  * cycle                  if (cycle == 1) that cycle exist
  * n                      number of samples
@@ -147,6 +149,7 @@ int graph_analyze (const int N, const int *matrix, const int max_depth, int *iso
  */
 {
   int depth, i, j, *n_cycle, p, *pn;
+  
 /* depth                  depth of search for check_cycle_size
  * n_cycle                number of cycle
  * p                      current weight

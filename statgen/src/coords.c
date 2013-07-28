@@ -15,9 +15,8 @@ int reading_coords (const int mode, const char *filename, const int type_inter,
 /**
  * @brief function that reads coordinates from special file format
  * @code
- * reading_coords (0, filename, type_inter, label_atom, cell, &num_mol, 
- *                 &num_atoms, true_label_mol, label_mol, type_atoms, 
- *                 coords, ch_type_atoms);
+ * reading_coords (0, filename, type_inter, label_atom, cell, &num_mol, &num_atoms, 
+ *                 true_label_mol, label_mol, type_atoms, coords, ch_type_atoms);
  * @endcode
  * 
  * @param mode            mode of reading; '1' is statgen, '2' is envir or 
