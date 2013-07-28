@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
  */
 {
   char tmp_str[2048];
-  int error, i, j, *tmp_int;
+  int error, i, *tmp_int;
   FILE *f_inp, *f_log;
   
   char *ch_type_atoms, input[256], logfile[256], output[256];
@@ -177,7 +177,7 @@ int main(int argc, char *argv[])
   
 // reading coordinates
   print_message (quiet, stdout, log, f_log, 7, input);
-  error = reading_coords (1, input, tmp_int, tmp_int, cell, &num_mol, &num_atoms, 
+  error = reading_coords (1, input, tmp_int[0], tmp_int, cell, &num_mol, &num_atoms, 
                           true_label_mol, label_mol, tmp_int, coords, ch_type_atoms);
   centr_coords = (float *) malloc (3 * 8 * num_mol * sizeof (float));
   needed_mol = (int *) malloc (num_mol * sizeof (int));
@@ -198,15 +198,18 @@ int main(int argc, char *argv[])
 // analyze
   if (error == 0)
   {
+    error = 1;
     error = set_center (num_atoms, num_mol, label_mol, coords, centr_coords);
     if (error == 0)
     {
       print_message (quiet, stderr, log, f_log, 20, argv[0]);
+      error = 1;
       error = search_envir (num_of_mol, num_mol, centr_coords, rad, needed_mol, 
                             &num_needed_mol);
       if (error == 0)
       {
         print_message (quiet, stderr, log, f_log, 21, argv[0]);
+        error = 1;
         error = print_structure (output, num_needed_mol, needed_mol, num_atoms, 
                                  label_mol, ch_type_atoms, coords);
         print_message (quiet, stderr, log, f_log, 12, output);

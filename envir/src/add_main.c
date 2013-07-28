@@ -18,8 +18,8 @@ int error_checking (const float *cell, const char *input, const char *output)
  * @endcode
  * 
  * @param cell            massive of cell size
- * @param input           first trajectory step
- * @param output          last trajectory step
+ * @param input           input file name
+ * @param output          output file name
  * 
  * @return 11             - error in 'cell'
  * @return 12             - error in 'input'
@@ -74,7 +74,7 @@ int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log
 int set_defaults (float *cell, char *input, int *log, int *num_of_mol, char *output, 
                   int *quiet, float *rad)
 /**
- * @brief function for set default values of variables
+ * @brief function that sets default values of variables
  * @code
  * set_defaults (cell, &from, input, &log, &max_depth, &num_of_inter, output, &to, 
  *               &type_inter, &quiet);

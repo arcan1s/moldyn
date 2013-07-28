@@ -2,13 +2,6 @@
  * @file
  */
 
-/* Library for search environment
- * 
- * Usage:
- *      search_envir (number_of_molecule, num_mol, centr_coords, rad, needed_mol, 
- *                                                              &num_needed_mol)
- */
-
 #include <math.h>
 
 

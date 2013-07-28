@@ -156,7 +156,7 @@ int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log
 int set_defaults (float *cell, int *from, char *input, int *log, int *max_depth, 
                   int *num_of_inter, char *output, int *to, int *type_inter, int *quiet)
 /**
- * @brief function for set default values of variables
+ * @brief function that sets default values of variables
  * @code
  * set_defaults (cell, &from, input, &log, &max_depth, &num_of_inter, output, &to, 
  *               &type_inter, &quiet);

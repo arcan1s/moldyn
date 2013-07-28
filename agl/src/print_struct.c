@@ -2,13 +2,6 @@
  * @file
  */
 
-/* Library for printing structure to pdb file
- * 
- * Usage:
- *              print_structure (output, num_needed_mol, needed_mol, num_atoms, 
- *                                           label_mol, char_type_atoms, coords)
- */
-
 #include <stdio.h>
 
 
