@@ -1,6 +1,74 @@
 /**
  * @file
  */
+/**
+ * @mainpage statgen 
+ * @image latex ./logo.png
+ *
+ * @section intro_sec Introduction
+ * 
+ * <b>About this program</b>:
+ * <ul>
+ * <li>Program that analyzes molecular dynamic trajectories using topological analysis
+ * </ul>
+ *
+ * <b>Developer</b>:
+ * <ul>
+ * <li>Evgeniy Alekseev aka arcanis <pre><esalexeev (at) gmail (dot) com></pre>
+ *</ul>
+ * <b>License</b>:
+ * <ul>
+ * <li>GPL
+ * </ul>
+ *
+ * @section How-To-Use How to use
+ * Usage:
+ * <pre>
+ * statgen -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -r ... -o OUTPUT [ -g DEPTH ] 
+ *                                                  [ -l LOGFILE ] [ -q ] [ -h ]
+ *
+ * Parametrs:
+ *    -i          - mask of input files
+ *    -s          - trajectory steps (integer)
+ *    -c          - cell size (float), A
+ *    -a          - atom types (integer). Format: 'ATOM1' or 'ATOM1,ATOM2' or etc
+ *    -r          - criteria (float), A. Format: '0-0:2.4,0-1:3.0' means 0-0-interaction
+ *                  (<2.4 A) and 0-1 (<3.0) are needed. This flag can be used multiple times
+ *    -o          - output file name
+ *    -g          - check graph isomorphism. DEPTH is max depth for check cycles (>= 3)
+ *    -l          - log enable
+ *    -q          - quiet enable
+ *    -h          - show this help and exit
+ * </pre>
+ * 
+ * @page Install
+ * 
+ * @section Requirements Requirements
+ * The application statgen requires the following external stuff:
+ * - cmake  >= 2.8
+ * - gcc    >= 4.8
+ *
+ * @section How-To How to install
+ *
+ * @subsection Linux Linux
+ * @code
+ * mkdir build && cd build
+ * cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ../
+ * make
+ * make install
+ * @endcode
+ * 
+ * @subsection Windows Windows
+ * @code
+ * create project file using 'cmake'
+ * compile project
+ * @endcode
+ * You may also download compiled executable file for Win_x86.
+ *
+ * @page Changelog
+ * V.1.0.1 (2013-07-27)
+ * * initial release
+ */ 
 
 #include <math.h>
 #include <stdio.h>
