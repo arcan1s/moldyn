@@ -88,6 +88,7 @@ int main(int argc, char *argv[])
  * @return 1              - error in error_checking
  * @return 2              - input file does not exist
  * @return 3              - memory error
+ * @return 4              - unknown flag
  * @return 0              - exit without errors
  */
 {
@@ -125,7 +126,7 @@ int main(int argc, char *argv[])
   
   for (i=1; i<argc; i++)
   {
-    if ((argv[i][0] == '-') && (argv[i][1] == 'h'))
+    if ((argv[i][0] == '-') && (argv[i][1] == 'h') && (argv[i][2] == '\0'))
     {
       sprintf (tmp_str, "                                        envir\n");
       sprintf (tmp_str, "%sProgram for search environment for chosen molecule by geometric criterion\n", tmp_str);
@@ -147,47 +148,52 @@ int main(int argc, char *argv[])
       fputs (tmp_str, stdout);
       return 0;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'i'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'i') && (argv[i][2] == '\0'))
 // input file
     {
       strcpy (input, argv[i+1]);
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'c'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'c') && (argv[i][2] == '\0'))
 // cell size
     {
       sscanf (argv[i+1], "%f,%f,%f", &cell[0], &cell[1], &cell[2]);
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'o'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'o') && (argv[i][2] == '\0'))
 // output file
     {
       strcpy (output, argv[i+1]);
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'n'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'n') && (argv[i][2] == '\0'))
 // number of molecule
     {
       sscanf (argv[i+1], "%i", &num_of_mol);
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'r'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'r') && (argv[i][2] == '\0'))
 // radius of environment
     {
       sscanf (argv[i+1], "%f", &rad);
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'l'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'l') && (argv[i][2] == '\0'))
 // log mode
     {
       log = 1;
       strcpy (logfile, argv[i+1]);
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'q'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'q') && (argv[i][2] == '\0'))
 // quiet mode
     {
       quiet = 1;
+    }
+    else
+// unknown flag
+    {
+      return 4;
     }
   }
   

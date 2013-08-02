@@ -117,11 +117,10 @@ int print_result (const char *output, const int matrix, const int mode,
           r = r_min + (0.5 + i) * r_step;
           ang = ang_min + (0.5 + j) * ang_step;
           dv = 4 * M_PI * pow (r, 2) * sin (M_PI * ang / 180) * r_step * (M_PI * ang_step / 180);
-//           dv = 4;
           ro = num_atoms  / (3 * 2 * cell[0] * cell[1] * cell[2]);
-          norm = radf[i] / (dv * ro * num_atoms / 3 * step);
+          norm = radf[n*i+j] / (dv * ro * num_atoms / 3 * step);
           if (matrix == 0)
-            fprintf (f_out, " %9.4f %9.2f %10.4e %9i %9.6f \n", r, ang, dv, radf[i] / 2, norm);
+            fprintf (f_out, " %9.4f %9.2f %10.4e %9i %9.6f \n", r, ang, dv, radf[n*i+j] / 2, norm);
           else
             fprintf (f_out, " %9.6f", norm);
         }

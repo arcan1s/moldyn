@@ -94,6 +94,7 @@ int main(int argc, char *argv[])
  * @return 1              - error in error_checking
  * @return 2              - input file does not exist
  * @return 3              - memory error
+ * @return 4              - unknown flag
  * @return 0              - exit without errors
  */
 {
@@ -141,7 +142,7 @@ int main(int argc, char *argv[])
   
   for (i=1; i<argc; i++)
   {
-    if ((argv[i][0] == '-') && (argv[i][1] == 'h'))
+    if ((argv[i][0] == '-') && (argv[i][1] == 'h') && (argv[i][2] == '\0'))
     {
       sprintf (tmp_str, "                                        radf\n");
       sprintf (tmp_str, "%sProgram that calculates radial distribution function (RDF) or radial-angles\n", tmp_str);
@@ -171,13 +172,13 @@ int main(int argc, char *argv[])
       fputs (tmp_str, stdout);
       return 0;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'i'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'i') && (argv[i][2] == '\0'))
 // input file
     {
       strcpy (input, argv[i+1]);
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 's'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 's') && (argv[i][2] == '\0'))
 // steps
     {
       sscanf (argv[i+1], "%i,%i", &from, &to);
@@ -190,13 +191,13 @@ int main(int argc, char *argv[])
       step = to - from + 1;
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'c'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'c') && (argv[i][2] == '\0'))
 // cell size
     {
       sscanf (argv[i+1], "%f,%f,%f", &cell[0], &cell[1], &cell[2]);
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'a') && (argv[i][2] == 't'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'a') && (argv[i][2] == 't') && (argv[i][3] == '\0'))
 // atom types
     {
       num_needed_at = 2;
@@ -210,7 +211,7 @@ int main(int argc, char *argv[])
                 &needed_at[3], &needed_at[4], &needed_at[5]);
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'o'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'o') && (argv[i][2] == '\0'))
 // output file
     {
       strcpy (output, argv[i+1]);
@@ -228,7 +229,7 @@ int main(int argc, char *argv[])
       }
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'r') && (argv[i][2] == 's'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'r') && (argv[i][2] == 's') && (argv[i][3] == '\0'))
 // radius step
     {
       sscanf (argv[i+1], "%f", &r_step);
@@ -246,28 +247,33 @@ int main(int argc, char *argv[])
       }
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'a') && (argv[i][2] == 's'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'a') && (argv[i][2] == 's') && (argv[i][3] == '\0'))
 // angle step
     {
       sscanf (argv[i+1], "%f", &ang_step);
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'm'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'm') && (argv[i][2] == '\0'))
 // matrix mode
     {
       matrix = 1;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'l'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'l') && (argv[i][2] == '\0'))
 // log mode
     {
       log = 1;
       strcpy (logfile, argv[i+1]);
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'q'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 'q') && (argv[i][2] == '\0'))
 // quiet mode
     {
       quiet = 1;
+    }
+    else
+// unknown flag
+    {
+      return 4;
     }
   }
   

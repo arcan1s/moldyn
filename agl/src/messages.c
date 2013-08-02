@@ -21,6 +21,7 @@ int message (const int log, const int mode, const char *text, FILE *output)
  * @param text            additional text
  * @param output          output file (may be stdout)
  * 
+ * @return 1              - unknown mode
  * @return 0              - exit without errors
  */
 {
@@ -40,7 +41,7 @@ int message (const int log, const int mode, const char *text, FILE *output)
   switch (mode)
   {
     case 0:
-      sprintf (out, "Starting program: '%s'\n", text);
+      sprintf (out, "Start program: '%s'\n", text);
       break;
     case 1:
       sprintf (out, "Checking errors\n");
@@ -82,7 +83,7 @@ int message (const int log, const int mode, const char *text, FILE *output)
       sprintf (out, "End of processing\n");
       break;
     case 14:
-      sprintf (out, "Printing summary statistic to file '%s'\n", text);
+      sprintf (out, "Print result to file '%s'\n", text);
       break;
     case 15:
       sprintf (out, "Free memory\n");
@@ -104,6 +105,12 @@ int message (const int log, const int mode, const char *text, FILE *output)
       break;
     case 21:
       sprintf (out, "%6cEnvironment was selected successfully\n", ' ');
+      break;
+    case 22:
+      sprintf (out, "%6cRADF was appended successfully\n", ' ');
+      break;
+    default:
+      return 1;
       break;
   }
   
