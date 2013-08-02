@@ -24,13 +24,13 @@
  * @section How-To-Use How to use
  * Usage:
  * <pre>
- * agl -a FILENAME -i FILENAME -c X,Y,Z -o FILEMANE [ -l LOGFILE] [ -q ] [ -h ]
+ * agl -a AGL_INP -i INPUT -c X,Y,Z -o OUTPUT [ -l LOGFILE ] [ -q ] [ -h ]
  *
  * Parametrs:
  *    -a          - input file with aglomerates (in format statgen)
  *    -i          - input file with coordinates
  *    -c          - cell size (float), A
- *    -o          - output file with coordinates
+ *    -o          - output file name
  *    -l          - log enable
  *    -q          - quiet enable
  *    -h          - show this help and exit
@@ -39,7 +39,7 @@
  * @page Install
  * 
  * @section Requirements Requirements
- * The application statgen requires the following external stuff:
+ * The application agl requires the following external stuff:
  * - cmake  >= 2.8
  * - gcc    >= 4.8
  *
@@ -131,12 +131,12 @@ int main(int argc, char *argv[])
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);
-      sprintf (tmp_str, "%sagl -a FILENAME -i FILENAME -c X,Y,Z -o FILEMANE [ -l LOGFILE] [ -q ] [ -h ]\n\n", tmp_str);
+      sprintf (tmp_str, "%sagl -a AGL_INP -i INPUT -c X,Y,Z -o OUTPUT [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
       sprintf (tmp_str, "%sParametrs:\n", tmp_str);
       sprintf (tmp_str, "%s  -a          - input file with aglomerates (in format statgen)\n", tmp_str);
       sprintf (tmp_str, "%s  -i          - input file with coordinates\n", tmp_str);
       sprintf (tmp_str, "%s  -c          - cell size (float), A\n", tmp_str);
-      sprintf (tmp_str, "%s  -o          - output file with coordinates\n", tmp_str);
+      sprintf (tmp_str, "%s  -o          - output file name\n", tmp_str);
       sprintf (tmp_str, "%s  -l          - log enable\n", tmp_str);
       sprintf (tmp_str, "%s  -q          - quiet enable\n", tmp_str);
       sprintf (tmp_str, "%s  -h          - show this help and exit\n", tmp_str);

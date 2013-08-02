@@ -3,7 +3,8 @@ Version: 1.0.1
 License: GPL
 
 Usage:
-  statgen -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -r ... -o OUTPUT [ -g DEPTH ] [ -l LOGFILE ] [ -q ] [ -h ]
+  statgen -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -r ... -o OUTPUT [ -g DEPTH ] 
+                                                  [ -l LOGFILE ] [ -q ] [ -h ]
 
 Parametrs:
   -i          - mask of input files

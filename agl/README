@@ -3,7 +3,7 @@ Version: 1.0.1
 License: GPL
 
 Usage:
-  agl -a FILENAME -i FILENAME -c X,Y,Z -o FILEMANE [ -l LOGFILE] [ -q ] [ -h ]
+  agl -a FILENAME -i FILENAME -c X,Y,Z -o FILEMANE [ -l LOGFILE ] [ -q ] [ -h ]
 
 Parametrs:
   -a          - input file with aglomerates (in format statgen)

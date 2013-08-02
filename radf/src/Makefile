@@ -1,12 +1,12 @@
-PROJECT=STATGEN
+PROJECT=RADF
 
 CC=gcc
 CFLAGS=-c -Wall -fPIC
 LDFLAGS=-lm
 SOURCES_DIR=src
-SOURCES=main.c add_main.c coords.c graph.c messages.c stat_print.c stat_select.c stat_sort.c summary_stat.c
+SOURCES=main.c add_main.c coords.c messages.c radf.c radf_proc.c
 OBJECTS=$(SOURCES:.c=.o)
-EXECUTABLE=statgen
+EXECUTABLE=radf
 
 $(PROJECT): $(SOURCES) $(EXECUTABLE)
 

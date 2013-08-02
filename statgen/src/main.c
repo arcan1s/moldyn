@@ -25,7 +25,7 @@
  * Usage:
  * <pre>
  * statgen -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -r ... -o OUTPUT [ -g DEPTH ] 
- *                                                  [ -l LOGFILE ] [ -q ] [ -h ]
+ *                                                 [ -l LOGFILE ] [ -q ] [ -h ]
  *
  * Parametrs:
  *    -i          - mask of input files
@@ -78,7 +78,6 @@
 
 #include "add_main.h"
 #include "coords.h"
-#include "int2char.h"
 #include "messages.h"
 #include "stat_print.h"
 #include "stat_select.h"
@@ -98,7 +97,7 @@ int main (int argc, char *argv[])
  */
 {
   char filename[256], tmp_str[2048];
-  int error, i, index, j, k, label[2];
+  int error, i, index, j, label[2];
   float label_fl;
   FILE *f_inp, *f_log;
   
@@ -164,7 +163,8 @@ int main (int argc, char *argv[])
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);
-      sprintf (tmp_str, "%sstatgen -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -r ... -o OUTPUT [ -g DEPTH ] [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
+      sprintf (tmp_str, "%sstatgen -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -r ... -o OUTPUT [ -g DEPTH ]\n", tmp_str);
+      sprintf (tmp_str, "%s                                                [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
       sprintf (tmp_str, "%sParametrs:\n", tmp_str);
       sprintf (tmp_str, "%s  -i          - mask of input files\n", tmp_str);
       sprintf (tmp_str, "%s  -s          - trajectory steps (integer)\n", tmp_str);
@@ -298,13 +298,7 @@ int main (int argc, char *argv[])
   
 // processing
 // initial variables
-  k = strlen (input);
-  strcpy (filename, input);
-  filename[k] = '.';
-  filename[k+1] = conv (from, 3);
-  filename[k+2] = conv (from, 2);
-  filename[k+3] = conv (from, 1);
-  filename[k+4] = '\0';
+  sprintf (filename, "%s.%03i", input, from);
   print_message (quiet, stdout, log, f_log, 3, filename);
   f_inp = fopen (filename, "r");
   if (f_inp == NULL)
@@ -327,15 +321,15 @@ int main (int argc, char *argv[])
   stat_all = (int *) malloc (2 * sizeof (int));
 // error checking
   if ((coords == NULL) || 
-    (label_mol == NULL) || 
-    (true_label_mol == NULL) || 
-    (type_agl == NULL) || 
-    (type_atoms == NULL) || 
-    (agl == NULL) || 
-    (connect == NULL) || 
-    (num_mol_agl == NULL) || 
-    (stat == NULL) || 
-    (stat_all == NULL))
+     (label_mol == NULL) || 
+     (true_label_mol == NULL) || 
+     (type_agl == NULL) || 
+     (type_atoms == NULL) || 
+     (agl == NULL) || 
+     (connect == NULL) || 
+     (num_mol_agl == NULL) || 
+     (stat == NULL) || 
+     (stat_all == NULL))
   {
     print_message (quiet, stderr, log, f_log, 19, argv[0]);
     return 3;
@@ -371,15 +365,12 @@ int main (int argc, char *argv[])
   for (i=from; i<to+1; i++)
   {
 // reading coordinates
-    filename[k+1] = conv (i, 3);
-    filename[k+2] = conv (i, 2);
-    filename[k+3] = conv (i, 1);
-    filename[k+4] = '\0';
+    sprintf (filename, "%s.%03i", input, i);
     print_message (quiet, stdout, log, f_log, 7, filename);
     error = reading_coords (0, filename, type_inter, label_atom, cell, &num_mol, 
                             &num_atoms, true_label_mol, label_mol, type_atoms, 
                             coords, tmp_str);
-    if (error != 1)
+    if (error == 0)
     {
       sprintf (tmp_str, "%6cNumber of molecules: %i; %6cNumber of atoms: %i\n", 
                ' ', num_mol, ' ', num_atoms);
@@ -399,10 +390,10 @@ int main (int argc, char *argv[])
     }
 // error checking
     if ((agl == NULL) || 
-      (connect == NULL) || 
-      (num_mol_agl == NULL) || 
-      (stat == NULL) || 
-      (stat_all == NULL))
+       (connect == NULL) || 
+       (num_mol_agl == NULL) || 
+       (stat == NULL) || 
+       (stat_all == NULL))
     {
       print_message (quiet, stderr, log, f_log, 19, argv[0]);
       return 3;

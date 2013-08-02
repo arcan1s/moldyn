@@ -24,13 +24,13 @@
  * @section How-To-Use How to use
  * Usage:
  * <pre>
- * envir -i FILENAME -c X,Y,Z -o FILEMANE [ -n NUM_OF_MOLECULE ] [ -r RADIUS ] 
- *                                                   [ -l LOGFILE] [ -q ] [ -h ]
+ * envir -i INPUT -c X,Y,Z -o OUTPUT [ -n NUM_OF_MOLECULE ] [ -r RADIUS ] 
+ *                                           [ -l LOGFILE ] [ -q ] [ -h ]
  *
  * Parametrs:
- *    -i          - input file with coordinates
+ *    -i          - input file name
  *    -c          - cell size (float), A
- *    -o          - output file with coordinates
+ *    -o          - output file name
  *    -n          - number of molecule for search (integer). Default is 1
  *    -r          - radius of environment (float). Default is 6.0
  *    -l          - log enable
@@ -41,7 +41,7 @@
  * @page Install
  * 
  * @section Requirements Requirements
- * The application statgen requires the following external stuff:
+ * The application envir requires the following external stuff:
  * - cmake  >= 2.8
  * - gcc    >= 4.8
  *
@@ -133,11 +133,12 @@ int main(int argc, char *argv[])
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);
-      sprintf (tmp_str, "%senvir -i FILENAME -c X,Y,Z -o FILEMANE [ -n NUM_OF_MOLECULE ] [ -r RADIUS ] [ -l LOGFILE] [ -q ] [ -h ]\n\n", tmp_str);
+      sprintf (tmp_str, "%senvir -i INPUT -c X,Y,Z -o OUTPUT [ -n NUM_OF_MOLECULE ] [ -r RADIUS ]\n", tmp_str);
+      sprintf (tmp_str, "%s                                          [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
       sprintf (tmp_str, "%sParametrs:\n", tmp_str);
-      sprintf (tmp_str, "%s  -i          - input file with coordinates\n", tmp_str);
+      sprintf (tmp_str, "%s  -i          - input file name\n", tmp_str);
       sprintf (tmp_str, "%s  -c          - cell size (float), A\n", tmp_str);
-      sprintf (tmp_str, "%s  -o          - output file with coordinates\n", tmp_str);
+      sprintf (tmp_str, "%s  -o          - output file name\n", tmp_str);
       sprintf (tmp_str, "%s  -n          - number of molecule for search (integer). Default is 1\n", tmp_str);
       sprintf (tmp_str, "%s  -r          - radius of environment (float). Default is 6.0\n", tmp_str);
       sprintf (tmp_str, "%s  -l          - log enable\n", tmp_str);
