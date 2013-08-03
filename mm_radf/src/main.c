@@ -393,9 +393,9 @@ needed_at[1], needed_at[2], needed_at[3], needed_at[4], needed_at[5]);
                                r_step, ang_min, ang_max, ang_step, radf);
           break;
       }
-      if (error == 0)
-        print_message (quiet, stdout, log, f_log, 22, argv[0]);
     }
+    if (error == 0)
+      print_message (quiet, stdout, log, f_log, 22, argv[0]);
   }
   
   print_message (quiet, stdout, log, f_log, 13, argv[0]);

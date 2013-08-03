@@ -222,11 +222,11 @@ int main(int argc, char *argv[])
   true_label_mol = (int *) malloc (num_atoms * sizeof (int));
 // error checking
   if ((ch_type_atoms == NULL) ||
-    (coords == NULL) || 
-    (label_mol == NULL) || 
-    (needed_mol == NULL) || 
-    (tmp_int == NULL) || 
-    (true_label_mol == NULL))
+     (coords == NULL) || 
+     (label_mol == NULL) || 
+     (needed_mol == NULL) || 
+     (tmp_int == NULL) || 
+     (true_label_mol == NULL))
   {
     print_message (quiet, stderr, log, f_log, 19, argv[0]);
     return 3;
@@ -248,6 +248,7 @@ int main(int argc, char *argv[])
     print_message (quiet, stdout, log, f_log, 8, tmp_str);
 // reading coordinates
     print_message (quiet, stdout, log, f_log, 7, input);
+    error = 1;
     error = reading_coords (2, input, num_needed_mol, needed_mol, cell, &num_mol, 
                             &num_atoms, true_label_mol, label_mol, tmp_int, coords, 
                             ch_type_atoms);
@@ -257,31 +258,32 @@ int main(int argc, char *argv[])
       print_message (quiet, stderr, log, f_log, 19, argv[0]);
       return 3;
     }
+  }
     
 // analyze
-    if (error == 0)
-    {
-      sprintf (tmp_str, "%6cNumber of molecules: %i; %6cNumber of atoms: %i\n", 
-              ' ', num_mol, ' ', num_atoms);
-      print_message (quiet, stdout, log, f_log, 8, tmp_str);
-      error = 1;
-      error = set_center (num_atoms, num_mol, label_mol, coords, centr_coords);
-      if (error == 0)
-      {
-        print_message (quiet, stderr, log, f_log, 20, argv[0]);
-        error = 1;
-        error = select_molecule (centr_coords, num_needed_mol, needed_mol);
-        if (error == 0)
-        {
-          print_message (quiet, stderr, log, f_log, 4, argv[0]);
-          error = 1;
-          error = print_structure (output, num_needed_mol, needed_mol, num_atoms, 
-                                   label_mol, ch_type_atoms, coords);
-          print_message (quiet, stderr, log, f_log, 12, output);
-        }
-      }
-    }
+  if (error == 0)
+  {
+    sprintf (tmp_str, "%6cNumber of molecules: %i; %6cNumber of atoms: %i\n", 
+            ' ', num_mol, ' ', num_atoms);
+    print_message (quiet, stdout, log, f_log, 8, tmp_str);
+    error = 1;
+    error = set_center (num_atoms, num_mol, label_mol, coords, centr_coords);
   }
+  if (error == 0)
+  {
+    print_message (quiet, stderr, log, f_log, 20, argv[0]);
+    error = 1;
+    error = select_molecule (centr_coords, num_needed_mol, needed_mol);
+  }
+  if (error == 0)
+  {
+    print_message (quiet, stderr, log, f_log, 4, argv[0]);
+    error = 1;
+    error = print_structure (output, num_needed_mol, needed_mol, num_atoms, 
+                              label_mol, ch_type_atoms, coords);
+  }
+  if (error == 0)
+    print_message (quiet, stderr, log, f_log, 12, output);
   
   print_message (quiet, stderr, log, f_log, 13, argv[0]);
   

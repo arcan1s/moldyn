@@ -414,21 +414,21 @@ int main (int argc, char *argv[])
       error = 1;
       error = create_matrix (num_mol, num_atoms, label_mol, type_atoms, coords, 
                              num_of_inter, crit, connect);
-      if (error == 0)
-      {
-        print_message (quiet, stdout, log, f_log, 10, argv[0]);
-        error = 1;
-        error = proc_matrix (num_mol, connect, num_mol_agl, agl, stat, stat_all);
-        if (error == 0)
-        {
-          print_message (quiet, stdout, log, f_log, 11, argv[0]);
-          error = printing_agl (filename, output, connect, num_mol, true_label_mol, 
-                                num_mol_agl, agl, stat, max_depth, type_agl);
-          if (error == 0)
-            print_message (quiet, stdout, log, f_log, 12, output);
-        }
-      }
     }
+    if (error == 0)
+    {
+      print_message (quiet, stdout, log, f_log, 10, argv[0]);
+      error = 1;
+      error = proc_matrix (num_mol, connect, num_mol_agl, agl, stat, stat_all);
+    }
+    if (error == 0)
+    {
+      print_message (quiet, stdout, log, f_log, 11, argv[0]);
+      error = printing_agl (filename, output, connect, num_mol, true_label_mol, 
+                            num_mol_agl, agl, stat, max_depth, type_agl);
+    }
+    if (error == 0)
+      print_message (quiet, stdout, log, f_log, 12, output);
   }
   
   print_message (quiet, stdout, log, f_log, 13, argv[0]);
