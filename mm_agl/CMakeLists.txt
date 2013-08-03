@@ -5,7 +5,7 @@ cmake_policy(SET CMP0011 NEW)
 cmake_policy(SET CMP0015 NEW)
 
 # set project name
-set (PROJECT envir)
+set (PROJECT mm_agl)
 # set additional cmake file
 include (${PROJECT}.cmake)
 

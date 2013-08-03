@@ -1,11 +1,11 @@
-radf - program that calculates radial distribution function (RDF) or radial-angles 
+mm_radf - program that calculates radial distribution function (RDF) or radial-angles 
 distribution function
 Version : 1.0.1
 License : GPL
 
 Usage:
-radf -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -o OUTPUT [ -r MIN,MAX ] [ -rs R_STEP ] 
-                [ -a MIN,MAX ] [ -as ANG_STEP ] [ -m ] [ -l LOGFILE ] [ -q ] [ -h ]
+mm_radf -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -o OUTPUT [ -r MIN,MAX ] [ -rs R_STEP ] 
+                   [ -a MIN,MAX ] [ -as ANG_STEP ] [ -m ] [ -l LOGFILE ] [ -q ] [ -h ]
 
 Parametrs:
   -i          - mask of input files

@@ -5,7 +5,7 @@ cmake_policy(SET CMP0011 NEW)
 cmake_policy(SET CMP0015 NEW)
 
 # set project name
-set (PROJECT agl)
+set (PROJECT mm_radf)
 # set additional cmake file
 include (${PROJECT}.cmake)
 

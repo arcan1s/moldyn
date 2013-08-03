@@ -2,7 +2,7 @@
  * @file
  */
 /**
- * @mainpage agl
+ * @mainpage mm_agl
  * @image latex ./logo.png
  *
  * @section intro_sec Introduction
@@ -24,7 +24,7 @@
  * @section How-To-Use How to use
  * Usage:
  * <pre>
- * agl -a AGL_INP -i INPUT -c X,Y,Z -o OUTPUT [ -l LOGFILE ] [ -q ] [ -h ]
+ * mm_agl -a AGL_INP -i INPUT -c X,Y,Z -o OUTPUT [ -l LOGFILE ] [ -q ] [ -h ]
  *
  * Parametrs:
  *    -a          - input file with aglomerates (in format statgen)
@@ -39,7 +39,7 @@
  * @page Install
  * 
  * @section Requirements Requirements
- * The application agl requires the following external stuff:
+ * The application mm_agl requires the following external stuff:
  * - cmake  >= 2.8
  * - gcc    >= 4.8
  *
@@ -126,13 +126,13 @@ int main(int argc, char *argv[])
   {
     if ((argv[i][0] == '-') && (argv[i][1] == 'h') && (argv[i][2] == '\0'))
     {
-      sprintf (tmp_str, "                                        agl\n");
+      sprintf (tmp_str, "                                     mm_agl\n");
       sprintf (tmp_str, "%sProgram for create PDB file with chosen aglomerate\n", tmp_str);
       sprintf (tmp_str, "%sVersion : 1.0.1                                                    License : GPL\n", tmp_str);
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);
-      sprintf (tmp_str, "%sagl -a AGL_INP -i INPUT -c X,Y,Z -o OUTPUT [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
+      sprintf (tmp_str, "%smm_agl -a AGL_INP -i INPUT -c X,Y,Z -o OUTPUT [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
       sprintf (tmp_str, "%sParametrs:\n", tmp_str);
       sprintf (tmp_str, "%s  -a          - input file with aglomerates (in format statgen)\n", tmp_str);
       sprintf (tmp_str, "%s  -i          - input file with coordinates\n", tmp_str);

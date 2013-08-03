@@ -2,7 +2,7 @@
  * @file
  */
 /**
- * @mainpage statgen 
+ * @mainpage mm_statgen 
  * @image latex ./logo.png
  *
  * @section intro_sec Introduction
@@ -24,8 +24,8 @@
  * @section How-To-Use How to use
  * Usage:
  * <pre>
- * statgen -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -r ... -o OUTPUT [ -g DEPTH ] 
- *                                                 [ -l LOGFILE ] [ -q ] [ -h ]
+ * mm_statgen -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -r ... -o OUTPUT [ -g DEPTH ] 
+ *                                                    [ -l LOGFILE ] [ -q ] [ -h ]
  *
  * Parametrs:
  *    -i          - mask of input files
@@ -44,7 +44,7 @@
  * @page Install
  * 
  * @section Requirements Requirements
- * The application statgen requires the following external stuff:
+ * The application mm_statgen requires the following external stuff:
  * - cmake  >= 2.8
  * - gcc    >= 4.8
  *
@@ -160,14 +160,14 @@ int main (int argc, char *argv[])
   {
     if ((argv[i][0] == '-') && (argv[i][1] == 'h') && (argv[i][2] == '\0'))
     {
-      sprintf (tmp_str, "                                        statgen\n");
+      sprintf (tmp_str, "                                     mm_statgen\n");
       sprintf (tmp_str, "%sProgram for analyze molecular dynamic trajectories\n", tmp_str);
       sprintf (tmp_str, "%sVersion : 1.0.1                                                    License : GPL\n", tmp_str);
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);
-      sprintf (tmp_str, "%sstatgen -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -r ... -o OUTPUT [ -g DEPTH ]\n", tmp_str);
-      sprintf (tmp_str, "%s                                                [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
+      sprintf (tmp_str, "%smm_statgen -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -r ... -o OUTPUT [ -g DEPTH ]\n", tmp_str);
+      sprintf (tmp_str, "%s                                                   [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
       sprintf (tmp_str, "%sParametrs:\n", tmp_str);
       sprintf (tmp_str, "%s  -i          - mask of input files\n", tmp_str);
       sprintf (tmp_str, "%s  -s          - trajectory steps (integer)\n", tmp_str);

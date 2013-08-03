@@ -2,7 +2,7 @@
  * @file
  */
 /**
- * @mainpage radf
+ * @mainpage mm_radf
  * @image latex ./logo.png
  *
  * @section intro_sec Introduction
@@ -25,8 +25,8 @@
  * @section How-To-Use How to use
  * Usage:
  * <pre>
- * radf -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -o OUTPUT [ -r MIN,MAX ] [ -rs R_STEP ] 
- *                 [ -a MIN,MAX ] [ -as ANG_STEP ] [ -m ] [ -l LOGFILE ] [ -q ] [ -h ]
+ * mm_radf -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -o OUTPUT [ -r MIN,MAX ] [ -rs R_STEP ] 
+ *                    [ -a MIN,MAX ] [ -as ANG_STEP ] [ -m ] [ -l LOGFILE ] [ -q ] [ -h ]
  * Parametrs:
  *    -i          - mask of input files
  *    -s          - trajectory steps (integer)
@@ -48,7 +48,7 @@
  * @page Install
  * 
  * @section Requirements Requirements
- * The application radf requires the following external stuff:
+ * The application mm_radf requires the following external stuff:
  * - cmake  >= 2.8
  * - gcc    >= 4.8
  *
@@ -144,15 +144,15 @@ int main(int argc, char *argv[])
   {
     if ((argv[i][0] == '-') && (argv[i][1] == 'h') && (argv[i][2] == '\0'))
     {
-      sprintf (tmp_str, "                                        radf\n");
+      sprintf (tmp_str, "                                    mm_radf\n");
       sprintf (tmp_str, "%sProgram that calculates radial distribution function (RDF) or radial-angles\n", tmp_str);
       sprintf (tmp_str, "%sdistribution function\n", tmp_str);
       sprintf (tmp_str, "%sVersion : 1.0.1                                                    License : GPL\n", tmp_str);
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);
-      sprintf (tmp_str, "%sradf -i INPUT -s FIRST,LAST -c X,Y,Z -at ... -o OUTPUT [ -r MIN,MAX ] [ -rs R_STEP ]\n", tmp_str);
-      sprintf (tmp_str, "%s                 [ -a MIN,MAX ] [ -as ANG_STEP ] [ -m ] [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
+      sprintf (tmp_str, "%smm_radf -i INPUT -s FIRST,LAST -c X,Y,Z -at ... -o OUTPUT [ -r MIN,MAX ] [ -rs R_STEP ]\n", tmp_str);
+      sprintf (tmp_str, "%s                    [ -a MIN,MAX ] [ -as ANG_STEP ] [ -m ] [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
       sprintf (tmp_str, "%sParametrs:\n", tmp_str);
       sprintf (tmp_str, "%s  -i          - mask of input files\n", tmp_str);
       sprintf (tmp_str, "%s  -s          - trajectory steps (integer)\n", tmp_str);

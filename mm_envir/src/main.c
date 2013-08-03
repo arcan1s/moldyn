@@ -2,7 +2,7 @@
  * @file
  */
 /**
- * @mainpage envir
+ * @mainpage mm_envir
  * @image latex ./logo.png
  *
  * @section intro_sec Introduction
@@ -24,7 +24,7 @@
  * @section How-To-Use How to use
  * Usage:
  * <pre>
- * envir -i INPUT -c X,Y,Z -o OUTPUT [ -n NUM_OF_MOLECULE ] [ -r RADIUS ] 
+ * mm_envir -i INPUT -c X,Y,Z -o OUTPUT [ -n NUM_OF_MOLECULE ] [ -r RADIUS ] 
  *                                           [ -l LOGFILE ] [ -q ] [ -h ]
  *
  * Parametrs:
@@ -41,7 +41,7 @@
  * @page Install
  * 
  * @section Requirements Requirements
- * The application envir requires the following external stuff:
+ * The application mm_envir requires the following external stuff:
  * - cmake  >= 2.8
  * - gcc    >= 4.8
  *
@@ -128,14 +128,14 @@ int main(int argc, char *argv[])
   {
     if ((argv[i][0] == '-') && (argv[i][1] == 'h') && (argv[i][2] == '\0'))
     {
-      sprintf (tmp_str, "                                        envir\n");
+      sprintf (tmp_str, "                                     mm_envir\n");
       sprintf (tmp_str, "%sProgram for search environment for chosen molecule by geometric criterion\n", tmp_str);
       sprintf (tmp_str, "%sVersion : 1.0.1                                                    License : GPL\n", tmp_str);
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);
-      sprintf (tmp_str, "%senvir -i INPUT -c X,Y,Z -o OUTPUT [ -n NUM_OF_MOLECULE ] [ -r RADIUS ]\n", tmp_str);
-      sprintf (tmp_str, "%s                                          [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
+      sprintf (tmp_str, "%smm_envir -i INPUT -c X,Y,Z -o OUTPUT [ -n NUM_OF_MOLECULE ] [ -r RADIUS ]\n", tmp_str);
+      sprintf (tmp_str, "%s                                             [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
       sprintf (tmp_str, "%sParametrs:\n", tmp_str);
       sprintf (tmp_str, "%s  -i          - input file name\n", tmp_str);
       sprintf (tmp_str, "%s  -c          - cell size (float), A\n", tmp_str);
