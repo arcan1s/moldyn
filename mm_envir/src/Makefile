@@ -6,7 +6,7 @@ LDFLAGS=-lm
 SOURCES_DIR=src
 SOURCES=main.c add_main.c coords.c envir_search.c messages.c print_struct.c set_center.c
 OBJECTS=$(SOURCES:.c=.o)
-EXECUTABLE=envir
+EXECUTABLE=mm_envir
 
 $(PROJECT): $(SOURCES) $(EXECUTABLE)
 
@@ -17,5 +17,4 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -f *.o
-
+	rm -f *.o test*

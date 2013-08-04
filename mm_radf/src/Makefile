@@ -6,7 +6,7 @@ LDFLAGS=-lm
 SOURCES_DIR=src
 SOURCES=main.c add_main.c coords.c messages.c radf.c radf_proc.c
 OBJECTS=$(SOURCES:.c=.o)
-EXECUTABLE=radf
+EXECUTABLE=mm_radf
 
 $(PROJECT): $(SOURCES) $(EXECUTABLE)
 
@@ -17,5 +17,4 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -f *.o
-
+	rm -f *.o test*

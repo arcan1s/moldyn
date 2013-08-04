@@ -1,12 +1,12 @@
-PROJECT=AGL
+PROJECT=TRJ
 
 CC=gcc
 CFLAGS=-c -Wall -fPIC
 LDFLAGS=-lm
 SOURCES_DIR=src
-SOURCES=main.c add_main.c coords.c messages.c print_struct.c read_agl.c select_mol.c set_center.c
+SOURCES=main.c add_main.c atom_types.c messages.c read_gmx.c read_puma.c print_trj.c
 OBJECTS=$(SOURCES:.c=.o)
-EXECUTABLE=mm_agl
+EXECUTABLE=mm_trj
 
 $(PROJECT): $(SOURCES) $(EXECUTABLE)
 
@@ -18,3 +18,4 @@ $(EXECUTABLE): $(OBJECTS)
 
 clean:
 	rm -f *.o test*
+

@@ -6,7 +6,7 @@ LDFLAGS=-lm
 SOURCES_DIR=src
 SOURCES=main.c add_main.c coords.c graph.c messages.c stat_print.c stat_select.c stat_sort.c summary_stat.c
 OBJECTS=$(SOURCES:.c=.o)
-EXECUTABLE=statgen
+EXECUTABLE=mm_statgen
 
 $(PROJECT): $(SOURCES) $(EXECUTABLE)
 
@@ -17,5 +17,4 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -f *.o
-
+	rm -f *.o test*
