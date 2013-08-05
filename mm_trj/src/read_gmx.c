@@ -15,7 +15,7 @@ int translate_coords (const float coords, const float cell, float *trans)
 /**
  * @brief funtion that translates coordinate
  * @code
- * 
+ * translate_coords (coords[3*i+j], cell[j], trans);
  * @endcode
  * 
  * @param coords          coordinate
