@@ -39,6 +39,12 @@ int rw_puma (const char *input, const int step, const char *output, const int nu
   int atoms, i, j, k, l, m, n;
   FILE *f_inp;
   
+/* filename               output file name
+ * cell                   cell size
+ * atom                   number of atoms
+ * f_inp                  input file
+ */
+  
   f_inp = fopen (input, "r");
   if (f_inp == NULL)
     return 1;
@@ -51,7 +57,7 @@ int rw_puma (const char *input, const int step, const char *output, const int nu
     sscanf (tmp_str, "%s%s%i%s", tmp_str, tmp_str, &atoms, tmp_str);
     fgets (tmp_str, 256, f_inp);
     sscanf (tmp_str, "%f%f%f", &cell[0], &cell[1], &cell[2]);
-
+// coordinates
     for (j=0; j<atoms; j++)
     {
       fgets (tmp_str, 256, f_inp);
@@ -64,18 +70,19 @@ int rw_puma (const char *input, const int step, const char *output, const int nu
     while (j < atoms)
       for (k=0; k<num_types; k++)
         for (l=0; l<num_mol[k]; l++)
+        {
+          for (m=0; m<3; m++)
           {
-            for (m=0; m<3; m++)
-            {
-              while (coords[3*j+m] > cell[m]/2)
-                for (n=j; n<j+num_atoms[k]; n++)
-                  coords[3*n+m] -= cell[m];
-              while (coords[3*j+m] < -cell[m]/2)
-                for (n=j; n<j+num_atoms[k]; n++)
-                  coords[3*n+m] += cell[m];
-            }
-            j += num_atoms[k];
+            while (coords[3*j+m] > cell[m]/2)
+              for (n=j; n<j+num_atoms[k]; n++)
+                coords[3*n+m] -= cell[m];
+            while (coords[3*j+m] < -cell[m]/2)
+              for (n=j; n<j+num_atoms[k]; n++)
+                coords[3*n+m] += cell[m];
           }
+          j += num_atoms[k];
+        }
+    
 // write to output
     printing_trj (filename, atoms, num_types, num_mol, num_atoms, ch_atom_types, 
                   atom_types, coords);

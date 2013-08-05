@@ -24,21 +24,15 @@
  * @section How-To-Use How to use
  * Usage:
  * <pre>
- * mm_radf -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -o OUTPUT [ -r MIN,MAX ] [ -rs R_STEP ] 
- *                    [ -a MIN,MAX ] [ -as ANG_STEP ] [ -m ] [ -l LOGFILE ] [ -q ] [ -h ]
+ * mm_trj -i INPUT_TRJ -t INPUT_TYPE -s NUMBER -a INPUT_ATOMS -o OUTPUT [ -tt TOTAL_TYPES ]
+ *                                                             [ -l LOGFILE ] [ -q ] [ -h ]
  * Parametrs:
- *    -i          - mask of input files
- *    -s          - trajectory steps (integer)
- *    -c          - cell size (float), A
- *    -a          - atom types (integer). Format: 'ATOM1-ATOM2' or 'A1,A2,A3-B1,B2,B3' 
- *                  (will enable RDF calculation for center mass automaticaly)
- *    -o          - output file name
- *    -r          - minimal and maximal radii for analyze (float), A. Default is '2.0,15.0'
- *    -rs         - radius step for analyze (float), A. Default is '0.2'
- *    -a          - minimal and maximal angles for analyze (float), deg. Default is '0.0,90.0'
- *    -as         - angle step for analyze (float), deg. This option will enable RADF 
- *                  calculation automaticaly
- *    -m          - matrix output enable
+ *    -i          - input file name
+ *    -t          - type of trajectory. Supported formats: gmx, puma
+ *    -s          - number of trajectory steps (integer)
+ *    -a          - input file with atom types. See file format in manual
+ *    -o          - mask of output files
+ *    -tt         - number of different atom types. Default is 1024
  *    -l          - log enable
  *    -q          - quiet enable
  *    -h          - show this help and exit
@@ -269,6 +263,7 @@ int main(int argc, char *argv[])
   error = 1;
   error = reading_atoms (input_at, &num_types, num_mol, num_atoms, ch_atom_types, 
                          atom_types, total_types);
+  
   if (error == 0)
   {
     sprintf (tmp_str, "%6cLog: %i;\n%6cQuiet: %i;\n%6cInput file: %s;\n%6cTrajectory type: %i;\n\
