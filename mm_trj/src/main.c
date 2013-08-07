@@ -183,7 +183,7 @@ int main(int argc, char *argv[])
       strcpy (output, argv[i+1]);
       i++;
     }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 't') && (argv[i][1] == 't') && (argv[i][2] == '\0'))
+    else if ((argv[i][0] == '-') && (argv[i][1] == 't') && (argv[i][2] == 't') && (argv[i][3] == '\0'))
 // number of atom types
     {
       sscanf (argv[i+1], "%i", &total_types);

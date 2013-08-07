@@ -1,0 +1,3449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>564</width>
+    <height>554</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Mathematical Molecular Mechanics</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="1">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="trj">
+       <attribute name="title">
+        <string>Generate trajectory</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <layout class="QHBoxLayout" name="trj_layout_workDir">
+          <item>
+           <widget class="QLabel" name="trj_label_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Work directory</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="trj_lineEdit_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="trj_pushButton_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="trj_layout_input">
+          <item>
+           <widget class="QLabel" name="trj_label_input">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Input file</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="trj_lineEdit_input">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="trj_pushButton_input">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="trj_layout_opt_1">
+          <item>
+           <widget class="QLabel" name="trj_label_type">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Type of trajectory</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="trj_comboBox_type">
+            <property name="minimumSize">
+             <size>
+              <width>130</width>
+              <height>23</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>GROMACS text</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>PUMA</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="trj_label_steps">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Number of steps</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="trj_spinBox_steps">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>999</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="trj_layout_atoms">
+          <item>
+           <widget class="QLabel" name="trj_label_atoms">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Atom type file</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="trj_lineEdit_atoms">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="trj_pushButton_atoms">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="trj_layout_output">
+          <item>
+           <widget class="QLabel" name="trj_label_output">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Mask of output files</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="trj_lineEdit_output">
+            <property name="minimumSize">
+             <size>
+              <width>365</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="trj_layout_opt_2">
+          <item>
+           <widget class="QLabel" name="trj_label_totalTypes">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Total atom types</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="trj_spinBox_totalTypes">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="minimum">
+             <number>1024</number>
+            </property>
+            <property name="maximum">
+             <number>999999</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="trj_checkBox_log">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Log</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="trj_lineEdit_log">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="trj_pushButton_log">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="trj_layout_buttons">
+          <item>
+           <widget class="QPushButton" name="trj_pushButton_clear">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Clear</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="trj_pushButton_start">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Start</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="statgen">
+       <attribute name="title">
+        <string>Agglomeration</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="statgen_layout_workDir">
+          <item>
+           <widget class="QLabel" name="statgen_label_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Work directory</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="statgen_lineEdit_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="statgen_pushButton_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="statgen_layout_input">
+          <item>
+           <widget class="QLabel" name="statgen_label_input">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Mask of input files</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="statgen_lineEdit_input">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="statgen_layout_steps">
+          <item>
+           <widget class="QLabel" name="statgen_label_steps">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Steps</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="statgen_label_stepsFirst">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>first</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="statgen_spinBox_stepsFirst">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>999</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="statgen_label_stepsLast">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>last</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="statgen_spinBox_stepsLast">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>999</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="statgen_layout_cell">
+          <item>
+           <widget class="QLabel" name="statgen_label_cell">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Cell, A</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="statgen_label_cellX">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>X</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="statgen_doubleSpinBox_cellX">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>4</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="statgen_label_cellY">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Y</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="statgen_doubleSpinBox_cellY">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>4</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="statgen_label_cellZ">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Z</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="statgen_doubleSpinBox_cellZ">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>4</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="statgen_layout_atoms">
+          <item>
+           <widget class="QLabel" name="statgen_label_atoms0">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>atom 0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="statgen_spinBox_atoms0">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="statgen_checkBox_atoms1">
+            <property name="minimumSize">
+             <size>
+              <width>65</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>atom 1</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="statgen_spinBox_atoms1">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="statgen_checkBox_atoms2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>65</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>atom 2</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="statgen_spinBox_atoms2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="statgen_checkBox_atoms3">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>65</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>atom 3</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="statgen_spinBox_atoms3">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="statgen_layout_int">
+          <item>
+           <widget class="QLabel" name="statgen_label_int">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Interaction</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="statgen_comboBox_int">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>90</width>
+              <height>23</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>0-0</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="statgen_doubleSpinBox_int">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>90</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>3</number>
+            </property>
+            <property name="minimum">
+             <double>0.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="stagen_pushButton_intSave">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Save</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="statgen_pushButton_intAdd">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Add</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QListWidget" name="statgen_listWidget_int">
+          <property name="minimumSize">
+           <size>
+            <width>484</width>
+            <height>85</height>
+           </size>
+          </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="stagen_layout_intRem">
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="stagen_pushButton_intRem">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Remove</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="statgen_layout_output">
+          <item>
+           <widget class="QLabel" name="statgen_label_output">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Output file</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="statgen_lineEdit_output">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="statgen_pushButton_output">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="statgen_layout_opt">
+          <item>
+           <widget class="QCheckBox" name="statgen_checkBox_depth">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Depth of search</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="statgen_spinBox_depth">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="minimum">
+             <number>3</number>
+            </property>
+            <property name="maximum">
+             <number>1000</number>
+            </property>
+            <property name="value">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="statgen_checkBox_log">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Log</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="statgen_lineEdit_log">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="statgen_pushButton_log">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="statgen_layout_buttons">
+          <item>
+           <widget class="QPushButton" name="statgen_pushButton_clear">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Clear</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="statgen_pushButton_start">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Start</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="envir">
+       <attribute name="title">
+        <string>Environment</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QHBoxLayout" name="envir_layout_workDir">
+          <item>
+           <widget class="QLabel" name="envir_label_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Work directory</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="envir_lineEdit_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="envir_pushButton_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="envir_layout_input">
+          <item>
+           <widget class="QLabel" name="envir_label_input">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Input file</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="envir_lineEdit_input">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="envir_pushButton_input">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="envir_layout_cell">
+          <item>
+           <widget class="QLabel" name="envir_label_cell">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Cell, A</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="envir_label_cellX">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>X</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="envir_doubleSpinBox_cellX">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>4</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="envir_label_cellY">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Y</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="envir_doubleSpinBox_cellY">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>4</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="envir_label_cellZ">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Z</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="envir_doubleSpinBox_cellZ">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>4</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="envir_layout_output">
+          <item>
+           <widget class="QLabel" name="envir_label_output">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Output file</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="envir_lineEdit_output">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="envir_pushButton_output">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="envir_layout_opt_1">
+          <item>
+           <widget class="QLabel" name="envir_label_molecule">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Molecule</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="envir_spinBox_molecule">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>9999</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="envir_label_radius">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Radius</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="envir_doubleSpinBox_radius">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="envir_layout_opt_2">
+          <item>
+           <widget class="QCheckBox" name="envir_checkBox_log">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Log</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="envir_lineEdit_log">
+            <property name="minimumSize">
+             <size>
+              <width>173</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="envir_pushButton_log">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>177</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="envir_layout_buttons">
+          <item>
+           <widget class="QPushButton" name="envir_pushButton_clear">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Clear</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_10">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="envir_pushButton_start">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Start</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="radf">
+       <attribute name="title">
+        <string>RADF</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <layout class="QHBoxLayout" name="radf_layout_workDir">
+          <item>
+           <widget class="QLabel" name="radf_label_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Work directory</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="radf_lineEdit_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="radf_pushButton_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="radf_layout_input">
+          <item>
+           <widget class="QLabel" name="radf_label_input">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Mask of input files</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="radf_lineEdit_input">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="radf_layout_steps">
+          <item>
+           <widget class="QLabel" name="radf_label_steps">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Steps</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_stepsFirst">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>first</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="radf_spinBox_stepsFirst">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>999</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_11">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_stepsLast">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>last</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="radf_spinBox_stepsLast">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>999</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_12">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="radf_layout_cell">
+          <item>
+           <widget class="QLabel" name="radf_label_cell">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Cell, A</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_cellX">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>X</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="radf_doubleSpinBox_cellX">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>4</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_cellY">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Y</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="radf_doubleSpinBox_cellY">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>4</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_cellZ">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Z</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="radf_doubleSpinBox_cellZ">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>4</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="radf_layout_output">
+          <item>
+           <widget class="QLabel" name="radf_label_output">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Output file</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="radf_lineEdit_output">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="radf_pushButton_output">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="radf_layout_atom1">
+          <item>
+           <widget class="QComboBox" name="radf_comboBox_atom">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>23</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>One atom function</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Three atom function</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_atoms0">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>atom 1</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="radf_spinBox_atoms0">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_atoms1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>atom 2</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="radf_spinBox_atoms1">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_atoms2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>atom 3</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="radf_spinBox_atoms2">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="radf_layout_atom2">
+          <item>
+           <spacer name="horizontalSpacer_14">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>155</width>
+              <height>23</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_atoms3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>atom 1</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="radf_spinBox_atoms3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_atoms4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>atom 2</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="radf_spinBox_atoms4">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_atoms5">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>atom 3</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="radf_spinBox_atoms5">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="radf_layout_rad">
+          <item>
+           <widget class="QLabel" name="radf_label_rad">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>R, A</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_radMin">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>min</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="radf_doubleSpinBox_radMin">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>3</number>
+            </property>
+            <property name="minimum">
+             <double>0.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+            <property name="value">
+             <double>2.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_radMax">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>max</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="radf_doubleSpinBox_radMax">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>3</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+            <property name="value">
+             <double>15.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_radStep">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>step</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="radf_doubleSpinBox_radStep">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>3</number>
+            </property>
+            <property name="minimum">
+             <double>0.001000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.020000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="radf_layout_ang">
+          <item>
+           <widget class="QCheckBox" name="radf_checkBox_ang">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Angle, deg</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_angMin">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>min</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="radf_doubleSpinBox_angMin">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>90.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>15.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_angMax">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>max</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="radf_doubleSpinBox_angMax">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>90.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>15.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>90.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="radf_label_angStep">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>step</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="radf_doubleSpinBox_angStep">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>90.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>15.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>15.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="radf_layout_opt">
+          <item>
+           <widget class="QCheckBox" name="radf_checkBox_matrix">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Matrix</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="radf_checkBox_log">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Log</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="radf_lineEdit_log">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="radf_pushButton_log">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>47</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="radf_layout_buttons">
+          <item>
+           <widget class="QPushButton" name="radf_pushButton_clear">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Clear</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_13">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="radf_pushButton_start">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Start</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pdb">
+       <attribute name="title">
+        <string>Generate PDB</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QComboBox" name="pdb_comboBox_mode">
+          <item>
+           <property name="text">
+            <string>From agglomerate</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>From trajectory snapshot</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="pdb_layout_workDir">
+          <item>
+           <widget class="QLabel" name="pdb_label_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Work directory</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="pdb_lineEdit_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pdb_pushButton_workDir">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="pdb_layout_input">
+          <item>
+           <widget class="QLabel" name="pdb_label_input">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Input file</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="pdb_lineEdit_input">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pdb_pushButton_input">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="pdb_layout_agl">
+          <item>
+           <widget class="QLabel" name="pdb_label_agl">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>File with agglomerate</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="pdb_lineEdit_agl">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pdb_pushButton_agl">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="pdb_layout_cell">
+          <item>
+           <widget class="QLabel" name="pdb_label_cell">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Cell, A</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="pdb_label_cellX">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>X</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="pdb_doubleSpinBox_cellX">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>4</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="pdb_label_cellY">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Y</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="pdb_doubleSpinBox_cellY">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>4</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="pdb_label_cellZ">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Z</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="pdb_doubleSpinBox_cellZ">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>55</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="decimals">
+             <number>4</number>
+            </property>
+            <property name="minimum">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>999.990000000000009</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="pdb_layout_output">
+          <item>
+           <widget class="QLabel" name="pdb_label_output">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Output file</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="pdb_lineEdit_output">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pdb_pushButton_output">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="pdb_layout_opt">
+          <item>
+           <widget class="QCheckBox" name="pdb_checkBox_log">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Log</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="pdb_lineEdit_log">
+            <property name="minimumSize">
+             <size>
+              <width>173</width>
+              <height>23</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pdb_pushButton_log">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>147</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="pdb_layout_buttons">
+          <item>
+           <widget class="QPushButton" name="pdb_pushButton_clear">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Clear</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_15">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pdb_pushButton_start">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Start</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>564</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionHelp"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuMenu"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>trj_lineEdit_workDir</tabstop>
+  <tabstop>trj_pushButton_workDir</tabstop>
+  <tabstop>trj_lineEdit_input</tabstop>
+  <tabstop>trj_pushButton_input</tabstop>
+  <tabstop>trj_comboBox_type</tabstop>
+  <tabstop>trj_spinBox_steps</tabstop>
+  <tabstop>trj_lineEdit_atoms</tabstop>
+  <tabstop>trj_pushButton_atoms</tabstop>
+  <tabstop>trj_lineEdit_output</tabstop>
+  <tabstop>trj_spinBox_totalTypes</tabstop>
+  <tabstop>trj_checkBox_log</tabstop>
+  <tabstop>trj_lineEdit_log</tabstop>
+  <tabstop>trj_pushButton_log</tabstop>
+  <tabstop>trj_pushButton_clear</tabstop>
+  <tabstop>trj_pushButton_start</tabstop>
+  <tabstop>statgen_lineEdit_workDir</tabstop>
+  <tabstop>statgen_pushButton_workDir</tabstop>
+  <tabstop>statgen_lineEdit_input</tabstop>
+  <tabstop>statgen_spinBox_stepsFirst</tabstop>
+  <tabstop>statgen_spinBox_stepsLast</tabstop>
+  <tabstop>statgen_doubleSpinBox_cellX</tabstop>
+  <tabstop>statgen_doubleSpinBox_cellY</tabstop>
+  <tabstop>statgen_doubleSpinBox_cellZ</tabstop>
+  <tabstop>statgen_spinBox_atoms0</tabstop>
+  <tabstop>statgen_checkBox_atoms1</tabstop>
+  <tabstop>statgen_spinBox_atoms1</tabstop>
+  <tabstop>statgen_checkBox_atoms2</tabstop>
+  <tabstop>statgen_spinBox_atoms2</tabstop>
+  <tabstop>statgen_checkBox_atoms3</tabstop>
+  <tabstop>statgen_spinBox_atoms3</tabstop>
+  <tabstop>statgen_comboBox_int</tabstop>
+  <tabstop>statgen_doubleSpinBox_int</tabstop>
+  <tabstop>stagen_pushButton_intSave</tabstop>
+  <tabstop>statgen_pushButton_intAdd</tabstop>
+  <tabstop>statgen_listWidget_int</tabstop>
+  <tabstop>stagen_pushButton_intRem</tabstop>
+  <tabstop>statgen_lineEdit_output</tabstop>
+  <tabstop>statgen_pushButton_output</tabstop>
+  <tabstop>statgen_checkBox_depth</tabstop>
+  <tabstop>statgen_spinBox_depth</tabstop>
+  <tabstop>statgen_checkBox_log</tabstop>
+  <tabstop>statgen_lineEdit_log</tabstop>
+  <tabstop>statgen_pushButton_log</tabstop>
+  <tabstop>statgen_pushButton_clear</tabstop>
+  <tabstop>statgen_pushButton_start</tabstop>
+  <tabstop>envir_lineEdit_workDir</tabstop>
+  <tabstop>envir_pushButton_workDir</tabstop>
+  <tabstop>envir_lineEdit_input</tabstop>
+  <tabstop>envir_pushButton_input</tabstop>
+  <tabstop>envir_doubleSpinBox_cellX</tabstop>
+  <tabstop>envir_doubleSpinBox_cellY</tabstop>
+  <tabstop>envir_doubleSpinBox_cellZ</tabstop>
+  <tabstop>envir_lineEdit_output</tabstop>
+  <tabstop>envir_pushButton_output</tabstop>
+  <tabstop>envir_spinBox_molecule</tabstop>
+  <tabstop>envir_doubleSpinBox_radius</tabstop>
+  <tabstop>envir_checkBox_log</tabstop>
+  <tabstop>envir_lineEdit_log</tabstop>
+  <tabstop>envir_pushButton_log</tabstop>
+  <tabstop>envir_pushButton_clear</tabstop>
+  <tabstop>envir_pushButton_start</tabstop>
+  <tabstop>radf_lineEdit_workDir</tabstop>
+  <tabstop>radf_pushButton_workDir</tabstop>
+  <tabstop>radf_lineEdit_input</tabstop>
+  <tabstop>radf_spinBox_stepsFirst</tabstop>
+  <tabstop>radf_spinBox_stepsLast</tabstop>
+  <tabstop>radf_doubleSpinBox_cellX</tabstop>
+  <tabstop>radf_doubleSpinBox_cellY</tabstop>
+  <tabstop>radf_doubleSpinBox_cellZ</tabstop>
+  <tabstop>radf_lineEdit_output</tabstop>
+  <tabstop>radf_pushButton_output</tabstop>
+  <tabstop>radf_comboBox_atom</tabstop>
+  <tabstop>radf_spinBox_atoms0</tabstop>
+  <tabstop>radf_spinBox_atoms1</tabstop>
+  <tabstop>radf_spinBox_atoms2</tabstop>
+  <tabstop>radf_spinBox_atoms3</tabstop>
+  <tabstop>radf_spinBox_atoms4</tabstop>
+  <tabstop>radf_spinBox_atoms5</tabstop>
+  <tabstop>radf_doubleSpinBox_radMin</tabstop>
+  <tabstop>radf_doubleSpinBox_radMax</tabstop>
+  <tabstop>radf_doubleSpinBox_radStep</tabstop>
+  <tabstop>radf_checkBox_ang</tabstop>
+  <tabstop>radf_doubleSpinBox_angMin</tabstop>
+  <tabstop>radf_doubleSpinBox_angMax</tabstop>
+  <tabstop>radf_doubleSpinBox_angStep</tabstop>
+  <tabstop>radf_checkBox_matrix</tabstop>
+  <tabstop>radf_checkBox_log</tabstop>
+  <tabstop>radf_lineEdit_log</tabstop>
+  <tabstop>radf_pushButton_log</tabstop>
+  <tabstop>radf_pushButton_clear</tabstop>
+  <tabstop>radf_pushButton_start</tabstop>
+  <tabstop>pdb_comboBox_mode</tabstop>
+  <tabstop>pdb_lineEdit_workDir</tabstop>
+  <tabstop>pdb_pushButton_workDir</tabstop>
+  <tabstop>pdb_lineEdit_input</tabstop>
+  <tabstop>pdb_pushButton_input</tabstop>
+  <tabstop>pdb_lineEdit_agl</tabstop>
+  <tabstop>pdb_pushButton_agl</tabstop>
+  <tabstop>pdb_doubleSpinBox_cellX</tabstop>
+  <tabstop>pdb_doubleSpinBox_cellY</tabstop>
+  <tabstop>pdb_doubleSpinBox_cellZ</tabstop>
+  <tabstop>pdb_lineEdit_output</tabstop>
+  <tabstop>pdb_pushButton_output</tabstop>
+  <tabstop>pdb_checkBox_log</tabstop>
+  <tabstop>pdb_lineEdit_log</tabstop>
+  <tabstop>pdb_pushButton_log</tabstop>
+  <tabstop>pdb_pushButton_clear</tabstop>
+  <tabstop>pdb_pushButton_start</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
