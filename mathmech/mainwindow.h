@@ -69,6 +69,7 @@ private slots:
   void on_statgen_pushButton_start_clicked();
   void on_envir_pushButton_start_clicked();
   void on_radf_pushButton_start_clicked();
+  void on_pdb_pushButton_start_clicked();
 
 private:
   Ui::MainWindow *ui;

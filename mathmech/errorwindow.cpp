@@ -22,13 +22,13 @@ void ErrorWindow::set_message(int mess)
       message = QApplication::translate("ErrorWindow", "Work directory does not exists");
       break;
     case 1:
-      message = QApplication::translate("ErrorWindow", "Input file does not exists");
+      message = QApplication::translate("ErrorWindow", "Input file is not set");
       break;
     case 2:
       message = QApplication::translate("ErrorWindow", "Atoms in plane must be different");
       break;
     case 3:
-      message = QApplication::translate("ErrorWindow", "Atom types file does not exists");
+      message = QApplication::translate("ErrorWindow", "Atom types file is not set");
       break;
     case 4:
       message = QApplication::translate("ErrorWindow", "Output file is not set");

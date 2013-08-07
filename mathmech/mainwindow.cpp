@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
   mm_radf_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_radf");
   mm_statgen_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_statgen");
   mm_trj_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_trj");
-  mm_trj2pdb_path = QString("/home/arcanis/Documents/github/moldyn/bin/mm_trj2pdb");
+  mm_trj2pdb_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_trj2pdb");
 }
 
 MainWindow::~MainWindow()
@@ -560,10 +560,18 @@ void MainWindow::on_statgen_pushButton_start_clicked()
 
 void MainWindow::on_envir_pushButton_start_clicked()
 {
-  start_events->stat_envir(mm_envir_path);
+  start_events->start_envir(mm_envir_path);
 }
 
 void MainWindow::on_radf_pushButton_start_clicked()
 {
-  start_events->stat_radf(mm_radf_path);
+  start_events->start_radf(mm_radf_path);
+}
+
+void MainWindow::on_pdb_pushButton_start_clicked()
+{
+  if (ui->pdb_comboBox_mode->currentIndex() == 0)
+    start_events->start_pdb(mm_agl_path);
+  else if (ui->pdb_comboBox_mode->currentIndex() == 1)
+    start_events->start_pdb(mm_trj2pdb_path);
 }
