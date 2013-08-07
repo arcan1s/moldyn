@@ -14,7 +14,7 @@ class ErrorWindow : public QMainWindow
 public:
   explicit ErrorWindow(QWidget *parent = 0);
   ~ErrorWindow();
-  void set_message(QString language, int mess);
+  void set_message(int mess);
   
 private:
   Ui::ErrorWindow *ui;

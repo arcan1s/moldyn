@@ -134,7 +134,7 @@ int printing_head (const char *output, const int log, const int quiet, const int
   fprintf (f_out, "MASK=%s\nFIRST=%i\nLAST=%i\n", input, from, to);
   fprintf (f_out, "CELL=%.4f,%.4f,%.4f\n", cell[0], cell[1], cell[2]);
   fprintf (f_out, "MODE=%i\n", mode);
-  fprintf (f_out, "R_MIN=%.3f\nR_MAX=%.3f\nR_STEP=%.3f", r_min, r_max, r_step);
+  fprintf (f_out, "R_MIN=%.3f\nR_MAX=%.3f\nR_STEP=%.3f\n", r_min, r_max, r_step);
   switch (mode)
   {
     case 0:

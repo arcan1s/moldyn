@@ -13,6 +13,8 @@ public:
   explicit Start_events(MainWindow *wid = 0);
   void start_trj(QString mm_trj_path);
   void start_statgen(QString mm_statgen_path);
+  void stat_envir(QString mm_envir_path);
+  void stat_radf(QString mm_radf_path);
   
 signals:
   

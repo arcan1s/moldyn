@@ -13,50 +13,53 @@ ErrorWindow::~ErrorWindow()
   delete ui;
 }
 
-void ErrorWindow::set_message(QString language, int mess)
+void ErrorWindow::set_message(int mess)
 {
   QString message;
-  if (language == QString("eng"))
+  switch(mess)
   {
-    switch(mess)
-    {
-      case 0:
-        message = QString("Work directory does not exists");
-        break;
-      case 1:
-        message = QString("Input file does not exists");
-        break;
-      case 2:
-        message = QString("Number of steps is not set");
-        break;
-      case 3:
-        message = QString("Atom types file does not exists");
-        break;
-      case 4:
-        message = QString("Output file is not set");
-        break;
-      case 5:
-        message = QString("Number of total types is not set");
-        break;
-      case 6:
-        message = QString("Log file is not set");
-        break;
-      case 7:
-        message = QString("Component is not found");
-        break;
-      case 8:
-        message = QString("Cell size is not set");
-        break;
-      case 9:
-        message = QString("Atom types are not set");
-        break;
-      case 10:
-        message = QString ("Interactions are not set");
-        break;
-      case 11:
-        message = QString ("Depth is not set");
-        break;
-    }
+    case 0:
+      message = QApplication::translate("ErrorWindow", "Work directory does not exists");
+      break;
+    case 1:
+      message = QApplication::translate("ErrorWindow", "Input file does not exists");
+      break;
+    case 2:
+      message = QApplication::translate("ErrorWindow", "Atoms in plane must be different");
+      break;
+    case 3:
+      message = QApplication::translate("ErrorWindow", "Atom types file does not exists");
+      break;
+    case 4:
+      message = QApplication::translate("ErrorWindow", "Output file is not set");
+      break;
+    case 5:
+
+      break;
+    case 6:
+      message = QApplication::translate("ErrorWindow", "Log file is not set");
+      break;
+    case 7:
+      message = QApplication::translate("ErrorWindow", "Component is not found");
+      break;
+    case 8:
+
+      break;
+    case 9:
+
+      break;
+    case 10:
+      message = QApplication::translate("ErrorWindow", "Interactions are not set");
+      break;
+    case 11:
+
+      break;
+    case 12:
+
+      break;
+    case 13:
+
+      break;
   }
 
   ui->label->setText(message);

@@ -17,7 +17,6 @@ class MainWindow : public QMainWindow
 public:
   explicit MainWindow(QWidget *parent = 0);
   ~MainWindow();
-  QString language;
     
 private slots:
 // enable/disable signals
@@ -62,11 +61,14 @@ private slots:
 // interaction (statgen)
   void on_statgen_comboBox_int_currentIndexChanged(int index);
   void on_stagen_pushButton_intSave_clicked();
+  void on_statgen_doubleSpinBox_int_editingFinished();
   void on_statgen_pushButton_intAdd_clicked();
   void on_stagen_pushButton_intRem_clicked();
 // start events
   void on_trj_pushButton_start_clicked();
   void on_statgen_pushButton_start_clicked();
+  void on_envir_pushButton_start_clicked();
+  void on_radf_pushButton_start_clicked();
 
 private:
   Ui::MainWindow *ui;

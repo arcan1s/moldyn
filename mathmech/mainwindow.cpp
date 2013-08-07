@@ -18,13 +18,13 @@ MainWindow::MainWindow(QWidget *parent) :
   ui->statusBar->showMessage(QString("Ready"));
 
 // TODO: read config
-  language = QString("eng");
-  mm_agl_path = QString("/home/arcanis/mathmech/bin/mm_agl");
-  mm_envir_path = QString("/home/arcanis/mathmech/bin/mm_envir");
-  mm_radf_path = QString("/home/arcanis/mathmech/bin/mm_radf");
-  mm_statgen_path = QString("/home/arcanis/mathmech/bin/mm_statgen");
-  mm_trj_path = QString("/home/arcanis/mathmech/bin/mm_trj");
-  mm_trj2pdb_path = QString("/home/arcanis/mathmech/bin/mm_trj2pdb");
+//  language = QString("eng");
+  mm_agl_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_agl");
+  mm_envir_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_envir");
+  mm_radf_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_radf");
+  mm_statgen_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_statgen");
+  mm_trj_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_trj");
+  mm_trj2pdb_path = QString("/home/arcanis/Documents/github/moldyn/bin/mm_trj2pdb");
 }
 
 MainWindow::~MainWindow()
@@ -513,6 +513,13 @@ void MainWindow::on_stagen_pushButton_intSave_clicked()
   statgen_crit[index] = ui->statgen_doubleSpinBox_int->value();
 }
 
+void MainWindow::on_statgen_doubleSpinBox_int_editingFinished()
+{
+  int index;
+  index = ui->statgen_comboBox_int->currentIndex();
+  statgen_crit[index] = ui->statgen_doubleSpinBox_int->value();
+}
+
 void MainWindow::on_statgen_pushButton_intAdd_clicked()
 {
   QString interaction;
@@ -549,4 +556,14 @@ void MainWindow::on_trj_pushButton_start_clicked()
 void MainWindow::on_statgen_pushButton_start_clicked()
 {
   start_events->start_statgen(mm_statgen_path);
+}
+
+void MainWindow::on_envir_pushButton_start_clicked()
+{
+  start_events->stat_envir(mm_envir_path);
+}
+
+void MainWindow::on_radf_pushButton_start_clicked()
+{
+  start_events->stat_radf(mm_radf_path);
 }
