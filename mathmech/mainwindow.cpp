@@ -5,12 +5,14 @@
 #include "ui_mainwindow.h"
 #include "clear_items.h"
 #include "start_events.h"
+#include "update_fields.h"
 
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
   ui(new Ui::MainWindow),
   clear_items(new Clear_items(this)),
-  start_events(new Start_events(this))
+  start_events(new Start_events(this)),
+  update_fields(new Update_fields(this))
 {
   ui->setupUi(this);
   statgen_crit = new float[10];
@@ -32,6 +34,7 @@ MainWindow::~MainWindow()
   delete ui;
   delete clear_items;
   delete start_events;
+  delete update_fields;
   delete statgen_crit;
 }
 
@@ -47,7 +50,6 @@ void MainWindow::on_trj_checkBox_log_stateChanged(int arg1)
   {
     ui->trj_lineEdit_log->setEnabled(true);
     ui->trj_pushButton_log->setEnabled(true);
-    ui->trj_lineEdit_log->clear();
   }
 }
 
@@ -56,10 +58,7 @@ void MainWindow::on_statgen_checkBox_depth_stateChanged(int arg1)
   if (arg1 == 0)
     ui->statgen_spinBox_depth->setDisabled(true);
   else if (arg1 == 2)
-  {
     ui->statgen_spinBox_depth->setEnabled(true);
-    ui->statgen_spinBox_depth->setValue(10);
-  }
 }
 
 void MainWindow::on_statgen_checkBox_log_stateChanged(int arg1)
@@ -73,7 +72,6 @@ void MainWindow::on_statgen_checkBox_log_stateChanged(int arg1)
   {
     ui->statgen_lineEdit_log->setEnabled(true);
     ui->statgen_pushButton_log->setEnabled(true);
-    ui->statgen_lineEdit_log->clear();
   }
 }
 
@@ -88,7 +86,6 @@ void MainWindow::on_statgen_checkBox_atoms1_stateChanged(int arg1)
   else if (arg1 == 2)
   {
     ui->statgen_spinBox_atoms1->setEnabled(true);
-    ui->statgen_spinBox_atoms1->setValue(0);
     ui->statgen_checkBox_atoms2->setEnabled(true);
   }
   update_interaction();
@@ -105,7 +102,6 @@ void MainWindow::on_statgen_checkBox_atoms2_stateChanged(int arg1)
   else if (arg1 == 2)
   {
     ui->statgen_spinBox_atoms2->setEnabled(true);
-    ui->statgen_spinBox_atoms2->setValue(0);
     ui->statgen_checkBox_atoms3->setEnabled(true);
   }
   update_interaction();
@@ -116,10 +112,7 @@ void MainWindow::on_statgen_checkBox_atoms3_stateChanged(int arg1)
   if (arg1 == 0)
     ui->statgen_spinBox_atoms3->setDisabled(true);
   else if (arg1 == 2)
-  {
     ui->statgen_spinBox_atoms3->setEnabled(true);
-    ui->statgen_spinBox_atoms3->setValue(0);
-  }
   update_interaction();
 }
 
@@ -134,7 +127,6 @@ void MainWindow::on_envir_checkBox_log_stateChanged(int arg1)
   {
     ui->envir_lineEdit_log->setEnabled(true);
     ui->envir_pushButton_log->setEnabled(true);
-    ui->envir_lineEdit_log->clear();
   }
 }
 
@@ -153,10 +145,6 @@ void MainWindow::on_radf_comboBox_atom_currentIndexChanged(int index)
     ui->radf_spinBox_atoms2->setEnabled(true);
     ui->radf_spinBox_atoms4->setEnabled(true);
     ui->radf_spinBox_atoms5->setEnabled(true);
-    ui->radf_spinBox_atoms1->setValue(0);
-    ui->radf_spinBox_atoms2->setValue(0);
-    ui->radf_spinBox_atoms4->setValue(0);
-    ui->radf_spinBox_atoms5->setValue(0);
   }
 }
 
@@ -173,9 +161,6 @@ void MainWindow::on_radf_checkBox_ang_stateChanged(int arg1)
     ui->radf_doubleSpinBox_angMax->setEnabled(true);
     ui->radf_doubleSpinBox_angMin->setEnabled(true);
     ui->radf_doubleSpinBox_angStep->setEnabled(true);
-    ui->radf_doubleSpinBox_angMax->setValue(90.0);
-    ui->radf_doubleSpinBox_angMin->setValue(0.0);
-    ui->radf_doubleSpinBox_angStep->setValue(15.0);
   }
 }
 
@@ -190,7 +175,6 @@ void MainWindow::on_radf_checkBox_log_stateChanged(int arg1)
   {
     ui->radf_lineEdit_log->setEnabled(true);
     ui->radf_pushButton_log->setEnabled(true);
-    ui->radf_lineEdit_log->clear();
   }
 }
 
@@ -206,10 +190,6 @@ void MainWindow::on_pdb_comboBox_mode_currentIndexChanged(int index)
   }
   else if (index == 0)
   {
-    ui->pdb_lineEdit_agl->clear();
-    ui->pdb_doubleSpinBox_cellX->setValue(0.1);
-    ui->pdb_doubleSpinBox_cellY->setValue(0.1);
-    ui->pdb_doubleSpinBox_cellZ->setValue(0.1);
     ui->pdb_lineEdit_agl->setEnabled(true);
     ui->pdb_pushButton_agl->setEnabled(true);
     ui->pdb_doubleSpinBox_cellX->setEnabled(true);
@@ -229,7 +209,6 @@ void MainWindow::on_pdb_checkBox_log_stateChanged(int arg1)
   {
     ui->pdb_lineEdit_log->setEnabled(true);
     ui->pdb_pushButton_log->setEnabled(true);
-    ui->pdb_lineEdit_log->clear();
   }
 }
 
@@ -574,4 +553,24 @@ void MainWindow::on_pdb_pushButton_start_clicked()
     start_events->start_pdb(mm_agl_path);
   else if (ui->pdb_comboBox_mode->currentIndex() == 1)
     start_events->start_pdb(mm_trj2pdb_path);
+}
+
+// completion
+void MainWindow::on_tabWidget_currentChanged(int index)
+{
+  switch(index)
+  {
+    case 1:
+      update_fields->setup_def_statgen();
+      break;
+    case 2:
+      update_fields->setup_def_envir();
+      break;
+    case 3:
+      update_fields->setup_def_radf();
+      break;
+    case 4:
+      update_fields->setup_def_pdb();
+      break;
+  }
 }

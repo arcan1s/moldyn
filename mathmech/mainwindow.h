@@ -5,6 +5,7 @@
 
 class Clear_items;
 class Start_events;
+class Update_fields;
 
 namespace Ui {
 class MainWindow;
@@ -70,6 +71,8 @@ private slots:
   void on_envir_pushButton_start_clicked();
   void on_radf_pushButton_start_clicked();
   void on_pdb_pushButton_start_clicked();
+// completion
+  void on_tabWidget_currentChanged(int index);
 
 private:
   Ui::MainWindow *ui;
@@ -86,6 +89,8 @@ private:
   friend class Clear_items;
   Start_events *start_events;
   friend class Start_events;
+  Update_fields *update_fields;
+  friend class Update_fields;
 };
 
 #endif /* MAINWINDOW_H */

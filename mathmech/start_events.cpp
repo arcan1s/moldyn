@@ -7,8 +7,6 @@
 #include "errorwindow.h"
 #include "ui_errorwindow.h"
 
-#include <stdio.h>
-
 Start_events::Start_events(MainWindow *wid) :
   parent(wid)
 {
@@ -109,6 +107,7 @@ void Start_events::start_trj(QString mm_trj_path)
   command.append(" -o " + QFileInfo(QDir(workDir), mask).absoluteFilePath());
   command.append(" -tt " + totalTypes);
   if (parent->ui->trj_checkBox_log->checkState() == 2)
+  {
 #ifdef _WIN32
     if (log.contains("\\"))
 #elif __linux
@@ -119,6 +118,7 @@ void Start_events::start_trj(QString mm_trj_path)
       command.append(" -l " + QFileInfo(log).absoluteFilePath());
     else
       command.append(" -l " + QFileInfo(QDir(workDir), log).absoluteFilePath());
+  }
   command.append(" -q");
 
   system(command.toStdString().c_str());
@@ -236,6 +236,7 @@ void Start_events::start_statgen(QString mm_statgen_path)
   if (parent->ui->statgen_checkBox_depth->checkState() == 2)
     command.append(" -g " + depth);
   if (parent->ui->statgen_checkBox_log->checkState() == 2)
+  {
 #ifdef _WIN32
     if (log.contains("\\"))
 #elif __linux
@@ -246,6 +247,7 @@ void Start_events::start_statgen(QString mm_statgen_path)
       command.append(" -l " + QFileInfo(log).absoluteFilePath());
     else
       command.append(" -l " + QFileInfo(QDir(workDir), log).absoluteFilePath());
+  }
   command.append(" -q");
 
   system(command.toStdString().c_str());
@@ -334,6 +336,7 @@ void Start_events::start_envir(QString mm_envir_path)
   command.append(" -n " + molecule);
   command.append(" -r " + radius);
   if (parent->ui->statgen_checkBox_log->checkState() == 2)
+  {
 #ifdef _WIN32
     if (log.contains("\\"))
 #elif __linux
@@ -344,6 +347,7 @@ void Start_events::start_envir(QString mm_envir_path)
       command.append(" -l " + QFileInfo(log).absoluteFilePath());
     else
       command.append(" -l " + QFileInfo(QDir(workDir), log).absoluteFilePath());
+  }
   command.append(" -q");
 
   system(command.toStdString().c_str());
@@ -472,16 +476,19 @@ void Start_events::start_radf(QString mm_radf_path)
   }
   if (parent->ui->radf_checkBox_matrix->checkState() == 2)
     command.append(" -m ");
+  if (parent->ui->radf_checkBox_log->checkState() == 2)
+  {
 #ifdef _WIN32
-  if (log.contains("\\"))
+    if (log.contains("\\"))
 #elif __linux
-  if (log.contains("/"))
+    if (log.contains("/"))
 #else
-  return;
+    return;
 #endif
-    command.append(" -l " + QFileInfo(log).absoluteFilePath());
-  else
-    command.append(" -l " + QFileInfo(QDir(workDir), log).absoluteFilePath());
+      command.append(" -l " + QFileInfo(log).absoluteFilePath());
+    else
+      command.append(" -l " + QFileInfo(QDir(workDir), log).absoluteFilePath());
+  }
   command.append(" -q");
 
   system(command.toStdString().c_str());
@@ -563,6 +570,7 @@ void Start_events::start_pdb(QString mm_pdb_path)
   QString command;
   command.append(mm_pdb_path);
   if (parent->ui->pdb_comboBox_mode->currentIndex() == 0)
+  {
 #ifdef _WIN32
     if (agl.contains("\\"))
 #elif __linux
@@ -573,6 +581,7 @@ void Start_events::start_pdb(QString mm_pdb_path)
       command.append(" -a " + QFileInfo(agl).absoluteFilePath());
     else
       command.append(" -a " + QFileInfo(QDir(workDir), agl).absoluteFilePath());
+  }
 #ifdef _WIN32
   if (input.contains("\\"))
 #elif __linux
@@ -595,16 +604,19 @@ void Start_events::start_pdb(QString mm_pdb_path)
     command.append(" -o " + QFileInfo(output).absoluteFilePath());
   else
     command.append(" -o " + QFileInfo(QDir(workDir), output).absoluteFilePath());
+  if (parent->ui->statgen_checkBox_log->checkState() == 2)
+  {
 #ifdef _WIN32
-  if (log.contains("\\"))
+    if (log.contains("\\"))
 #elif __linux
-  if (log.contains("/"))
+    if (log.contains("/"))
 #else
-  return;
+    return;
 #endif
-    command.append(" -l " + QFileInfo(log).absoluteFilePath());
-  else
-    command.append(" -l " + QFileInfo(QDir(workDir), log).absoluteFilePath());
+      command.append(" -l " + QFileInfo(log).absoluteFilePath());
+    else
+      command.append(" -l " + QFileInfo(QDir(workDir), log).absoluteFilePath());
+  }
   command.append(" -q");
 
 //  system(command.toStdString().c_str());
