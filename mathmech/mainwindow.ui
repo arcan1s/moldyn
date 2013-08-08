@@ -3272,6 +3272,14 @@
     <property name="title">
      <string>Menu</string>
     </property>
+    <widget class="QMenu" name="menuFile_creator">
+     <property name="title">
+      <string>File creator</string>
+     </property>
+     <addaction name="actionAtom_types_file"/>
+     <addaction name="actionAgglomerate_file"/>
+    </widget>
+    <addaction name="menuFile_creator"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -3295,7 +3303,10 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionExit">
    <property name="text">
-    <string>Exit</string>
+    <string>&amp;Quit</string>
+   </property>
+   <property name="toolTip">
+    <string>Quit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
@@ -3303,7 +3314,7 @@
   </action>
   <action name="actionHelp">
    <property name="text">
-    <string>Help</string>
+    <string>&amp;Help</string>
    </property>
    <property name="shortcut">
     <string>F1</string>
@@ -3312,6 +3323,16 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionAtom_types_file">
+   <property name="text">
+    <string>Atom &amp;types file</string>
+   </property>
+  </action>
+  <action name="actionAgglomerate_file">
+   <property name="text">
+    <string>&amp;Agglomerate file</string>
    </property>
   </action>
  </widget>

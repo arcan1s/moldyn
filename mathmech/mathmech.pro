@@ -12,11 +12,14 @@ HEADERS += mainwindow.h \
     errorwindow.h \
     clear_items.h \
     start_events.h \
-    update_fields.h
+    update_fields.h \
+    atomtypeswindow.h
 FORMS += mainwindow.ui \
-    errorwindow.ui
+    errorwindow.ui \
+    atomtypeswindow.ui
 SOURCES += main.cpp mainwindow.cpp \
     errorwindow.cpp \
     clear_items.cpp \
     start_events.cpp \
-    update_fields.cpp
+    update_fields.cpp \
+    atomtypeswindow.cpp

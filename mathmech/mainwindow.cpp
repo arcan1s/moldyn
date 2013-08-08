@@ -3,6 +3,7 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "atomtypeswindow.h"
 #include "clear_items.h"
 #include "start_events.h"
 #include "update_fields.h"
@@ -17,7 +18,9 @@ MainWindow::MainWindow(QWidget *parent) :
   ui->setupUi(this);
   statgen_crit = new float[10];
 
-  ui->statusBar->showMessage(QString("Ready"));
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Ready"));
+
+  createActions();
 
 // TODO: read config
 //  language = QString("eng");
@@ -522,8 +525,9 @@ void MainWindow::on_statgen_pushButton_intAdd_clicked()
 
 void MainWindow::on_stagen_pushButton_intRem_clicked()
 {
-  if (int curIndex = ui->statgen_listWidget_int->currentRow() > -1)
-    delete ui->statgen_listWidget_int->item(curIndex-1);
+  int curIndex = ui->statgen_listWidget_int->currentRow();
+  if (curIndex > -1)
+    delete ui->statgen_listWidget_int->item(curIndex);
 }
 
 // start signals
@@ -573,4 +577,17 @@ void MainWindow::on_tabWidget_currentChanged(int index)
       update_fields->setup_def_pdb();
       break;
   }
+}
+
+// window signals
+void MainWindow::createActions()
+{
+  connect(ui->actionAtom_types_file, SIGNAL(triggered()), this, SLOT(createAtomTypes()));
+}
+
+void MainWindow::createAtomTypes()
+{
+  AtomTypesWindow *atomTypes;
+  atomTypes = new AtomTypesWindow(this);
+  atomTypes->show();
 }

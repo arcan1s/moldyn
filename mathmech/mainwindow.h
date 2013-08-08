@@ -73,6 +73,8 @@ private slots:
   void on_pdb_pushButton_start_clicked();
 // completion
   void on_tabWidget_currentChanged(int index);
+// window signals
+  void createAtomTypes();
 
 private:
   Ui::MainWindow *ui;
@@ -91,6 +93,9 @@ private:
   friend class Start_events;
   Update_fields *update_fields;
   friend class Update_fields;
+
+// window signals
+  void createActions();
 };
 
 #endif /* MAINWINDOW_H */

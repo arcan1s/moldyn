@@ -6,8 +6,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <stdio.h>
-
 Update_fields::Update_fields(MainWindow *wid) :
   parent(wid)
 {

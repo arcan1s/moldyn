@@ -34,7 +34,7 @@ void ErrorWindow::set_message(int mess)
       message = QApplication::translate("ErrorWindow", "Output file is not set");
       break;
     case 5:
-
+      message = QApplication::translate("ErrorWindow", "Atom type must contain 2 characters");
       break;
     case 6:
       message = QApplication::translate("ErrorWindow", "Log file is not set");
@@ -43,10 +43,10 @@ void ErrorWindow::set_message(int mess)
       message = QApplication::translate("ErrorWindow", "Component is not found");
       break;
     case 8:
-
+      message = QApplication::translate("ErrorWindow", "Atom types is not set");
       break;
     case 9:
-
+      message = QApplication::translate("ErrorWindow", "Something wrong");
       break;
     case 10:
       message = QApplication::translate("ErrorWindow", "Interactions are not set");
@@ -59,6 +59,9 @@ void ErrorWindow::set_message(int mess)
       break;
     case 13:
 
+      break;
+    default:
+      message = QApplication::translate("ErrorWindow", "Unknown error");
       break;
   }
 

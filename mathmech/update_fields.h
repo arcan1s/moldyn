@@ -21,7 +21,6 @@ public slots:
 
 private:
   MainWindow *parent;
-  
 };
 
 #endif /* UPDATE_FIELDS_H */
