@@ -3280,13 +3280,13 @@
      <addaction name="actionAgglomerate_file"/>
     </widget>
     <addaction name="menuFile_creator"/>
+    <addaction name="actionSettings"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionHelp"/>
     <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuMenu"/>
@@ -3333,6 +3333,11 @@
   <action name="actionAgglomerate_file">
    <property name="text">
     <string>&amp;Agglomerate file</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
    </property>
   </action>
  </widget>

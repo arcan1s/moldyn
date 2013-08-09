@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 class Clear_items;
+class SettingsWindow;
 class Start_events;
 class Update_fields;
 
@@ -18,6 +19,13 @@ class MainWindow : public QMainWindow
 public:
   explicit MainWindow(QWidget *parent = 0);
   ~MainWindow();
+  QString language;
+  QString mm_agl_path;
+  QString mm_envir_path;
+  QString mm_radf_path;
+  QString mm_statgen_path;
+  QString mm_trj_path;
+  QString mm_trj2pdb_path;
     
 private slots:
 // enable/disable signals
@@ -76,17 +84,13 @@ private slots:
 // window signals
   void createAtomTypes();
   void createAgglFile();
+  void aboutWin();
+  void settingsWinShow();
 
 private:
   Ui::MainWindow *ui;
   void update_interaction();
   float *statgen_crit;
-  QString mm_agl_path;
-  QString mm_envir_path;
-  QString mm_radf_path;
-  QString mm_statgen_path;
-  QString mm_trj_path;
-  QString mm_trj2pdb_path;
 
   Clear_items *clear_items;
   friend class Clear_items;

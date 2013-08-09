@@ -82,25 +82,13 @@ void Start_events::start_trj(QString mm_trj_path)
   parent->ui->tabWidget->setDisabled(true);
   QString command;
   command.append(mm_trj_path);
-#ifdef _WIN32
-  if (input.contains("\\"))
-#elif __linux
-  if (input.contains("/"))
-#else
-  return;
-#endif
+  if (input.contains(QDir::separator()))
     command.append(" -i " + QFileInfo(input).absoluteFilePath());
   else
     command.append(" -i " + QFileInfo(QDir(workDir), input).absoluteFilePath());
   command.append(" -t " + type);
   command.append(" -s " + steps);
-#ifdef _WIN32
-  if (atomType.contains("\\"))
-#elif __linux
-  if (atomType.contains("/"))
-#else
-  return;
-#endif
+  if (atomType.contains(QDir::separator()))
     command.append(" -a " + QFileInfo(atomType).absoluteFilePath());
   else
     command.append(" -a " + QFileInfo(QDir(workDir), atomType).absoluteFilePath());
@@ -108,13 +96,7 @@ void Start_events::start_trj(QString mm_trj_path)
   command.append(" -tt " + totalTypes);
   if (parent->ui->trj_checkBox_log->checkState() == 2)
   {
-#ifdef _WIN32
-    if (log.contains("\\"))
-#elif __linux
-    if (log.contains("/"))
-#else
-  return;
-#endif
+    if (log.contains(QDir::separator()))
       command.append(" -l " + QFileInfo(log).absoluteFilePath());
     else
       command.append(" -l " + QFileInfo(QDir(workDir), log).absoluteFilePath());
@@ -203,13 +185,7 @@ void Start_events::start_statgen(QString mm_statgen_path)
   parent->ui->tabWidget->setDisabled(true);
   QString command;
   command.append(mm_statgen_path);
-#ifdef _WIN32
-  if (mask.contains("\\"))
-#elif __linux
-  if (mask.contains("/"))
-#else
-  return;
-#endif
+  if (mask.contains(QDir::separator()))
     command.append(" -i " + QFileInfo(mask).absoluteFilePath());
   else
     command.append(" -i " + QFileInfo(QDir(workDir), mask).absoluteFilePath());
@@ -223,13 +199,7 @@ void Start_events::start_statgen(QString mm_statgen_path)
   if (parent->ui->statgen_checkBox_atoms3->checkState() == 2)
     command.append("," + atom3);
   command.append(inter);
-#ifdef _WIN32
-  if (output.contains("\\"))
-#elif __linux
-  if (output.contains("/"))
-#else
-  return;
-#endif
+  if (output.contains(QDir::separator()))
     command.append(" -o " + QFileInfo(output).absoluteFilePath());
   else
     command.append(" -o " + QFileInfo(QDir(workDir), output).absoluteFilePath());
@@ -237,13 +207,7 @@ void Start_events::start_statgen(QString mm_statgen_path)
     command.append(" -g " + depth);
   if (parent->ui->statgen_checkBox_log->checkState() == 2)
   {
-#ifdef _WIN32
-    if (log.contains("\\"))
-#elif __linux
-    if (log.contains("/"))
-#else
-  return;
-#endif
+    if (log.contains(QDir::separator()))
       command.append(" -l " + QFileInfo(log).absoluteFilePath());
     else
       command.append(" -l " + QFileInfo(QDir(workDir), log).absoluteFilePath());
@@ -312,24 +276,12 @@ void Start_events::start_envir(QString mm_envir_path)
   parent->ui->tabWidget->setDisabled(true);
   QString command;
   command.append(mm_envir_path);
-#ifdef _WIN32
-  if (input.contains("\\"))
-#elif __linux
-  if (input.contains("/"))
-#else
-  return;
-#endif
+  if (input.contains(QDir::separator()))
     command.append(" -i " + QFileInfo(input).absoluteFilePath());
   else
     command.append(" -i " + QFileInfo(QDir(workDir), input).absoluteFilePath());
   command.append(" -c " + cellX + "," + cellY + "," + cellZ);
-#ifdef _WIN32
-  if (output.contains("\\"))
-#elif __linux
-  if (output.contains("/"))
-#else
-  return;
-#endif
+  if (output.contains(QDir::separator()))
     command.append(" -o " + QFileInfo(output).absoluteFilePath());
   else
     command.append(" -o " + QFileInfo(QDir(workDir), output).absoluteFilePath());
@@ -337,13 +289,7 @@ void Start_events::start_envir(QString mm_envir_path)
   command.append(" -r " + radius);
   if (parent->ui->statgen_checkBox_log->checkState() == 2)
   {
-#ifdef _WIN32
-    if (log.contains("\\"))
-#elif __linux
-    if (log.contains("/"))
-#else
-  return;
-#endif
+    if (log.contains(QDir::separator()))
       command.append(" -l " + QFileInfo(log).absoluteFilePath());
     else
       command.append(" -l " + QFileInfo(QDir(workDir), log).absoluteFilePath());
@@ -440,13 +386,7 @@ void Start_events::start_radf(QString mm_radf_path)
   parent->ui->tabWidget->setDisabled(true);
   QString command;
   command.append(mm_radf_path);
-#ifdef _WIN32
-  if (mask.contains("\\"))
-#elif __linux
-  if (mask.contains("/"))
-#else
-  return;
-#endif
+  if (mask.contains(QDir::separator()))
     command.append(" -i " + QFileInfo(mask).absoluteFilePath());
   else
     command.append(" -i " + QFileInfo(QDir(workDir), mask).absoluteFilePath());
@@ -457,13 +397,7 @@ void Start_events::start_radf(QString mm_radf_path)
   else if (parent->ui->radf_comboBox_atom->currentIndex() == 1)
     command.append(" -at " + atom0 + "," + atom1 + "," + atom2 +
                    "-" + atom3 + "," + atom4 + "," + atom5);
-#ifdef _WIN32
-  if (output.contains("\\"))
-#elif __linux
-  if (output.contains("/"))
-#else
-  return;
-#endif
+  if (output.contains(QDir::separator()))
     command.append(" -o " + QFileInfo(output).absoluteFilePath());
   else
     command.append(" -o " + QFileInfo(QDir(workDir), output).absoluteFilePath());
@@ -478,13 +412,7 @@ void Start_events::start_radf(QString mm_radf_path)
     command.append(" -m ");
   if (parent->ui->radf_checkBox_log->checkState() == 2)
   {
-#ifdef _WIN32
-    if (log.contains("\\"))
-#elif __linux
-    if (log.contains("/"))
-#else
-    return;
-#endif
+    if (log.contains(QDir::separator()))
       command.append(" -l " + QFileInfo(log).absoluteFilePath());
     else
       command.append(" -l " + QFileInfo(QDir(workDir), log).absoluteFilePath());
@@ -571,48 +499,24 @@ void Start_events::start_pdb(QString mm_pdb_path)
   command.append(mm_pdb_path);
   if (parent->ui->pdb_comboBox_mode->currentIndex() == 0)
   {
-#ifdef _WIN32
-    if (agl.contains("\\"))
-#elif __linux
-    if (agl.contains("/"))
-#else
-    return;
-#endif
+    if (agl.contains(QDir::separator()))
       command.append(" -a " + QFileInfo(agl).absoluteFilePath());
     else
       command.append(" -a " + QFileInfo(QDir(workDir), agl).absoluteFilePath());
   }
-#ifdef _WIN32
-  if (input.contains("\\"))
-#elif __linux
-  if (input.contains("/"))
-#else
-  return;
-#endif
+  if (input.contains(QDir::separator()))
     command.append(" -i " + QFileInfo(input).absoluteFilePath());
   else
     command.append(" -i " + QFileInfo(QDir(workDir), input).absoluteFilePath());
   if (parent->ui->pdb_comboBox_mode->currentIndex() == 0)
     command.append(" -c " + cellX + "," + cellY + "," + cellZ);
-#ifdef _WIN32
-  if (output.contains("\\"))
-#elif __linux
-  if (output.contains("/"))
-#else
-  return;
-#endif
+  if (output.contains(QDir::separator()))
     command.append(" -o " + QFileInfo(output).absoluteFilePath());
   else
     command.append(" -o " + QFileInfo(QDir(workDir), output).absoluteFilePath());
   if (parent->ui->statgen_checkBox_log->checkState() == 2)
   {
-#ifdef _WIN32
-    if (log.contains("\\"))
-#elif __linux
-    if (log.contains("/"))
-#else
-    return;
-#endif
+    if (log.contains(QDir::separator()))
       command.append(" -l " + QFileInfo(log).absoluteFilePath());
     else
       command.append(" -l " + QFileInfo(QDir(workDir), log).absoluteFilePath());

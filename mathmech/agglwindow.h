@@ -38,4 +38,4 @@ private:
   void keyPressEvent(QKeyEvent *pressedKey);
 };
 
-#endif // AGGLWINDOW_H
+#endif /* AGGLWINDOW_H */

@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingsWindow</class>
+ <widget class="QMainWindow" name="SettingsWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>392</width>
+    <height>320</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Settings</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="settings_layout_trj">
+      <item>
+       <widget class="QLabel" name="settings_label_trj">
+        <property name="minimumSize">
+         <size>
+          <width>110</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>mm_trj</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="settings_lineEdit_trj"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="settings_pushButton_trj">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Browse</string>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="settings_layout_statgen">
+      <item>
+       <widget class="QLabel" name="settings_label_statgen">
+        <property name="minimumSize">
+         <size>
+          <width>110</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>mm_statgen</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="settings_lineEdit_statgen"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="settings_pushButton_statgen">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Browse</string>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="settings_layout_envir">
+      <item>
+       <widget class="QLabel" name="settings_label_envir">
+        <property name="minimumSize">
+         <size>
+          <width>110</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>mm_envir</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="settings_lineEdit_envir"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="settings_pushButton_envir">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Browse</string>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="settings_layout_radf">
+      <item>
+       <widget class="QLabel" name="settings_label_radf">
+        <property name="minimumSize">
+         <size>
+          <width>110</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>mm_radf</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="settings_lineEdit_radf"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="settings_pushButton_radf">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Browse</string>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="settings_layout_trj2pdb">
+      <item>
+       <widget class="QLabel" name="settings_label_trj2pdb">
+        <property name="minimumSize">
+         <size>
+          <width>110</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>mm_trj2pdb</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="settings_lineEdit_trj2pdb"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="settings_pushButton_trj2pdb">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Browse</string>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="settings_layout_agl">
+      <item>
+       <widget class="QLabel" name="settings_label_agl">
+        <property name="minimumSize">
+         <size>
+          <width>110</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>mm_agl</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="settings_lineEdit_agl"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="settings_pushButton_agl">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Browse</string>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="settings_layout_lang">
+      <item>
+       <widget class="QLabel" name="settings_label_lang">
+        <property name="minimumSize">
+         <size>
+          <width>110</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string notr="true">Language</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="settings_comboBox_lang">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <item>
+         <property name="text">
+          <string>English</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Russian</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>51</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="settings_layout_buttons">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="settings_pushButton_save">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Save</string>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="settings_pushButton_close">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Close</string>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>settings_lineEdit_trj</tabstop>
+  <tabstop>settings_pushButton_trj</tabstop>
+  <tabstop>settings_lineEdit_statgen</tabstop>
+  <tabstop>settings_pushButton_statgen</tabstop>
+  <tabstop>settings_lineEdit_envir</tabstop>
+  <tabstop>settings_pushButton_envir</tabstop>
+  <tabstop>settings_lineEdit_radf</tabstop>
+  <tabstop>settings_pushButton_radf</tabstop>
+  <tabstop>settings_lineEdit_trj2pdb</tabstop>
+  <tabstop>settings_pushButton_trj2pdb</tabstop>
+  <tabstop>settings_lineEdit_agl</tabstop>
+  <tabstop>settings_pushButton_agl</tabstop>
+  <tabstop>settings_comboBox_lang</tabstop>
+  <tabstop>pushButton_6</tabstop>
+  <tabstop>settings_pushButton_close</tabstop>
+  <tabstop>settings_pushButton_save</tabstop>
+  <tabstop>lineEdit_6</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>settings_pushButton_close</sender>
+   <signal>clicked()</signal>
+   <receiver>SettingsWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>337</x>
+     <y>299</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>343</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

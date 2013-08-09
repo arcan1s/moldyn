@@ -3,8 +3,10 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "aboutwindow.h"
 #include "agglwindow.h"
 #include "atomtypeswindow.h"
+#include "settingswindow.h"
 #include "clear_items.h"
 #include "start_events.h"
 #include "update_fields.h"
@@ -23,14 +25,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
   createActions();
 
-// TODO: read config
-//  language = QString("eng");
-  mm_agl_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_agl");
-  mm_envir_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_envir");
-  mm_radf_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_radf");
-  mm_statgen_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_statgen");
-  mm_trj_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_trj");
-  mm_trj2pdb_path = QString("/home/arcanis/Documents/github/moldyn/mathmech/bin/mm_trj2pdb");
+  SettingsWindow *settingsWindow;
+  settingsWindow = new SettingsWindow(this);
+  delete settingsWindow;
 }
 
 MainWindow::~MainWindow()
@@ -394,7 +391,7 @@ void MainWindow::on_pdb_pushButton_agl_clicked()
                      this,
                      tr("Select agglomerate file"),
                      QDir(ui->pdb_lineEdit_workDir->text()).absolutePath(),
-                     tr("Agglomerate files (*.agl]);;All files (*.*)"));
+                     tr("Agglomerate files (*.agl);;All files (*.*)"));
   if (!filename.isEmpty())
     ui->pdb_lineEdit_agl->setText(filename);
 }
@@ -585,6 +582,8 @@ void MainWindow::createActions()
 {
   connect(ui->actionAtom_types_file, SIGNAL(triggered()), this, SLOT(createAtomTypes()));
   connect(ui->actionAgglomerate_file, SIGNAL(triggered()), this, SLOT(createAgglFile()));
+  connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(aboutWin()));
+  connect(ui->actionSettings, SIGNAL(triggered()), this, SLOT(settingsWinShow()));
 }
 
 void MainWindow::createAtomTypes()
@@ -599,4 +598,18 @@ void MainWindow::createAgglFile()
   AgglWindow *agglWindow;
   agglWindow = new AgglWindow(this, ui->statgen_lineEdit_output->text());
   agglWindow->show();
+}
+
+void MainWindow::aboutWin()
+{
+  AboutWindow *aboutWindow;
+  aboutWindow = new AboutWindow(this);
+  aboutWindow->show();
+}
+
+void MainWindow::settingsWinShow()
+{
+  SettingsWindow *settingsWindow;
+  settingsWindow = new SettingsWindow(this);
+  settingsWindow->show();
 }
