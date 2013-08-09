@@ -52,7 +52,7 @@ void ErrorWindow::set_message(int mess)
       message = QApplication::translate("ErrorWindow", "Interactions are not set");
       break;
     case 11:
-
+      message = QApplication::translate("ErrorWindow", "Invalid file type");
       break;
     case 12:
 

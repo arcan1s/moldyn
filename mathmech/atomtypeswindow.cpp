@@ -104,9 +104,7 @@ void AtomTypesWindow::on_atomTypes_comboBox_mol_currentIndexChanged(int index)
     ui->atomTypes_comboBox_mol->addItem(QApplication::translate("AtomTypesWindow", "Add new molecule"));
     ui->atomTypes_spinBox_numOfMol->setValue(num_of_mol[index]);
   }
-  else if (index == -1)
-    return;
-  else
+  else if (index != -1)
   {
     ui->atomTypes_spinBox_numOfMol->setValue(num_of_mol[index]);
     ui->atomTypes_listWidget->addItems(atomTypes[index].split(',', QString::SkipEmptyParts));

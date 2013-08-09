@@ -3,6 +3,7 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "agglwindow.h"
 #include "atomtypeswindow.h"
 #include "clear_items.h"
 #include "start_events.h"
@@ -583,6 +584,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
 void MainWindow::createActions()
 {
   connect(ui->actionAtom_types_file, SIGNAL(triggered()), this, SLOT(createAtomTypes()));
+  connect(ui->actionAgglomerate_file, SIGNAL(triggered()), this, SLOT(createAgglFile()));
 }
 
 void MainWindow::createAtomTypes()
@@ -590,4 +592,11 @@ void MainWindow::createAtomTypes()
   AtomTypesWindow *atomTypes;
   atomTypes = new AtomTypesWindow(this);
   atomTypes->show();
+}
+
+void MainWindow::createAgglFile()
+{
+  AgglWindow *agglWindow;
+  agglWindow = new AgglWindow(this, ui->statgen_lineEdit_output->text());
+  agglWindow->show();
 }

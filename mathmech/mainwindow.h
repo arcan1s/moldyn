@@ -75,6 +75,7 @@ private slots:
   void on_tabWidget_currentChanged(int index);
 // window signals
   void createAtomTypes();
+  void createAgglFile();
 
 private:
   Ui::MainWindow *ui;

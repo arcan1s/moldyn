@@ -13,13 +13,16 @@ HEADERS += mainwindow.h \
     clear_items.h \
     start_events.h \
     update_fields.h \
-    atomtypeswindow.h
+    atomtypeswindow.h \
+    agglwindow.h
 FORMS += mainwindow.ui \
     errorwindow.ui \
-    atomtypeswindow.ui
+    atomtypeswindow.ui \
+    agglwindow.ui
 SOURCES += main.cpp mainwindow.cpp \
     errorwindow.cpp \
     clear_items.cpp \
     start_events.cpp \
     update_fields.cpp \
-    atomtypeswindow.cpp
+    atomtypeswindow.cpp \
+    agglwindow.cpp
