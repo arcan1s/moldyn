@@ -153,15 +153,19 @@ void MainWindow::on_radf_checkBox_ang_stateChanged(int arg1)
 {
   if (arg1 == 0)
   {
+    ui->radf_checkBox_graph->setCheckState(Qt::Checked);
     ui->radf_doubleSpinBox_angMax->setDisabled(true);
     ui->radf_doubleSpinBox_angMin->setDisabled(true);
     ui->radf_doubleSpinBox_angStep->setDisabled(true);
+    ui->radf_checkBox_graph->setEnabled(true);
   }
   else if (arg1 == 2)
   {
+    ui->radf_checkBox_graph->setCheckState(Qt::Unchecked);
     ui->radf_doubleSpinBox_angMax->setEnabled(true);
     ui->radf_doubleSpinBox_angMin->setEnabled(true);
     ui->radf_doubleSpinBox_angStep->setEnabled(true);
+    ui->radf_checkBox_graph->setDisabled(true);
   }
 }
 
@@ -246,6 +250,17 @@ void MainWindow::on_trj_pushButton_atoms_clicked()
     ui->trj_lineEdit_atoms->setText(filename);
 }
 
+void MainWindow::on_trj_pushButton_output_clicked()
+{
+  QString filename = QFileDialog::getSaveFileName(
+                     this,
+                     tr("Save files as"),
+                     QDir(ui->trj_lineEdit_workDir->text()).absolutePath(),
+                     tr("Mask of trajectory files"));
+  if (!filename.isEmpty())
+    ui->trj_lineEdit_output->setText(filename);
+}
+
 void MainWindow::on_trj_pushButton_log_clicked()
 {
   QString filename = QFileDialog::getSaveFileName(
@@ -265,6 +280,17 @@ void MainWindow::on_statgen_pushButton_workDir_clicked()
                     QDir::currentPath());
   if (!dirname.isEmpty())
     ui->statgen_lineEdit_workDir->setText(dirname);
+}
+
+void MainWindow::on_statgen_pushButton_input_clicked()
+{
+  QString filename = QFileDialog::getOpenFileName(
+                     this,
+                     tr("Select trajectory files"),
+                     QDir(ui->statgen_lineEdit_workDir->text()).absolutePath(),
+                     tr("Trajectory files (*.*[0-9])"));
+  if (!filename.isEmpty())
+    ui->statgen_lineEdit_input->setText(filename.split(QString("."))[0]);
 }
 
 void MainWindow::on_statgen_pushButton_output_clicked()
@@ -342,6 +368,17 @@ void MainWindow::on_radf_pushButton_workDir_clicked()
     ui->radf_lineEdit_workDir->setText(dirname);
 }
 
+void MainWindow::on_radf_pushButton_input_clicked()
+{
+  QString filename = QFileDialog::getOpenFileName(
+                     this,
+                     tr("Select trajectory files"),
+                     QDir(ui->radf_lineEdit_workDir->text()).absolutePath(),
+                     tr("Trajectory files (*.*[0-9])"));
+  if (!filename.isEmpty())
+    ui->radf_lineEdit_input->setText(filename.split(QString("."))[0]);
+}
+
 void MainWindow::on_radf_pushButton_output_clicked()
 {
   QString filename = QFileDialog::getSaveFileName(
@@ -350,7 +387,7 @@ void MainWindow::on_radf_pushButton_output_clicked()
                      QDir(ui->radf_lineEdit_workDir->text()).absolutePath(),
                      tr("Output files (*.dat)"));
   if (!filename.isEmpty())
-    ui->envir_lineEdit_output->setText(filename);
+    ui->radf_lineEdit_output->setText(filename);
 }
 
 void MainWindow::on_radf_pushButton_log_clicked()

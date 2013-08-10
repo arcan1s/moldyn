@@ -6,6 +6,7 @@
 #include "ui_mainwindow.h"
 #include "errorwindow.h"
 #include "ui_errorwindow.h"
+#include "statgengraphwindow.h"
 
 Start_events::Start_events(MainWindow *wid) :
   parent(wid)
@@ -218,6 +219,15 @@ void Start_events::start_statgen(QString mm_statgen_path)
   parent->ui->tabWidget->setEnabled(true);
   parent->ui->statusBar->showMessage(QApplication::translate("Start_events", "Done"));
   delete errorwin;
+  if (parent->ui->statgen_checkBox_graph->checkState() == 2)
+  {
+    QString filename = output;
+    if (!filename.contains(QDir::separator()))
+      filename = QFileInfo(QDir(workDir), filename).absoluteFilePath();
+    StatgenGraphWindow *graphwin;
+    graphwin = new StatgenGraphWindow(parent, filename);
+    graphwin->show();
+  }
 }
 
 void Start_events::start_envir(QString mm_envir_path)
@@ -423,6 +433,15 @@ void Start_events::start_radf(QString mm_radf_path)
   parent->ui->tabWidget->setEnabled(true);
   parent->ui->statusBar->showMessage(QApplication::translate("Start_events", "Done"));
   delete errorwin;
+  if (parent->ui->radf_checkBox_graph->checkState() == 2)
+  {
+    QString filename = output;
+    if (!filename.contains(QDir::separator()))
+      filename = QFileInfo(QDir(workDir), filename).absoluteFilePath();
+    StatgenGraphWindow *graphwin;
+    graphwin = new StatgenGraphWindow(parent, filename);
+    graphwin->show();
+  }
 }
 
 void Start_events::start_pdb(QString mm_pdb_path)

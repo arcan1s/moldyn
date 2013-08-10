@@ -62,11 +62,11 @@ int summary_statistic (const char *filename, const int step, const int num_mol,
     
     fprintf (f_out, " %7i %7i %9.2f %9.5f %10.5f\n", i+1, stat_all[i], conc, p, pn);
   }
+  fprintf (f_out, "------------------------------------------------\n");
   
   if (max_depth > 0)
   {
 // types of aglomerates
-    fprintf (f_out, "------------------------------------------------\n");
 // linear and cycle
     x = type_agl[0] + type_agl[1];
     type[0] = type_agl[0];

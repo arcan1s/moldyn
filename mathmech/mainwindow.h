@@ -45,8 +45,10 @@ private slots:
   void on_trj_pushButton_workDir_clicked();
   void on_trj_pushButton_input_clicked();
   void on_trj_pushButton_atoms_clicked();
+  void on_trj_pushButton_output_clicked();
   void on_trj_pushButton_log_clicked();
   void on_statgen_pushButton_workDir_clicked();
+  void on_statgen_pushButton_input_clicked();
   void on_statgen_pushButton_output_clicked();
   void on_statgen_pushButton_log_clicked();
   void on_envir_pushButton_workDir_clicked();
@@ -54,6 +56,7 @@ private slots:
   void on_envir_pushButton_output_clicked();
   void on_envir_pushButton_log_clicked();
   void on_radf_pushButton_workDir_clicked();
+  void on_radf_pushButton_input_clicked();
   void on_radf_pushButton_output_clicked();
   void on_radf_pushButton_log_clicked();
   void on_pdb_pushButton_workDir_clicked();

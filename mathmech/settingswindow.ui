@@ -347,10 +347,8 @@
   <tabstop>settings_lineEdit_agl</tabstop>
   <tabstop>settings_pushButton_agl</tabstop>
   <tabstop>settings_comboBox_lang</tabstop>
-  <tabstop>pushButton_6</tabstop>
   <tabstop>settings_pushButton_close</tabstop>
   <tabstop>settings_pushButton_save</tabstop>
-  <tabstop>lineEdit_6</tabstop>
  </tabstops>
  <resources/>
  <connections>

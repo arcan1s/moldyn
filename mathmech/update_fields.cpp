@@ -24,13 +24,7 @@ void Update_fields::setup_def_statgen()
   float cellX, cellY, cellZ;
   QStringList tmp_str;
   QString input = parent->ui->trj_lineEdit_input->text();
-#ifdef _WIN32
-  if (input.contains("\\"))
-#elif __linux
-  if (input.contains("/"))
-#else
-  return;
-#endif
+  if (input.contains(QDir::separator()))
     input = QFileInfo(input).absoluteFilePath();
   else
     input = QFileInfo(QDir(parent->ui->trj_lineEdit_workDir->text()), input).absoluteFilePath();
@@ -40,7 +34,10 @@ void Update_fields::setup_def_statgen()
     return;
   if (parent->ui->trj_comboBox_type->currentIndex() == 0)
   {
-    for (int i=0; i<3; i++)
+    tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
+    if (tmp_str[1] != QString("frame"))
+      return;
+    for (int i=0; i<2; i++)
       inp_trj.readLine();
     tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
     cellX = 10 * tmp_str[2].remove(tmp_str[2].count()-1, 1).toFloat();
@@ -51,7 +48,11 @@ void Update_fields::setup_def_statgen()
   }
   else if (parent->ui->trj_comboBox_type->currentIndex() == 1)
   {
-    inp_trj.readLine();
+    tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
+    bool ok = false;
+    cellX = tmp_str[0].toInt(&ok, 10);
+    if (!ok)
+      return;
     tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
     cellX = tmp_str[0].toFloat();
     cellY = tmp_str[1].toFloat();
@@ -73,13 +74,7 @@ void Update_fields::setup_def_envir()
   float cellX, cellY, cellZ;
   QStringList tmp_str;
   QString input = parent->ui->trj_lineEdit_input->text();
-#ifdef _WIN32
-  if (input.contains("\\"))
-#elif __linux
-  if (input.contains("/"))
-#else
-  return;
-#endif
+  if (input.contains(QDir::separator()))
     input = QFileInfo(input).absoluteFilePath();
   else
     input = QFileInfo(QDir(parent->ui->trj_lineEdit_workDir->text()), input).absoluteFilePath();
@@ -89,7 +84,10 @@ void Update_fields::setup_def_envir()
     return;
   if (parent->ui->trj_comboBox_type->currentIndex() == 0)
   {
-    for (int i=0; i<3; i++)
+    tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
+    if (tmp_str[1] != QString("frame"))
+      return;
+    for (int i=0; i<2; i++)
       inp_trj.readLine();
     tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
     cellX = 10 * tmp_str[2].remove(tmp_str[2].count()-1, 1).toFloat();
@@ -100,7 +98,11 @@ void Update_fields::setup_def_envir()
   }
   else if (parent->ui->trj_comboBox_type->currentIndex() == 1)
   {
-    inp_trj.readLine();
+    tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
+    bool ok = false;
+    cellX = tmp_str[0].toInt(&ok, 10);
+    if (!ok)
+      return;
     tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
     cellX = tmp_str[0].toFloat();
     cellY = tmp_str[1].toFloat();
@@ -126,13 +128,7 @@ void Update_fields::setup_def_radf()
   float cellX, cellY, cellZ;
   QStringList tmp_str;
   QString input = parent->ui->trj_lineEdit_input->text();
-#ifdef _WIN32
-  if (input.contains("\\"))
-#elif __linux
-  if (input.contains("/"))
-#else
-  return;
-#endif
+  if (input.contains(QDir::separator()))
     input = QFileInfo(input).absoluteFilePath();
   else
     input = QFileInfo(QDir(parent->ui->trj_lineEdit_workDir->text()), input).absoluteFilePath();
@@ -142,7 +138,10 @@ void Update_fields::setup_def_radf()
     return;
   if (parent->ui->trj_comboBox_type->currentIndex() == 0)
   {
-    for (int i=0; i<3; i++)
+    tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
+    if (tmp_str[1] != QString("frame"))
+      return;
+    for (int i=0; i<2; i++)
       inp_trj.readLine();
     tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
     cellX = 10 * tmp_str[2].remove(tmp_str[2].count()-1, 1).toFloat();
@@ -153,7 +152,11 @@ void Update_fields::setup_def_radf()
   }
   else if (parent->ui->trj_comboBox_type->currentIndex() == 1)
   {
-    inp_trj.readLine();
+    tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
+    bool ok = false;
+    cellX = tmp_str[0].toInt(&ok, 10);
+    if (!ok)
+      return;
     tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
     cellX = tmp_str[0].toFloat();
     cellY = tmp_str[1].toFloat();
@@ -175,13 +178,7 @@ void Update_fields::setup_def_pdb()
   float cellX, cellY, cellZ;
   QStringList tmp_str;
   QString input = parent->ui->trj_lineEdit_input->text();
-#ifdef _WIN32
-  if (input.contains("\\"))
-#elif __linux
-  if (input.contains("/"))
-#else
-  return;
-#endif
+  if (input.contains(QDir::separator()))
     input = QFileInfo(input).absoluteFilePath();
   else
     input = QFileInfo(QDir(parent->ui->trj_lineEdit_workDir->text()), input).absoluteFilePath();
@@ -191,7 +188,10 @@ void Update_fields::setup_def_pdb()
     return;
   if (parent->ui->trj_comboBox_type->currentIndex() == 0)
   {
-    for (int i=0; i<3; i++)
+    tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
+    if (tmp_str[1] != QString("frame"))
+      return;
+    for (int i=0; i<2; i++)
       inp_trj.readLine();
     tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
     cellX = 10 * tmp_str[2].remove(tmp_str[2].count()-1, 1).toFloat();
@@ -202,7 +202,11 @@ void Update_fields::setup_def_pdb()
   }
   else if (parent->ui->trj_comboBox_type->currentIndex() == 1)
   {
-    inp_trj.readLine();
+    tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
+    bool ok = false;
+    cellX = tmp_str[0].toInt(&ok, 10);
+    if (!ok)
+      return;
     tmp_str = QString(inp_trj.readLine()).split(' ', QString::SkipEmptyParts);
     cellX = tmp_str[0].toFloat();
     cellY = tmp_str[1].toFloat();

@@ -17,6 +17,9 @@ public:
   
 private:
   Ui::AboutWindow *ui;
+
+// ESC pressed event
+  void keyPressEvent(QKeyEvent *pressedKey);
 };
 
 #endif /* ABOUTWINDOW_H */

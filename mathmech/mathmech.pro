@@ -6,6 +6,7 @@ TEMPLATE = app
 TARGET = 
 DEPENDPATH += .
 INCLUDEPATH += .
+CONFIG += qwt
 
 # Input
 HEADERS += mainwindow.h \
@@ -17,14 +18,16 @@ HEADERS += mainwindow.h \
     agglwindow.h \
     aboutwindow.h \
     statgengraphwindow.h \
-    settingswindow.h
+    settingswindow.h \
+    aglallwindow.h
 FORMS += mainwindow.ui \
     errorwindow.ui \
     atomtypeswindow.ui \
     agglwindow.ui \
     aboutwindow.ui \
     statgengraphwindow.ui \
-    settingswindow.ui
+    settingswindow.ui \
+    aglallwindow.ui
 SOURCES += main.cpp mainwindow.cpp \
     errorwindow.cpp \
     clear_items.cpp \
@@ -34,4 +37,5 @@ SOURCES += main.cpp mainwindow.cpp \
     agglwindow.cpp \
     aboutwindow.cpp \
     statgengraphwindow.cpp \
-    settingswindow.cpp
+    settingswindow.cpp \
+    aglallwindow.cpp

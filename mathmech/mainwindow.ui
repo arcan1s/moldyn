@@ -268,9 +268,25 @@
            <widget class="QLineEdit" name="trj_lineEdit_output">
             <property name="minimumSize">
              <size>
-              <width>365</width>
+              <width>320</width>
               <height>23</height>
              </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="trj_pushButton_output">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -497,6 +513,22 @@
               <width>280</width>
               <height>23</height>
              </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="statgen_pushButton_input">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -1205,6 +1237,22 @@
            </spacer>
           </item>
           <item>
+           <widget class="QCheckBox" name="statgen_checkBox_graph">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Graph</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="statgen_pushButton_start">
             <property name="minimumSize">
              <size>
@@ -1781,6 +1829,22 @@
               <width>280</width>
               <height>23</height>
              </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="radf_pushButton_input">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Browse</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -2783,6 +2847,22 @@
            </spacer>
           </item>
           <item>
+           <widget class="QCheckBox" name="radf_checkBox_graph">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Graph</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="radf_pushButton_start">
             <property name="minimumSize">
              <size>
@@ -3274,12 +3354,20 @@
     </property>
     <widget class="QMenu" name="menuFile_creator">
      <property name="title">
-      <string>File creator</string>
+      <string>File &amp;creator</string>
      </property>
      <addaction name="actionAtom_types_file"/>
      <addaction name="actionAgglomerate_file"/>
     </widget>
+    <widget class="QMenu" name="menu_Tools">
+     <property name="title">
+      <string>&amp;Tools</string>
+     </property>
+     <addaction name="actionAgl_all"/>
+     <addaction name="actionStatgen_all"/>
+    </widget>
     <addaction name="menuFile_creator"/>
+    <addaction name="menu_Tools"/>
     <addaction name="actionSettings"/>
     <addaction name="actionExit"/>
    </widget>
@@ -3337,7 +3425,17 @@
   </action>
   <action name="actionSettings">
    <property name="text">
-    <string>Settings</string>
+    <string>&amp;Settings</string>
+   </property>
+  </action>
+  <action name="actionAgl_all">
+   <property name="text">
+    <string>agl_all</string>
+   </property>
+  </action>
+  <action name="actionStatgen_all">
+   <property name="text">
+    <string>statgen_all</string>
    </property>
   </action>
  </widget>
@@ -3353,6 +3451,7 @@
   <tabstop>trj_lineEdit_atoms</tabstop>
   <tabstop>trj_pushButton_atoms</tabstop>
   <tabstop>trj_lineEdit_output</tabstop>
+  <tabstop>trj_pushButton_output</tabstop>
   <tabstop>trj_spinBox_totalTypes</tabstop>
   <tabstop>trj_checkBox_log</tabstop>
   <tabstop>trj_lineEdit_log</tabstop>
@@ -3362,6 +3461,7 @@
   <tabstop>statgen_lineEdit_workDir</tabstop>
   <tabstop>statgen_pushButton_workDir</tabstop>
   <tabstop>statgen_lineEdit_input</tabstop>
+  <tabstop>statgen_pushButton_input</tabstop>
   <tabstop>statgen_spinBox_stepsFirst</tabstop>
   <tabstop>statgen_spinBox_stepsLast</tabstop>
   <tabstop>statgen_doubleSpinBox_cellX</tabstop>
@@ -3388,6 +3488,7 @@
   <tabstop>statgen_lineEdit_log</tabstop>
   <tabstop>statgen_pushButton_log</tabstop>
   <tabstop>statgen_pushButton_clear</tabstop>
+  <tabstop>statgen_checkBox_graph</tabstop>
   <tabstop>statgen_pushButton_start</tabstop>
   <tabstop>envir_lineEdit_workDir</tabstop>
   <tabstop>envir_pushButton_workDir</tabstop>
@@ -3408,6 +3509,7 @@
   <tabstop>radf_lineEdit_workDir</tabstop>
   <tabstop>radf_pushButton_workDir</tabstop>
   <tabstop>radf_lineEdit_input</tabstop>
+  <tabstop>radf_pushButton_input</tabstop>
   <tabstop>radf_spinBox_stepsFirst</tabstop>
   <tabstop>radf_spinBox_stepsLast</tabstop>
   <tabstop>radf_doubleSpinBox_cellX</tabstop>
@@ -3434,6 +3536,7 @@
   <tabstop>radf_lineEdit_log</tabstop>
   <tabstop>radf_pushButton_log</tabstop>
   <tabstop>radf_pushButton_clear</tabstop>
+  <tabstop>radf_checkBox_graph</tabstop>
   <tabstop>radf_pushButton_start</tabstop>
   <tabstop>pdb_comboBox_mode</tabstop>
   <tabstop>pdb_lineEdit_workDir</tabstop>
