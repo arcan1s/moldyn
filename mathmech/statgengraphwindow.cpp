@@ -69,8 +69,8 @@ void StatgenGraphWindow::paintGraph()
       pn_curve->setSamples(x_axis, pn_points);
       break;
     case 1:
-      plot->setAxisTitle(QwtPlot::xBottom, trUtf8("N"));
-      plot->setAxisTitle(QwtPlot::yLeft, trUtf8("p"));
+      plot->setAxisTitle(QwtPlot::xBottom, trUtf8("r"));
+      plot->setAxisTitle(QwtPlot::yLeft, trUtf8("g"));
 
       pen = QPen(QColor(0,0,0));
       QwtPlotCurve *radf_curve;

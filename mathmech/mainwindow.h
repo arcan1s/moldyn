@@ -5,7 +5,6 @@
 
 class Clear_items;
 class SettingsWindow;
-class Start_events;
 class Update_fields;
 
 namespace Ui {
@@ -35,6 +34,7 @@ private slots:
   void on_statgen_checkBox_atoms1_stateChanged(int arg1);
   void on_statgen_checkBox_atoms2_stateChanged(int arg1);
   void on_statgen_checkBox_atoms3_stateChanged(int arg1);
+  void on_statgen_checkBox_anal_stateChanged(int arg1);
   void on_envir_checkBox_log_stateChanged(int arg1);
   void on_radf_comboBox_atom_currentIndexChanged(int index);
   void on_radf_checkBox_ang_stateChanged(int arg1);
@@ -89,6 +89,7 @@ private slots:
   void createAgglFile();
   void aboutWin();
   void settingsWinShow();
+  void aglallWinShow();
 
 private:
   Ui::MainWindow *ui;
@@ -97,8 +98,6 @@ private:
 
   Clear_items *clear_items;
   friend class Clear_items;
-  Start_events *start_events;
-  friend class Start_events;
   Update_fields *update_fields;
   friend class Update_fields;
 

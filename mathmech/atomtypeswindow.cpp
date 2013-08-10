@@ -3,11 +3,10 @@
 #include <QKeyEvent>
 #include <QTextStream>
 
+#include "errorwindow.h"
+
 #include "atomtypeswindow.h"
 #include "ui_atomtypeswindow.h"
-
-#include "errorwindow.h"
-#include "ui_errorwindow.h"
 
 AtomTypesWindow::AtomTypesWindow(QWidget *parent) :
   QMainWindow(parent),

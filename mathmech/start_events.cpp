@@ -1,12 +1,11 @@
 #include <QDir>
 
-#include "start_events.h"
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "errorwindow.h"
-#include "ui_errorwindow.h"
 #include "statgengraphwindow.h"
+
+#include "start_events.h"
 
 Start_events::Start_events(MainWindow *wid) :
   parent(wid)
@@ -14,7 +13,15 @@ Start_events::Start_events(MainWindow *wid) :
 
 }
 
-void Start_events::start_trj(QString mm_trj_path)
+void Start_events::start_trj(QString mm_trj_path,
+                             QString workDir,
+                             QString input,
+                             QString type,
+                             QString steps,
+                             QString atomType,
+                             QString mask,
+                             QString totalTypes,
+                             QString log)
 {
   errorwin = new ErrorWindow(parent);
   parent->ui->statusBar->showMessage(QApplication::translate("Start_events", "Processing 'trj'..."));
@@ -80,7 +87,6 @@ void Start_events::start_trj(QString mm_trj_path)
   }
 
 // exec
-  parent->ui->tabWidget->setDisabled(true);
   QString command;
   command.append(mm_trj_path);
   if (input.contains(QDir::separator()))
@@ -105,7 +111,6 @@ void Start_events::start_trj(QString mm_trj_path)
   command.append(" -q");
 
   system(command.toStdString().c_str());
-  parent->ui->tabWidget->setEnabled(true);
   parent->ui->statusBar->showMessage(QApplication::translate("Start_events", "Done"));
   delete errorwin;
 }
@@ -183,7 +188,6 @@ void Start_events::start_statgen(QString mm_statgen_path)
   }
 
 // exec
-  parent->ui->tabWidget->setDisabled(true);
   QString command;
   command.append(mm_statgen_path);
   if (mask.contains(QDir::separator()))
@@ -216,7 +220,6 @@ void Start_events::start_statgen(QString mm_statgen_path)
   command.append(" -q");
 
   system(command.toStdString().c_str());
-  parent->ui->tabWidget->setEnabled(true);
   parent->ui->statusBar->showMessage(QApplication::translate("Start_events", "Done"));
   delete errorwin;
   if (parent->ui->statgen_checkBox_graph->checkState() == 2)
@@ -283,7 +286,6 @@ void Start_events::start_envir(QString mm_envir_path)
     return;
   }
 
-  parent->ui->tabWidget->setDisabled(true);
   QString command;
   command.append(mm_envir_path);
   if (input.contains(QDir::separator()))
@@ -307,7 +309,6 @@ void Start_events::start_envir(QString mm_envir_path)
   command.append(" -q");
 
   system(command.toStdString().c_str());
-  parent->ui->tabWidget->setEnabled(true);
   parent->ui->statusBar->showMessage(QApplication::translate("Start_events", "Done"));
   delete errorwin;
 }
@@ -393,7 +394,6 @@ void Start_events::start_radf(QString mm_radf_path)
   }
 
 // exec
-  parent->ui->tabWidget->setDisabled(true);
   QString command;
   command.append(mm_radf_path);
   if (mask.contains(QDir::separator()))
@@ -430,7 +430,6 @@ void Start_events::start_radf(QString mm_radf_path)
   command.append(" -q");
 
   system(command.toStdString().c_str());
-  parent->ui->tabWidget->setEnabled(true);
   parent->ui->statusBar->showMessage(QApplication::translate("Start_events", "Done"));
   delete errorwin;
   if (parent->ui->radf_checkBox_graph->checkState() == 2)
@@ -513,7 +512,6 @@ void Start_events::start_pdb(QString mm_pdb_path)
   }
 
 // exec
-  parent->ui->tabWidget->setDisabled(true);
   QString command;
   command.append(mm_pdb_path);
   if (parent->ui->pdb_comboBox_mode->currentIndex() == 0)
@@ -542,9 +540,7 @@ void Start_events::start_pdb(QString mm_pdb_path)
   }
   command.append(" -q");
 
-//  system(command.toStdString().c_str());
-  printf ("%s\n", command.toStdString().c_str());
-  parent->ui->tabWidget->setEnabled(true);
+  system(command.toStdString().c_str());
   parent->ui->statusBar->showMessage(QApplication::translate("Start_events", "Done"));
   delete errorwin;
 }

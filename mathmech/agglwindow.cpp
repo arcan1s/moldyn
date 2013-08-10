@@ -3,11 +3,10 @@
 #include <QKeyEvent>
 #include <QTextStream>
 
+#include "errorwindow.h"
+
 #include "agglwindow.h"
 #include "ui_agglwindow.h"
-
-#include "errorwindow.h"
-#include "ui_errorwindow.h"
 
 AgglWindow::AgglWindow(QWidget *parent, QString inputfile) :
   QMainWindow(parent),

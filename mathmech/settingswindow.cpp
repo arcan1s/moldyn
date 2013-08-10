@@ -3,13 +3,12 @@
 #include <QFileDialog>
 #include <QTextStream>
 
-#include "settingswindow.h"
-#include "ui_settingswindow.h"
-
 #include "errorwindow.h"
-#include "ui_errorwindow.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
+#include "settingswindow.h"
+#include "ui_settingswindow.h"
 
 SettingsWindow::SettingsWindow(MainWindow *parent) :
   QMainWindow(parent),

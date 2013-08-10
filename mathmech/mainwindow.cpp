@@ -1,15 +1,17 @@
 #include <QFileDialog>
 #include <QDir>
 
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
 #include "aboutwindow.h"
 #include "agglwindow.h"
+#include "aglallwindow.h"
 #include "atomtypeswindow.h"
 #include "settingswindow.h"
 #include "clear_items.h"
 #include "start_events.h"
 #include "update_fields.h"
+
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
@@ -115,6 +117,14 @@ void MainWindow::on_statgen_checkBox_atoms3_stateChanged(int arg1)
   else if (arg1 == 2)
     ui->statgen_spinBox_atoms3->setEnabled(true);
   update_interaction();
+}
+
+void MainWindow::on_statgen_checkBox_anal_stateChanged(int arg1)
+{
+  if (arg1 == 0)
+    ui->statgen_doubleSpinBox_anal->setDisabled(true);
+  else if (arg1 == 2)
+    ui->statgen_doubleSpinBox_anal->setEnabled(true);
 }
 
 void MainWindow::on_envir_checkBox_log_stateChanged(int arg1)
@@ -568,30 +578,71 @@ void MainWindow::on_stagen_pushButton_intRem_clicked()
 // start signals
 void MainWindow::on_trj_pushButton_start_clicked()
 {
-  start_events->start_trj(mm_trj_path);
+  QString workDir = parent->ui->trj_lineEdit_workDir->text();
+  QString input = parent->ui->trj_lineEdit_input->text();
+  QString type;
+  switch (parent->ui->trj_comboBox_type->currentIndex())
+  {
+    case 0:
+      type = QString("gmx");
+      break;
+    case 1:
+      type = QString("puma");
+      break;
+  }
+  QString steps = QString::number(parent->ui->trj_spinBox_steps->value());
+  QString atomType = parent->ui->trj_lineEdit_atoms->text();
+  QString mask = parent->ui->trj_lineEdit_output->text();
+  QString totalTypes = QString::number(parent->ui->trj_spinBox_totalTypes->value());
+  QString log;
+  if (parent->ui->trj_checkBox_log->checkState() == 2)
+    log = parent->ui->trj_lineEdit_log->text();
+
+  ui->centralWidget->setDisabled(true);
+  Start_events *start_events;
+  start_events = new Start_events;
+  start_events->start_trj(mm_trj_path,
+                          workDir,
+                          input,
+                          type,
+                          steps,
+                          atomType,
+                          mask,
+                          totalTypes,
+                          log);
+  delete start_events
+  ui->centralWidget->setEnabled(true);
 }
 
 void MainWindow::on_statgen_pushButton_start_clicked()
 {
+  ui->centralWidget->setDisabled(true);
   start_events->start_statgen(mm_statgen_path);
+  ui->centralWidget->setEnabled(true);
 }
 
 void MainWindow::on_envir_pushButton_start_clicked()
 {
+  ui->centralWidget->setDisabled(true);
   start_events->start_envir(mm_envir_path);
+  ui->centralWidget->setEnabled(true);
 }
 
 void MainWindow::on_radf_pushButton_start_clicked()
 {
+  ui->centralWidget->setDisabled(true);
   start_events->start_radf(mm_radf_path);
+  ui->centralWidget->setEnabled(true);
 }
 
 void MainWindow::on_pdb_pushButton_start_clicked()
 {
+  ui->centralWidget->setDisabled(true);
   if (ui->pdb_comboBox_mode->currentIndex() == 0)
     start_events->start_pdb(mm_agl_path);
   else if (ui->pdb_comboBox_mode->currentIndex() == 1)
     start_events->start_pdb(mm_trj2pdb_path);
+  ui->centralWidget->setEnabled(true);
 }
 
 // completion
@@ -621,6 +672,7 @@ void MainWindow::createActions()
   connect(ui->actionAgglomerate_file, SIGNAL(triggered()), this, SLOT(createAgglFile()));
   connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(aboutWin()));
   connect(ui->actionSettings, SIGNAL(triggered()), this, SLOT(settingsWinShow()));
+  connect(ui->actionAgl_all, SIGNAL(triggered()), this, SLOT(aglallWinShow()));
 }
 
 void MainWindow::createAtomTypes()
@@ -649,4 +701,11 @@ void MainWindow::settingsWinShow()
   SettingsWindow *settingsWindow;
   settingsWindow = new SettingsWindow(this);
   settingsWindow->show();
+}
+
+void MainWindow::aglallWinShow()
+{
+  AglAllWindow *aglallWin;
+  aglallWin = new AglAllWindow(this, mm_agl_path);
+  aglallWin->show();
 }

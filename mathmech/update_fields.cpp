@@ -1,10 +1,10 @@
 #include <QDir>
 #include <math.h>
 
-#include "update_fields.h"
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
+#include "update_fields.h"
 
 Update_fields::Update_fields(MainWindow *wid) :
   parent(wid)

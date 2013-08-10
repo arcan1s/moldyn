@@ -43,6 +43,9 @@ void Clear_items::clear_statgen()
   parent->ui->statgen_spinBox_depth->setValue(10);
   parent->ui->statgen_checkBox_log->setCheckState(Qt::Checked);
   parent->ui->statgen_lineEdit_log->clear();
+  parent->ui->statgen_checkBox_anal->setCheckState(Qt::Unchecked);
+  parent->ui->statgen_doubleSpinBox_anal->setValue(0.05);
+  parent->ui->statgen_checkBox_graph->setCheckState(Qt::Checked);
 }
 
 void Clear_items::clear_envir()
@@ -86,6 +89,7 @@ void Clear_items::clear_radf()
   parent->ui->radf_checkBox_matrix->setCheckState(Qt::Unchecked);
   parent->ui->radf_checkBox_log->setCheckState(Qt::Checked);
   parent->ui->radf_lineEdit_log->clear();
+  parent->ui->radf_checkBox_graph->setCheckState(Qt::Checked);
 }
 
 void Clear_items::clear_pdb()

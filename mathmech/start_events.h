@@ -11,7 +11,15 @@ class Start_events : public QWidget
   Q_OBJECT
 public:
   explicit Start_events(MainWindow *wid = 0);
-  void start_trj(QString mm_trj_path);
+  void start_trj(QString mm_trj_path,
+                 QString workDir,
+                 QString input,
+                 QString type,
+                 QString steps,
+                 QString atomType,
+                 QString mask,
+                 QString totalTypes,
+                 QString log);
   void start_statgen(QString mm_statgen_path);
   void start_envir(QString mm_envir_path);
   void start_radf(QString mm_radf_path);

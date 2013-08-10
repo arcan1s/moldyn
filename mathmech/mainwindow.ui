@@ -14,8 +14,8 @@
    <string>Mathematical Molecular Mechanics</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
        <number>0</number>
@@ -447,7 +447,7 @@
        <attribute name="title">
         <string>Agglomeration</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
          <layout class="QHBoxLayout" name="statgen_layout_workDir">
           <item>
@@ -1206,6 +1206,90 @@
          </layout>
         </item>
         <item>
+         <layout class="QHBoxLayout" name="statgen_layout_out_3">
+          <item>
+           <widget class="QCheckBox" name="statgen_checkBox_anal">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Analysis</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="statgen_doubleSpinBox_anal">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.050000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_16">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="statgen_checkBox_graph">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Graph</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_17">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="statgen_layout_buttons">
           <item>
            <widget class="QPushButton" name="statgen_pushButton_clear">
@@ -1235,22 +1319,6 @@
              </size>
             </property>
            </spacer>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="statgen_checkBox_graph">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>23</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Graph</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
           </item>
           <item>
            <widget class="QPushButton" name="statgen_pushButton_start">
@@ -3364,7 +3432,6 @@
       <string>&amp;Tools</string>
      </property>
      <addaction name="actionAgl_all"/>
-     <addaction name="actionStatgen_all"/>
     </widget>
     <addaction name="menuFile_creator"/>
     <addaction name="menu_Tools"/>
@@ -3487,8 +3554,10 @@
   <tabstop>statgen_checkBox_log</tabstop>
   <tabstop>statgen_lineEdit_log</tabstop>
   <tabstop>statgen_pushButton_log</tabstop>
-  <tabstop>statgen_pushButton_clear</tabstop>
+  <tabstop>statgen_checkBox_anal</tabstop>
+  <tabstop>statgen_doubleSpinBox_anal</tabstop>
   <tabstop>statgen_checkBox_graph</tabstop>
+  <tabstop>statgen_pushButton_clear</tabstop>
   <tabstop>statgen_pushButton_start</tabstop>
   <tabstop>envir_lineEdit_workDir</tabstop>
   <tabstop>envir_pushButton_workDir</tabstop>
