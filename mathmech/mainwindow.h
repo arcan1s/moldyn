@@ -5,6 +5,7 @@
 
 class Clear_items;
 class SettingsWindow;
+class Start_events;
 class Update_fields;
 
 namespace Ui {
@@ -100,6 +101,7 @@ private:
   friend class Clear_items;
   Update_fields *update_fields;
   friend class Update_fields;
+  Start_events *start_events;
 
 // window signals
   void createActions();

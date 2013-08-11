@@ -11,7 +11,7 @@ class Start_events : public QWidget
   Q_OBJECT
 public:
   explicit Start_events(MainWindow *wid = 0);
-  void start_trj(QString mm_trj_path,
+  bool start_trj(QString mm_trj_path,
                  QString workDir,
                  QString input,
                  QString type,
@@ -20,10 +20,44 @@ public:
                  QString mask,
                  QString totalTypes,
                  QString log);
-  void start_statgen(QString mm_statgen_path);
-  void start_envir(QString mm_envir_path);
-  void start_radf(QString mm_radf_path);
-  void start_pdb(QString mm_pdb_path);
+  bool start_statgen(QString mm_statgen_path,
+                     QString workDir,
+                     QString mask,
+                     QString firstStep,
+                     QString lastStep,
+                     QString cellX, QString cellY, QString cellZ,
+                     QString atom0, QString atom1, QString atom2, QString atom3,
+                     QString inter,
+                     QString output,
+                     QString depth,
+                     QString log);
+  bool start_envir(QString mm_envir_path,
+                   QString workDir,
+                   QString input,
+                   QString cellX, QString cellY, QString cellZ,
+                   QString output,
+                   QString molecule,
+                   QString radius,
+                   QString log);
+  bool start_radf(QString mm_radf_path,
+                  QString workDir,
+                  QString mask,
+                  QString firstStep,
+                  QString lastStep,
+                  QString cellX, QString cellY, QString cellZ,
+                  QString output,
+                  QString atom0, QString atom1, QString atom2,
+                  QString atom3, QString atom4, QString atom5,
+                  QString radMin, QString radMax, QString radStep,
+                  QString angMin, QString angMax, QString angStep,
+                  QString log, int matrix);
+  bool start_pdb(QString mm_pdb_path,
+                 QString workDir,
+                 QString input,
+                 QString agl,
+                 QString cellX, QString cellY, QString cellZ,
+                 QString output,
+                 QString log);
   
 signals:
   

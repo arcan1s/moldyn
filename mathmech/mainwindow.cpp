@@ -8,6 +8,7 @@
 #include "settingswindow.h"
 #include "clear_items.h"
 #include "start_events.h"
+#include "statgengraphwindow.h"
 #include "update_fields.h"
 
 #include "mainwindow.h"
@@ -17,7 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
   ui(new Ui::MainWindow),
   clear_items(new Clear_items(this)),
-  start_events(new Start_events(this)),
   update_fields(new Update_fields(this))
 {
   ui->setupUi(this);
@@ -578,10 +578,10 @@ void MainWindow::on_stagen_pushButton_intRem_clicked()
 // start signals
 void MainWindow::on_trj_pushButton_start_clicked()
 {
-  QString workDir = parent->ui->trj_lineEdit_workDir->text();
-  QString input = parent->ui->trj_lineEdit_input->text();
+  QString workDir = ui->trj_lineEdit_workDir->text();
+  QString input = ui->trj_lineEdit_input->text();
   QString type;
-  switch (parent->ui->trj_comboBox_type->currentIndex())
+  switch (ui->trj_comboBox_type->currentIndex())
   {
     case 0:
       type = QString("gmx");
@@ -590,59 +590,259 @@ void MainWindow::on_trj_pushButton_start_clicked()
       type = QString("puma");
       break;
   }
-  QString steps = QString::number(parent->ui->trj_spinBox_steps->value());
-  QString atomType = parent->ui->trj_lineEdit_atoms->text();
-  QString mask = parent->ui->trj_lineEdit_output->text();
-  QString totalTypes = QString::number(parent->ui->trj_spinBox_totalTypes->value());
+  QString steps = QString::number(ui->trj_spinBox_steps->value());
+  QString atomType = ui->trj_lineEdit_atoms->text();
+  QString mask = ui->trj_lineEdit_output->text();
+  QString totalTypes = QString::number(ui->trj_spinBox_totalTypes->value());
   QString log;
-  if (parent->ui->trj_checkBox_log->checkState() == 2)
-    log = parent->ui->trj_lineEdit_log->text();
+  if (ui->trj_checkBox_log->checkState() == 2)
+    log = ui->trj_lineEdit_log->text();
+  else
+    log = QString("#");
 
-  ui->centralWidget->setDisabled(true);
-  Start_events *start_events;
-  start_events = new Start_events;
-  start_events->start_trj(mm_trj_path,
-                          workDir,
-                          input,
-                          type,
-                          steps,
-                          atomType,
-                          mask,
-                          totalTypes,
-                          log);
-  delete start_events
-  ui->centralWidget->setEnabled(true);
+  ui->tabWidget->setDisabled(true);
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'trj'..."));
+  start_events = new Start_events(this);
+  bool check = start_events->start_trj(mm_trj_path,
+                                       workDir,
+                                       input,
+                                       type,
+                                       steps,
+                                       atomType,
+                                       mask,
+                                       totalTypes,
+                                       log);
+  delete start_events;
+  ui->tabWidget->setEnabled(true);
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Done"));
 }
 
 void MainWindow::on_statgen_pushButton_start_clicked()
 {
-  ui->centralWidget->setDisabled(true);
-  start_events->start_statgen(mm_statgen_path);
-  ui->centralWidget->setEnabled(true);
+  QString workDir = ui->statgen_lineEdit_workDir->text();
+  QString mask = ui->statgen_lineEdit_input->text();
+  QString firstStep = QString::number(ui->statgen_spinBox_stepsFirst->value());
+  QString lastStep = QString::number(ui->statgen_spinBox_stepsLast->value());
+  QString cellX, cellY, cellZ;
+  cellX.setNum(ui->statgen_doubleSpinBox_cellX->value(), 'f', 4);
+  cellY.setNum(ui->statgen_doubleSpinBox_cellY->value(), 'f', 4);
+  cellZ.setNum(ui->statgen_doubleSpinBox_cellZ->value(), 'f', 4);
+  QString atom0 = QString::number(ui->statgen_spinBox_atoms0->value());
+  QString atom1, atom2, atom3;
+  if (ui->statgen_checkBox_atoms1->checkState() == 2)
+    atom1.setNum(ui->statgen_spinBox_atoms1->value());
+  else
+    atom1 = QString("#");
+  if (ui->statgen_checkBox_atoms2->checkState() == 2)
+    atom2.setNum(ui->statgen_spinBox_atoms2->value());
+  else
+    atom2 = QString("#");
+  if (ui->statgen_checkBox_atoms3->checkState() == 2)
+    atom3.setNum(ui->statgen_spinBox_atoms3->value());
+  else
+    atom3 = QString("#");
+  QString inter;
+  inter = QString("");
+  for (int i=0; i<ui->statgen_listWidget_int->count(); i++)
+    inter.append(" -r " + ui->statgen_listWidget_int->item(i)->text());
+  QString output = ui->statgen_lineEdit_output->text();
+  QString depth;
+  if (ui->statgen_checkBox_depth->checkState() == 2)
+    depth.setNum(ui->statgen_spinBox_depth->value());
+  else
+    depth = QString("#");
+  QString log;
+  if (ui->statgen_checkBox_log->checkState() == 2)
+    log = ui->statgen_lineEdit_log->text();
+  else
+    log = QString("#");
+
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'statgen'..."));
+  ui->tabWidget->setDisabled(true);
+  start_events = new Start_events(this);
+  bool check = start_events->start_statgen(mm_statgen_path,
+                                           workDir,
+                                           mask,
+                                           firstStep,
+                                           lastStep,
+                                           cellX, cellY, cellZ,
+                                           atom0, atom1, atom2, atom3,
+                                           inter,
+                                           output,
+                                           depth,
+                                           log);
+  delete start_events;
+  ui->tabWidget->setEnabled(true);
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Done"));
+
+  if ((ui->statgen_checkBox_graph->checkState() == 2) && (check == true))
+  {
+    QString filename = output;
+    if (!filename.contains(QDir::separator()))
+      filename = QFileInfo(QDir(workDir), filename).absoluteFilePath();
+    StatgenGraphWindow *graphwin;
+    graphwin = new StatgenGraphWindow(this, filename);
+    graphwin->show();
+  }
 }
 
 void MainWindow::on_envir_pushButton_start_clicked()
 {
-  ui->centralWidget->setDisabled(true);
-  start_events->start_envir(mm_envir_path);
-  ui->centralWidget->setEnabled(true);
+  QString workDir = ui->envir_lineEdit_workDir->text();
+  QString input = ui->envir_lineEdit_input->text();
+  QString cellX, cellY, cellZ;
+  cellX.setNum(ui->envir_doubleSpinBox_cellX->value(), 'f', 4);
+  cellY.setNum(ui->envir_doubleSpinBox_cellY->value(), 'f', 4);
+  cellZ.setNum(ui->envir_doubleSpinBox_cellZ->value(), 'f', 4);
+  QString output = ui->envir_lineEdit_output->text();
+  QString molecule = QString::number(ui->envir_spinBox_molecule->value());
+  QString radius;
+  radius.setNum(ui->envir_doubleSpinBox_radius->value(), 'f', 4);
+  QString log;
+  if (ui->envir_checkBox_log->checkState() == 2)
+    log = ui->envir_lineEdit_log->text();
+  else
+    log = QString("#");
+
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'envir'..."));
+  ui->tabWidget->setDisabled(true);
+  start_events = new Start_events(this);
+  bool check = start_events->start_envir(mm_envir_path,
+                                         workDir,
+                                         input,
+                                         cellX, cellY, cellZ,
+                                         output,
+                                         molecule,
+                                         radius,
+                                         log);
+  delete start_events;
+  ui->tabWidget->setEnabled(true);
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Done"));
 }
 
 void MainWindow::on_radf_pushButton_start_clicked()
 {
-  ui->centralWidget->setDisabled(true);
-  start_events->start_radf(mm_radf_path);
-  ui->centralWidget->setEnabled(true);
+  QString workDir = ui->radf_lineEdit_workDir->text();
+  QString mask = ui->radf_lineEdit_input->text();
+  QString firstStep = QString::number(ui->radf_spinBox_stepsFirst->value());
+  QString lastStep = QString::number(ui->radf_spinBox_stepsLast->value());
+  QString cellX, cellY, cellZ;
+  cellX.setNum(ui->radf_doubleSpinBox_cellX->value(), 'f', 4);
+  cellY.setNum(ui->radf_doubleSpinBox_cellY->value(), 'f', 4);
+  cellZ.setNum(ui->radf_doubleSpinBox_cellZ->value(), 'f', 4);
+  QString output = ui->radf_lineEdit_output->text();
+  QString atom0 = QString::number(ui->radf_spinBox_atoms0->value());
+  QString atom3 = QString::number(ui->radf_spinBox_atoms3->value());
+  QString atom1, atom2, atom4, atom5;
+  if (ui->radf_comboBox_atom->currentIndex() == 1)
+  {
+    atom1 = QString::number(ui->radf_spinBox_atoms1->value());
+    atom2 = QString::number(ui->radf_spinBox_atoms1->value());
+    atom4 = QString::number(ui->radf_spinBox_atoms1->value());
+    atom5 = QString::number(ui->radf_spinBox_atoms1->value());
+  }
+  else
+    atom1 = QString("#");
+  QString radMin, radMax, radStep, angMin, angMax, angStep;
+  radMin.setNum(ui->radf_doubleSpinBox_radMin->value(), 'f', 3);
+  radMax.setNum(ui->radf_doubleSpinBox_radMax->value(), 'f', 3);
+  radStep.setNum(ui->radf_doubleSpinBox_radStep->value(), 'f', 3);
+  if (ui->radf_checkBox_ang->checkState() == 2)
+  {
+    angMin.setNum(ui->radf_doubleSpinBox_angMin->value(), 'f', 2);
+    angMax.setNum(ui->radf_doubleSpinBox_angMax->value(), 'f', 2);
+    angStep.setNum(ui->radf_doubleSpinBox_angStep->value(), 'f', 2);
+  }
+  else
+    angStep = QString("#");
+  QString log;
+  if (ui->radf_checkBox_log->checkState() == 2)
+    log = ui->radf_lineEdit_log->text();
+  else
+    log = QString("#");
+  int matrix;
+  if (ui->radf_checkBox_matrix->checkState() == 2)
+    matrix = 1;
+  else
+    matrix = 0;
+
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'radf'..."));
+  ui->tabWidget->setDisabled(true);
+  start_events = new Start_events(this);
+  bool check = start_events->start_radf(mm_radf_path,
+                                        workDir,
+                                        mask,
+                                        firstStep,
+                                        lastStep,
+                                        cellX, cellY, cellZ,
+                                        output,
+                                        atom0, atom1, atom2,
+                                        atom3, atom4, atom5,
+                                        radMin, radMax, radStep,
+                                        angMin, angMax, angStep,
+                                        log, matrix);
+  delete start_events;
+  ui->tabWidget->setEnabled(true);
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Done"));
+
+  if ((ui->radf_checkBox_graph->checkState() == 2) && (check == true))
+  {
+    QString filename = output;
+    if (!filename.contains(QDir::separator()))
+      filename = QFileInfo(QDir(workDir), filename).absoluteFilePath();
+    StatgenGraphWindow *graphwin;
+    graphwin = new StatgenGraphWindow(this, filename);
+    graphwin->show();
+  }
 }
 
 void MainWindow::on_pdb_pushButton_start_clicked()
 {
-  ui->centralWidget->setDisabled(true);
+  QString workDir = ui->pdb_lineEdit_workDir->text();
+  QString input = ui->pdb_lineEdit_input->text();
+  QString agl, cellX, cellY, cellZ;
   if (ui->pdb_comboBox_mode->currentIndex() == 0)
-    start_events->start_pdb(mm_agl_path);
+  {
+    agl = ui->pdb_lineEdit_agl->text();
+    cellX.setNum(ui->pdb_doubleSpinBox_cellX->value(), 'f', 4);
+    cellY.setNum(ui->pdb_doubleSpinBox_cellY->value(), 'f', 4);
+    cellZ.setNum(ui->pdb_doubleSpinBox_cellZ->value(), 'f', 4);
+  }
+  else
+    agl = QString("#");
+  QString output = ui->pdb_lineEdit_output->text();
+  QString log;
+  if (ui->pdb_checkBox_log->checkState() == 2)
+    log = ui->pdb_lineEdit_log->text();
+  else
+    log = QString("#");
+
+  if (ui->pdb_comboBox_mode->currentIndex() == 0)
+    ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'agl'..."));
   else if (ui->pdb_comboBox_mode->currentIndex() == 1)
-    start_events->start_pdb(mm_trj2pdb_path);
-  ui->centralWidget->setEnabled(true);
+    ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'trj2pdb'..."));
+  ui->tabWidget->setDisabled(true);
+  start_events = new Start_events(this);
+  bool check;
+  if (ui->pdb_comboBox_mode->currentIndex() == 0)
+    check = start_events->start_pdb(mm_agl_path,
+                                    workDir,
+                                    input,
+                                    agl,
+                                    cellX, cellY, cellZ,
+                                    output,
+                                    log);
+  else if (ui->pdb_comboBox_mode->currentIndex() == 1)
+    check = start_events->start_pdb(mm_trj2pdb_path,
+                                    workDir,
+                                    input,
+                                    agl,
+                                    cellX, cellY, cellZ,
+                                    output,
+                                    log);
+  delete start_events;
+  ui->tabWidget->setEnabled(true);
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Done"));
 }
 
 // completion
