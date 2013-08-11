@@ -97,6 +97,12 @@ private:
   void update_interaction();
   float *statgen_crit;
 
+  void start_events_trj();
+  void start_events_statgen();
+  void start_events_envir();
+  void start_events_radf();
+  void start_events_pdb();
+
   Clear_items *clear_items;
   friend class Clear_items;
   Update_fields *update_fields;

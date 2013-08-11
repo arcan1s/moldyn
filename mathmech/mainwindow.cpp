@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Ready"));
 
   createActions();
+  start_events = new Start_events(this);
 
   SettingsWindow *settingsWindow;
   settingsWindow = new SettingsWindow(this);
@@ -578,6 +579,13 @@ void MainWindow::on_stagen_pushButton_intRem_clicked()
 // start signals
 void MainWindow::on_trj_pushButton_start_clicked()
 {
+  ui->centralWidget->setDisabled(false);
+  start_events_trj();
+  ui->centralWidget->setEnabled(true);
+}
+
+void MainWindow::start_events_trj()
+{
   QString workDir = ui->trj_lineEdit_workDir->text();
   QString input = ui->trj_lineEdit_input->text();
   QString type;
@@ -600,9 +608,7 @@ void MainWindow::on_trj_pushButton_start_clicked()
   else
     log = QString("#");
 
-  ui->tabWidget->setDisabled(true);
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'trj'..."));
-  start_events = new Start_events(this);
   bool check = start_events->start_trj(mm_trj_path,
                                        workDir,
                                        input,
@@ -612,12 +618,17 @@ void MainWindow::on_trj_pushButton_start_clicked()
                                        mask,
                                        totalTypes,
                                        log);
-  delete start_events;
-  ui->tabWidget->setEnabled(true);
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Done"));
 }
 
 void MainWindow::on_statgen_pushButton_start_clicked()
+{
+  ui->centralWidget->setDisabled(true);
+  start_events_statgen();
+  ui->centralWidget->setEnabled(true);
+}
+
+void MainWindow::start_events_statgen()
 {
   QString workDir = ui->statgen_lineEdit_workDir->text();
   QString mask = ui->statgen_lineEdit_input->text();
@@ -658,8 +669,6 @@ void MainWindow::on_statgen_pushButton_start_clicked()
     log = QString("#");
 
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'statgen'..."));
-  ui->tabWidget->setDisabled(true);
-  start_events = new Start_events(this);
   bool check = start_events->start_statgen(mm_statgen_path,
                                            workDir,
                                            mask,
@@ -671,8 +680,6 @@ void MainWindow::on_statgen_pushButton_start_clicked()
                                            output,
                                            depth,
                                            log);
-  delete start_events;
-  ui->tabWidget->setEnabled(true);
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Done"));
 
   if ((ui->statgen_checkBox_graph->checkState() == 2) && (check == true))
@@ -687,6 +694,13 @@ void MainWindow::on_statgen_pushButton_start_clicked()
 }
 
 void MainWindow::on_envir_pushButton_start_clicked()
+{
+  ui->centralWidget->setDisabled(true);
+  start_events_envir();
+  ui->centralWidget->setEnabled(true);
+}
+
+void MainWindow::start_events_envir()
 {
   QString workDir = ui->envir_lineEdit_workDir->text();
   QString input = ui->envir_lineEdit_input->text();
@@ -705,8 +719,6 @@ void MainWindow::on_envir_pushButton_start_clicked()
     log = QString("#");
 
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'envir'..."));
-  ui->tabWidget->setDisabled(true);
-  start_events = new Start_events(this);
   bool check = start_events->start_envir(mm_envir_path,
                                          workDir,
                                          input,
@@ -715,12 +727,17 @@ void MainWindow::on_envir_pushButton_start_clicked()
                                          molecule,
                                          radius,
                                          log);
-  delete start_events;
-  ui->tabWidget->setEnabled(true);
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Done"));
 }
 
 void MainWindow::on_radf_pushButton_start_clicked()
+{
+  ui->centralWidget->setDisabled(true);
+  start_events_radf();
+  ui->centralWidget->setEnabled(true);
+}
+
+void MainWindow::start_events_radf()
 {
   QString workDir = ui->radf_lineEdit_workDir->text();
   QString mask = ui->radf_lineEdit_input->text();
@@ -767,8 +784,6 @@ void MainWindow::on_radf_pushButton_start_clicked()
     matrix = 0;
 
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'radf'..."));
-  ui->tabWidget->setDisabled(true);
-  start_events = new Start_events(this);
   bool check = start_events->start_radf(mm_radf_path,
                                         workDir,
                                         mask,
@@ -781,8 +796,6 @@ void MainWindow::on_radf_pushButton_start_clicked()
                                         radMin, radMax, radStep,
                                         angMin, angMax, angStep,
                                         log, matrix);
-  delete start_events;
-  ui->tabWidget->setEnabled(true);
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Done"));
 
   if ((ui->radf_checkBox_graph->checkState() == 2) && (check == true))
@@ -797,6 +810,13 @@ void MainWindow::on_radf_pushButton_start_clicked()
 }
 
 void MainWindow::on_pdb_pushButton_start_clicked()
+{
+  ui->centralWidget->setDisabled(true);
+  start_events_pdb();
+  ui->centralWidget->setEnabled(true);
+}
+
+void MainWindow::start_events_pdb()
 {
   QString workDir = ui->pdb_lineEdit_workDir->text();
   QString input = ui->pdb_lineEdit_input->text();
@@ -821,8 +841,6 @@ void MainWindow::on_pdb_pushButton_start_clicked()
     ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'agl'..."));
   else if (ui->pdb_comboBox_mode->currentIndex() == 1)
     ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'trj2pdb'..."));
-  ui->tabWidget->setDisabled(true);
-  start_events = new Start_events(this);
   bool check;
   if (ui->pdb_comboBox_mode->currentIndex() == 0)
     check = start_events->start_pdb(mm_agl_path,
@@ -840,8 +858,6 @@ void MainWindow::on_pdb_pushButton_start_clicked()
                                     cellX, cellY, cellZ,
                                     output,
                                     log);
-  delete start_events;
-  ui->tabWidget->setEnabled(true);
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Done"));
 }
 
