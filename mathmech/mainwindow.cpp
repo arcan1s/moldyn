@@ -579,7 +579,7 @@ void MainWindow::on_stagen_pushButton_intRem_clicked()
 // start signals
 void MainWindow::on_trj_pushButton_start_clicked()
 {
-  ui->centralWidget->setDisabled(false);
+  ui->centralWidget->setDisabled(true);
   start_events_trj();
   ui->centralWidget->setEnabled(true);
 }
@@ -608,6 +608,7 @@ void MainWindow::start_events_trj()
   else
     log = QString("#");
 
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'trj'..."));
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'trj'..."));
   bool check = start_events->start_trj(mm_trj_path,
                                        workDir,
@@ -669,6 +670,7 @@ void MainWindow::start_events_statgen()
     log = QString("#");
 
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'statgen'..."));
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'statgen'..."));
   bool check = start_events->start_statgen(mm_statgen_path,
                                            workDir,
                                            mask,
@@ -718,6 +720,7 @@ void MainWindow::start_events_envir()
   else
     log = QString("#");
 
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'envir'..."));
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'envir'..."));
   bool check = start_events->start_envir(mm_envir_path,
                                          workDir,
@@ -784,6 +787,7 @@ void MainWindow::start_events_radf()
     matrix = 0;
 
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'radf'..."));
+  ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'radf'..."));
   bool check = start_events->start_radf(mm_radf_path,
                                         workDir,
                                         mask,
@@ -838,9 +842,15 @@ void MainWindow::start_events_pdb()
     log = QString("#");
 
   if (ui->pdb_comboBox_mode->currentIndex() == 0)
+  {
     ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'agl'..."));
+    ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'agl'..."));
+  }
   else if (ui->pdb_comboBox_mode->currentIndex() == 1)
+  {
     ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'trj2pdb'..."));
+    ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'trj2pdb'..."));
+  }
   bool check;
   if (ui->pdb_comboBox_mode->currentIndex() == 0)
     check = start_events->start_pdb(mm_agl_path,
