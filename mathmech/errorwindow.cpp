@@ -55,10 +55,7 @@ void ErrorWindow::set_message(int mess)
       message = QApplication::translate("ErrorWindow", "Invalid file type");
       break;
     case 12:
-
-      break;
-    case 13:
-
+      message = QApplication::translate("ErrorWindow", "Interaction step is not set");
       break;
     default:
       message = QApplication::translate("ErrorWindow", "Unknown error");

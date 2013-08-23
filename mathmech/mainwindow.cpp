@@ -663,6 +663,9 @@ void MainWindow::start_events_statgen()
     depth.setNum(ui->statgen_spinBox_depth->value());
   else
     depth = QString("#");
+  float int_step;
+  if (ui->statgen_checkBox_anal->checkState() == 2)
+    int_step = ui->statgen_doubleSpinBox_anal->value();
   QString log;
   if (ui->statgen_checkBox_log->checkState() == 2)
     log = ui->statgen_lineEdit_log->text();
@@ -671,17 +674,32 @@ void MainWindow::start_events_statgen()
 
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'statgen'..."));
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Processing 'statgen'..."));
-  bool check = start_events->start_statgen(mm_statgen_path,
-                                           workDir,
-                                           mask,
-                                           firstStep,
-                                           lastStep,
-                                           cellX, cellY, cellZ,
-                                           atom0, atom1, atom2, atom3,
-                                           inter,
-                                           output,
-                                           depth,
-                                           log);
+  bool check;
+  if (ui->statgen_checkBox_anal->checkState() == 0)
+    check = start_events->start_statgen(mm_statgen_path,
+                                        workDir,
+                                        mask,
+                                        firstStep,
+                                        lastStep,
+                                        cellX, cellY, cellZ,
+                                        atom0, atom1, atom2, atom3,
+                                        inter,
+                                        output,
+                                        depth,
+                                        log);
+  else if (ui->statgen_checkBox_anal->checkState() == 2)
+    check = start_events->start_statgen_analysis(mm_statgen_path,
+                                                 workDir,
+                                                 mask,
+                                                 firstStep,
+                                                 lastStep,
+                                                 cellX, cellY, cellZ,
+                                                 atom0, atom1, atom2, atom3,
+                                                 inter,
+                                                 output,
+                                                 depth,
+                                                 log,
+                                                 int_step);
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Done"));
 
   if ((ui->statgen_checkBox_graph->checkState() == 2) && (check == true))

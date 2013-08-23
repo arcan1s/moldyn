@@ -178,6 +178,132 @@ bool Start_events::start_statgen(QString mm_statgen_path,
   return true;
 }
 
+bool Start_events::start_statgen_analysis(QString mm_statgen_path,
+                                          QString workDir,
+                                          QString mask,
+                                          QString firstStep,
+                                          QString lastStep,
+                                          QString cellX, QString cellY, QString cellZ,
+                                          QString atom0, QString atom1, QString atom2, QString atom3,
+                                          QString inter,
+                                          QString output,
+                                          QString depth,
+                                          QString log,
+                                          float int_step)
+{
+// error check
+  errorwin = new ErrorWindow(parent);
+  if ((workDir == "") || (!QDir(workDir).exists()))
+  {
+    errorwin->set_message(0);
+    errorwin->show();
+    return false;
+  }
+  if (mask == "")
+  {
+    errorwin->set_message(1);
+    errorwin->show();
+    return false;
+  }
+  if (inter == "")
+  {
+    errorwin->set_message(10);
+    errorwin->show();
+    return false;
+  }
+  if (output == "")
+  {
+    errorwin->set_message(4);
+    errorwin->show();
+    return false;
+  }
+  if ((log != QString("#")) && (log == ""))
+  {
+    errorwin->set_message(6);
+    errorwin->show();
+    return false;
+  }
+  if (int_step == 0.0)
+  {
+    errorwin->set_message(12);
+    errorwin->show();
+    return false;
+  }
+  if (!QFile(mm_statgen_path).exists())
+  {
+    errorwin->set_message(7);
+    errorwin->show();
+    return false;
+  }
+  delete errorwin;
+
+// parsing criteria
+  int imax = 10;
+  QStringList inter_list = inter.split(QString(" -r "), QString::SkipEmptyParts);
+  float *inter_list_one;
+  inter_list_one = new float[16*inter_list.count()];
+  for (i=0; i<16*inter_list.count(); i++)
+    inter_list_one = -1.0;
+  float item;
+  int index;
+  for (int i=0; i<inter_list.count(); i++)
+    for (int j=0; j<inter_list[i].split(QString(","), QString::SkipEmptyParts).count(); j++)
+    {
+      item = inter_list[i].split(QString(","), QString::SkipEmptyParts)[j].
+             split(QString(":"), QString::SkipEmptyParts)[1].toFloat();
+      index = inter_list[i].split(QString(","), QString::SkipEmptyParts)[j].
+              split(QString(":"), QString::SkipEmptyParts)[0].
+              split(QString("-"), QString::SkipEmptyParts)[0].toInt() +
+              inter_list[i].split(QString(","), QString::SkipEmptyParts)[j].
+              split(QString(":"), QString::SkipEmptyParts)[0].
+              split(QString("-"), QString::SkipEmptyParts)[1].toInt() * 4;
+      inter_list_one[16*i+index] = item;
+    }
+  for (int i=0; i<16*inter_list.count(); i++)
+    if (inter_list_one > 0.0)
+      while (imax*int_step > inter_list_one)
+        imax--;
+
+// exec
+  for (int i=-imax; i<=imax; i++)
+  {
+    QString command;
+    command.append(mm_statgen_path);
+    if (mask.contains(QDir::separator()))
+      command.append(" -i " + QFileInfo(mask).absoluteFilePath());
+    else
+      command.append(" -i " + QFileInfo(QDir(workDir), mask).absoluteFilePath());
+    command.append(" -s " + firstStep + "," + lastStep);
+    command.append(" -c " + cellX + "," + cellY + "," + cellZ);
+    command.append(" -a " + atom0);
+    if (atom1 != QString("#"))
+      command.append("," + atom1);
+    if (atom2 != QString("#"))
+      command.append("," + atom2);
+    if (atom3 != QString("#"))
+      command.append("," + atom3);
+    command.append(inter);
+    if (output.contains(QDir::separator()))
+      command.append(" -o " + QFileInfo(output).absoluteFilePath());
+    else
+      command.append(" -o " + QFileInfo(QDir(workDir), output).absoluteFilePath());
+    if (depth != QString("#"))
+      command.append(" -g " + depth);
+    if (log != QString("#"))
+    {
+      if (log.contains(QDir::separator()))
+        command.append(" -l " + QFileInfo(log).absoluteFilePath());
+      else
+        command.append(" -l " + QFileInfo(QDir(workDir), log).absoluteFilePath());
+    }
+    command.append(" -q");
+
+    system(command.toStdString().c_str());
+  }
+  delete inter_list_one;
+  return true;
+}
+
 bool Start_events::start_envir(QString mm_envir_path,
                                QString workDir,
                                QString input,

@@ -31,6 +31,18 @@ public:
                      QString output,
                      QString depth,
                      QString log);
+  bool start_statgen_analysis(QString mm_statgen_path,
+                              QString workDir,
+                              QString mask,
+                              QString firstStep,
+                              QString lastStep,
+                              QString cellX, QString cellY, QString cellZ,
+                              QString atom0, QString atom1, QString atom2, QString atom3,
+                              QString inter,
+                              QString output,
+                              QString depth,
+                              QString log,
+                              float int_step);
   bool start_envir(QString mm_envir_path,
                    QString workDir,
                    QString input,
