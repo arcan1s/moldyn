@@ -1,9 +1,9 @@
-set ("${PROJECT}_VERSION_MAJOR" 1)
-set ("${PROJECT}_VERSION_MINOR" 0)
-set ("${PROJECT}_VERSION_PATCH" 0)
-set ("${PROJECT}_VERSION" ${${PROJECT}_VERSION_MAJOR}.${${PROJECT}_VERSION_MINOR}.${${PROJECT}_VERSION_PATCH})
+set (PROJECT_VERSION_MAJOR 1)
+set (PROJECT_VERSION_MINOR 0)
+set (PROJECT_VERSION_PATCH 0)
+set (PROJECT_VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH})
 
-message (STATUS "${PROJECT}: Version ${${PROJECT}_VERSION}")
+message (STATUS "${PROJECT}: Version ${PROJECT_VERSION}")
 
 # set files
 file (GLOB SOURCES *.cpp)
@@ -18,7 +18,7 @@ endif()
 set (LANGUAGES
      eng
      rus)
-set (RESOURCES ${${PROJECT}_RESOURCE_DIR}/resources.qrc)
+set (RESOURCES ${PROJECT_RESOURCE_DIR}/resources.qrc)
 
 message (STATUS "SOURCES: ${SOURCES}")
 message (STATUS "HEADERS: ${HEADERS}")
@@ -28,8 +28,8 @@ message (STATUS "FORMS: ${FORMS}")
 # compile
 project (${PROJECT})
 # include_path
-include_directories (${${PROJECT}_INCLUDE_DIR}/${PROJECT}
-                     ${${PROJECT}_SOURCE_DIR}
+include_directories (${PROJECT_INCLUDE_DIR}/${PROJECT}
+                     ${PROJECT_SOURCE_DIR}
                      ${CMAKE_CURRENT_BINARY_DIR})
 
 find_package (Qt4 REQUIRED)
@@ -38,8 +38,8 @@ qt4_add_resources (QRC_SOURCES ${RESOURCES})
 qt4_wrap_cpp (MOC_SOURCES ${HEADERS})
 qt4_wrap_ui (UI_HEADERS ${FORMS})
 foreach (LANGUAGE ${LANGUAGES})
-    set (TS ${${PROJECT}_TRANSLATION_DIR}/${LANGUAGE}.ts)
-    set (QM ${${PROJECT}_TRANSLATION_DIR}/${LANGUAGE}.qm)
+    set (TS ${PROJECT_TRANSLATION_DIR}/${LANGUAGE}.ts)
+    set (QM ${PROJECT_TRANSLATION_DIR}/${LANGUAGE}.qm)
     set (TRANSLATIONS ${TRANSLATIONS} ${TS})
     set (TRANSLATIONS_BINARY ${TRANSLATIONS_BINARY} ${QM})
     add_custom_command (

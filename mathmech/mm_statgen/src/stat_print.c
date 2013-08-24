@@ -96,7 +96,7 @@ int printing_agl (const char *input, const char *output, const int *connect,
       {
 // number of tails
         if (j == 0)
-          if ((iso[j] == 0) || ((iso[j] <= 2) && (iso[j] == 0))
+          if ((iso[j] == 0) || ((iso[j] <= 2) && (iso[j] == 0)))
 // not branched
             type_agl[2]++;
 // branched
