@@ -242,8 +242,8 @@ bool Start_events::start_statgen_analysis(QString mm_statgen_path,
   QStringList inter_list = inter.split(QString(" -r "), QString::SkipEmptyParts);
   float *inter_list_one;
   inter_list_one = new float[16*inter_list.count()];
-  for (i=0; i<16*inter_list.count(); i++)
-    inter_list_one = -1.0;
+  for (int i=0; i<16*inter_list.count(); i++)
+    inter_list_one[i] = -1.0;
   float item;
   int index;
   for (int i=0; i<inter_list.count(); i++)
@@ -260,8 +260,8 @@ bool Start_events::start_statgen_analysis(QString mm_statgen_path,
       inter_list_one[16*i+index] = item;
     }
   for (int i=0; i<16*inter_list.count(); i++)
-    if (inter_list_one > 0.0)
-      while (imax*int_step > inter_list_one)
+    if (inter_list_one[i] > 0.0)
+      while (imax*int_step > inter_list_one[i])
         imax--;
 
 // exec

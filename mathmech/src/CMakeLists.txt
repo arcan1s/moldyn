@@ -11,9 +11,9 @@ file (GLOB HEADERS *.h)
 file (GLOB FORMS *.ui)
 # set library
 if (CMAKE_COMPILER_IS_GNUCXX)
-  set (LIBRARIES m)
+  set (LIBRARIES m qwt)
 else ()
-  set (LIBRARIES)
+  set (LIBRARIES qwt)
 endif()
 set (LANGUAGES
      eng
