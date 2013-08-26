@@ -1,7 +1,9 @@
+#include <QApplication>
 #include <QDir>
 #include <QKeyEvent>
 #include <QFileDialog>
 #include <QTextStream>
+#include <QTranslator>
 
 #include "errorwindow.h"
 #include "mainwindow.h"
@@ -134,25 +136,28 @@ void SettingsWindow::readSettings()
     errorwin->show();
     return;
   }
+  QString text;
   QTextStream out(&conf_file);
-  QStringList text = out.readAll().split(QString("\n"), QString::SkipEmptyParts);
-  conf_file.close();
 
-  for (int i=0; i<text.count(); i++)
-    if (text[i].contains(QString("LANG=")))
-      _parent->language = text[i].split(QString("LANG="), QString::SkipEmptyParts)[0];
-    else if (text[i].contains(QString("MM_TRJ_PATH=")))
-      _parent->mm_trj_path = text[i].split(QString("MM_TRJ_PATH="), QString::SkipEmptyParts)[0];
-    else if (text[i].contains(QString("MM_STATGEN_PATH=")))
-      _parent->mm_statgen_path = text[i].split(QString("MM_STATGEN_PATH="), QString::SkipEmptyParts)[0];
-    else if (text[i].contains(QString("MM_ENVIR_PATH=")))
-      _parent->mm_envir_path = text[i].split(QString("MM_ENVIR_PATH="), QString::SkipEmptyParts)[0];
-    else if (text[i].contains(QString("MM_RADF_PATH=")))
-      _parent->mm_radf_path = text[i].split(QString("MM_RADF_PATH="), QString::SkipEmptyParts)[0];
-    else if (text[i].contains(QString("MM_TRJ2PDB_PATH=")))
-      _parent->mm_trj2pdb_path = text[i].split(QString("MM_TRJ2PDB_PATH="), QString::SkipEmptyParts)[0];
-    else if (text[i].contains(QString("MM_AGL_PATH=")))
-      _parent->mm_agl_path = text[i].split(QString("MM_AGL_PATH="), QString::SkipEmptyParts)[0];
+  while (!out.atEnd())
+  {
+    text = out.readLine();
+    if (text.contains(QString("LANG=")))
+      _parent->language = text.split(QString("LANG="), QString::SkipEmptyParts)[0];
+    else if (text.contains(QString("MM_TRJ_PATH=")))
+      _parent->mm_trj_path = text.split(QString("MM_TRJ_PATH="), QString::SkipEmptyParts)[0];
+    else if (text.contains(QString("MM_STATGEN_PATH=")))
+      _parent->mm_statgen_path = text.split(QString("MM_STATGEN_PATH="), QString::SkipEmptyParts)[0];
+    else if (text.contains(QString("MM_ENVIR_PATH=")))
+      _parent->mm_envir_path = text.split(QString("MM_ENVIR_PATH="), QString::SkipEmptyParts)[0];
+    else if (text.contains(QString("MM_RADF_PATH=")))
+      _parent->mm_radf_path = text.split(QString("MM_RADF_PATH="), QString::SkipEmptyParts)[0];
+    else if (text.contains(QString("MM_TRJ2PDB_PATH=")))
+      _parent->mm_trj2pdb_path = text.split(QString("MM_TRJ2PDB_PATH="), QString::SkipEmptyParts)[0];
+    else if (text.contains(QString("MM_AGL_PATH=")))
+      _parent->mm_agl_path = text.split(QString("MM_AGL_PATH="), QString::SkipEmptyParts)[0];
+  }
+  conf_file.close();
 
   delete errorwin;
 }

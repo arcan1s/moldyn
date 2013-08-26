@@ -39,3 +39,7 @@ SOURCES += main.cpp mainwindow.cpp \
     statgengraphwindow.cpp \
     settingswindow.cpp \
     aglallwindow.cpp
+TRANSLATIONS += rus.ts \
+    eng.ts
+
+RESOURCES +=

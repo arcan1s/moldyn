@@ -49,10 +49,11 @@ foreach (LANGUAGE ${LANGUAGES})
 endforeach()
 add_custom_target (
     translations 
-    COMMAND ${QT_LUPDATE_EXECUTABLE} ${HEADERS} ${SOURCES} -ts ${TRANSLATIONS})
+    COMMAND ${QT_LUPDATE_EXECUTABLE} ${HEADERS} ${SOURCES} ${UI_HEADERS} -ts ${TRANSLATIONS})
 add_custom_command (
     TARGET translations
     COMMAND ${QT_LRELEASE_EXECUTABLE} ${TRANSLATIONS})
+message (STATUS "TRANSLATIONS: ${TRANSLATIONS_BINARY}")
 
 source_group ("Header Files" FILES ${HEADERS})
 source_group ("Source Files" FILES ${SOURCES})
