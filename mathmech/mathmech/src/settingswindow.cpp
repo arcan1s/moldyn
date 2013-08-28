@@ -3,7 +3,6 @@
 #include <QKeyEvent>
 #include <QFileDialog>
 #include <QTextStream>
-#include <QTranslator>
 
 #include "errorwindow.h"
 #include "mainwindow.h"
@@ -34,6 +33,7 @@ SettingsWindow::SettingsWindow(MainWindow *parent) :
     applySettings();
   }
   showSettings();
+  ui->settings_layout_lang_2->setHidden(true);
 }
 
 SettingsWindow::~SettingsWindow()
@@ -247,4 +247,9 @@ void SettingsWindow::on_settings_pushButton_agl_clicked()
                      tr("All files (*)"));
   if (!filename.isEmpty())
     ui->settings_lineEdit_agl->setText(filename);
+}
+
+void SettingsWindow::on_settings_comboBox_lang_currentIndexChanged(int index)
+{
+  ui->settings_layout_lang_2->setHidden(false);
 }

@@ -31,6 +31,7 @@ private slots:
   void on_settings_pushButton_radf_clicked();
   void on_settings_pushButton_trj2pdb_clicked();
   void on_settings_pushButton_agl_clicked();
+  void on_settings_comboBox_lang_currentIndexChanged(int index);
 
 private:
   Ui::SettingsWindow *ui;

@@ -946,87 +946,92 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>SettingsWindow</name>
     <message>
-        <location filename="../../src/settingswindow.cpp" line="189"/>
-        <location filename="../../src/settingswindow.cpp" line="200"/>
-        <location filename="../../src/settingswindow.cpp" line="211"/>
-        <location filename="../../src/settingswindow.cpp" line="222"/>
-        <location filename="../../src/settingswindow.cpp" line="233"/>
-        <location filename="../../src/settingswindow.cpp" line="244"/>
+        <location filename="../../src/settingswindow.cpp" line="190"/>
+        <location filename="../../src/settingswindow.cpp" line="201"/>
+        <location filename="../../src/settingswindow.cpp" line="212"/>
+        <location filename="../../src/settingswindow.cpp" line="223"/>
+        <location filename="../../src/settingswindow.cpp" line="234"/>
+        <location filename="../../src/settingswindow.cpp" line="245"/>
         <source>Select component</source>
         <translation>Выбор компонента</translation>
     </message>
     <message>
-        <location filename="../../src/settingswindow.cpp" line="191"/>
-        <location filename="../../src/settingswindow.cpp" line="202"/>
-        <location filename="../../src/settingswindow.cpp" line="213"/>
-        <location filename="../../src/settingswindow.cpp" line="224"/>
-        <location filename="../../src/settingswindow.cpp" line="235"/>
-        <location filename="../../src/settingswindow.cpp" line="246"/>
+        <location filename="../../src/settingswindow.cpp" line="192"/>
+        <location filename="../../src/settingswindow.cpp" line="203"/>
+        <location filename="../../src/settingswindow.cpp" line="214"/>
+        <location filename="../../src/settingswindow.cpp" line="225"/>
+        <location filename="../../src/settingswindow.cpp" line="236"/>
+        <location filename="../../src/settingswindow.cpp" line="247"/>
         <source>All files (*)</source>
         <translation>Все файлы (*)</translation>
     </message>
     <message>
-        <location filename="../../build/src/ui_settingswindow.h" line="287"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="316"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../../build/src/ui_settingswindow.h" line="288"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="317"/>
         <source>mm_trj</source>
         <translation>mm_trj</translation>
     </message>
     <message>
-        <location filename="../../build/src/ui_settingswindow.h" line="289"/>
-        <location filename="../../build/src/ui_settingswindow.h" line="291"/>
-        <location filename="../../build/src/ui_settingswindow.h" line="293"/>
-        <location filename="../../build/src/ui_settingswindow.h" line="295"/>
-        <location filename="../../build/src/ui_settingswindow.h" line="297"/>
-        <location filename="../../build/src/ui_settingswindow.h" line="299"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="318"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="320"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="322"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="324"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="326"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="328"/>
         <source>Browse</source>
         <translation>Обзор</translation>
     </message>
     <message>
-        <location filename="../../build/src/ui_settingswindow.h" line="290"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="319"/>
         <source>mm_statgen</source>
         <translation>mm_statgen</translation>
     </message>
     <message>
-        <location filename="../../build/src/ui_settingswindow.h" line="292"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="321"/>
         <source>mm_envir</source>
         <translation>mm_envir</translation>
     </message>
     <message>
-        <location filename="../../build/src/ui_settingswindow.h" line="294"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="323"/>
         <source>mm_radf</source>
         <translation>mm_radf</translation>
     </message>
     <message>
-        <location filename="../../build/src/ui_settingswindow.h" line="296"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="325"/>
         <source>mm_trj2pdb</source>
         <translation>mm_trj2pdb</translation>
     </message>
     <message>
-        <location filename="../../build/src/ui_settingswindow.h" line="298"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="327"/>
         <source>mm_agl</source>
         <translation>mm_agl</translation>
     </message>
     <message>
-        <location filename="../../build/src/ui_settingswindow.h" line="302"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="331"/>
         <source>English</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="../../build/src/ui_settingswindow.h" line="303"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="332"/>
         <source>Russian</source>
         <translation>Russian</translation>
     </message>
     <message>
-        <location filename="../../build/src/ui_settingswindow.h" line="305"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="334"/>
+        <source>You need to restart application</source>
+        <translation>You need to restart application</translation>
+    </message>
+    <message>
+        <location filename="../../build/src/ui_settingswindow.h" line="335"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../../build/src/ui_settingswindow.h" line="306"/>
+        <location filename="../../build/src/ui_settingswindow.h" line="336"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
