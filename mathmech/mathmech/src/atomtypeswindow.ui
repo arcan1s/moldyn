@@ -44,6 +44,9 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Path to output file</string>
+        </property>
        </widget>
       </item>
       <item>
@@ -93,6 +96,9 @@
           <height>23</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Number of molecule</string>
+        </property>
         <item>
          <property name="text">
           <string>1</string>
@@ -125,6 +131,9 @@
           <width>60</width>
           <height>23</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>Number of selected molecules</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -162,6 +171,9 @@
           <height>23</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Character atop type</string>
+        </property>
        </widget>
       </item>
       <item>
@@ -185,6 +197,9 @@
           <height>23</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Numerical atom type</string>
+        </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
@@ -201,6 +216,9 @@
           <height>23</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Add atom</string>
+        </property>
         <property name="text">
          <string>Add</string>
         </property>
@@ -213,6 +231,9 @@
     </item>
     <item>
      <widget class="QListWidget" name="atomTypes_listWidget">
+      <property name="toolTip">
+       <string>Added atoms</string>
+      </property>
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
       </property>
@@ -241,6 +262,9 @@
           <height>23</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Remove selected atom</string>
+        </property>
         <property name="text">
          <string>Remove</string>
         </property>
@@ -260,6 +284,9 @@
           <width>80</width>
           <height>23</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>Clear window</string>
         </property>
         <property name="text">
          <string>Clear</string>
@@ -296,6 +323,9 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Create file</string>
+        </property>
         <property name="text">
          <string>Create</string>
         </property>
@@ -311,6 +341,9 @@
           <width>80</width>
           <height>23</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>Close window</string>
         </property>
         <property name="text">
          <string>Close</string>

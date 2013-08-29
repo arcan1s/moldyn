@@ -31,7 +31,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="settings_lineEdit_trj"/>
+       <widget class="QLineEdit" name="settings_lineEdit_trj">
+        <property name="toolTip">
+         <string>Path to component</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="settings_pushButton_trj">
@@ -67,7 +71,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="settings_lineEdit_statgen"/>
+       <widget class="QLineEdit" name="settings_lineEdit_statgen">
+        <property name="toolTip">
+         <string>Path to component</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="settings_pushButton_statgen">
@@ -103,7 +111,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="settings_lineEdit_envir"/>
+       <widget class="QLineEdit" name="settings_lineEdit_envir">
+        <property name="toolTip">
+         <string>Path to component</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="settings_pushButton_envir">
@@ -139,7 +151,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="settings_lineEdit_radf"/>
+       <widget class="QLineEdit" name="settings_lineEdit_radf">
+        <property name="toolTip">
+         <string>Path to component</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="settings_pushButton_radf">
@@ -175,7 +191,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="settings_lineEdit_trj2pdb"/>
+       <widget class="QLineEdit" name="settings_lineEdit_trj2pdb">
+        <property name="toolTip">
+         <string>Path to component</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="settings_pushButton_trj2pdb">
@@ -211,7 +231,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="settings_lineEdit_agl"/>
+       <widget class="QLineEdit" name="settings_lineEdit_agl">
+        <property name="toolTip">
+         <string>Path to component</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="settings_pushButton_agl">
@@ -253,6 +277,9 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>Application language</string>
         </property>
         <item>
          <property name="text">
@@ -336,6 +363,9 @@
           <height>23</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Save settings</string>
+        </property>
         <property name="text">
          <string>Save</string>
         </property>
@@ -351,6 +381,9 @@
           <width>80</width>
           <height>23</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>Close window</string>
         </property>
         <property name="text">
          <string>Close</string>

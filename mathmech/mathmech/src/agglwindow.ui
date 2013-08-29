@@ -44,6 +44,9 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Path to input file</string>
+        </property>
        </widget>
       </item>
       <item>
@@ -87,6 +90,9 @@
           <height>23</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Read selected file</string>
+        </property>
         <property name="text">
          <string>Select</string>
         </property>
@@ -98,17 +104,28 @@
      </layout>
     </item>
     <item>
-     <widget class="QComboBox" name="agl_comboBox"/>
+     <widget class="QComboBox" name="agl_comboBox">
+      <property name="toolTip">
+       <string>File name</string>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QListWidget" name="agl_listWidget">
+      <property name="toolTip">
+       <string>List of agglomerates</string>
+      </property>
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QTextBrowser" name="agl_textBrowser"/>
+     <widget class="QTextBrowser" name="agl_textBrowser">
+      <property name="toolTip">
+       <string>Agglomerate</string>
+      </property>
+     </widget>
     </item>
     <item>
      <layout class="QHBoxLayout" name="agl_layout_output">
@@ -139,6 +156,9 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Path to output file</string>
+        </property>
        </widget>
       </item>
       <item>
@@ -168,6 +188,9 @@
           <width>80</width>
           <height>23</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>Clear window</string>
         </property>
         <property name="text">
          <string>Clear</string>
@@ -204,6 +227,9 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Create file</string>
+        </property>
         <property name="text">
          <string>Create</string>
         </property>
@@ -219,6 +245,9 @@
           <width>80</width>
           <height>23</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>Close window</string>
         </property>
         <property name="text">
          <string>Close</string>

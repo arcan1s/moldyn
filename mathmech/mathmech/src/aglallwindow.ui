@@ -38,6 +38,9 @@
           <height>23</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Path to work directory</string>
+        </property>
        </widget>
       </item>
       <item>
@@ -80,6 +83,9 @@
           <width>280</width>
           <height>23</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>Path to input file</string>
         </property>
        </widget>
       </item>
@@ -124,6 +130,9 @@
           <height>23</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Mask of output files</string>
+        </property>
        </widget>
       </item>
       <item>
@@ -167,6 +176,9 @@
           <height>23</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Number of file. '0' is all files</string>
+        </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
@@ -208,6 +220,9 @@
           <width>75</width>
           <height>23</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>Number of molecules in agglomerates. '0' is all agglomerates</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -252,6 +267,9 @@
           <height>23</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Clear window</string>
+        </property>
         <property name="text">
          <string>Clear</string>
         </property>
@@ -287,6 +305,9 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Start analysis</string>
+        </property>
         <property name="text">
          <string>Start</string>
         </property>
@@ -302,6 +323,9 @@
           <width>80</width>
           <height>23</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>Close window</string>
         </property>
         <property name="text">
          <string>Close</string>

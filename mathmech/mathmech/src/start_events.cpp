@@ -263,7 +263,7 @@ bool Start_events::start_statgen_analysis(QString mm_statgen_path,
   for (int i=0; i<16*inter_list.count(); i++)
     if (inter_list_one[i] != 0.0)
       inter_list_index.append(i);
-  int files = pow(2*imax+1, inter_list_index.count());
+  int files = pow((float)2*imax+1, inter_list_index.count());
 
 // exec
   char file[32];

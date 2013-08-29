@@ -48,6 +48,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Path to work directory</string>
+            </property>
            </widget>
           </item>
           <item>
@@ -91,6 +94,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Path to input file</string>
+            </property>
            </widget>
           </item>
           <item>
@@ -133,6 +139,9 @@
               <width>130</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Input trajectory type</string>
             </property>
             <item>
              <property name="text">
@@ -179,6 +188,9 @@
               <width>75</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Number of steps in trajectory</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -229,6 +241,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Path to file with atom types</string>
+            </property>
            </widget>
           </item>
           <item>
@@ -271,6 +286,9 @@
               <width>320</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Mask of output files</string>
             </property>
            </widget>
           </item>
@@ -315,6 +333,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Maximum number of atom types</string>
+            </property>
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
             </property>
@@ -352,6 +373,9 @@
               <width>80</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Path to log file</string>
             </property>
            </widget>
           </item>
@@ -396,6 +420,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Clear window</string>
+            </property>
             <property name="text">
              <string>Clear</string>
             </property>
@@ -430,6 +457,9 @@
               <width>16777215</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Start application</string>
             </property>
             <property name="text">
              <string>Start</string>
@@ -470,6 +500,9 @@
               <width>280</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Path to work directory</string>
             </property>
            </widget>
           </item>
@@ -513,6 +546,9 @@
               <width>280</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Mask of input files</string>
             </property>
            </widget>
           </item>
@@ -570,6 +606,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>First trajectory step</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -614,6 +653,9 @@
               <width>75</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Last trajectory step</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -683,6 +725,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Cell size, X</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -724,6 +769,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Cell size, Y</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -764,6 +812,9 @@
               <width>55</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Cell size, Z</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -816,6 +867,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>atom0 type</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -850,6 +904,9 @@
               <width>50</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>atom1 type</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -889,6 +946,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>atom2 type</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -927,6 +987,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>atom3 type</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -963,6 +1026,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Type of interaction</string>
+            </property>
             <item>
              <property name="text">
               <string>0-0</string>
@@ -983,6 +1049,9 @@
               <width>90</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Criterion</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1006,6 +1075,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Save this criterion</string>
+            </property>
             <property name="text">
              <string>Save</string>
             </property>
@@ -1021,6 +1093,9 @@
               <width>80</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Add this interaction</string>
             </property>
             <property name="text">
              <string>Add</string>
@@ -1039,6 +1114,9 @@
             <width>484</width>
             <height>85</height>
            </size>
+          </property>
+          <property name="toolTip">
+           <string>Added interactions</string>
           </property>
           <property name="editTriggers">
            <set>QAbstractItemView::NoEditTriggers</set>
@@ -1067,6 +1145,9 @@
               <width>80</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Remove selected interaction</string>
             </property>
             <property name="text">
              <string>Remove</string>
@@ -1100,6 +1181,9 @@
               <width>280</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Path to output file</string>
             </property>
            </widget>
           </item>
@@ -1147,6 +1231,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Search depth of related graphs</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -1184,6 +1271,9 @@
               <width>80</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Path to log file</string>
             </property>
            </widget>
           </item>
@@ -1231,6 +1321,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Step of analysis</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -1255,6 +1348,9 @@
               <width>80</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Number of steps of analysis</string>
             </property>
             <property name="minimum">
              <number>1</number>
@@ -1284,6 +1380,9 @@
               <width>110</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Show graph</string>
             </property>
             <property name="text">
              <string>Graph</string>
@@ -1317,6 +1416,9 @@
               <width>80</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Clear window</string>
             </property>
             <property name="text">
              <string>Clear</string>
@@ -1352,6 +1454,9 @@
               <width>16777215</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Start application</string>
             </property>
             <property name="text">
              <string>Start</string>
@@ -1392,6 +1497,9 @@
               <width>280</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Path to work directory</string>
             </property>
            </widget>
           </item>
@@ -1435,6 +1543,9 @@
               <width>280</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Path to input file</string>
             </property>
            </widget>
           </item>
@@ -1498,6 +1609,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Cell size, X</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -1538,6 +1652,9 @@
               <width>55</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Cell size, Y</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1580,6 +1697,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Cell size, Z</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -1618,6 +1738,9 @@
               <width>280</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Path to output file</string>
             </property>
            </widget>
           </item>
@@ -1661,6 +1784,9 @@
               <width>75</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Number of selected molecule</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1706,6 +1832,9 @@
               <width>75</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Radius of environment</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1756,6 +1885,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Path to log file</string>
+            </property>
            </widget>
           </item>
           <item>
@@ -1799,6 +1931,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Clear window</string>
+            </property>
             <property name="text">
              <string>Clear</string>
             </property>
@@ -1833,6 +1968,9 @@
               <width>16777215</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Start application</string>
             </property>
             <property name="text">
              <string>Start</string>
@@ -1873,6 +2011,9 @@
               <width>280</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Path to work directory</string>
             </property>
            </widget>
           </item>
@@ -1916,6 +2057,9 @@
               <width>280</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Mask of input files</string>
             </property>
            </widget>
           </item>
@@ -1973,6 +2117,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>First trajectory step</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -2017,6 +2164,9 @@
               <width>75</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Last trajectory step</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2086,6 +2236,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Cell size, X</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -2126,6 +2279,9 @@
               <width>55</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Cell size, Y</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2168,6 +2324,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Cell size, Z</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -2207,6 +2366,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Path to output file</string>
+            </property>
            </widget>
           </item>
           <item>
@@ -2236,6 +2398,9 @@
               <width>150</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Type of function</string>
             </property>
             <item>
              <property name="text">
@@ -2282,6 +2447,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>atom1 type</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -2300,6 +2468,9 @@
               <width>45</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>atom2 type</string>
             </property>
             <property name="text">
              <string>atom 2</string>
@@ -2341,6 +2512,9 @@
               <width>45</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>atom3 type</string>
             </property>
             <property name="text">
              <string>atom 3</string>
@@ -2403,6 +2577,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>atom1 type</string>
+            </property>
             <property name="text">
              <string>atom 1</string>
             </property>
@@ -2440,6 +2617,9 @@
               <width>45</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>atom2 type</string>
             </property>
             <property name="text">
              <string>atom 2</string>
@@ -2481,6 +2661,9 @@
               <width>45</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>atom3 type</string>
             </property>
             <property name="text">
              <string>atom 3</string>
@@ -2553,6 +2736,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Minimal radius</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -2597,6 +2783,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Maximal radius</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -2640,6 +2829,9 @@
               <width>55</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Radius step</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2708,6 +2900,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Minimal angle</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -2757,6 +2952,9 @@
               <width>55</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Maximal angle</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2808,6 +3006,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Angle step</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -2840,6 +3041,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Matrix output</string>
+            </property>
             <property name="text">
              <string>Matrix</string>
             </property>
@@ -2868,6 +3072,9 @@
               <width>150</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Path to log file</string>
             </property>
            </widget>
           </item>
@@ -2912,6 +3119,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Clear window</string>
+            </property>
             <property name="text">
              <string>Clear</string>
             </property>
@@ -2941,6 +3151,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Show graph</string>
+            </property>
             <property name="text">
              <string>Graph</string>
             </property>
@@ -2963,6 +3176,9 @@
               <height>16777215</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Start application</string>
+            </property>
             <property name="text">
              <string>Start</string>
             </property>
@@ -2982,6 +3198,9 @@
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
          <widget class="QComboBox" name="pdb_comboBox_mode">
+          <property name="toolTip">
+           <string>Input file type</string>
+          </property>
           <item>
            <property name="text">
             <string>From agglomerate</string>
@@ -3016,6 +3235,9 @@
               <width>280</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Path to work directory</string>
             </property>
            </widget>
           </item>
@@ -3060,6 +3282,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Path to input file</string>
+            </property>
            </widget>
           </item>
           <item>
@@ -3102,6 +3327,9 @@
               <width>280</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Path to file with agglomerate</string>
             </property>
            </widget>
           </item>
@@ -3165,6 +3393,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Cell size, X</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -3205,6 +3436,9 @@
               <width>55</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Cell size, Y</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3247,6 +3481,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Cell size, Z</string>
+            </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
@@ -3285,6 +3522,9 @@
               <width>280</width>
               <height>23</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Path to output file</string>
             </property>
            </widget>
           </item>
@@ -3332,6 +3572,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Path to log file</string>
+            </property>
            </widget>
           </item>
           <item>
@@ -3375,6 +3618,9 @@
               <height>23</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Clear window</string>
+            </property>
             <property name="text">
              <string>Clear</string>
             </property>
@@ -3409,6 +3655,9 @@
               <width>16777215</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Start application</string>
             </property>
             <property name="text">
              <string>Start</string>

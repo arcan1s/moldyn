@@ -1,16 +1,16 @@
 # set directories
-set (${PROJECT}_BINARY_DIR bin)
-set (${PROJECT}_SOURCE_DIR src)
-set (${PROJECT}_INCLUDE_DIR include)
-set (${PROJECT}_LIB_DIR lib)
+set (PROJECT_BINARY_DIR bin)
+set (PROJECT_SOURCE_DIR src)
+set (PROJECT_INCLUDE_DIR include)
+set (PROJECT_LIB_DIR lib)
 
 # include_path
-include_directories (${${PROJECT}_INCLUDE_DIR}/${PROJECT}
-                     ${${PROJECT}_SOURCE_DIR})
+include_directories (${PROJECT_INCLUDE_DIR}/${PROJECT}
+                     ${PROJECT_SOURCE_DIR})
 # library path
-link_directories (${${PROJECT}_LIB_DIR})
+link_directories (${PROJECT_LIB_DIR})
 # executable path
-set (EXECUTABLE_OUTPUT_PATH ${${PROJECT}_BINARY_DIR})
+set (EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR})
 
 # verbose
 set (CMAKE_VERBOSE_MAKEFILE ON)

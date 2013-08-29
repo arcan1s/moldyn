@@ -1,10 +1,3 @@
-set ("${PROJECT}_VERSION_MAJOR" 1)
-set ("${PROJECT}_VERSION_MINOR" 0)
-set ("${PROJECT}_VERSION_PATCH" 1)
-set ("${PROJECT}_VERSION" ${${PROJECT}_VERSION_MAJOR}.${${PROJECT}_VERSION_MINOR}.${${PROJECT}_VERSION_PATCH})
-
-message (STATUS "${PROJECT}: Version ${${PROJECT}_VERSION}")
-
 # set files
 aux_source_directory (. SOURCES)
 

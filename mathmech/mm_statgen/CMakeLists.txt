@@ -29,4 +29,4 @@ set (LIBRARIES)
 set (TARGETS "")
 set (HEADERS "")
 
-add_subdirectory (${${PROJECT}_SOURCE_DIR})
+add_subdirectory (${PROJECT_SOURCE_DIR})
