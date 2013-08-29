@@ -19,7 +19,7 @@ _cmakekeys="-DCMAKE_INSTALL_PREFIX=/usr
 
 build ()
 {
-  unzip -o -q ${srcdir}/${pkgname}-${pkgver}.zip -d ${srcdir}/${pkgname}
+  unzip -o -q ${srcdir}/${pkgname}-${pkgver}-src.zip -d ${srcdir}/${pkgname}
   if [ -d ${srcdir}/${pkgname}/build ]; then
     rm -rf ${srcdir}/${pkgname}/build
   fi
