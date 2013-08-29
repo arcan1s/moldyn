@@ -14,14 +14,14 @@ int summary_statistic (const char *filename, const int step, const int num_mol,
  * @brief function that prints summary statistic
  * @code
  * summary_statistic (filename, number_of_step, number_of_molecules, max_depth, 
- *                    type_of_aglomerate, summary_statistic);
+ *                    type_of_agglomerate, summary_statistic);
  * @endcode
  * 
  * @param filename        output file name
  * @param step            number of steps
  * @param num_mol         number of molecules
  * @param max_depth       maximum depth for check cycles in graph analyze
- * @param type_agl        massive of number of aglomerate types
+ * @param type_agl        massive of number of agglomerate types
  * @param stat_all        massive of summary statistic
  * 
  * @return 0              - exit without errors
@@ -31,9 +31,9 @@ int summary_statistic (const char *filename, const int step, const int num_mol,
   int i, index;
   FILE *f_out;
   
-/* conc                   concentrate of aglomerates
- * p                      probability of aglomerates
- * pn                     weight probability of aglomerates
+/* conc                   concentrate of agglomerates
+ * p                      probability of agglomerates
+ * pn                     weight probability of agglomerates
  * f_out                  output file
  */
   
@@ -66,7 +66,7 @@ int summary_statistic (const char *filename, const int step, const int num_mol,
   
   if (max_depth > 0)
   {
-// types of aglomerates
+// types of agglomerates
 // linear and cycle
     x = type_agl[0] + type_agl[1];
     type[0] = type_agl[0];

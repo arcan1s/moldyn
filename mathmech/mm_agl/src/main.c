@@ -9,7 +9,7 @@
  *
  * <b>About this program</b>:
  * <ul>
- * <li>Program that creates PDB file with chosen aglomerate
+ * <li>Program that creates PDB file with chosen agglomerate
  * </ul>
  *
  * <b>Developer</b>:
@@ -27,7 +27,7 @@
  * mm_agl -a AGL_INP -i INPUT -c X,Y,Z -o OUTPUT [ -l LOGFILE ] [ -q ] [ -h ]
  *
  * Parametrs:
- *    -a          - input file with aglomerates (in format statgen)
+ *    -a          - input file with agglomerates (in format statgen)
  *    -i          - input file with coordinates
  *    -c          - cell size (float), A
  *    -o          - output file name
@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
   int *label_mol, log, num_atoms, num_mol, num_needed_mol, *needed_mol, quiet, 
       *true_label_mol;
   
-/* aglinp                 aglomerate file name
+/* aglinp                 agglomerate file name
  * ch_type_atoms          massive of char atom types
  * input                  input file name
  * logfile                log file name
@@ -127,14 +127,14 @@ int main(int argc, char *argv[])
     if ((argv[i][0] == '-') && (argv[i][1] == 'h') && (argv[i][2] == '\0'))
     {
       sprintf (tmp_str, "                                     mm_agl\n");
-      sprintf (tmp_str, "%sProgram for create PDB file with chosen aglomerate\n", tmp_str);
+      sprintf (tmp_str, "%sProgram for create PDB file with chosen agglomerate\n", tmp_str);
       sprintf (tmp_str, "%sVersion : 1.0.1                                                    License : GPL\n", tmp_str);
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);
       sprintf (tmp_str, "%smm_agl -a AGL_INP -i INPUT -c X,Y,Z -o OUTPUT [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
       sprintf (tmp_str, "%sParametrs:\n", tmp_str);
-      sprintf (tmp_str, "%s  -a          - input file with aglomerates (in format statgen)\n", tmp_str);
+      sprintf (tmp_str, "%s  -a          - input file with agglomerates (in format statgen)\n", tmp_str);
       sprintf (tmp_str, "%s  -i          - input file with coordinates\n", tmp_str);
       sprintf (tmp_str, "%s  -c          - cell size (float), A\n", tmp_str);
       sprintf (tmp_str, "%s  -o          - output file name\n", tmp_str);
@@ -238,13 +238,13 @@ int main(int argc, char *argv[])
   
   print_message (quiet, stdout, log, f_log, 6, argv[0]);
   
-// reading aglomerate
+// reading agglomerate
   print_message (quiet, stdout, log, f_log, 7, aglinp);
   error = reading_agl (aglinp, &num_needed_mol, tmp_str, needed_mol);
   
   if (error == 0)
   {
-    sprintf (tmp_str, "%6cNumber of molecules in aglomerate: %i\n", ' ', num_needed_mol);
+    sprintf (tmp_str, "%6cNumber of molecules in agglomerate: %i\n", ' ', num_needed_mol);
     print_message (quiet, stdout, log, f_log, 8, tmp_str);
 // reading coordinates
     print_message (quiet, stdout, log, f_log, 7, input);

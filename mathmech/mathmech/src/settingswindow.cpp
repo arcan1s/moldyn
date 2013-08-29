@@ -30,7 +30,7 @@ SettingsWindow::SettingsWindow(MainWindow *parent) :
   else
   {
     setDefaults();
-    applySettings();
+    printSettings();
   }
   showSettings();
   ui->settings_layout_lang_2->setHidden(true);
@@ -117,12 +117,12 @@ void SettingsWindow::setDefaults()
   suffix = QString(".exe");
 #endif
   _parent->language = QString("eng");
-  _parent->mm_trj_path = QDir::currentPath() + QDir::separator() + "mm_trj" + suffix;
-  _parent->mm_statgen_path = QDir::currentPath() + QDir::separator() + "mm_statgen" + suffix;
-  _parent->mm_envir_path = QDir::currentPath() + QDir::separator() + "mm_envir" + suffix;
-  _parent->mm_radf_path = QDir::currentPath() + QDir::separator() + "mm_radf" + suffix;
-  _parent->mm_trj2pdb_path = QDir::currentPath() + QDir::separator() + "mm_trj2pdb" + suffix;
-  _parent->mm_agl_path = QDir::currentPath() + QDir::separator() + "mm_agl" + suffix;
+  _parent->mm_trj_path = qApp->applicationDirPath() + QDir::separator() + "mm_trj" + suffix;
+  _parent->mm_statgen_path = qApp->applicationDirPath() + QDir::separator() + "mm_statgen" + suffix;
+  _parent->mm_envir_path = qApp->applicationDirPath() + QDir::separator() + "mm_envir" + suffix;
+  _parent->mm_radf_path = qApp->applicationDirPath() + QDir::separator() + "mm_radf" + suffix;
+  _parent->mm_trj2pdb_path = qApp->applicationDirPath() + QDir::separator() + "mm_trj2pdb" + suffix;
+  _parent->mm_agl_path = qApp->applicationDirPath() + QDir::separator() + "mm_agl" + suffix;
 }
 
 void SettingsWindow::readSettings()

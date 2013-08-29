@@ -116,7 +116,7 @@ int main (int argc, char *argv[])
  * coords                 massive of coordinates
  * crit                   massive of criteria
  * 
- * agl                    massive of aglomerates
+ * agl                    massive of agglomerates
  * connect                connectivity graph for all molecules
  * from                   first trajectory step
  * label_atom             massive of atom types for interactions
@@ -125,14 +125,14 @@ int main (int argc, char *argv[])
  * max_depth              maximum depth for check cycles in graph analyze
  * num_atoms              number of atoms
  * num_mol                number of molecules
- * num_mol_agl            massive of number of molecules in aglomerates
+ * num_mol_agl            massive of number of molecules in agglomerates
  * num_of_inter           number of different interactions
  * stat                   massive of statistic
  * stat_all               massive of summary statistic
  * step                   $(to - from + 1)
  * to                     last trajectory step
  * true_label_mol         massive of true numbers of molecule for atoms
- * type_agl               massive of number of aglomerate types
+ * type_agl               massive of number of agglomerate types
  * type_atoms             massive of atom types
  * type_inter             number of atoms for interactions
  * quiet                  status of quiet-mode

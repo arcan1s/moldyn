@@ -18,7 +18,7 @@ int error_checking (const char *aglinp, const float *cell, const char *input,
  * error_checking (aglinp, cell, input, output);
  * @endcode
  * 
- * @param aglinp          aglomerate file name
+ * @param aglinp          agglomerate file name
  * @param cell            massive of cell size
  * @param input           input file name
  * @param output          output file name
@@ -83,7 +83,7 @@ int set_defaults (char *aglinp, float *cell, char *input, int *log, char *output
  * set_defaults (aglinp, cell, input, &log, output, &quiet);
  * @endcode
  * 
- * @param aglinp          aglomerate file name
+ * @param aglinp          agglomerate file name
  * @param cell            massive of cell size
  * @param input           mask of trajectory files
  * @param log             status of log-mode

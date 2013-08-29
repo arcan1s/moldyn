@@ -1246,6 +1246,25 @@
            </widget>
           </item>
           <item>
+           <widget class="QSpinBox" name="statgen_spinBox_anal">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="value">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="horizontalSpacer_16">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -3467,14 +3486,6 @@
     <string>Ctrl+Q</string>
    </property>
   </action>
-  <action name="actionHelp">
-   <property name="text">
-    <string>&amp;Help</string>
-   </property>
-   <property name="shortcut">
-    <string>F1</string>
-   </property>
-  </action>
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
@@ -3494,15 +3505,13 @@
    <property name="text">
     <string>&amp;Settings</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
   </action>
   <action name="actionAgl_all">
    <property name="text">
     <string>agl_all</string>
-   </property>
-  </action>
-  <action name="actionStatgen_all">
-   <property name="text">
-    <string>statgen_all</string>
    </property>
   </action>
  </widget>
@@ -3556,6 +3565,7 @@
   <tabstop>statgen_pushButton_log</tabstop>
   <tabstop>statgen_checkBox_anal</tabstop>
   <tabstop>statgen_doubleSpinBox_anal</tabstop>
+  <tabstop>statgen_spinBox_anal</tabstop>
   <tabstop>statgen_checkBox_graph</tabstop>
   <tabstop>statgen_pushButton_clear</tabstop>
   <tabstop>statgen_pushButton_start</tabstop>

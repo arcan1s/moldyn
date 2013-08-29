@@ -42,7 +42,7 @@ public:
                               QString output,
                               QString depth,
                               QString log,
-                              float int_step);
+                              float int_step, int imax);
   bool start_envir(QString mm_envir_path,
                    QString workDir,
                    QString input,

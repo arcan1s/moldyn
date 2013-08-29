@@ -13,14 +13,14 @@ int proc_matrix (const int num_mol, const int *connect, int *num_mol_agl, int *a
 /**
  * @brief function that processes connectivity matrix
  * @code
- * proc_matrix (number_of_molecules, connect_matrix, num_of_molecules_in_aglomerates, 
- *              aglomerates, statistic, summary_statistic);
+ * proc_matrix (number_of_molecules, connect_matrix, num_of_molecules_in_agglomerates, 
+ *              agglomerates, statistic, summary_statistic);
  * @endcode
  * 
  * @param num_mol         number of molecules
  * @param connect         connectivity graph for all molecules
- * @param num_mol_agl     massive of number of molecules in aglomerates
- * @param agl             massive of aglomerates
+ * @param num_mol_agl     massive of number of molecules in agglomerates
+ * @param agl             massive of agglomerates
  * @param stat            massive of statistic
  * @param stat_all        massive of summary statistic
  * 

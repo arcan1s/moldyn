@@ -1,7 +1,7 @@
 /**
  * @file
  */
-/* Library for reading aglomerate from statgen-file
+/* Library for reading agglomerate from statgen-file
  *
  * Usage:
  *                reading_agl (aglinput, &num_needed_mol, agl_class, needed_mol)
@@ -15,14 +15,14 @@
  */
 int reading_agl (const char *aglinp, int *num_needed_mol, char *agl_class, int *needed_mol)
 /**
- * @brief function that reads aglomerate from statgen-formated file
+ * @brief function that reads agglomerate from statgen-formated file
  * @code
  * reading_agl (aglinput, &num_needed_mol, agl_class, needed_mol);
  * @endcode
  * 
- * @param aglinp          aglomerate file name
+ * @param aglinp          agglomerate file name
  * @param num_needed_mol  number of needed molecules
- * @param agl_class       aglomerate class
+ * @param agl_class       agglomerate class
  * @param needed_mol      massive of numbed of needed molecules
  * 
  * @return 0              - exit without errors
@@ -33,7 +33,7 @@ int reading_agl (const char *aglinp, int *num_needed_mol, char *agl_class, int *
   FILE *f_agl;
   
 /* connect                - connectivity matrix for molecule
- * f_agl                  - aglomerate file
+ * f_agl                  - agglomerate file
  */
   
   f_agl = fopen (aglinp, "r");

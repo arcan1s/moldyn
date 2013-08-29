@@ -1,0 +1,32 @@
+# Author: Evgeniy "arcanis" Alexeev <esalexeev@gmail.com>
+# Maintainer: Evgeniy "arcanis" Alexeev <esalexeev@gmail.com>
+
+pkgname=mathmech
+pkgver=1.0.1
+pkgrel=1
+pkgdesc="Software package for analysis of molecular dynamics trajectories"
+arch=(any)
+url="https://github.com/arcan1s/moldyn/mathmech"
+license=('GPL')
+depends=('qt4' 'qwt')
+makedepends=('unzip' 'cmake' 'automoc4')
+source=(https://github.com/arcan1s/moldyn/releases/download/mm-1.0.1/${pkgname}-${pkgver}.zip)
+md5sums=('5fab4bc7707d580ff41d384b1875b32c')
+
+build ()
+{
+  unzip -o -q ${srcdir}/${pkgname}-${pkgver}.zip -d ${srcdir}/${pkgname}
+  if [ -d ${srcdir}/${pkgname}/build ]; then
+    rm -rf build
+  fi
+  mkdir ${srcdir}/${pkgname}/build && cd ${srcdir}/${pkgname}/build
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ../
+  make
+}
+
+package() 
+{
+  cd ${srcdir}/${pkgname}/build
+  make DESTDIR=${pkgdir} install
+}
+ 

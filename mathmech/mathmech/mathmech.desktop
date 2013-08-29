@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Mathematical Molecular Mechanics 
+Comment=GUI for mathmech program pack
+Exec=mathmech
+Icon=mathmech-logo
+Terminal=false
+Encoding=UTF-8
+Type=Application
+Categories=Qt;Science;Chemistry;Physics;Education;

@@ -123,9 +123,19 @@ void MainWindow::on_statgen_checkBox_atoms3_stateChanged(int arg1)
 void MainWindow::on_statgen_checkBox_anal_stateChanged(int arg1)
 {
   if (arg1 == 0)
+  {
     ui->statgen_doubleSpinBox_anal->setDisabled(true);
+    ui->statgen_spinBox_anal->setDisabled(true);
+    ui->statgen_checkBox_graph->setCheckState(Qt::Checked);
+    ui->statgen_checkBox_graph->setEnabled(true);
+  }
   else if (arg1 == 2)
+  {
     ui->statgen_doubleSpinBox_anal->setEnabled(true);
+    ui->statgen_spinBox_anal->setEnabled(true);
+    ui->statgen_checkBox_graph->setCheckState(Qt::Unchecked);
+    ui->statgen_checkBox_graph->setDisabled(true);
+  }
 }
 
 void MainWindow::on_envir_checkBox_log_stateChanged(int arg1)
@@ -664,8 +674,12 @@ void MainWindow::start_events_statgen()
   else
     depth = QString("#");
   float int_step;
+  int imax;
   if (ui->statgen_checkBox_anal->checkState() == 2)
+  {
     int_step = ui->statgen_doubleSpinBox_anal->value();
+    imax = ui->statgen_spinBox_anal->value();
+  }
   QString log;
   if (ui->statgen_checkBox_log->checkState() == 2)
     log = ui->statgen_lineEdit_log->text();
@@ -699,7 +713,7 @@ void MainWindow::start_events_statgen()
                                                  output,
                                                  depth,
                                                  log,
-                                                 int_step);
+                                                 int_step, imax);
   ui->statusBar->showMessage(QApplication::translate("MainWindow", "Done"));
 
   if ((ui->statgen_checkBox_graph->checkState() == 2) && (check == true))

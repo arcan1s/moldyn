@@ -46,7 +46,7 @@ foreach (LANGUAGE ${LANGUAGES})
         OUTPUT ${QM}
         COMMAND ${QT_LRELEASE_EXECUTABLE} ${TS}
         MAIN_DEPENDENCY ${TS})
-endforeach()
+endforeach ()
 add_custom_target (
     translations 
     COMMAND ${QT_LUPDATE_EXECUTABLE} ${HEADERS} ${SOURCES} ${UI_HEADERS} -ts ${TRANSLATIONS})
@@ -65,4 +65,8 @@ add_executable (${PROJECT} WIN32 ${UI_HEADERS} ${HEADERS} ${SOURCES} ${MOC_SOURC
 target_link_libraries (${PROJECT} ${LIBRARIES} ${QT_LIBRARIES} ${QT_QTMAIN_LIBRARY})
 
 # install properties
-INSTALL (TARGETS ${PROJECT} DESTINATION bin)
+install (TARGETS ${PROJECT} DESTINATION bin)
+install (FILES ../mathmech.desktop
+        DESTINATION share/applications/)
+install (FILES ../mathmech-logo.png
+        DESTINATION share/pixmaps/)

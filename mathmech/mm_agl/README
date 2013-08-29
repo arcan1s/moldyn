@@ -1,4 +1,4 @@
-mm_agl - program that creates PDB file with chosen aglomerate
+mm_agl - program that creates PDB file with chosen agglomerate
 Version: 1.0.1
 License: GPL
 
@@ -6,7 +6,7 @@ Usage:
   mm_agl -a FILENAME -i FILENAME -c X,Y,Z -o FILEMANE [ -l LOGFILE ] [ -q ] [ -h ]
 
 Parametrs:
-  -a          - input file with aglomerates (in format statgen)
+  -a          - input file with agglomerates (in format statgen)
   -i          - input file with coordinates
   -c          - cell size (float), A
   -o          - output file with coordinates

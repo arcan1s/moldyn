@@ -53,7 +53,7 @@ int message (const int log, const int mode, const char *text, FILE *output)
       sprintf (out, "Initialization of variables from file '%s'\n", text);
       break;
     case 4:
-      sprintf (out, "%6cAglomerate was selected successfully\n", ' ');
+      sprintf (out, "%6cAgglomerate was selected successfully\n", ' ');
       break;
     case 5:
       sprintf (out, "Initial parametrs: \n%s", text);
