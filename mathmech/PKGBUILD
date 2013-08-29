@@ -11,7 +11,11 @@ license=('GPL')
 depends=('qt4' 'qwt')
 makedepends=('unzip' 'cmake' 'automoc4')
 source=(https://github.com/arcan1s/moldyn/releases/download/mm-1.0.1/${pkgname}-${pkgver}.zip)
-md5sums=('5fab4bc7707d580ff41d384b1875b32c')
+md5sums=('393d4ec5beb06a1ed1c62df67446ee3c')
+_cmakekeys="-DCMAKE_INSTALL_PREFIX=/usr
+            -DQWT_INCLUDE_PATH=/usr/include/qwt
+            -DMM_PREFIX=mm_
+            -DCMAKE_BUILD_TYPE=Release"
 
 build ()
 {
@@ -20,7 +24,7 @@ build ()
     rm -rf build
   fi
   mkdir ${srcdir}/${pkgname}/build && cd ${srcdir}/${pkgname}/build
-  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release ../
+  cmake ${_cmakekeys} ../
   make
 }
 

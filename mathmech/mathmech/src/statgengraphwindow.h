@@ -2,7 +2,7 @@
 #define STATGENGRAPHWINDOW_H
 
 #include <QMainWindow>
-#include <qwt/qwt_plot.h>
+#include <qwt_plot.h>
 
 namespace Ui {
   class StatgenGraphWindow;

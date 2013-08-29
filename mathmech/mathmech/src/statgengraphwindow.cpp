@@ -3,9 +3,9 @@
 #include <QKeyEvent>
 #include <QTextStream>
 
-#include <qwt/qwt_plot.h>
-#include <qwt/qwt_plot_curve.h>
-#include <qwt/qwt_series_data.h>
+#include <qwt_plot.h>
+#include <qwt_plot_curve.h>
+#include <qwt_series_data.h>
 
 #include "statgengraphwindow.h"
 #include "ui_statgengraphwindow.h"

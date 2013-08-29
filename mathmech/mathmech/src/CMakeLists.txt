@@ -28,9 +28,11 @@ message (STATUS "FORMS: ${FORMS}")
 # compile
 project (${PROJECT})
 # include_path
+link_directories (${QWT_LIBRARY_PATH})
 include_directories (${PROJECT_INCLUDE_DIR}/${PROJECT}
                      ${PROJECT_SOURCE_DIR}
-                     ${CMAKE_CURRENT_BINARY_DIR})
+                     ${CMAKE_CURRENT_BINARY_DIR}
+                     ${QWT_INCLUDE_PATH})
 
 find_package (Qt4 REQUIRED)
 include (${QT_USE_FILE})
