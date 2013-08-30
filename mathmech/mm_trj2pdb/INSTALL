@@ -1,7 +1,9 @@
 CMakeFlags:
   -DCMAKE_INSTALL_PREFIX=         - install prefix (default is '/usr/local')
   -DADD_INCLUDE=1                 - install include files (default is disable)
+  -DADD_DOCS=1                    - install documentation (default is disable)
   -DWITH_DEBUG_MODE=1             - compile with flag '-g' (default is disable)
+  -DMM_PREFIX                     - prefix for mm components (test flag)
 
 Install for Linux:
   mkdir build && cd build

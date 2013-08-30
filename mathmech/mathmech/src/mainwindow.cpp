@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
   ui(new Ui::MainWindow),
   clear_items(new Clear_items(this)),
   update_fields(new Update_fields(this))
-{
+{  
   ui->setupUi(this);
   statgen_crit = new float[10];
 

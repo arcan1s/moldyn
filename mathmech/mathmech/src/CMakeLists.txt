@@ -2,12 +2,15 @@
 file (GLOB SOURCES *.cpp)
 file (GLOB HEADERS *.h)
 file (GLOB FORMS *.ui)
+if (CMAKE_SYSTEM_NAME MATCHES Windows)
+  set (SOURCES ${SOURCES} ${PROJECT_RESOURCE_DIR}/res_icon.rc)
+endif ()
 # set library
 if (CMAKE_COMPILER_IS_GNUCXX)
   set (LIBRARIES m qwt)
 else ()
   set (LIBRARIES qwt)
-endif()
+endif ()
 set (LANGUAGES
      eng
      rus)
@@ -61,7 +64,11 @@ target_link_libraries (${PROJECT} ${LIBRARIES} ${QT_LIBRARIES} ${QT_QTMAIN_LIBRA
 
 # install properties
 install (TARGETS ${PROJECT} DESTINATION bin)
-install (FILES ../mathmech.desktop
-        DESTINATION share/applications/)
-install (FILES ../mathmech-logo.png
-        DESTINATION share/pixmaps/)
+if (CMAKE_SYSTEM_NAME MATCHES Linux)
+  install (FILES ../mathmech.desktop
+          DESTINATION share/applications/)
+  install (FILES ../mathmech-logo.png
+          DESTINATION share/pixmaps/)
+  install (FILES ../mathmech.png
+          DESTINATION share/icons/hicolor/32x32/apps/)
+endif ()

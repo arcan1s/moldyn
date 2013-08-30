@@ -38,11 +38,10 @@ fi
 # work block
 COMPONENTS=(mm_agl mm_envir mm_radf mm_statgen mm_trj mm_trj2pdb)
 for COMPONENT in ${COMPONENTS[*]}; do
-  sed -i "s:$OLDVER:$NEWVER:g" $COMPONENT/src/main.c
-  sed -i "s:$OLDVER:$NEWVER:g" $COMPONENT/README
-  sed -i "s:$OLDVER:$NEWVER:g" $COMPONENT/$COMPONENT.doxygen
+  sed -i "s/Version : $OLDVER/Version : $NEWVER/g" $COMPONENT/src/main.c
+  sed -i "s/Version: $OLDVER/Version: $NEWVER/g" $COMPONENT/README
+  sed -i "s/V.$OLDVER/V.$NEWVER/g" $COMPONENT/$COMPONENT.doxygen
 done
 
 COMPONENT=mathmech
-sed -i "s:$OLDVER:$NEWVER:g" $COMPONENT/src/main.cpp
-sed -i "s:$OLDVER:$NEWVER:g" $COMPONENT/README
+sed -i "s/Version: $OLDVER/Version: $NEWVER/g" $COMPONENT/README

@@ -66,8 +66,14 @@
  * You may also download compiled executable file for Win_x86.
  *
  * @page Changelog
- * V.1.0.2 (2013-07-27)
- * * initial release
+ * V.1.0.3 (2013-08-30)
+ * <ul>
+ * <li> Bug fixes
+ * </ul>
+ * V.1.0.1 (2013-07-27)
+ * <ul>
+ * <li> initial release
+ * </ul>
  */ 
 
 #include <math.h>
@@ -162,7 +168,7 @@ int main (int argc, char *argv[])
     {
       sprintf (tmp_str, "                                     mm_statgen\n");
       sprintf (tmp_str, "%sProgram for analyze molecular dynamic trajectories\n", tmp_str);
-      sprintf (tmp_str, "%sVersion : 1.0.2                                                    License : GPL\n", tmp_str);
+      sprintf (tmp_str, "%sVersion : 1.0.3                                                    License : GPL\n", tmp_str);
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);

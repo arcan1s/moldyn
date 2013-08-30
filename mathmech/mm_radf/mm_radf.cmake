@@ -1,8 +1,8 @@
 # set directories
 set (PROJECT_BINARY_DIR bin)
-set (PROJECT_SOURCE_DIR src)
-set (PROJECT_INCLUDE_DIR include)
-set (PROJECT_LIB_DIR lib)
+set (PROJECT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
+set (PROJECT_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set (PROJECT_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
 # include_path
 include_directories (${PROJECT_INCLUDE_DIR}/${PROJECT}

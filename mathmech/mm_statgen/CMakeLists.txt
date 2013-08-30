@@ -6,13 +6,9 @@ cmake_policy(SET CMP0015 NEW)
 
 # set project name
 set (PROJECT ${MM_PREFIX}statgen)
+set (_PROJECT mm_statgen)
 # set additional cmake file
-include (${PROJECT}.cmake)
-
-
-# additional options
-OPTION (WITH_DEBUG_MODE "Build with debug mode" OFF)
-OPTION (ADD_INCLUDE "Add include files" OFF)
+include (${_PROJECT}.cmake)
 
 # set libraries
 set (LIBRARIES)

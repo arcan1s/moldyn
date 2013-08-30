@@ -12,7 +12,6 @@ include (${PROJECT}.cmake)
 
 # additional options
 OPTION (WITH_DEBUG_MODE "Build with debug mode" OFF)
-OPTION (ADD_INCLUDE "Add include files" OFF)
 
 # set libraries
 set (LIBRARIES)
