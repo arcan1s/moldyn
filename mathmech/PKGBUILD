@@ -10,7 +10,7 @@ url="https://github.com/arcan1s/moldyn/mathmech"
 license=('GPL')
 depends=('qt4' 'qwt')
 makedepends=('unzip' 'cmake' 'automoc4')
-source=(https://github.com/arcan1s/moldyn/releases/download/mm-1.0.2/${pkgname}-${pkgver}-src.zip)
+source=(https://github.com/arcan1s/moldyn/releases/download/mm-${pkgver}/${pkgname}-${pkgver}-src.zip)
 md5sums=('7c80789a74255108581583830258fe1c')
 _cmakekeys="-DCMAKE_INSTALL_PREFIX=/usr
             -DQWT_INCLUDE_PATH=/usr/include/qwt
