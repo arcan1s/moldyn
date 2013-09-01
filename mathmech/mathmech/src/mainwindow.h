@@ -86,11 +86,12 @@ private slots:
 // completion
   void on_tabWidget_currentChanged(int index);
 // window signals
-  void createAtomTypes();
-  void createAgglFile();
   void aboutWin();
-  void settingsWinShow();
   void aglallWinShow();
+  void createAgglFile();
+  void createAtomTypes();
+  void settingsWinShow();
+  void helpWindow();
 
 private:
   Ui::MainWindow *ui;

@@ -5,10 +5,11 @@
 #include "agglwindow.h"
 #include "aglallwindow.h"
 #include "atomtypeswindow.h"
+#include "helpwindow.h"
 #include "settingswindow.h"
+#include "statgengraphwindow.h"
 #include "clear_items.h"
 #include "start_events.h"
-#include "statgengraphwindow.h"
 #include "update_fields.h"
 
 #include "mainwindow.h"
@@ -928,9 +929,10 @@ void MainWindow::createActions()
 {
   connect(ui->actionAtom_types_file, SIGNAL(triggered()), this, SLOT(createAtomTypes()));
   connect(ui->actionAgglomerate_file, SIGNAL(triggered()), this, SLOT(createAgglFile()));
-  connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(aboutWin()));
-  connect(ui->actionSettings, SIGNAL(triggered()), this, SLOT(settingsWinShow()));
   connect(ui->actionAgl_all, SIGNAL(triggered()), this, SLOT(aglallWinShow()));
+  connect(ui->actionHelp, SIGNAL(triggered()), this, SLOT(helpWindow()));
+  connect(ui->actionSettings, SIGNAL(triggered()), this, SLOT(settingsWinShow()));
+  connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(aboutWin()));
 }
 
 void MainWindow::createAtomTypes()
@@ -966,4 +968,11 @@ void MainWindow::aglallWinShow()
   AglAllWindow *aglallWin;
   aglallWin = new AglAllWindow(this, mm_agl_path);
   aglallWin->show();
+}
+
+void MainWindow::helpWindow()
+{
+  HelpWindow *helpWindow;
+  helpWindow = new HelpWindow(this);
+  helpWindow->show();
 }

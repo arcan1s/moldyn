@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HelpWindow</class>
+ <widget class="QMainWindow" name="HelpWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>598</width>
+    <height>456</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Help</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QToolBox" name="toolBox">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="page_general">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>580</width>
+         <height>233</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>General help</string>
+       </property>
+       <attribute name="label">
+        <string>General</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QTextBrowser" name="textBrowser_general"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_trj">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>580</width>
+         <height>233</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Help about trj</string>
+       </property>
+       <attribute name="label">
+        <string>trj</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QTextBrowser" name="textBrowser_trj"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_statgen">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>580</width>
+         <height>233</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Help about statgen</string>
+       </property>
+       <attribute name="label">
+        <string>statgen</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QTextBrowser" name="textBrowser_statgen"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_envir">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>580</width>
+         <height>233</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Help about envir</string>
+       </property>
+       <attribute name="label">
+        <string>envir</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="0">
+         <widget class="QTextBrowser" name="textBrowser_envir"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_radf">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>580</width>
+         <height>233</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Help about radf</string>
+       </property>
+       <attribute name="label">
+        <string>radf</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="0" column="0">
+         <widget class="QTextBrowser" name="textBrowser_radf"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_trj2pdb">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>580</width>
+         <height>233</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Help about trj2pdb</string>
+       </property>
+       <attribute name="label">
+        <string>trj2pdb</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="0">
+         <widget class="QTextBrowser" name="textBrowser_trj2pdb"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Close window</string>
+        </property>
+        <property name="text">
+         <string>Close</string>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>textBrowser_general</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>textBrowser_trj</tabstop>
+  <tabstop>textBrowser_statgen</tabstop>
+  <tabstop>textBrowser_envir</tabstop>
+  <tabstop>textBrowser_radf</tabstop>
+  <tabstop>textBrowser_trj2pdb</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>HelpWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>545</x>
+     <y>431</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>598</x>
+     <y>414</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

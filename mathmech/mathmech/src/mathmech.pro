@@ -19,7 +19,8 @@ HEADERS += mainwindow.h \
     aboutwindow.h \
     statgengraphwindow.h \
     settingswindow.h \
-    aglallwindow.h
+    aglallwindow.h \
+    helpwindow.h
 FORMS += mainwindow.ui \
     errorwindow.ui \
     atomtypeswindow.ui \
@@ -27,7 +28,8 @@ FORMS += mainwindow.ui \
     aboutwindow.ui \
     statgengraphwindow.ui \
     settingswindow.ui \
-    aglallwindow.ui
+    aglallwindow.ui \
+    helpwindow.ui
 SOURCES += main.cpp mainwindow.cpp \
     errorwindow.cpp \
     clear_items.cpp \
@@ -38,7 +40,8 @@ SOURCES += main.cpp mainwindow.cpp \
     aboutwindow.cpp \
     statgengraphwindow.cpp \
     settingswindow.cpp \
-    aglallwindow.cpp
+    aglallwindow.cpp \
+    helpwindow.cpp
 TRANSLATIONS += rus.ts \
     eng.ts
 

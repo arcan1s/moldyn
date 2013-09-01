@@ -2,8 +2,8 @@
 func_help() {
   echo -e "\nUsage: update_ver.sh -o OLDVER -n NEWVER"
   echo -e "\nRequired parameters:"
-  echo -e "  -o  --oldver      - path to GIT repository"
-  echo -e "  -n  --newver      - time to sleep"
+  echo -e "  -o  --oldver      - old version"
+  echo -e "  -n  --newver      - new version"
   echo -e "\nAdditional parametrs:"
   echo -e "  -h  --help        - show this help and exit"
   exit 1
@@ -38,10 +38,21 @@ fi
 # work block
 COMPONENTS=(mm_agl mm_envir mm_radf mm_statgen mm_trj mm_trj2pdb)
 for COMPONENT in ${COMPONENTS[*]}; do
+# help message
   sed -i "s/Version : $OLDVER/Version : $NEWVER/g" $COMPONENT/src/main.c
+# head in output
+  sed -i "s/V.$OLDVER/V.$NEWVER/g" $COMPONENT/src/add_main.c
+# readme
   sed -i "s/Version: $OLDVER/Version: $NEWVER/g" $COMPONENT/README
+# documentation
   sed -i "s/V.$OLDVER/V.$NEWVER/g" $COMPONENT/$COMPONENT.doxygen
 done
+# update documentation
+./update_docs.sh
 
 COMPONENT=mathmech
+# about window
+sed -i "s/$OLDVER/$NEWVER/g" $COMPONENT/resources/translations/eng.ts
+sed -i "s/$OLDVER/$NEWVER/g" $COMPONENT/resources/translations/rus.ts
+# readme
 sed -i "s/Version: $OLDVER/Version: $NEWVER/g" $COMPONENT/README

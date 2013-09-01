@@ -1,3 +1,4 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=Mathematical Molecular Mechanics 
 Comment=GUI for mathmech program pack

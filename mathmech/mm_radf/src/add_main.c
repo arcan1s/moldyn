@@ -127,7 +127,7 @@ int printing_head (const char *output, const int log, const int quiet, const int
   FILE *f_out;
   
   f_out = fopen (output, "w");
-  fprintf (f_out, "radf ::: V.1.0.1 ::: 2013-07-23\n\n");
+  fprintf (f_out, "radf ::: V.1.0.3\n\n");
   fprintf (f_out, "CONFIGURATION\n");
   
   fprintf (f_out, "LOG=%i\nQUIET=%i\nMATRIX=%i\n", log, quiet, matrix);

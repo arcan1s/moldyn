@@ -3710,6 +3710,7 @@
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="actionHelp"/>
     <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuMenu"/>
@@ -3753,6 +3754,14 @@
   <action name="actionAgl_all">
    <property name="text">
     <string>agl_all</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>&amp;Help</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
    </property>
   </action>
  </widget>
