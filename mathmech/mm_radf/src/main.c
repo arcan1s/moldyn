@@ -25,13 +25,13 @@
  * @section How-To-Use How to use
  * Usage:
  * <pre>
- * mm_radf -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -o OUTPUT [ -r MIN,MAX ] [ -rs R_STEP ] 
- *                    [ -a MIN,MAX ] [ -as ANG_STEP ] [ -m ] [ -l LOGFILE ] [ -q ] [ -h ]
+ * mm_radf -i INPUT -s FIRST,LAST -c X,Y,Z -at ... -o OUTPUT [ -r MIN,MAX ] [ -rs R_STEP ] 
+ *                     [ -a MIN,MAX ] [ -as ANG_STEP ] [ -m ] [ -l LOGFILE ] [ -q ] [ -h ]
  * Parametrs:
  *    -i          - mask of input files
  *    -s          - trajectory steps (integer)
  *    -c          - cell size (float), A
- *    -a          - atom types (integer). Format: 'ATOM1-ATOM2' or 'A1,A2,A3-B1,B2,B3' 
+ *    -at         - atom types (integer). Format: 'ATOM1-ATOM2' or 'A1,A2,A3-B1,B2,B3' 
  *                  (will enable RDF calculation for center mass automaticaly)
  *    -o          - output file name
  *    -r          - minimal and maximal radii for analyze (float), A. Default is '2.0,15.0'
@@ -153,7 +153,7 @@ int main(int argc, char *argv[])
       sprintf (tmp_str, "                                    mm_radf\n");
       sprintf (tmp_str, "%sProgram that calculates radial distribution function (RDF) or radial-angles\n", tmp_str);
       sprintf (tmp_str, "%sdistribution function\n", tmp_str);
-      sprintf (tmp_str, "%sVersion : 1.0.3                                                    License : GPL\n", tmp_str);
+      sprintf (tmp_str, "%sVersion : 1.1.0                                                    License : GPL\n", tmp_str);
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);

@@ -3,8 +3,8 @@ Version : 1.0.3
 License : GPL
 
 Usage:
-mm_trj -i INPUT_TRJ -t INPUT_TYPE -s NUMBER -a INPUT_ATOMS -o OUTPUT [ -tt TOTAL_TYPES ]
-                                                            [ -l LOGFILE ] [ -q ] [ -h ]
+  mm_trj -i INPUT_TRJ -t INPUT_TYPE -s NUMBER -a INPUT_ATOMS -o OUTPUT [ -tt TOTAL_TYPES ]
+                                                              [ -l LOGFILE ] [ -q ] [ -h ]
 
 Parametrs:
   -i          - input file name

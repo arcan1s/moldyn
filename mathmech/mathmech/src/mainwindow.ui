@@ -1352,6 +1352,9 @@
             <property name="toolTip">
              <string>Number of steps of analysis</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
             <property name="minimum">
              <number>1</number>
             </property>

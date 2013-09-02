@@ -2,7 +2,7 @@
 # Maintainer: Evgeniy "arcanis" Alexeev <esalexeev@gmail.com>
 
 pkgname=mathmech
-pkgver=1.0.3
+pkgver=1.1.0
 pkgrel=1
 pkgdesc="Software package for analysis of molecular dynamics trajectories"
 arch=(any)

@@ -71,11 +71,11 @@ int summary_statistic (const char *filename, const int step, const int num_mol,
     x = type_agl[0] + type_agl[1];
     type[0] = type_agl[0];
     type[1] = type_agl[1];
-    fprintf (f_out, "LINEAR=%7.5f\nCYCLE=%7.5f\n--------------------\n", type[0]/x, type[1]/x);
+    fprintf (f_out, "LINEAR=%.5f\nCYCLE=%.5f\n--------------------\n", type[0]/x, type[1]/x);
 // branched
     type[0] = type_agl[2];
     type[1] = type_agl[3];
-    fprintf (f_out, "NOT BRANCHED=%7.5f\nBRANCHED=%7.5f\n--------------------\n", type[0]/x, type[1]/x);
+    fprintf (f_out, "NOT BRANCHED=%.5f\nBRANCHED=%.5f\n--------------------\n", type[0]/x, type[1]/x);
 // n_cycle
     x = 0;
     for (i=4; i<max_depth+2; i++)
@@ -83,7 +83,7 @@ int summary_statistic (const char *filename, const int step, const int num_mol,
     for (i=4; i<max_depth+2; i++)
     {
       type[0] = type_agl[i];
-      fprintf (f_out, "CYCLE_'%2i'=%7.5f\n", i-1, type[0]/x);
+      fprintf (f_out, "CYCLE_'%2i'=%.5f\n", i-1, type[0]/x);
     }
   }
   
