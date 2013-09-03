@@ -6,7 +6,7 @@ if (CMAKE_COMPILER_IS_GNUCXX)
   set (ADDITIONAL_LIB m)
 else ()
   set (ADDITIONAL_LIB)
-endif()
+endif ()
 
 # message
 message (STATUS "SOURCES: ${SOURCES}")

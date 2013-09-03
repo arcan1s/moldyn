@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class ErrorWindow;
+
 namespace Ui {
   class HelpWindow;
 }
@@ -15,8 +17,12 @@ public:
   explicit HelpWindow(QWidget *parent = 0);
   ~HelpWindow();
 
+private slots:
+  void on_pushButton_save_clicked();
+
 private:
   Ui::HelpWindow *ui;
+  ErrorWindow *errorwin;
 
 // ESC pressed event
   void keyPressEvent(QKeyEvent *pressedKey);

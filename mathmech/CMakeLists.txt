@@ -24,8 +24,13 @@ if (CMAKE_SYSTEM_NAME MATCHES Linux)
 elseif (CMAKE_SYSTEM_NAME MATCHES Windows)
   set (QWT_INCLUDE_PATH "C:/Qwt-6.1.0/include" CACHE STRING "Path to qwt include")
   set (QWT_LIBRARY_PATH "C:/Qwt-6.1.0/lib" CACHE STRING "Path to qwt library")
-endif()
+endif ()
 
 foreach (COMP ${COMPS})
   add_subdirectory (${COMP})
-endforeach()
+endforeach ()
+
+# set docs file
+if (ADD_DOCS)
+  include (docs.cmake)
+endif ()

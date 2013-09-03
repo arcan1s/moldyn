@@ -20,27 +20,6 @@
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="page_general">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>580</width>
-         <height>233</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string>General help</string>
-       </property>
-       <attribute name="label">
-        <string>General</string>
-       </attribute>
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0">
-         <widget class="QTextBrowser" name="textBrowser_general"/>
-        </item>
-       </layout>
-      </widget>
       <widget class="QWidget" name="page_trj">
        <property name="geometry">
         <rect>
@@ -58,7 +37,39 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
-         <widget class="QTextBrowser" name="textBrowser_trj"/>
+         <widget class="QTextBrowser" name="textBrowser_trj">
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Liberation Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;trj&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;Program that generates trajectory files in special format from input trajectory.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Usage&lt;/span&gt;&lt;br /&gt;mm_trj -i FILE -t TYPE -s NUMBER -a FILE -o MASK [ -tt NUMBER ] [ -l FILE ] [ -q ] [ -h ]&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Parametrs&lt;/span&gt;&lt;br /&gt;-i FILE 		– input trajectory file&lt;br /&gt;-t TYPE 		– trajectory type. Supported formats: gmx, puma&lt;br /&gt;-s NUMBER 		– number of trajectory steps&lt;br /&gt;-a FILE 		– file with atom types&lt;br /&gt;-o MASK 		– mask of output trajectory files&lt;br /&gt;-tt NUMBER 		– maximum number of different atom types. Default is 1024&lt;br /&gt;-l FILE 		– print log to specified file&lt;br /&gt;-q 		– do not print messages to STDOUT&lt;br /&gt;-h 		– show this help and exit&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;File formats&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	&lt;span style=&quot; font-style:italic;&quot;&gt;Trajectory files (*.[0-9])&lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of atoms is shown in the title.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Trajectory snapshot (enumeration of all atoms in system). Format&lt;br /&gt;00001 СА  1234.000000 1234.000000 1234.000000    01 0001&lt;br /&gt;The sequence number of an atom (5 characters), space, character atom type (2 characters), 2 spaces, X coordinate (11 characters, 6 decimal part), Y coordinate (11 characters, 6 decimal part), Z coordinate (11 characters, 6 decimal part), 4 spaces, numerical atom type (2 characters), space, number of molecule (4 characters).&lt;/li&gt;&lt;/ul&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	&lt;span style=&quot; font-style:italic;&quot;&gt;Atom types file (*.types)&lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The number of different molecules (NUMTYPES=1) is shown in the title.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The molecules enumeration block. Variables are the number of molecules (NUMMOL=1), the number of atoms (NUMAT=1).&lt;br /&gt;The atoms enumeration block. Format&lt;br /&gt;CA=1&lt;br /&gt;Character atom type (2 characters), equal sign, numerical atom type.&lt;/li&gt;&lt;/ul&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Operation of the application&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Reading titles of source files, setting values of initial variables.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Step by step reading of source files, print results to the specified output file.&lt;/li&gt;&lt;/ol&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Working with GUI&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select Menu -&amp;gt; File creator -&amp;gt; Atom types file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the output file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set atom types. To add a new molecule you need select &amp;quot;Add new molecule&amp;quot; from the drop down list. To change the number of molecules you need change the corresponding numeric value. To add a new atom you need enter 2 character to the special field, set numerical atom type and press &amp;quot;Add&amp;quot;. After this the atom will appear in the special window. To remove an atom you need select the desired atom in the special window and press &amp;quot;Remove&amp;quot;.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Create the atom types file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Go to the tab &amp;quot;Generate trajectory&amp;quot;. Set the work directory.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the input trajectory file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the trajectory type from the drop down list, set the number of trajectory steps.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the atom types file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the mask of output files.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the maximum number of different atom types and the log file if this needed.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -67,8 +78,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>580</width>
-         <height>233</height>
+         <width>98</width>
+         <height>88</height>
         </rect>
        </property>
        <property name="toolTip">
@@ -79,7 +90,39 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
-         <widget class="QTextBrowser" name="textBrowser_statgen"/>
+         <widget class="QTextBrowser" name="textBrowser_statgen">
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Liberation Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;statgen&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;Program that analyzes molecular dynamics trajectories using topological analysis.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Usage&lt;/span&gt;&lt;br /&gt;mm_statgen -i MASK -s NUMBER,NUMBER -c X,Y,Z -a FORMAT -r FORMAT -o FILE [ -g NUMBER ] [ -l FILE ] [ -q ] [ -h ]&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Parametrs&lt;/span&gt;&lt;br /&gt;-i MASK 		– mask of trajectory files&lt;br /&gt;-s NUMBER,NUMBER 	– first and last trajectory steps&lt;br /&gt;-c X,Y,Z 		– cell size, A&lt;br /&gt;-a FORMAT 		– numerical atom types. Maximum number of different atom types is 4. Types are comma separated&lt;br /&gt;-r FORMAT 		– criteria, A. This flag can be used multiple times. Different interactions are comma separated. Type interaction, colon character, criterion. For example &amp;quot;0-0:2.4,0-1:3.0&amp;quot; means set 0-0 interaction as &amp;lt;2.4 А and 0-1 interaction as &amp;lt;3.0 A&lt;br /&gt;-o FILE 		– output file&lt;br /&gt;-g NUMBER 		– chech graph isomorphism. NUMBER is a maximum depth for search cycles (&amp;gt;= 3)&lt;br /&gt;-l FILE 		– print log to specified file&lt;br /&gt;-q 		– do not print messages to STDOUT&lt;br /&gt;-h 		– show this help and exit&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;File formats&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	&lt;span style=&quot; font-style:italic;&quot;&gt;Output file (*.dat)&lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Program name and version are shown in the title. For example, &amp;quot;statgen ::: V.1.1.0&amp;quot;. Blank line.&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The configuration block &amp;quot;CONFIGURATION ... END&amp;quot;. Print log (LOG=1), do not print messages to STDOUT (QUIET=1), mask of trajectory files (MASK=mask), first (FIRST=1) and last (LAST=1) trajectory steps, sell size (CELL=1.0000,2.0000,3.0000), atom types (ATOMS=1,2,3,4), interactions (INTERACTION=format), maximum depth for check cycle number (DEPTH=0, 0 - do not check graph isomorphism). Blank line.&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The enumeration of statistics on individual files.&lt;br /&gt;File name (FILE=mask.001), the statistic block for file &amp;quot;STATISTIC ... -----------------&amp;quot;. Table layout (2 rows) follows after specifying the block. The table format&lt;br /&gt; 0000001 0000001 &lt;br /&gt;Space, agglomerate size (7 characters), space, number of agglomerates of this size in the file (7 characters).&lt;br /&gt;The enumeration of agglomerates in the file. Agglomerate title (AGL=2=1.3.4.) (1 – number of molecules in the agglomerate, 1.3.4. – agglomerate class, if verification of isomorphism is specified). The enumeration of molecules in the agglomerate. (0000001=2,3,4,5,) (1 – number of molecule (7 characters), equal sign, the enumeration of connected molecules separated by commas).&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The summary statistic block &amp;quot;SUMMARY STATISTIC … ------------------------------------------------&amp;quot;. Table layout (2 rows) follows after specifying the block. The table format&lt;br /&gt; 0000001 0000002 000003.00 004.00000 0005.00000&lt;br /&gt;Space, agglomerate size (7 characters), space, total number of agglomerates of this size (7 characters), space, average concentration of agglomerates of this size (9 characters, 2 decimal part), space, probability of finding molecules in agglomerates of this size (9 characters, 5 decimal part), space, probability of finding molecules in agglomerates of this size multiplied by the size (10 characters, 5 decimal part).&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Summary statistic of agglomerates on classes (if verification of isomorphism is specified). The proportion of linear (LINEAR=0.10000) and cyclic (CYCLE=0.10000) agglomerates, blank line, the proportion of not branched (NOT BRANCHED=0.10000) and branched (BRANCHED=0.10000) agglomerates, blank line, the proportion of found cycles of the specified size (CYCLE_03=0.10000).&lt;/li&gt;&lt;/ul&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Operation of the application&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Reading titles of source files, setting values of initial variables.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Step by step reading of source files, settings values of variables.&lt;br /&gt;Search for interactions that satisfy the specified criteria.&lt;br /&gt;The analysis of all connections and specifying to the two molecules that connected, if the conditions are satisfied at least one of these criteria.&lt;br /&gt;Adding molecules to agglomerates according to the obtained connectivity matrix.&lt;br /&gt;Print agglomerates to the file, adding the summary statistics.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Print the summary statistic to the file.&lt;/li&gt;&lt;/ol&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Working with GUI&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Go to the tab &amp;quot;Agglomeration&amp;quot;. Set the work directory.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the mask of trajectory files.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the first and the last trajectory steps.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the cell size, A.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set needed atoms.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set interactions. Select type of interaction from the drop down list, change its criterion and press &amp;quot;Save&amp;quot;. Press &amp;quot;Add&amp;quot; after ending of edition. After this the interaction will appear in the special window. To remove an interaction you need select the desired interaction in the special window and press &amp;quot;Remove&amp;quot;.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the output file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the maximum depth for search cycles, the log file and the graph generate if this needed.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;For the variation of geometric criteria you need specify the criteria step changes and the number of steps.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -88,8 +131,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>580</width>
-         <height>233</height>
+         <width>98</width>
+         <height>88</height>
         </rect>
        </property>
        <property name="toolTip">
@@ -100,7 +143,33 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_5">
         <item row="0" column="0">
-         <widget class="QTextBrowser" name="textBrowser_envir"/>
+         <widget class="QTextBrowser" name="textBrowser_envir">
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Liberation Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;envir&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;Program that searchs environment for chosen molecule by geometric criterion.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Usage&lt;/span&gt;&lt;br /&gt;mm_envir -i FILE -c X,Y,Z -o FILE [ -n NUMBER ] [ -r NUMBER ] [ -l FILE ] [ -q ] [ -h ]&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Parametrs&lt;/span&gt;&lt;br /&gt;-i FILE 		– input trajectory file&lt;br /&gt;-c X,Y,Z 		– cell size, A&lt;br /&gt;-o FILE 		– output PDB file&lt;br /&gt;-n NUMBER 		– number of molecule for search. Default is 1&lt;br /&gt;-r NUMBER 		– radius of environment. Default is 6.0&lt;br /&gt;-l FILE 		– print log to specified file&lt;br /&gt;-q 		– do not print messages to STDOUT&lt;br /&gt;-h 		– show this help and exit&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;File formats&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	&lt;span style=&quot; font-style:italic;&quot;&gt;Trajectory file (*.pdb)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.wwpdb.org/documentation/format33/sect9.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.wwpdb.org/documentation/format33/sect9.html&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Operation of the application&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Reading titles of source files, setting values of initial variables.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Reading of source file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Search for the environment.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Print the environment to the file.&lt;/li&gt;&lt;/ol&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Working with GUI&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Go to the tab &amp;quot;Environment&amp;quot;. Set the work directory.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the input trajectory file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the cell size, A.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the output PDB file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the number of molecule for search and the radius of environment.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the log file if this needed.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -109,8 +178,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>580</width>
-         <height>233</height>
+         <width>98</width>
+         <height>88</height>
         </rect>
        </property>
        <property name="toolTip">
@@ -121,7 +190,92 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_6">
         <item row="0" column="0">
-         <widget class="QTextBrowser" name="textBrowser_radf"/>
+         <widget class="QTextBrowser" name="textBrowser_radf">
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Liberation Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;radf&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;Program that calculates radial distribution function (RDF) or radial-angles distribution function (RADF).&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Usage&lt;/span&gt;&lt;br /&gt;mm_radf -i MASK -s NUMBER,NUMBER -c X,Y,Z -at FORMAT -o FILE [ -r NUMBER,NUMBER ] [ -rs NUMBER ] [ -a NUMBER,NUMBER ] [ -as NUMBER ] [ -m ] [ -l FILE ] [ -q ] [ -h ]&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Parametrs&lt;/span&gt;&lt;br /&gt;-i MASK 		– mask of trajectory files&lt;br /&gt;-s NUMBER,NUMBER 	– first and last trajectory steps&lt;br /&gt;-c X,Y,Z 		– cell size, A&lt;br /&gt;-at FORMAT 		– numerical atom types between which the function is calculated. Format is &amp;quot;1-2&amp;quot; or &amp;quot;1,2,3-4,5,6&amp;quot; (automatically enable calculation of radial distribution function between centers of mass)&lt;br /&gt;-o FILE 		– output file&lt;br /&gt;-r NUMBER,NUMBER 	– radial criteria, A. Default is 2.0 and 15.0&lt;br /&gt;-rs NUMBER 		– radius change step, A. Default is 0.2&lt;br /&gt;-a NUMBER,NUMBER 	– angular criteria, deg. Default is 0.0 and 90.0&lt;br /&gt;-as NUMBER 		– angle change step, deg. This option will enable calculation of radial-angles distribution function&lt;br /&gt;-as 		– enable matrix output&lt;br /&gt;-l FILE 		– print log to specified file&lt;br /&gt;-q 		– do not print messages to STDOUT&lt;br /&gt;-h 		– show this help and exit&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;File formats&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	&lt;span style=&quot; font-style:italic;&quot;&gt;Output file (*.dat)&lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Program name and version are shown in the title. For example, &amp;quot;radf ::: V.1.1.0&amp;quot;. Blank line.&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The configuration block &amp;quot;CONFIGURATION ... END&amp;quot;. Print log (LOG=1), do not print messages to STDOUT (QUIET=1), matrix output (MATRIX=1), mask of trajectory files (MASK=mask), first (FIRST=1) and last (LAST=1) trajectory steps, sell size (CELL=1.0000,2.0000,3.0000), mode (MODE=0) (0 – radial distribution function, 1 – radial distribution function between centers of mass, 2 – radial-angles distribution function), radial criteria (R_MIN=0.100) (R_MAX=0.100) (R_STEP=0.100), angular criteria for radial-angles distribution function (ANG_MIN=0.10) (ANG_MAX=0.10) (ANG_STEP=0.10), atom types (ATOM=1-2) or (ATOM=1,2,3-4,5,6). Blank line.&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The results block «SUMMARY STATISTIC … ------------------------------------------------». Table layout (2 rows) follows after specifying the block if matrix output disables.&lt;br /&gt;The table format for radial distribution function (matrix output disables)&lt;br /&gt; 0001.0000 2.0000e-01 000000003 04.000000&lt;br /&gt;Space, sphere radius (9 characters, 4 decimal part), space, segment volume (10 characters, 4 decimal part), space, number of molecules in this radius (9 characters), space, radial distribution function (9 characters, 6 decimal part).&lt;br /&gt;The table format for radial distribution function (matrix output enables)&lt;br /&gt; 0001.0000 04.000000&lt;br /&gt;Space, sphere radius (9 characters, 4 decimal part), space, radial distribution function (9 characters, 6 decimal part).&lt;br /&gt;The table format for radial-angles distribution function (matrix output disables)&lt;br /&gt; 0001.0000 000005.00 2.0000e-01 000000003 04.000000&lt;br /&gt;Space, sphere radius (9 characters, 4 decimal part), space, segment angle (9 characters, 2 decimal part), segment volume (10 characters, 4 decimal part), space, number of molecules in this segment (9 characters), space, radial-angles distribution function (9 characters, 6 decimal part).&lt;br /&gt;The table format for radial-angles distribution function (matrix output enables). Segment angle (9 characters, 2 decimal part) is shown in the title&lt;br /&gt; 0001.0000 04.000000 ...&lt;br /&gt;Space, sphere radius (9 characters, 4 decimal part), space, radial-angles distribution function (9 characters, 6 decimal part) separated by spaces.&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;End of the table&lt;/li&gt;&lt;/ul&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Operation of the application&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Reading titles of source files, setting values of initial variables.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Step by step reading of source files, settings values of variables.&lt;br /&gt;Calculating of the number of pairs of molecules in various relative configurations.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Print the result to the file.&lt;br /&gt;Radial distribution function calculated by:&lt;br /&gt;RDF(r) = (1 / norm) * sum(d(r_n-r), n),&lt;br /&gt;norm(r) = (4*PI*r^2*dr) * ro * N * N_step,&lt;br /&gt;where d(r_n-r) is the delta function, r is a shpere radius, n is a number of molecule, dr is the radius change step, ro is the number of molecules per volume unit, N is the number of molecules, N_step is a number of trajectory step.&lt;br /&gt;Radial-angles distribution function calculated by:&lt;br /&gt;RADF(r, fi) = (1 / norm) * sum(sum(d(r_n-r)*d(fi_n-fi), n), n),&lt;br /&gt;norm(r, fi) = (4*PI*r^2*sin(fi)*dr*dfi) * ro * N * N_step,&lt;br /&gt;where d(r_n-r) and d(fi_n-fi) are the delta functions, r is a shpere radius, fi is a segment angle, n is a number of molecule, dr is the radius change step, dfi is the angle change step, ro is the number of molecules per volume unit, N is the number of molecules, N_step is a number of trajectory step.&lt;/li&gt;&lt;/ol&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Working with GUI&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Go to the tab &amp;quot;RADF&amp;quot;. Set the work directory.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the mask of trajectory files.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the first and the last trajectory steps.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the cell size, A.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the output file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set needed atoms.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set radial criteria. Set angular criteria if this needed.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the matrix output, the log file and the graph generate if this needed.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_agl">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>98</width>
+         <height>88</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Help about agl</string>
+       </property>
+       <attribute name="label">
+        <string>agl</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QTextBrowser" name="textBrowser_agl">
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Liberation Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;agl&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;Program that creates PDB file with chosen agglomerate.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Usage&lt;/span&gt;&lt;br /&gt;mm_agl -a FILE -i FILE -c X,Y,Z -o FILE [ -l FILE ] [ -q ] [ -h ]&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Parametrs&lt;/span&gt;&lt;br /&gt;-a FILE 		– input file with agglomerate&lt;br /&gt;-i FILE 		– input trajectory file&lt;br /&gt;-c X,Y,Z 		– cell size, A&lt;br /&gt;-o FILE 		– output PDB file&lt;br /&gt;-l FILE 		– print log to specified file&lt;br /&gt;-q 		– do not print messages to STDOUT&lt;br /&gt;-h 		– show this help and exit&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;File formats&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	&lt;span style=&quot; font-style:italic;&quot;&gt;Agglomerate file (*.agl)&lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Agglomerate title (AGL=2=1.3.4.) (1 – number of molecules in the agglomerate, 1.3.4. – agglomerate class, if verification of isomorphism is specified).&lt;/li&gt;
+&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The enumeration of molecules in the agglomerate (0000001=2,3,4,5,) (1 – number of molecule (7 characters), equal sign, the enumeration of connected molecules separated by commas).&lt;/li&gt;&lt;/ul&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	&lt;span style=&quot; font-style:italic;&quot;&gt;Trajectory file (*.pdb)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.wwpdb.org/documentation/format33/sect9.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.wwpdb.org/documentation/format33/sect9.html&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Operation of the application&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Reading titles of source files, setting values of initial variables.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Reading of source file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Search for the best configuration.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Print the result to the file.&lt;/li&gt;&lt;/ol&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Working with GUI&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select Menu -&amp;gt; File creator -&amp;gt; Agglomerate file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the file generated by statgen. Push &amp;quot;Select&amp;quot;.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the trajectory file from the drop down list. Select the agglomerate.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the output file. Create file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Go to the tab &amp;quot;Generate PDB&amp;quot;. Select &amp;quot;From agglomerate&amp;quot; from the drop down list.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the work directory.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the input trajectory file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the agglomerate file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the cell size, A.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the output PDB file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the log file if this needed.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -130,8 +284,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>580</width>
-         <height>233</height>
+         <width>98</width>
+         <height>88</height>
         </rect>
        </property>
        <property name="toolTip">
@@ -142,7 +296,31 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_7">
         <item row="0" column="0">
-         <widget class="QTextBrowser" name="textBrowser_trj2pdb"/>
+         <widget class="QTextBrowser" name="textBrowser_trj2pdb">
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Liberation Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;trj2pdb&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;Program that creates PDB file from trajetory snapshot.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Usage&lt;/span&gt;&lt;br /&gt;mm_trj2pdb -i FILE -o FILE [ -l FILE ] [ -q ] [ -h ]&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Parametrs&lt;/span&gt;&lt;br /&gt;-i FILE 		– input trajectory file&lt;br /&gt;-o FILE 		– output PDB file&lt;br /&gt;-l FILE 		– print log to specified file&lt;br /&gt;-q 		– do not print messages to STDOUT&lt;br /&gt;-h 		– show this help and exit&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;File formats&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	&lt;span style=&quot; font-style:italic;&quot;&gt;Trajectory file (*.pdb)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.wwpdb.org/documentation/format33/sect9.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.wwpdb.org/documentation/format33/sect9.html&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Operation of the application&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Reading titles of source files, setting values of initial variables.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Reading of source file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Print the result to the file.&lt;/li&gt;&lt;/ol&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;	&lt;span style=&quot; text-decoration: underline;&quot;&gt;Working with GUI&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Go to the tab &amp;quot;Generate PDB&amp;quot;. Select &amp;quot;From trajectory snapshot&amp;quot; from the drop down list.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the work directory.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the input trajectory file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the output PDB file.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the log file if this needed.&lt;/li&gt;
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -164,7 +342,26 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="pushButton_save">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Save help to html</string>
+        </property>
+        <property name="text">
+         <string>Save html</string>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_close">
         <property name="minimumSize">
          <size>
           <width>80</width>
@@ -188,18 +385,19 @@
   </widget>
  </widget>
  <tabstops>
-  <tabstop>textBrowser_general</tabstop>
-  <tabstop>pushButton</tabstop>
   <tabstop>textBrowser_trj</tabstop>
   <tabstop>textBrowser_statgen</tabstop>
   <tabstop>textBrowser_envir</tabstop>
   <tabstop>textBrowser_radf</tabstop>
+  <tabstop>textBrowser_agl</tabstop>
   <tabstop>textBrowser_trj2pdb</tabstop>
+  <tabstop>pushButton_save</tabstop>
+  <tabstop>pushButton_close</tabstop>
  </tabstops>
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>pushButton_close</sender>
    <signal>clicked()</signal>
    <receiver>HelpWindow</receiver>
    <slot>close()</slot>
