@@ -92,7 +92,7 @@ int printing_head (const char *output, const int log, const int quiet,
   FILE *f_out;
   
   f_out = fopen (output, "w");
-  fprintf (f_out, "statgen ::: V.1.1.0\n\n");
+  fprintf (f_out, "statgen ::: V.1.1.1\n\n");
   fprintf (f_out, "CONFIGURATION\n");
   
   fprintf (f_out, "LOG=%i\nQUIET=%i\n", log, quiet);

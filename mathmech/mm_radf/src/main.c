@@ -70,13 +70,23 @@
  * You may also download compiled executable file for Win_x86.
  *
  * @page Changelog
+ * V.1.1.1 (2013-09-03)
+ * <ul>
+ * <li>optimization
+ * </ul>
+ * V.1.1.0 (2013-09-02)
+ * <ul>
+ * <li>added help window
+ * <li>added help docs
+ * <li>small bug fixes
+ * </ul>
  * V.1.0.3 (2013-08-30)
  * <ul>
- * <li> Bug fixes
+ * <li>bug fixes
  * </ul>
  * V.1.0.1 (2013-07-27)
  * <ul>
- * <li> initial release
+ * <li>initial release
  * </ul>
  */ 
 
@@ -153,7 +163,7 @@ int main(int argc, char *argv[])
       sprintf (tmp_str, "                                    mm_radf\n");
       sprintf (tmp_str, "%sProgram that calculates radial distribution function (RDF) or radial-angles\n", tmp_str);
       sprintf (tmp_str, "%sdistribution function\n", tmp_str);
-      sprintf (tmp_str, "%sVersion : 1.1.0                                                    License : GPL\n", tmp_str);
+      sprintf (tmp_str, "%sVersion : 1.1.1                                                    License : GPL\n", tmp_str);
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);

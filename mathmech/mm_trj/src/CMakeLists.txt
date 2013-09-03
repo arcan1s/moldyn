@@ -1,5 +1,6 @@
 # set files
-aux_source_directory (. SOURCES)
+file (GLOB SOURCES *.c)
+file (GLOB HEADERS *.h)
 
 # set library
 if (CMAKE_COMPILER_IS_GNUCXX)
@@ -9,17 +10,15 @@ else ()
 endif ()
 
 # message
-message (STATUS "SOURCES: ${SOURCES}")
+message (STATUS "${PROJECT} SOURCES: ${SOURCES}")
+message (STATUS "${PROJECT} HEADERS: ${HEADERS}")
 
 # link libraries and compile
-add_executable (${PROJECT} ${SOURCES})
+add_executable (${PROJECT} ${SOURCES} ${HEADERS})
 target_link_libraries (${PROJECT} ${ADDITIONAL_LIB})
 
 # install properties
 INSTALL (TARGETS ${PROJECT} DESTINATION bin)
-if (ADD_INCLUDE)
-  INSTALL (FILES ${PUBLIC_HEADERS} DESTINATION include/${PROJECT})
-endif ()
 if (ADD_DOCS)
   INSTALL (FILES ${PROJECT_SOURCE_DIR}/../${_PROJECT}.pdf DESTINATION share/doc/mathmech)
 endif ()

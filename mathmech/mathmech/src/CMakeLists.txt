@@ -16,17 +16,16 @@ set (LANGUAGES
      rus)
 set (RESOURCES ${PROJECT_RESOURCE_DIR}/resources.qrc)
 
-message (STATUS "SOURCES: ${SOURCES}")
-message (STATUS "HEADERS: ${HEADERS}")
-message (STATUS "FORMS: ${FORMS}")
+message (STATUS "${PROJECT} SOURCES: ${SOURCES}")
+message (STATUS "${PROJECT} HEADERS: ${HEADERS}")
+message (STATUS "${PROJECT} FORMS: ${FORMS}")
 
 
 # compile
 project (${PROJECT})
 # include_path
 link_directories (${QWT_LIBRARY_PATH})
-include_directories (${PROJECT_INCLUDE_DIR}/${PROJECT}
-                     ${PROJECT_SOURCE_DIR}
+include_directories (${PROJECT_SOURCE_DIR}
                      ${CMAKE_CURRENT_BINARY_DIR}
                      ${QWT_INCLUDE_PATH})
 
@@ -51,7 +50,7 @@ add_custom_target (
 add_custom_command (
     TARGET translations
     COMMAND ${QT_LRELEASE_EXECUTABLE} ${TRANSLATIONS})
-message (STATUS "TRANSLATIONS: ${TRANSLATIONS_BINARY}")
+message (STATUS "${PROJECT} TRANSLATIONS: ${TRANSLATIONS_BINARY}")
 
 source_group ("Header Files" FILES ${HEADERS})
 source_group ("Source Files" FILES ${SOURCES})
@@ -59,7 +58,6 @@ source_group ("Generated Files" FILES ${MOC_SOURCES})
 source_group ("Resource Files" FILES ${QRC_SOURCES})
 
 add_executable (${PROJECT} WIN32 ${UI_HEADERS} ${HEADERS} ${SOURCES} ${MOC_SOURCES} ${QRC_SOURCES} ${TRANSLATIONS})
-
 target_link_libraries (${PROJECT} ${LIBRARIES} ${QT_LIBRARIES} ${QT_QTMAIN_LIBRARY})
 
 # install properties
