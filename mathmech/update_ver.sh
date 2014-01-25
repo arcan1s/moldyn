@@ -36,7 +36,7 @@ if [[ -z "$OLDVER" || -z "$NEWVER" ]]; then
 fi
 
 # work block
-COMPONENTS=(mm_agl mm_envir mm_radf mm_statgen mm_trj mm_trj2pdb)
+COMPONENTS=(agl envir radf statgen trj trj2pdb)
 for COMPONENT in ${COMPONENTS[*]}; do
 # help message
   sed -i "s/Version : $OLDVER/Version : $NEWVER/g" $COMPONENT/src/main.c
@@ -44,11 +44,7 @@ for COMPONENT in ${COMPONENTS[*]}; do
   sed -i "s/V.$OLDVER/V.$NEWVER/g" $COMPONENT/src/add_main.c
 # readme
   sed -i "s/Version: $OLDVER/Version: $NEWVER/g" $COMPONENT/README
-# documentation
-  sed -i "s/V.$OLDVER/V.$NEWVER/g" $COMPONENT/$COMPONENT.doxygen
 done
-# update documentation
-./update_docs.sh
 
 COMPONENT=mathmech
 # about window

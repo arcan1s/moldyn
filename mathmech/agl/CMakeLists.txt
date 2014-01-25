@@ -1,16 +1,13 @@
 # set project name
-set (PROJECT mathmech)
+set (PROJECT agl)
 # set additional cmake file
 include (${PROJECT}.cmake)
-
-
-# additional options
-option (WITH_DEBUG_MODE "Build with debug mode" OFF)
 
 # set libraries
 set (LIBRARIES "")
 foreach (LIBRARY ${LIBRARIES})
-  add_subdirectory (../${LIBRARY} lib/${LIBRARY})
+  add_subdirectory (../${LIBRARY} bin/${LIBRARY})
+  include_directories (${CMAKE_CURRENT_SOURCE_DIR}/../${LIBRARY}/include/)
 endforeach ()
 
 # additional targets

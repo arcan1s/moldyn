@@ -1,0 +1,18 @@
+mm_trj - program that generates trajectory files
+Version : 1.1.1
+License : GPL
+
+Usage:
+  mm_trj -i INPUT_TRJ -t INPUT_TYPE -s NUMBER -a INPUT_ATOMS -o OUTPUT [ -tt TOTAL_TYPES ]
+                                                              [ -l LOGFILE ] [ -q ] [ -h ]
+
+Parametrs:
+  -i          - input file name
+  -t          - type of trajectory. Supported formats: gmx, puma
+  -s          - number of trajectory steps (integer)
+  -a          - input file with atom types. See file format in manual
+  -o          - mask of output files
+  -tt         - number of different atom types. Default is 1024
+  -l          - log enable
+  -q          - quiet enable
+  -h          - show this help and exit

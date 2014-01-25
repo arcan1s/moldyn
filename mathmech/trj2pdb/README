@@ -1,0 +1,13 @@
+mm_trj2pdb - program that creates PDB file from trajetory snapshot
+Version: 1.1.1
+License: GPL
+
+Usage:
+  mm_trj2pdb -i FILENAME -o FILEMANE [ -l LOGFILE ] [ -q ] [ -h ]
+
+Parametrs:
+  -i          - input file name
+  -o          - output file name
+  -l          - log enable
+  -q          - quiet enable
+  -h          - show this help and exit
