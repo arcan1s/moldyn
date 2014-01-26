@@ -1,17 +1,12 @@
 # set directories
-set (PROJECT_BINARY_DIR bin)
-set (PROJECT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
-set (PROJECT_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
-set (PROJECT_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+set (SUBPROJECT_BINARY_DIR bin)
+set (SUBPROJECT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # include_path
-include_directories (${PROJECT_INCLUDE_DIR}
-                     ${PROJECT_SOURCE_DIR})
+include_directories (${SUBPROJECT_SOURCE_DIR})
 
-# library path
-link_directories (${PROJECT_LIB_DIR})
 # executable path
-set (EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR})
+set (EXECUTABLE_OUTPUT_PATH ${SUBPROJECT_BINARY_DIR})
 
 # verbose
 set (CMAKE_VERBOSE_MAKEFILE ON)

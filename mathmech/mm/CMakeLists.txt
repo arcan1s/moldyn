@@ -1,13 +1,10 @@
 # set project name
-set (PROJECT mm)
+set (SUBPROJECT mm)
 # set additional cmake file
-include (${PROJECT}.cmake)
-if (ADD_DOCS)
-  include (doxygen.cmake)
-endif ()
+include (${SUBPROJECT}.cmake)
 
 # additional targets
 set (TARGETS "")
 set (HEADERS "")
 
-add_subdirectory (${PROJECT_SOURCE_DIR})
+add_subdirectory (${SUBPROJECT_SOURCE_DIR})

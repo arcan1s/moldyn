@@ -1,17 +1,17 @@
 # set project name
-set (PROJECT statgen)
+set (SUBPROJECT statgen)
 # set additional cmake file
-include (${PROJECT}.cmake)
+include (${SUBPROJECT}.cmake)
 
 # set libraries
-set (LIBRARIES "")
+set (LIBRARIES mm)
 foreach (LIBRARY ${LIBRARIES})
-  add_subdirectory (../${LIBRARY} bin/${LIBRARY})
   include_directories (${CMAKE_CURRENT_SOURCE_DIR}/../${LIBRARY}/include/)
+  link_directories (${LIBRARY}/src/lib)
 endforeach ()
 
 # additional targets
 set (TARGETS "")
 set (HEADERS "")
 
-add_subdirectory (${PROJECT_SOURCE_DIR})
+add_subdirectory (${SUBPROJECT_SOURCE_DIR})

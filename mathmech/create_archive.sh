@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES="docs mathmech mm_agl mm_envir mm_radf mm_statgen mm_trj mm_trj2pdb AUTHORS CMakeLists.txt COPYING docs.cmake INSTALL"
+FILES="docs mathmech mm agl envir radf statgen trj trj2pdb AUTHORS CHANGELOG CMakeLists.txt COPYING docs.cmake INSTALL"
 ARCHIVE="mathmech"
 VERSION=`grep -m1 PROJECT_VERSION_MAJOR CMakeLists.txt | awk '{print $3}' | cut -c 1`.\
 `grep -m1 PROJECT_VERSION_MINOR CMakeLists.txt | awk '{print $3}' | cut -c 1`.\

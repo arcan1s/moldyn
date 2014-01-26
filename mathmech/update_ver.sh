@@ -6,7 +6,7 @@ func_help() {
   echo -e "  -n  --newver      - new version"
   echo -e "\nAdditional parametrs:"
   echo -e "  -h  --help        - show this help and exit"
-  exit 1
+  exit 0
 }
 
 until [ -z $1 ]; do
@@ -45,6 +45,10 @@ for COMPONENT in ${COMPONENTS[*]}; do
 # readme
   sed -i "s/Version: $OLDVER/Version: $NEWVER/g" $COMPONENT/README
 done
+
+COMPONENT=mm
+# readme
+sed -i "s/Version: $OLDVER/Version: $NEWVER/g" $COMPONENT/README
 
 COMPONENT=mathmech
 # about window

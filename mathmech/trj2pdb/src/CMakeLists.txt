@@ -10,12 +10,12 @@ else ()
 endif ()
 
 # message
-message (STATUS "${PROJECT} SOURCES: ${SOURCES}")
-message (STATUS "${PROJECT} HEADERS: ${HEADERS}")
+message (STATUS "${SUBPROJECT} SOURCES: ${SOURCES}")
+message (STATUS "${SUBPROJECT} HEADERS: ${HEADERS}")
 
 # link libraries and compile
-add_executable (${MM_PREFIX}${PROJECT} ${SOURCES} ${HEADERS})
-target_link_libraries (${MM_PREFIX}${PROJECT} ${ADDITIONAL_LIB} ${LIBRARIES})
+add_executable (${MM_PREFIX}${SUBPROJECT} ${SOURCES} ${HEADERS})
+target_link_libraries (${MM_PREFIX}${SUBPROJECT} ${ADDITIONAL_LIB} ${LIBRARIES})
 
 # install properties
-install (TARGETS ${MM_PREFIX}${PROJECT} DESTINATION bin)
+install (TARGETS ${MM_PREFIX}${SUBPROJECT} DESTINATION bin)

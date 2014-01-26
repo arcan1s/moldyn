@@ -1,20 +1,14 @@
 # set project name
-set (PROJECT mathmech)
+set (SUBPROJECT mathmech)
 # set additional cmake file
-include (${PROJECT}.cmake)
+include (${SUBPROJECT}.cmake)
 
 
 # additional options
 option (WITH_DEBUG_MODE "Build with debug mode" OFF)
 
-# set libraries
-set (LIBRARIES "")
-foreach (LIBRARY ${LIBRARIES})
-  add_subdirectory (../${LIBRARY} lib/${LIBRARY})
-endforeach ()
-
 # additional targets
 set (TARGETS "")
 set (HEADERS "")
 
-add_subdirectory (${PROJECT_SOURCE_DIR})
+add_subdirectory (${SUBPROJECT_SOURCE_DIR})

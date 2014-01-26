@@ -5,16 +5,15 @@ cmake_policy (SET CMP0002 OLD)
 cmake_policy (SET CMP0011 NEW)
 cmake_policy (SET CMP0015 NEW)
 
-set (PROJECT_LONG mathmech)
+project (mathmech)
 set (PROJECT_VERSION_MAJOR 1)
-set (PROJECT_VERSION_MINOR 1)
-set (PROJECT_VERSION_PATCH 1)
+set (PROJECT_VERSION_MINOR 2)
+set (PROJECT_VERSION_PATCH 0)
 set (PROJECT_VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH})
 
 message (STATUS "Version ${PROJECT_VERSION}")
 
 set (COMPS mathmech
-           mm
            agl
            envir
            radf
@@ -33,6 +32,12 @@ elseif (CMAKE_SYSTEM_NAME MATCHES Windows)
   set (QWT_INCLUDE_PATH "C:/Qwt-6.1.0/include" CACHE STRING "Path to qwt include")
   set (QWT_LIBRARY_PATH "C:/Qwt-6.1.0/lib" CACHE STRING "Path to qwt library")
 endif ()
+
+# set libraries
+set (LIBRARIES mm)
+foreach (LIBRARY ${LIBRARIES})
+  add_subdirectory (${LIBRARY})
+endforeach ()
 
 foreach (COMP ${COMPS})
   add_subdirectory (${COMP})
