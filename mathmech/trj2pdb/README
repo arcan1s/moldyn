@@ -1,6 +1,4 @@
 trj2pdb - program that creates PDB file from trajetory snapshot
-Version: 1.2.0
-License: GPL
 
 Usage:
   trj2pdb -i FILENAME -o FILEMANE [ -l LOGFILE ] [ -q ] [ -h ]

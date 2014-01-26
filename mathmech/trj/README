@@ -1,6 +1,4 @@
 trj - program that generates trajectory files
-Version : 1.1.1
-License : GPL
 
 Usage:
   trj -i INPUT_TRJ -t INPUT_TYPE -s NUMBER -a INPUT_ATOMS -o OUTPUT [ -tt TOTAL_TYPES ]

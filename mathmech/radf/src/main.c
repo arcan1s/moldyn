@@ -8,6 +8,7 @@
 #include <string.h>
 
 #include "add_main.h"
+#include <version.h>
 #include <mathmech/coords.h>
 #include <mathmech/messages.h>
 #include <mathmech/radf.h>
@@ -75,7 +76,7 @@ int main(int argc, char *argv[])
       sprintf (tmp_str, "                                    mm_radf\n");
       sprintf (tmp_str, "%sProgram that calculates radial distribution function (RDF) or radial-angles\n", tmp_str);
       sprintf (tmp_str, "%sdistribution function\n", tmp_str);
-      sprintf (tmp_str, "%sVersion : 1.2.0                                                    License : GPL\n", tmp_str);
+      sprintf (tmp_str, "%sVersion : %s                                                    License : GPL\n", tmp_str, PROJ_VERSION);
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);

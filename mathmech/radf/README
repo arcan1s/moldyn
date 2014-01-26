@@ -1,7 +1,5 @@
 radf - program that calculates radial distribution function (RDF) or radial-angles 
 distribution function (RADF)
-Version : 1.1.1
-License : GPL
 
 Usage:
   radf -i INPUT -s FIRST,LAST -c X,Y,Z -at ... -o OUTPUT [ -r MIN,MAX ] [ -rs R_STEP ] 

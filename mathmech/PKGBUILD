@@ -2,7 +2,7 @@
 # Maintainer: Evgeniy "arcanis" Alexeev <esalexeev@gmail.com>
 
 pkgname=mathmech
-pkgver=1.1.1
+pkgver=1.2.0
 pkgrel=1
 pkgdesc="Software package for analysis of molecular dynamics trajectories"
 arch=(any)
@@ -11,7 +11,7 @@ license=('GPL')
 depends=('qt4' 'qwt')
 makedepends=('cmake' 'automoc4')
 source=(https://github.com/arcan1s/moldyn/releases/download/mm-${pkgver}/${pkgname}-${pkgver}-src.zip)
-md5sums=('6a7f3dd17ae4ad0498110aaaadea5a2b')
+md5sums=('e7d983f602fcfd3f390e72ef684fe5e2')
 _cmakekeys="-DCMAKE_INSTALL_PREFIX=/usr
             -DQWT_INCLUDE_PATH=/usr/include/qwt
             -DQWT_LIBRARY_PATH=/usr/lib

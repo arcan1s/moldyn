@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 
+#include <version.h>
 #include <mathmech/messages.h>
 
 
@@ -127,7 +128,7 @@ int printing_head (const char *output, const int log, const int quiet, const int
   FILE *f_out;
   
   f_out = fopen (output, "w");
-  fprintf (f_out, "radf ::: V.1.2.0\n\n");
+  fprintf (f_out, "radf ::: V.%s\n\n", PROJ_VERSION);
   fprintf (f_out, "CONFIGURATION\n");
   
   fprintf (f_out, "LOG=%i\nQUIET=%i\nMATRIX=%i\n", log, quiet, matrix);

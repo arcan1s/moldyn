@@ -1,6 +1,4 @@
 envir - program that searchs environment for chosen molecule by geometric criterion
-Version: 1.2.0
-License: GPL
 
 Usage:
   envir -i FILENAME -c X,Y,Z -o FILEMANE [ -n NUM_OF_MOLECULE ] [ -r RADIUS ] 

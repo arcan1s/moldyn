@@ -1,6 +1,4 @@
 statgen - program that analyzes molecular dynamic trajectories using topological analysis
-Version: 1.2.0
-License: GPL
 
 Usage:
   statgen -i INPUT -s FIRST,LAST -c X,Y,Z -a ... -r ... -o OUTPUT [ -g DEPTH ] 

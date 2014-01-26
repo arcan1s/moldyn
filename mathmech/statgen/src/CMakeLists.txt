@@ -15,6 +15,7 @@ message (STATUS "${SUBPROJECT} HEADERS: ${HEADERS}")
 
 # link libraries and compile
 add_executable (${MM_PREFIX}${SUBPROJECT} ${SOURCES} ${HEADERS})
+add_dependencies (${MM_PREFIX}${SUBPROJECT} ${LIBRARIES})
 target_link_libraries (${MM_PREFIX}${SUBPROJECT} ${ADDITIONAL_LIB} ${LIBRARIES})
 
 # install properties

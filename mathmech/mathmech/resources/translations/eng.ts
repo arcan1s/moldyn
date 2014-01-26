@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en">
+<TS version="2.1" language="en">
 <context>
     <name>AboutWindow</name>
     <message>
@@ -29,7 +29,6 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Liberation Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Mathematical Molecular Mechanics&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Version:&lt;/span&gt; 1.2.0&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;License:&lt;/span&gt; GPL&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Author:&lt;/span&gt; Evgeniy Alekseev&lt;/p&gt;
@@ -852,7 +851,7 @@ p, li { white-space: pre-wrap; }
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the log file if this needed.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../../build/mathmech/src/ui_helpwindow.h" line="184"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -913,7 +912,7 @@ p, li { white-space: pre-wrap; }
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the maximum number of different atom types and the log file if this needed.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message utf8="true">
+    <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -973,7 +972,7 @@ p, li { white-space: pre-wrap; }
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;For the variation of geometric criteria you need specify the criteria step changes and the number of steps.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../../build/mathmech/src/ui_helpwindow.h" line="266"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1022,7 +1021,7 @@ p, li { white-space: pre-wrap; }
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the log file if this needed.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message utf8="true">
+    <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -1078,7 +1077,7 @@ p, li { white-space: pre-wrap; }
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the matrix output, the log file and the graph generate if this needed.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../../build/mathmech/src/ui_helpwindow.h" line="224"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1139,7 +1138,7 @@ p, li { white-space: pre-wrap; }
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;For the variation of geometric criteria you need specify the criteria step changes and the number of steps.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt; {3C?} {4.0/?} {3.?} {40/?} {1&quot;?} {10p?} {400;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {600;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {4.?} {0-0:2.4,0-1:3.0&amp;?} {0-0 ?} {2.4 ?} {0-1 ?} {3.0 ?} {3)?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {1;?} {12p?} {0p?} {0p?} {0p?} {0;?} {0p?} {1.1.0&amp;?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {1)?} {1)?} {1)?} {1)?} {1.0000,2.0000,3.0000)?} {1,2,3,4)?} {0, 0 ?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {001)?} {2 ?} {0000001 0000001 ?} {7 ?} {7 ?} {2=?} {1.3.4.?} {1 ?} {1.3.4.?} {0000001=?} {2,3,4,5,?} {1 ?} {7 ?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {2 ?} {0000001 0000002 000003.00 004.00000 0005.00000&lt;?} {7 ?} {7 ?} {9 ?} {2 ?} {9 ?} {5 ?} {10 ?} {5 ?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0.10000)?} {0.10000)?} {0.10000)?} {0.10000)?} {03=?} {0.10000)?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {1;?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {1;?} {12p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {12p?} {0p?} {0p?} {0;?} {0p?}</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../../build/mathmech/src/ui_helpwindow.h" line="297"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1196,7 +1195,7 @@ p, li { white-space: pre-wrap; }
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the matrix output, the log file and the graph generate if this needed.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt; {3C?} {4.0/?} {3.?} {40/?} {1&quot;?} {10p?} {400;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {600;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {1-2&amp;?} {1,2,3-4,5,6&amp;?} {2.0 ?} {15.0&lt;?} {0.2&lt;?} {0.0 ?} {90.0&lt;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {1;?} {12p?} {0p?} {0p?} {0p?} {0;?} {0p?} {1.1.0&amp;?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {1)?} {1)?} {1)?} {1)?} {1)?} {1.0000,2.0000,3.0000)?} {0)?} {0 ?} {1 ?} {2 ?} {0.100)?} {0.100)?} {0.100)?} {0.10)?} {0.10)?} {0.10)?} {1-2)?} {1,2,3-4,5,6)?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {2 ?} {0001.0000 2.0000e?} {01 000000003 04.000000&lt;?} {9 ?} {4 ?} {10 ?} {4 ?} {9 ?} {9 ?} {6 ?} {0001.0000 04.000000&lt;?} {9 ?} {4 ?} {9 ?} {6 ?} {0001.0000 000005.00 2.0000e?} {01 000000003 04.000000&lt;?} {9 ?} {4 ?} {9 ?} {2 ?} {10 ?} {4 ?} {9 ?} {9 ?} {6 ?} {9 ?} {2 ?} {0001.0000 04.000000 ?} {9 ?} {4 ?} {9 ?} {6 ?} {0p?} {12p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {1;?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {1 ?} {4*?} {2*?} {1 ?} {4*?} {2*?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {1;?} {12p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {12p?} {0p?} {0p?} {0;?} {0p?}</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../../build/mathmech/src/ui_helpwindow.h" line="337"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1271,7 +1270,7 @@ p, li { white-space: pre-wrap; }
         <source>Help about trj2pdb</source>
         <translation>Help about trj2pdb</translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../../../build/mathmech/src/ui_helpwindow.h" line="378"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;

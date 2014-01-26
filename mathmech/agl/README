@@ -1,6 +1,4 @@
 agl - program that creates PDB file with chosen agglomerate
-Version: 1.2.0
-License: GPL
 
 Usage:
   agl -a FILENAME -i FILENAME -c X,Y,Z -o FILEMANE [ -l LOGFILE ] [ -q ] [ -h ]
