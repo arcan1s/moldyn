@@ -11,9 +11,8 @@ if (CMAKE_COMPILER_IS_GNUCXX)
 else ()
   set (LIBRARIES qwt)
 endif ()
-set (LANGUAGES
-     eng
-     rus)
+set (LANGUAGES eng
+               rus)
 set (RESOURCES ${SUBPROJECT_RESOURCE_DIR}/resources.qrc)
 
 message (STATUS "${SUBPROJECT} SOURCES: ${SOURCES}")
@@ -21,8 +20,6 @@ message (STATUS "${SUBPROJECT} HEADERS: ${HEADERS}")
 message (STATUS "${SUBPROJECT} FORMS: ${FORMS}")
 
 
-# compile
-project (${SUBPROJECT})
 # include_path
 link_directories (${QWT_LIBRARY_PATH})
 include_directories (${SUBPROJECT_SOURCE_DIR}
@@ -39,17 +36,10 @@ foreach (LANGUAGE ${LANGUAGES})
     set (QM ${SUBPROJECT_TRANSLATION_DIR}/${LANGUAGE}.qm)
     set (TRANSLATIONS ${TRANSLATIONS} ${TS})
     set (TRANSLATIONS_BINARY ${TRANSLATIONS_BINARY} ${QM})
-    add_custom_command (
-        OUTPUT ${QM}
-        COMMAND ${QT_LRELEASE_EXECUTABLE} ${TS}
-        MAIN_DEPENDENCY ${TS})
+    add_custom_command (OUTPUT ${QM} COMMAND ${QT_LRELEASE_EXECUTABLE} ${TS} MAIN_DEPENDENCY ${TS})
 endforeach ()
-add_custom_target (
-    translations 
-    COMMAND ${QT_LUPDATE_EXECUTABLE} ${HEADERS} ${SOURCES} ${UI_HEADERS} -ts ${TRANSLATIONS})
-add_custom_command (
-    TARGET translations
-    COMMAND ${QT_LRELEASE_EXECUTABLE} ${TRANSLATIONS})
+add_custom_target (translations COMMAND ${QT_LUPDATE_EXECUTABLE} ${HEADERS} ${SOURCES} ${UI_HEADERS} -ts ${TRANSLATIONS})
+add_custom_command (TARGET translations COMMAND ${QT_LRELEASE_EXECUTABLE} ${TRANSLATIONS})
 message (STATUS "${SUBPROJECT} TRANSLATIONS: ${TRANSLATIONS_BINARY}")
 
 source_group ("Header Files" FILES ${HEADERS})
