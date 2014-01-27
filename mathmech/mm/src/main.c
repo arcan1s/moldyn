@@ -25,6 +25,7 @@
 #include <mathmech/stat_select.h>
 #include <mathmech/stat_sort.h>
 #include <mathmech/summary_stat.h>
+#include <mathmech/var_types.h>
 
 
 /**

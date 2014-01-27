@@ -27,28 +27,27 @@ int main(int argc, char *argv[])
  */
 {
   char tmp_str[2048];
-  int error, i, *tmp_int;
+  int error, i, tmp_int;
   FILE *f_inp, *f_log;
   
-  char *ch_type_atoms, input[256], logfile[256], output[256];
-  float cell[3], *coords;
-  int *label_mol, log, *needed_mol, num_atoms, num_mol, quiet, *true_label_mol;
+  char input[256], logfile[256], output[256];
+  float cell[3];
+  int log, *needed_mol, num_atoms, num_mol, quiet, *true_label_mol;
+  atom_info *_atom_info;
   
-/* ch_type_atoms          massive of char atom types
- * input                  input file name
+/* input                  input file name
  * logfile                log file name
  * output                 output file name
  * 
  * cell                   sell size
- * coords                 massive of coordinates
  * 
- * label_mol              massive of numbers of molecule for atoms
  * log                    status of log-mode
  * needed_mol             massive of numbers of needed molecule
  * num_atoms              number of atoms
  * num_mol                number of molecules
  * quiet                  status of quiet-mode
  * true_label_mol         massive of true numbers of molecule for atoms
+ * _atom_info             atom information structure
  */
   
   set_defaults (input, &log, output, &quiet);
@@ -131,18 +130,12 @@ int main(int argc, char *argv[])
   }
   fscanf (f_inp, "%i", &num_atoms);
   fclose (f_inp);
-  ch_type_atoms = (char *) malloc (2 * num_atoms * sizeof (char));
-  coords = (float *) malloc (3 * 8 * num_atoms * sizeof (float));
-  label_mol = (int *) malloc (8 * num_atoms * sizeof (int));
+  _atom_info = (atom_info *) malloc (8 * num_atoms * sizeof (atom_info));
   needed_mol = (int *) malloc (num_atoms * sizeof (int));
-  tmp_int = (int *) malloc (8 * num_atoms * sizeof (int));
   true_label_mol = (int *) malloc (num_atoms * sizeof (int));
 // error checking
-  if ((ch_type_atoms == NULL) ||
-     (coords == NULL) || 
-     (label_mol == NULL) || 
+  if ((_atom_info == NULL) ||
      (needed_mol == NULL) || 
-     (tmp_int == NULL) || 
      (true_label_mol == NULL))
   {
     print_message (quiet, stderr, log, f_log, 19, argv[0]);
@@ -159,8 +152,8 @@ int main(int argc, char *argv[])
 // reading coordinates
   print_message (quiet, stdout, log, f_log, 7, input);
   error = 1;
-  error = reading_coords (1, input, tmp_int[0], tmp_int, cell, &num_mol, &num_atoms, 
-                          true_label_mol, label_mol, tmp_int, coords, ch_type_atoms);
+  error = reading_coords (1, input, tmp_int, &tmp_int, cell, &num_mol, &num_atoms, 
+                          true_label_mol, _atom_info);
   
 // print coordinates
   if (error == 0)
@@ -170,8 +163,7 @@ int main(int argc, char *argv[])
     for (i=0; i<num_mol; i++)
       needed_mol[i] = 8 * i;
     error = 1;
-    error = print_structure (output, num_mol, needed_mol, num_atoms, 
-                             label_mol, ch_type_atoms, coords);
+    error = print_structure (output, num_mol, needed_mol, num_atoms, _atom_info);
   }
   if (error == 0)
     print_message (quiet, stderr, log, f_log, 12, output);
@@ -180,11 +172,8 @@ int main(int argc, char *argv[])
   
   print_message (quiet, stdout, log, f_log, 15, argv[0]);
 // free memory
-  free (ch_type_atoms);
-  free (coords);
-  free (label_mol);
+  free (_atom_info);
   free (needed_mol);
-  free (tmp_int);
   free (true_label_mol);
   
   print_message (quiet, stdout, log, f_log, 16, argv[0]);

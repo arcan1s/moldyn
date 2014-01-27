@@ -6,36 +6,17 @@
 #include <stdlib.h>
 
 #include <mathmech/graph.h>
+#include <mathmech/stat_print.h>
+#include <mathmech/var_types.h>
 
 
 /**
  * @fn printing_agl
  */
 int printing_agl (const char *input, const char *output, const int *connect, 
-                  const int num_mol, const int *true_label_mol, const int *num_mol_agl, 
-                  const int *agl, const int *stat, const int max_depth, int *type_agl)
-/**
- * @brief function that prints agglomerates to output file
- * @code
- * printing_agl (input_file, output_file, number_of_molecules, true_label_molecules, 
- *               num_of_molecules_in_agglomerates, agglomerates, statistic, max_depth, 
- *               type_of_agglomerate);
- * @endcode
- * 
- * @param input           input file name
- * @param output          output file name
- * @param connect         connectivity graph for all molecules
- * @param num_mol         number of molecules
- * @param true_label_mol  massive of true numbers of molecule for atoms
- * @param num_mol_agl     massive of number of molecules in agglomerates
- * @param agl             massive of agglomerates
- * @param stat            massive of statistic
- * @param max_depth       maximum depth for check cycles in graph analyze
- * @param type_agl        massive of number of agglomerate types
- * 
- * @return 1              - memory error
- * @return 0              - exit without errors
- */
+                  const system_info _system_info, const int *true_label_mol, 
+                  const int *num_mol_agl, const int *agl, const int *stat, 
+                  const int max_depth, int *type_agl)
 {
   int error, i, *iso, j, k, *label_matrix, *matrix;
   FILE *f_out;
@@ -55,17 +36,17 @@ int printing_agl (const char *input, const char *output, const int *connect,
   
 /// <pre>   print header </pre>
   fprintf (f_out, "FILE=%s\nSTATISTIC\n|   n   |   N   |\n-----------------\n", input);
-  for (i=0; i<num_mol; i++)
+  for (i=0; i<_system_info.num_mol; i++)
     if (stat[i] != 0)
       fprintf (f_out, " %7i %7i \n", i+1, stat[i]);
   fprintf (f_out, "-----------------\n");
   
 /// <pre>   print body </pre>
-  for (i=0; i<num_mol; i++)
+  for (i=0; i<_system_info.num_mol; i++)
     if (num_mol_agl[i] > 0)
     {
 /// <pre>      creating connectivity graph </pre>
-      label_matrix = (int *) malloc (num_mol * sizeof (int));
+      label_matrix = (int *) malloc (_system_info.num_mol * sizeof (int));
       matrix = (int *) malloc (num_mol_agl[i] * num_mol_agl[i] * sizeof (int));
       if ((matrix == NULL) ||
         (label_matrix == NULL))
@@ -75,13 +56,13 @@ int printing_agl (const char *input, const char *output, const int *connect,
           matrix[num_mol_agl[i]*j+k] = 0;
       
       for (j=0; j<num_mol_agl[i]; j++)
-        label_matrix[agl[num_mol*i+j]] = j;
+        label_matrix[agl[_system_info.num_mol*i+j]] = j;
       for (j=0; j<num_mol_agl[i]; j++)
         for (k=j+1; k<num_mol_agl[i]; k++)
-          if (connect[num_mol*agl[num_mol*i+j]+agl[num_mol*i+k]] == 1)
+          if (connect[_system_info.num_mol*agl[_system_info.num_mol*i+j]+agl[_system_info.num_mol*i+k]] == 1)
           {
-            matrix[label_matrix[agl[num_mol*i+j]]*num_mol_agl[i]+label_matrix[agl[num_mol*i+k]]] = 1;
-            matrix[label_matrix[agl[num_mol*i+k]]*num_mol_agl[i]+label_matrix[agl[num_mol*i+j]]] = 1;
+            matrix[label_matrix[agl[_system_info.num_mol*i+j]]*num_mol_agl[i]+label_matrix[agl[_system_info.num_mol*i+k]]] = 1;
+            matrix[label_matrix[agl[_system_info.num_mol*i+k]]*num_mol_agl[i]+label_matrix[agl[_system_info.num_mol*i+j]]] = 1;
           }
 
 /// <pre>      graph topology analyze </pre>
@@ -119,10 +100,10 @@ int printing_agl (const char *input, const char *output, const int *connect,
       fprintf (f_out, "\n");
       for (j=0; j<num_mol_agl[i]; j++)
       {
-        fprintf (f_out, "%7i=", true_label_mol[agl[num_mol*i+j]]);
+        fprintf (f_out, "%7i=", true_label_mol[agl[_system_info.num_mol*i+j]]);
         for (k=0; k<num_mol_agl[i]; k++)
           if (matrix[j*num_mol_agl[i]+k] == 1)
-            fprintf (f_out, "%i,", true_label_mol[agl[num_mol*i+k]]);
+            fprintf (f_out, "%i,", true_label_mol[agl[_system_info.num_mol*i+k]]);
         fprintf (f_out, "\n");
       }
       

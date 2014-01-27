@@ -1,6 +1,6 @@
 # set files
 file (GLOB SOURCES *.c)
-file (GLOB HEADERS $*.h)
+file (GLOB HEADERS *.h)
 
 # set library
 if (CMAKE_COMPILER_IS_GNUCXX)

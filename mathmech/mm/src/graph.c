@@ -5,22 +5,13 @@
 #include <math.h>
 #include <stdlib.h>
 
+#include <mathmech/graph.h>
+
 
 /**
  * @fn check_cycle
  */
 int check_cycle (const int N, const int *pn)
-/**
- * @brief function that calculates number of cycles in graph
- * @code
- * cycle = check_cycle (N, pn);
- * @endcode
- * 
- * @param N               number of vertexes
- * @param pn              massive of number of vertexes with weight equals to i
- * 
- * @return number of cycles
- */
 {
   int cycle, i;
   
@@ -42,21 +33,6 @@ int check_cycle (const int N, const int *pn)
  * @fn check_cycle_size
  */
 int check_cycle_size (const int N, const int *matrix, const int depth, int *n_cycle)
-/**
- * @brief function that returns number of cycles different size
- * @code
- * check_cycle_size (N, matrix, depth, n_cycle);
- * @endcode
- * 
- * @param N               number of vertexes
- * @param matrix          connectivity matrix
- * @param depth           depth of search (maximum number of vertexes in cycle)
- * @param n_cycle         massive of number of cycle with number of vertexes 
- *                        equals to i
- * 
- * @return 1              - memory error
- * @return 0              - exit without errors
- */
 {
   int cur_N, cycle, i, j, k, n, p, *vertex;
   
@@ -114,16 +90,6 @@ int check_cycle_size (const int N, const int *matrix, const int depth, int *n_cy
  * @fn check_tail
  */
 int check_tail (const int *pn)
-/**
- * @brief function that calculates number of tails
- * @code
- * tails = check_tail (pn);
- * @endcode
- * 
- * @param pn              massive of number of vertexes with weight equals to i
- * 
- * @return number of tails
- */
 {
   return pn[1];
 }
@@ -133,20 +99,6 @@ int check_tail (const int *pn)
  * @fn graph_analyze
  */
 int graph_analyze (const int N, const int *matrix, const int max_depth, int *iso)
-/**
- * @brief function that analyzes graph isomorhic class
- * @code
- * graph_analyze (N, matrix, max_depth, iso);
- * @endcode
- * 
- * @param N               number of vertexes
- * @param matrix          connectivity matrix
- * @param max_depth       maximum depth of search for check_cycle_size
- * @param iso             isomorphism class
- * 
- * @return 1              - memory error
- * @return 0              - exit without errors
- */
 {
   int depth, i, j, *n_cycle, p, *pn;
   
