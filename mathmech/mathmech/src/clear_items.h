@@ -6,6 +6,14 @@
  * this stuff is worth it, you can buy me a beer in return
  * ----------------------------------------------------------------------------
  */
+/**
+ * @file clear_items.h
+ * Header of mathmech
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
+ */
+
 #ifndef CLEAR_ITEMS_H
 #define CLEAR_ITEMS_H
 

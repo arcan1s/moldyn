@@ -6,6 +6,14 @@
  * this stuff is worth it, you can buy me a beer in return
  * ----------------------------------------------------------------------------
  */
+/**
+ * @file start_events.h
+ * Header of mathmech
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
+ */
+
 #ifndef START_EVENTS_H
 #define START_EVENTS_H
 

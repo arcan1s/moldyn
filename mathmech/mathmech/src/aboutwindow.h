@@ -6,6 +6,14 @@
  * this stuff is worth it, you can buy me a beer in return
  * ----------------------------------------------------------------------------
  */
+/**
+ * @file aboutwindow.h
+ * Header of mathmech
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
+ */
+
 #ifndef ABOUTWINDOW_H
 #define ABOUTWINDOW_H
 

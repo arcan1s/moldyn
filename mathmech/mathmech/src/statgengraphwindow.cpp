@@ -6,6 +6,14 @@
  * this stuff is worth it, you can buy me a beer in return
  * ----------------------------------------------------------------------------
  */
+/**
+ * @file statgengraphwindow.cpp
+ * Source code of mathmech
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
+ */
+
 #include <QDir>
 #include <QFileDialog>
 #include <QKeyEvent>

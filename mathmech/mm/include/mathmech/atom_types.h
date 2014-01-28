@@ -7,18 +7,17 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file atom_types.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef ATOM_TYPES_H
 #define ATOM_TYPES_H
 
 
-/**
- * @fn reading_atoms
- */
-int reading_atoms (const char *input_at, int *num_types, int *num_mol, int *num_atoms, 
-                   char *ch_atom_types, int *atom_types, const int total_types);
 /**
  * @brief function that reads atom types from input file
  * @code
@@ -39,6 +38,8 @@ int reading_atoms (const char *input_at, int *num_types, int *num_mol, int *num_
  * @return 3              - memory error
  * @return 0              - exit without errors
  */
+int reading_atoms (const char *input_at, int *num_types, int *num_mol, int *num_atoms, 
+                   char *ch_atom_types, int *atom_types, const int total_types);
 
 
 #endif /* ATOM_TYPES_H */

@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file summary_stat.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef SUMMARY_STAT_H
@@ -16,11 +20,6 @@
 #include <mathmech/var_types.h>
 
 
-/**
- * @fn summary_statistic
- */
-int summary_statistic (const char *filename, const system_info _system_info, 
-                       const int max_depth, const int *type_agl, const int *stat_all);
 /**
  * @brief function that prints summary statistic
  * @code
@@ -36,6 +35,8 @@ int summary_statistic (const char *filename, const system_info _system_info,
  * 
  * @return 0              - exit without errors
  */
+int summary_statistic (const char *filename, const system_info _system_info, 
+                       const int max_depth, const int *type_agl, const int *stat_all);
 
 
 #endif /* SUMMARY_STAT_H */

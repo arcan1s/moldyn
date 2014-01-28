@@ -6,6 +6,14 @@
  * this stuff is worth it, you can buy me a beer in return
  * ----------------------------------------------------------------------------
  */
+/**
+ * @file errorwindow.cpp
+ * Source code of mathmech
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
+ */
+
 #include "errorwindow.h"
 #include "ui_errorwindow.h"
 

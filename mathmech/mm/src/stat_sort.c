@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file stat_sort.c
+ * Source code of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #include <stdlib.h>

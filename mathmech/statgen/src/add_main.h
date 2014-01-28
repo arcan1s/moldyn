@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file add_main.h
+ * Header of statgen
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef ADD_MAIN_H
@@ -16,11 +20,6 @@
 #include <mathmech/var_types.h>
 
 
-/**
- * @fn error_checking
- */
-int error_checking (const system_info _system_info, const char *input, const int max_depth, 
-                    const int num_of_inter, const char *output, const int type_inter);
 /**
  * @brief function that checks errors in input variables
  * @code
@@ -43,15 +42,10 @@ int error_checking (const system_info _system_info, const char *input, const int
  * @return 19             - error in 'max_depth'
  * @return 0              - exit without errors
  */
+int error_checking (const system_info _system_info, const char *input, const int max_depth, 
+                    const int num_of_inter, const char *output, const int type_inter);
 
 
-/**
- * @fn printing_head
- */
-int printing_head (const char *output, const int log, const int quiet, 
-                   const char *input, const system_info _system_info,
-                   const int type_inter, const int *label_atom, 
-                   const int num_of_inter, const float *crit, const int max_depth);
 /**
  * @brief function that prints header in output file
  * @code
@@ -72,13 +66,12 @@ int printing_head (const char *output, const int log, const int quiet,
  * 
  * @return 0              - exit without errors
  */
+int printing_head (const char *output, const int log, const int quiet, 
+                   const char *input, const system_info _system_info,
+                   const int type_inter, const int *label_atom, 
+                   const int num_of_inter, const float *crit, const int max_depth);
 
 
-/**
- * @fn print_message
- */
-int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log, 
-                   const int mode, const char *str);
 /**
  * @brief function that prints message in log and stdout
  * @code
@@ -94,13 +87,10 @@ int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log
  * 
  * @return 0              - exit without errors
  */
+int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log, 
+                   const int mode, const char *str);
 
 
-/**
- * @fn set_defaults
- */
-int set_defaults (system_info *_system_info, char *input, int *log, int *max_depth, 
-                  int *num_of_inter, char *output, int *type_inter, int *quiet);
 /**
  * @brief function that sets default values of variables
  * @code
@@ -119,6 +109,8 @@ int set_defaults (system_info *_system_info, char *input, int *log, int *max_dep
  * 
  * @return 0              - exit without errors
  */
+int set_defaults (system_info *_system_info, char *input, int *log, int *max_depth, 
+                  int *num_of_inter, char *output, int *type_inter, int *quiet);
 
 
 #endif /* ADD_MAIN_H */

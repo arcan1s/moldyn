@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file stat_select.c
+ * Source code of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #include <math.h>

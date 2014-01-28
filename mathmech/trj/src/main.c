@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file main.c
+ * Source code of trj
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #include <math.h>

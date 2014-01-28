@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file stat_print.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef STAT_PRINT_H
@@ -16,13 +20,6 @@
 #include <mathmech/var_types.h>
 
 
-/**
- * @fn printing_agl
- */
-int printing_agl (const char *input, const char *output, const int *connect, 
-                  const system_info _system_info, const int *true_label_mol, 
-                  const int *num_mol_agl, const int *agl, const int *stat, 
-                  const int max_depth, int *type_agl);
 /**
  * @brief function that prints agglomerates to output file
  * @code
@@ -44,6 +41,10 @@ int printing_agl (const char *input, const char *output, const int *connect,
  * @return 1              - memory error
  * @return 0              - exit without errors
  */
+int printing_agl (const char *input, const char *output, const int *connect, 
+                  const system_info _system_info, const int *true_label_mol, 
+                  const int *num_mol_agl, const int *agl, const int *stat, 
+                  const int max_depth, int *type_agl);
 
 
 #endif /* STAT_PRINT_H */

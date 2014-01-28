@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file envir_search.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef ENVIR_SEARCH_H
@@ -16,11 +20,6 @@
 #include <mathmech/var_types.h>
 
 
-/**
- * @fn search_envir
- */
-int search_envir (const int num_of_mol, const system_info _system_info, const float *centr_coords, 
-                  const double rad, int *needed_mol, int *num_needed_mol);
 /**
  * @brief function that searchs environment
  * @code
@@ -37,6 +36,8 @@ int search_envir (const int num_of_mol, const system_info _system_info, const fl
  * 
  * @return 0              - exit without errors
  */
+int search_envir (const int num_of_mol, const system_info _system_info, const float *centr_coords, 
+                  const double rad, int *needed_mol, int *num_needed_mol);
 
 
 #endif /* ENVIR_SEARCH_H */

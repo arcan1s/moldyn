@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file coords.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef COORDS_H
@@ -16,12 +20,6 @@
 #include <mathmech/var_types.h>
 
 
-/**
- * @fn reading_coords
- */
-int reading_coords (const int mode, const char *filename, const int type_inter, 
-                    const int *label_atom, system_info *_system_info, 
-                    int *true_label_mol, atom_info *_atom_info);
 /**
  * @brief function that reads coordinates from special file format
  * @code
@@ -45,6 +43,9 @@ int reading_coords (const int mode, const char *filename, const int type_inter,
  * @return 3              - memory error
  * @return 0              - exit without errors
  */
+int reading_coords (const int mode, const char *filename, const int type_inter, 
+                    const int *label_atom, system_info *_system_info, 
+                    int *true_label_mol, atom_info *_atom_info);
 
 
 #endif /* COORDS_H */

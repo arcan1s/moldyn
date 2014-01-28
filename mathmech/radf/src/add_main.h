@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file add_main.h
+ * Header of radf
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef ADD_MAIN_H
@@ -16,11 +20,6 @@
 #include <mathmech/var_types.h>
 
 
-/**
- * @fn error_checking
- */
-int error_checking (const char *input, const int num_needed_at, const int *needed_at, 
-                    const char *output, const system_info _system_info);
 /**
  * @brief function that checks errors in input variables
  * @code
@@ -41,13 +40,10 @@ int error_checking (const char *input, const int num_needed_at, const int *neede
  * @return 16             - error in 'needed_at'
  * @return 0              - exit without errors
  */
+int error_checking (const char *input, const int num_needed_at, const int *needed_at, 
+                    const char *output, const system_info _system_info);
 
 
-/**
- * @fn print_message
- */
-int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log, 
-                   const int mode, const char *str);
 /**
  * @brief function that prints message in log and stdout
  * @code
@@ -63,14 +59,10 @@ int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log
  * 
  * @return 0              - exit without errors
  */
+int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log, 
+                   const int mode, const char *str);
 
 
-/**
- * @fn printing_head
- */
-int printing_head (const char *output, const int log, const int quiet, const int matrix, 
-                   const char *input, const system_info _system_info, const int mode, 
-                   const radf_info _radf_info, const int *needed_at);
 /**
  * @brief function that prints header in output file
  * @code
@@ -90,13 +82,11 @@ int printing_head (const char *output, const int log, const int quiet, const int
  * 
  * @return 0              - exit without errors
  */
+int printing_head (const char *output, const int log, const int quiet, const int matrix, 
+                   const char *input, const system_info _system_info, const int mode, 
+                   const radf_info _radf_info, const int *needed_at);
 
 
-/**
- * @fn set_defaults
- */
-int set_defaults (system_info *_system_info, radf_info *_radf_info, char *input, 
-                  int *log, int *matrix, char *output, int *quiet);
 /**
  * @brief function that sets default values of variables
  * @code
@@ -112,6 +102,8 @@ int set_defaults (system_info *_system_info, radf_info *_radf_info, char *input,
  * 
  * @return 0              - exit without errors
  */
+int set_defaults (system_info *_system_info, radf_info *_radf_info, char *input, 
+                  int *log, int *matrix, char *output, int *quiet);
 
 
 #endif /* ADD_MAIN_H */

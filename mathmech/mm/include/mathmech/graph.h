@@ -7,17 +7,17 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file graph.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef GRAPH_H
 #define GRAPH_H
 
 
-/**
- * @fn check_cycle
- */
-int check_cycle (const int N, const int *pn);
 /**
  * @brief function that calculates number of cycles in graph
  * @code
@@ -29,12 +29,9 @@ int check_cycle (const int N, const int *pn);
  * 
  * @return number of cycles
  */
+int check_cycle (const int N, const int *pn);
 
 
-/**
- * @fn check_cycle_size
- */
-int check_cycle_size (const int N, const int *matrix, const int depth, int *n_cycle);
 /**
  * @brief function that returns number of cycles different size
  * @code
@@ -50,12 +47,9 @@ int check_cycle_size (const int N, const int *matrix, const int depth, int *n_cy
  * @return 1              - memory error
  * @return 0              - exit without errors
  */
+int check_cycle_size (const int N, const int *matrix, const int depth, int *n_cycle);
 
 
-/**
- * @fn check_tail
- */
-int check_tail (const int *pn);
 /**
  * @brief function that calculates number of tails
  * @code
@@ -66,12 +60,9 @@ int check_tail (const int *pn);
  * 
  * @return number of tails
  */
+int check_tail (const int *pn);
 
 
-/**
- * @fn graph_analyze
- */
-int graph_analyze (const int N, const int *matrix, const int max_depth, int *iso);
 /**
  * @brief function that analyzes graph isomorhic class
  * @code
@@ -86,6 +77,7 @@ int graph_analyze (const int N, const int *matrix, const int max_depth, int *iso
  * @return 1              - memory error
  * @return 0              - exit without errors
  */
+int graph_analyze (const int N, const int *matrix, const int max_depth, int *iso);
 
 
 #endif /* GRAPH_H */

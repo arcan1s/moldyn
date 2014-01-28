@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file print_struct.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef PRINT_STRUCT_H
@@ -16,11 +20,6 @@
 #include <mathmech/var_types.h>
 
 
-/**
- * @fn print_structure
- */
-int print_structure (const char *output, const int num_needed_mol, const int *needed_mol, 
-                     const system_info _system_info, const atom_info *_atom_info);
 /**
  * @brief function that prints structure to pdb file
  * @code
@@ -35,6 +34,8 @@ int print_structure (const char *output, const int num_needed_mol, const int *ne
  * 
  * @return 0              - exit without errors
  */
+int print_structure (const char *output, const int num_needed_mol, const int *needed_mol, 
+                     const system_info _system_info, const atom_info *_atom_info);
 
 
 #endif /* PRINT_STRUCT_H */

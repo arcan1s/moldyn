@@ -7,19 +7,17 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file print_trj.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef PRINT_TRJ_H
 #define PRINT_TRJ_H
 
 
-/**
- * @fn printing_trj
- */
-int printing_trj (const char *filename, const int atoms, const int num_types, const int *num_mol, 
-                  const int *num_atoms, const char *ch_atom_types, const int *atom_types,
-                  const float *coords);
 /**
  * @brief function that prints trajectory snapshots
  * @code
@@ -38,6 +36,9 @@ int printing_trj (const char *filename, const int atoms, const int num_types, co
  * 
  * @return 0              - exit without errors
  */
+int printing_trj (const char *filename, const int atoms, const int num_types, const int *num_mol, 
+                  const int *num_atoms, const char *ch_atom_types, const int *atom_types,
+                  const float *coords);
 
 
 #endif /* PRINT_TRJ_H */

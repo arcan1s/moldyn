@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file stat_select.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef STAT_SELECT_H
@@ -16,11 +20,6 @@
 #include <mathmech/var_types.h>
 
 
-/**
- * @fn create_matrix
- */
-int create_matrix (const system_info _system_info, const atom_info *_atom_info, 
-                   const int num_of_inter, const float *crit, int *connect);
 /**
  * @brief function that creates connectivity matrix
  * @code
@@ -36,6 +35,8 @@ int create_matrix (const system_info _system_info, const atom_info *_atom_info,
  * @return 1              - memory error
  * @return 0              - exit without errors
  */
+int create_matrix (const system_info _system_info, const atom_info *_atom_info, 
+                   const int num_of_inter, const float *crit, int *connect);
 
 
 #endif /* STAT_SELECT_H */

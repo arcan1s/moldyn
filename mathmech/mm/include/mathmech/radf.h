@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file radf.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef RADF_H
@@ -16,11 +20,6 @@
 #include <mathmech/var_types.h>
 
 
-/**
- * @fn search_rdf
- */
-int search_rdf (const system_info _system_info, const atom_info *_atom_info, 
-                const radf_info _radf_info, int *radf);
 /**
  * @brief function that searchs molecule for rdf massive
  * @code
@@ -34,13 +33,10 @@ int search_rdf (const system_info _system_info, const atom_info *_atom_info,
  * 
  * @return 0              - exit without errors
  */
+int search_rdf (const system_info _system_info, const atom_info *_atom_info, 
+                const radf_info _radf_info, int *radf);
 
 
-/**
- * @fn search_rdf_centr
- */
-int search_rdf_centr (const system_info _system_info, const atom_info *_atom_info, 
-                      const radf_info _radf_info, int *radf);
 /**
  * @brief function that searchs molecule for rdf massive by centered coordinates
  * @code
@@ -55,13 +51,10 @@ int search_rdf_centr (const system_info _system_info, const atom_info *_atom_inf
  * @return 0              - exit without errors
  * @return 1              - error in set center (missing atoms)
  */
+int search_rdf_centr (const system_info _system_info, const atom_info *_atom_info, 
+                      const radf_info _radf_info, int *radf);
 
 
-/**
- * @fn search_radf
- */
-int search_radf (const system_info _system_info, const atom_info *_atom_info, 
-                 const radf_info _radf_info, int *radf);
 /**
  * @brief function that searchs molecule for radf massive
  * @code
@@ -76,6 +69,8 @@ int search_radf (const system_info _system_info, const atom_info *_atom_info,
  * @return 0              - exit without errors
  * @return 1              - error in set center (missing atoms)
  */
+int search_radf (const system_info _system_info, const atom_info *_atom_info, 
+                 const radf_info _radf_info, int *radf);
 
 
 #endif /* RADF_H */

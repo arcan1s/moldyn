@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file stat_sort.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef STAT_SORT_H
@@ -16,11 +20,6 @@
 #include <mathmech/var_types.h>
 
 
-/**
- * @fn proc_matrix
- */
-int proc_matrix (const system_info _system_info, const int *connect, int *num_mol_agl, 
-                 int *agl, int *stat, int *stat_all);
 /**
  * @brief function that processes connectivity matrix
  * @code
@@ -38,6 +37,8 @@ int proc_matrix (const system_info _system_info, const int *connect, int *num_mo
  * @return 1              - memory error
  * @return 0              - exit without errors
  */
+int proc_matrix (const system_info _system_info, const int *connect, int *num_mol_agl, 
+                 int *agl, int *stat, int *stat_all);
 
 
 #endif /* STAT_SORT_H */

@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file set_center.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef SET_CENTER_H
@@ -16,11 +20,6 @@
 #include <mathmech/var_types.h>
 
 
-/**
- * @fn set_center
- */
-int set_center (const system_info _system_info, const atom_info *_atom_info, 
-                float *centr_coords);
 /**
  * @brief function that searchs center mass of molecules
  * @code
@@ -33,6 +32,8 @@ int set_center (const system_info _system_info, const atom_info *_atom_info,
  * 
  * @return 0              - exit without errors
  */
+int set_center (const system_info _system_info, const atom_info *_atom_info, 
+                float *centr_coords);
 
 
 #endif /* SET_CENTER_H */

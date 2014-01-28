@@ -7,7 +7,11 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file radf_proc.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef RADF_PROC_H
@@ -16,12 +20,6 @@
 #include <mathmech/var_types.h>
 
 
-/**
- * @fn print_result
- */
-int print_result (const char *output, const int matrix, const int mode, 
-                  const system_info _system_info, const radf_info _radf_info,
-                  const int *radf);
 /**
  * @brief function that print result to output file
  * @code
@@ -37,6 +35,9 @@ int print_result (const char *output, const int matrix, const int mode,
  * 
  * @return 0              - exit without errors
  */
+int print_result (const char *output, const int matrix, const int mode, 
+                  const system_info _system_info, const radf_info _radf_info,
+                  const int *radf);
 
 
 #endif /* RADF_PROC_H */

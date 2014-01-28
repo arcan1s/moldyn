@@ -7,17 +7,17 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file messages.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef MESSAGES_H
 #define MESSAGES_H
 
 
-/**
- * @fn message
- */
-int message (const int log, const int mode, const char *text, FILE *output);
 /**
  * @brief function that prints messages to output
  * @code
@@ -32,6 +32,7 @@ int message (const int log, const int mode, const char *text, FILE *output);
  * @return 1              - unknown mode
  * @return 0              - exit without errors
  */
+int message (const int log, const int mode, const char *text, FILE *output);
 
 
 #endif /* MESSAGES_H */

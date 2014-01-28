@@ -11,7 +11,7 @@ license=('Beerware')
 depends=('qt4' 'qwt')
 makedepends=('cmake' 'automoc4')
 source=(https://github.com/arcan1s/moldyn/releases/download/mm-${pkgver}/${pkgname}-${pkgver}-src.zip)
-md5sums=('e7d983f602fcfd3f390e72ef684fe5e2')
+md5sums=('7b52d5d3cf576f1b6ae88d0e5ab8a2c2')
 _cmakekeys="-DCMAKE_INSTALL_PREFIX=/usr
             -DQWT_INCLUDE_PATH=/usr/include/qwt
             -DQWT_LIBRARY_PATH=/usr/lib

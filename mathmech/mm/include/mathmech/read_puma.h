@@ -7,19 +7,17 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file read_puma.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef READ_PUMA_H
 #define READ_PUMA_H
 
 
-/**
- * @fn rw_puma
- */
-int rw_puma (const char *input, const int step, const char *output, const int num_types, 
-             const int *num_mol, const int *num_atoms, const char *ch_atom_types, 
-             const int *atom_types, float *coords);
 /**
  * @brief function that read PUMA trajectory file and write to output
  * @code
@@ -40,6 +38,9 @@ int rw_puma (const char *input, const int step, const char *output, const int nu
  * @return 1              - file does not exist
  * @return 0              - exit without errors
  */
+int rw_puma (const char *input, const int step, const char *output, const int num_types, 
+             const int *num_mol, const int *num_atoms, const char *ch_atom_types, 
+             const int *atom_types, float *coords);
 
 
 #endif /* READ_PUMA_H */

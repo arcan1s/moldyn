@@ -7,18 +7,17 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file add_main.c
+ * Header of trj
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef ADD_MAIN_H
 #define ADD_MAIN_H
 
 
-/**
- * @fn error_checking
- */
-int error_checking (const char *input, const char *input_at, const char *output, 
-                    const int step, const int type);
 /**
  * @brief function that checks errors in input variables
  * @code
@@ -38,13 +37,10 @@ int error_checking (const char *input, const char *input_at, const char *output,
  * @return 15             - error in 'type'
  * @return 0              - exit without errors
  */
+int error_checking (const char *input, const char *input_at, const char *output, 
+                    const int step, const int type);
 
 
-/**
- * @fn print_message
- */
-int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log, 
-                   const int mode, const char *str);
 /**
  * @brief function that prints message in log and stdout
  * @code
@@ -60,13 +56,10 @@ int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log
  * 
  * @return 0              - exit without errors
  */
+int print_message (const int quiet, FILE *std_output, const int log, FILE *f_log, 
+                   const int mode, const char *str);
 
 
-/**
- * @fn set_defaults
- */
-int set_defaults (char *input, char *input_at, int *log, char *output, int *step, 
-                  int *total_types, int *type, int *quiet);
 /**
  * @brief function that sets default values of variables
  * @code
@@ -84,6 +77,8 @@ int set_defaults (char *input, char *input_at, int *log, char *output, int *step
  * 
  * @return 0              - exit without errors
  */
+int set_defaults (char *input, char *input_at, int *log, char *output, int *step, 
+                  int *total_types, int *type, int *quiet);
 
 
 #endif /* ADD_MAIN_H */

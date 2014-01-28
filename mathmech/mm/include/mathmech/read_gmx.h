@@ -7,17 +7,17 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file read_gmx.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef READ_GMX_H
 #define READ_GMX_H
 
 
-/**
- * @fn translate_coords
- */
-int translate_coords (const float coords, const float cell, float *trans);
 /**
  * @brief funtion that translates coordinate
  * @code
@@ -30,14 +30,9 @@ int translate_coords (const float coords, const float cell, float *trans);
  * 
  * @return 0              - exit without errors
  */
+int translate_coords (const float coords, const float cell, float *trans);
 
 
-/**
- * @fn rw_gmx
- */
-int rw_gmx (const char *input, const int step, const char *output, const int num_types, 
-            const int *num_mol, const int *num_atoms, const char *ch_atom_types, 
-            const int *atom_types, float *coords);
 /**
  * @brief function that read GROMACS trajectory file and write to output
  * @code
@@ -58,6 +53,9 @@ int rw_gmx (const char *input, const int step, const char *output, const int num
  * @return 1              - file does not exist
  * @return 0              - exit without errors
  */
+int rw_gmx (const char *input, const int step, const char *output, const int num_types, 
+            const int *num_mol, const int *num_atoms, const char *ch_atom_types, 
+            const int *atom_types, float *coords);
 
 
 #endif /* READ_GMX_H */

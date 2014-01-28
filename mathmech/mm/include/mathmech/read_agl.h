@@ -7,17 +7,17 @@
  * ----------------------------------------------------------------------------
  */
 /**
- * @file
+ * @file read_agl.h
+ * Header of mathmech library
+ * @author Evgeniy Alekseev (arcanis)
+ * @copyright Beerware
+ * @bug No known bugs
  */
 
 #ifndef READ_AGL_H
 #define READ_AGL_H
 
 
-/**
- * @fn reading_agl
- */
-int reading_agl (const char *aglinp, int *num_needed_mol, char *agl_class, int *needed_mol);
 /**
  * @brief function that reads agglomerate from statgen-formated file
  * @code
@@ -31,6 +31,7 @@ int reading_agl (const char *aglinp, int *num_needed_mol, char *agl_class, int *
  * 
  * @return 0              - exit without errors
  */
+int reading_agl (const char *aglinp, int *num_needed_mol, char *agl_class, int *needed_mol);
 
 
 #endif /* READ_AGL_H */
