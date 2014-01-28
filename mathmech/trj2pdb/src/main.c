@@ -9,9 +9,9 @@
 
 #include "add_main.h"
 #include <version.h>
-#include <mathmech/coords.h>
 #include <mathmech/messages.h>
 #include <mathmech/print_struct.h>
+#include <mathmech/var_types.h>
 
 
 /**
@@ -31,15 +31,13 @@ int main(int argc, char *argv[])
   FILE *f_inp, *f_log;
   
   char input[256], logfile[256], output[256];
-  float cell[3];
-  int log, *needed_mol, num_atoms, num_mol, quiet, *true_label_mol;
+  int log, *needed_mol, quiet, *true_label_mol;
   atom_info *_atom_info;
+  system_info _system_info;
   
 /* input                  input file name
  * logfile                log file name
  * output                 output file name
- * 
- * cell                   sell size
  * 
  * log                    status of log-mode
  * needed_mol             massive of numbers of needed molecule
@@ -47,6 +45,7 @@ int main(int argc, char *argv[])
  * num_mol                number of molecules
  * quiet                  status of quiet-mode
  * true_label_mol         massive of true numbers of molecule for atoms
+ * 
  * _atom_info             atom information structure
  */
   
@@ -128,11 +127,11 @@ int main(int argc, char *argv[])
     print_message (quiet, stderr, log, f_log, 18, input);
     return 2;
   }
-  fscanf (f_inp, "%i", &num_atoms);
+  fscanf (f_inp, "%i", &_system_info.num_atoms);
   fclose (f_inp);
-  _atom_info = (atom_info *) malloc (8 * num_atoms * sizeof (atom_info));
-  needed_mol = (int *) malloc (num_atoms * sizeof (int));
-  true_label_mol = (int *) malloc (num_atoms * sizeof (int));
+  _atom_info = (atom_info *) malloc (8 * _system_info.num_atoms * sizeof (atom_info));
+  needed_mol = (int *) malloc (_system_info.num_atoms * sizeof (int));
+  true_label_mol = (int *) malloc (_system_info.num_atoms * sizeof (int));
 // error checking
   if ((_atom_info == NULL) ||
      (needed_mol == NULL) || 
@@ -142,7 +141,7 @@ int main(int argc, char *argv[])
     return 3;
   }
   for (i=0; i<3; i++)
-    cell[i] = 0.0;
+    _system_info.cell[i] = 0.0;
   sprintf (tmp_str, "%6cInput file: '%s';\n%6cOutput file: '%s';\n%6cLog: %i;\n%6cQuiet: %i;\n", 
 ' ', input, ' ', output, ' ', log, ' ', quiet);
   print_message (quiet, stdout, log, f_log, 5, tmp_str);
@@ -152,18 +151,18 @@ int main(int argc, char *argv[])
 // reading coordinates
   print_message (quiet, stdout, log, f_log, 7, input);
   error = 1;
-  error = reading_coords (1, input, tmp_int, &tmp_int, cell, &num_mol, &num_atoms, 
-                          true_label_mol, _atom_info);
+  error = reading_coords (1, input, tmp_int, &tmp_int, &_system_info, true_label_mol, 
+                          _atom_info);
   
 // print coordinates
   if (error == 0)
   {
     sprintf (tmp_str, "%6cNumber of molecules: %i; %6cNumber of atoms: %i\n", 
-            ' ', num_mol, ' ', num_atoms);
-    for (i=0; i<num_mol; i++)
+            ' ', _system_info.num_mol, ' ', _system_info.num_atoms);
+    for (i=0; i<_system_info.num_mol; i++)
       needed_mol[i] = 8 * i;
     error = 1;
-    error = print_structure (output, num_mol, needed_mol, num_atoms, _atom_info);
+    error = print_structure (output, _system_info.num_mol, needed_mol, _system_info, _atom_info);
   }
   if (error == 0)
     print_message (quiet, stderr, log, f_log, 12, output);
