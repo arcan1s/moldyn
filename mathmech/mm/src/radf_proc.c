@@ -49,7 +49,7 @@ int print_result (const char *output, const int matrix, const int mode,
         r = _radf_info.r_min + (0.5 + i) * _radf_info.r_step;
         dv = 4 * M_PI * pow (r, 2) * _radf_info.r_step;
         ro = _system_info.num_atoms  / (2 * _system_info.cell[0] * _system_info.cell[1] * _system_info.cell[2]);
-        norm = radf[i] / (dv * ro * _system_info.num_atoms * (_system_info.last - _system_info.first + 1));
+        norm = radf[i] / (dv * ro * _system_info.num_atoms * (_system_info.to - _system_info.from + 1));
         if (matrix == 0)
           fprintf (f_out, " %9.4f %10.4e %9i %9.6f \n", r, dv, radf[i] / 2, norm);
         else
@@ -66,7 +66,7 @@ int print_result (const char *output, const int matrix, const int mode,
         r = _radf_info.r_min + (0.5 + i) * _radf_info.r_step;
         dv = 4 * M_PI * pow (r, 2) * _radf_info.r_step;
         ro = _system_info.num_atoms  / (3 * 2 * _system_info.cell[0] * _system_info.cell[1] * _system_info.cell[2]);
-        norm = radf[i] / (dv * ro * _system_info.num_atoms / 3 * (_system_info.last - _system_info.first + 1));
+        norm = radf[i] / (dv * ro * _system_info.num_atoms / 3 * (_system_info.to - _system_info.from + 1));
         if (matrix == 0)
           fprintf (f_out, " %9.4f %10.4e %9i %9.6f \n", r, dv, radf[i] / 2, norm);
         else
@@ -96,7 +96,7 @@ int print_result (const char *output, const int matrix, const int mode,
           ang = _radf_info.ang_min + (0.5 + j) * _radf_info.ang_step;
           dv = 4 * M_PI * pow (r, 2) * sin (M_PI * ang / 180) * _radf_info.r_step * (M_PI * _radf_info.ang_step / 180);
           ro = _system_info.num_atoms  / (3 * 2 * _system_info.cell[0] * _system_info.cell[1] * _system_info.cell[2]);
-          norm = radf[n*i+j] / (dv * ro * _system_info.num_atoms / 3 * (_system_info.last - _system_info.first + 1));
+          norm = radf[n*i+j] / (dv * ro * _system_info.num_atoms / 3 * (_system_info.to - _system_info.from + 1));
           if (matrix == 0)
             fprintf (f_out, " %9.4f %9.2f %10.4e %9i %9.6f \n", r, ang, dv, radf[n*i+j] / 2, norm);
           else

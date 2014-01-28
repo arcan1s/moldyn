@@ -13,6 +13,7 @@
 #include <mathmech/messages.h>
 #include <mathmech/radf.h>
 #include <mathmech/radf_proc.h>
+#include <mathmech/var_types.h>
 
 
 /**
@@ -32,42 +33,30 @@ int main(int argc, char *argv[])
   FILE *f_inp, *f_log;
   
   char input[256], logfile[256], output[256];
-  float ang_max, ang_min, ang_step, cell[3], *coords, r_max, r_min, r_step;
-  int from, *label_mol, log, matrix, mode, num_atoms, num_mol, num_needed_at, 
-      needed_at[6], quiet, *radf, step, to, *true_label_mol, *type_atoms;
+  int log, matrix, mode, num_needed_at, needed_at[6], quiet, *radf, *true_label_mol;
+  atom_info *_atom_info;
+  radf_info _radf_info;
+  system_info _system_info;
   
 /* input                  input file name
  * logfile                log file name
  * output                 output file name
  * 
- * ang_max                maximal angle for RADF
- * ang_min                minimal angle for RADF
- * ang_step               anlge step for RADF
- * cell                   massive of cell size
- * coords                 massive of coordinates
- * r_max                  maximal radius
- * r_min                  minimal radius
- * r_step                 radius step
- * 
- * from                   first trajectory step
- * label_mol              massive of numbers of molecule for atoms
  * log                    status of log-mode
  * matrix                 status of matrix-mode
  * mode                   0 - if RDF, 1 - if RDF for center mass, 2 - if RADF
- * num_atoms              number of atoms
- * num_mol                number of molecules
  * num_needed_at          number of needed atom types
  * needed_at              massive of number of needed atom types
  * quiet                  status of quiet-mode
  * radf                   not normed RADF
- * step                   $(to - from + 1)
- * to                     last trajectory step
  * true_label_mol         massive of true numbers of molecule for atoms
- * type_atoms             massive of atom types
+ * 
+ * _atom_info             atom information structure
+ * _radf_info             radf information structure
+ * _system_info           system information structure
  */
   
-  set_defaults (&ang_max, &ang_min, &ang_step, cell, &from, input, &log, &matrix, 
-                &r_max, &r_min, &r_step, output, &to, &quiet);
+  set_defaults (&_system_info, &_radf_info, input, &log, &matrix, output, &quiet);
   
   for (i=1; i<argc; i++)
   {
@@ -110,20 +99,19 @@ int main(int argc, char *argv[])
     else if ((argv[i][0] == '-') && (argv[i][1] == 's') && (argv[i][2] == '\0'))
 // steps
     {
-      sscanf (argv[i+1], "%i,%i", &from, &to);
-      if (from > to)
+      sscanf (argv[i+1], "%i,%i", &_system_info.from, &_system_info.to);
+      if (_system_info.from > _system_info.to)
       {
-        to += from;
-        from = to - from;
-        to -= from;
+        _system_info.to += _system_info.from;
+        _system_info.from = _system_info.to - _system_info.from;
+        _system_info.to -= _system_info.from;
       }
-      step = to - from + 1;
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'c') && (argv[i][2] == '\0'))
 // cell size
     {
-      sscanf (argv[i+1], "%f,%f,%f", &cell[0], &cell[1], &cell[2]);
+      sscanf (argv[i+1], "%f,%f,%f", &_system_info.cell[0], &_system_info.cell[1], &_system_info.cell[2]);
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'a') && (argv[i][2] == 't') && (argv[i][3] == '\0'))
@@ -149,37 +137,37 @@ int main(int argc, char *argv[])
     else if ((argv[i][0] == '-') && (argv[i][1] == 'r') && (argv[i][2] == '\0'))
 // radii
     {
-      sscanf (argv[i+1], "%f,%f", &r_min, &r_max);
-      if (r_min > r_max)
+      sscanf (argv[i+1], "%f,%f", &_radf_info.r_min, &_radf_info.r_max);
+      if (_radf_info.r_min > _radf_info.r_max)
       {
-        r_min += r_max;
-        r_max = r_min - r_max;
-        r_min -= r_max;
+        _radf_info.r_min += _radf_info.r_max;
+        _radf_info.r_max = _radf_info.r_min - _radf_info.r_max;
+        _radf_info.r_min -= _radf_info.r_max;
       }
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'r') && (argv[i][2] == 's') && (argv[i][3] == '\0'))
 // radius step
     {
-      sscanf (argv[i+1], "%f", &r_step);
+      sscanf (argv[i+1], "%f", &_radf_info.r_step);
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'a') && (argv[i][2] == '\0'))
 // angles
     {
-      sscanf (argv[i+1], "%f,%f", &ang_min, &ang_max);
-      if (ang_min > ang_max)
+      sscanf (argv[i+1], "%f,%f", &_radf_info.ang_min, &_radf_info.ang_max);
+      if (_radf_info.ang_min > _radf_info.ang_max)
       {
-        ang_min += ang_max;
-        ang_max = ang_min - ang_max;
-        ang_min -= ang_max;
+        _radf_info.ang_min += _radf_info.ang_max;
+        _radf_info.ang_max = _radf_info.ang_min - _radf_info.ang_max;
+        _radf_info.ang_min -= _radf_info.ang_max;
       }
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'a') && (argv[i][2] == 's') && (argv[i][3] == '\0'))
 // angle step
     {
-      sscanf (argv[i+1], "%f", &ang_step);
+      sscanf (argv[i+1], "%f", &_radf_info.ang_step);
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'm') && (argv[i][2] == '\0'))
@@ -213,7 +201,7 @@ int main(int argc, char *argv[])
   print_message (quiet, stdout, log, f_log, 1, argv[0]);
   
 // error check
-  error = error_checking (cell, from, input, num_needed_at, needed_at, output, to);
+  error = error_checking (input, num_needed_at, needed_at, output, _system_info);
   if (error != 0)
   {
     print_message (quiet, stderr, log, f_log, 17, argv[0]);
@@ -225,14 +213,14 @@ int main(int argc, char *argv[])
 // processing
 // initial variables
 // set mode
-  if ((num_needed_at == 6) && (ang_step != 0.0))
+  if ((num_needed_at == 6) && (_radf_info.ang_step != 0.0))
     mode = 2;
   else if (num_needed_at == 6)
     mode = 1;
   else if (num_needed_at == 2)
     mode = 0;
   
-  sprintf (filename, "%s.%03i", input, from);
+  sprintf (filename, "%s.%03i", input, _system_info.from);
   print_message (quiet, stdout, log, f_log, 3, filename);
   f_inp = fopen (filename, "r");
   if (f_inp == NULL)
@@ -240,29 +228,25 @@ int main(int argc, char *argv[])
     print_message (quiet, stderr, log, f_log, 18, filename);
     return 2;
   }
-  fscanf (f_inp, "%i", &num_atoms);
+  fscanf (f_inp, "%i", &_system_info.num_atoms);
   fclose (f_inp);
-  coords = (float *) malloc (2 * 3 * 8 * num_atoms * sizeof (float));
-  label_mol = (int *) malloc (2 * 8 * num_atoms * sizeof (int));
+  _atom_info = (atom_info *) malloc (8 * _system_info.num_atoms * sizeof (atom_info));
   if (mode == 2)
   {
-    i = (r_max - r_min) / r_step;
-    j = (ang_max - ang_min) / ang_step;
+    i = (_radf_info.r_max - _radf_info.r_min) / _radf_info.r_step;
+    j = (_radf_info.ang_max - _radf_info.ang_min) / _radf_info.ang_step;
     i *= j;
   }
   else
-    i = (r_max - r_min) / r_step;
+    i = (_radf_info.r_max - _radf_info.r_min) / _radf_info.r_step;
   radf = (int *) malloc (i * sizeof (int));
   for (j=0; j<i; j++)
     radf[j] = 0;
-  true_label_mol = (int *) malloc (num_atoms * sizeof (int));
-  type_atoms = (int *) malloc (2 * 8 * num_atoms * sizeof (int));
+  true_label_mol = (int *) malloc (_system_info.num_atoms * sizeof (int));
 // error checking
-  if ((coords == NULL) || 
-     (label_mol == NULL) || 
+  if ((_atom_info == NULL) || 
      (radf == NULL) || 
-     (true_label_mol == NULL) || 
-     (type_atoms == NULL))
+     (true_label_mol == NULL))
   {
     print_message (quiet, stderr, log, f_log, 19, argv[0]);
     return 3;
@@ -270,7 +254,9 @@ int main(int argc, char *argv[])
   sprintf (tmp_str, "%6cOutput file: '%s';\n%6cLog: %i;\n%6cQuiet: %i;\n%6cMatrix mode: %i;\n\
 %6cMask: %s;\n%6cFirst step: %i;\n%6cLast step: %i;\n%6cCell size: %.4f, %.4f, %.4f;\n%6cMode: %i;\n\
 %6cR_MIN: %6.3f; R_MAX: %6.3f; R_STEP: %6.3f;\n", ' ', output, ' ', log, ' ', quiet, ' ', matrix, 
-' ', input, ' ', from, ' ', to, ' ', cell[0], cell[1], cell[2], ' ', mode, ' ', r_min, r_max, r_step);
+' ', input, ' ', _system_info.from, ' ', _system_info.to, ' ', _system_info.cell[0], 
+_system_info.cell[1], _system_info.cell[2], ' ', mode, ' ', _radf_info.r_min, 
+_radf_info.r_max, _radf_info.r_step);
   switch (mode)
   {
     case 0:
@@ -282,44 +268,41 @@ needed_at[2], needed_at[3], needed_at[4], needed_at[5]);
       break;
     case 2:
       sprintf (tmp_str, "%s%6cANG_MIN: %6.2f; ANG_MAX: %6.2f; ANG_STEP: %6.2f;\n\
-%6cATOM TYPES: %i,%i,%i-%i,%i,%i\n", tmp_str, ' ', ang_min, ang_max, ang_step, ' ', needed_at[0], 
-needed_at[1], needed_at[2], needed_at[3], needed_at[4], needed_at[5]);
+%6cATOM TYPES: %i,%i,%i-%i,%i,%i\n", tmp_str, ' ', _radf_info.ang_min, _radf_info.ang_max, 
+_radf_info.ang_step, ' ', needed_at[0], needed_at[1], needed_at[2], needed_at[3], 
+needed_at[4], needed_at[5]);
       break;
   }
   print_message (quiet, stdout, log, f_log, 5, tmp_str);
   
 // head
-  printing_head (output, log, quiet, matrix, input, from, to, cell, mode, r_min, 
-                 r_max, r_step, ang_min, ang_max, ang_step, needed_at);
+  printing_head (output, log, quiet, matrix, input, _system_info, mode, _radf_info, 
+                 needed_at);
   
   print_message (quiet, stdout, log, f_log, 6, argv[0]);
 // main cycle
-  for (i=from; i<to+1; i++)
+  for (i=_system_info.from; i<_system_info.to+1; i++)
   {
     sprintf (filename, "%s.%03i", input, i);
     print_message (quiet, stdout, log, f_log, 7, filename);
-    error = reading_coords (0, filename, num_needed_at, needed_at, cell, &num_mol, 
-                            &num_atoms, true_label_mol, label_mol, type_atoms, 
-                            coords, tmp_str);
+    error = reading_coords (0, filename, num_needed_at, needed_at, &_system_info, 
+                            true_label_mol, _atom_info);
     if (error == 0)
     {
       sprintf (tmp_str, "%6cNumber of molecules: %i; %6cNumber of atoms: %i\n", 
-               ' ', num_mol, ' ', num_atoms);
+               ' ', _system_info.num_mol, ' ', _system_info.num_atoms);
       print_message (quiet, stdout, log, f_log, 8, tmp_str);
       error = 1;
       switch (mode)
       {
         case 0:
-          error = search_rdf (num_atoms, type_atoms, label_mol, coords, r_min, 
-                              r_max, r_step, radf);
+          error = search_rdf (_system_info, _atom_info, _radf_info, radf);
           break;
         case 1:
-          error = search_rdf_centr (num_atoms, type_atoms, label_mol, coords, r_min, 
-                                    r_max, r_step, radf);
+          error = search_rdf_centr (_system_info, _atom_info, _radf_info, radf);
           if (error == 0)
         case 2:
-          error = search_radf (num_atoms, type_atoms, label_mol, coords, r_min, r_max, 
-                               r_step, ang_min, ang_max, ang_step, radf);
+          error = search_radf (_system_info, _atom_info, _radf_info, radf);
           break;
       }
     }
@@ -330,15 +313,12 @@ needed_at[1], needed_at[2], needed_at[3], needed_at[4], needed_at[5]);
   print_message (quiet, stdout, log, f_log, 13, argv[0]);
   print_message (quiet, stdout, log, f_log, 14, output);
 // tail
-  print_result (output, matrix, mode, step, num_atoms, r_min, r_max, r_step, ang_min, 
-                ang_max, ang_step, cell, radf);
+  print_result (output, matrix, mode, _system_info, _radf_info, radf);
   
   print_message (quiet, stdout, log, f_log, 15, argv[0]);
 // free memory
-  free (coords);
-  free (label_mol);
+  free (_atom_info);
   free (radf);
-  free (type_atoms);
   free (true_label_mol);
   
   print_message (quiet, stdout, log, f_log, 16, argv[0]);

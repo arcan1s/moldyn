@@ -53,16 +53,16 @@ typedef struct
  */
 typedef struct
 {
-  int first;
-  int last;
+  int from;
+  int to;
   float cell[3];
   int num_atoms;
   int num_mol;
 } system_info;
 /**
  * @brief system information structure
- * @var first             last trajectory step
- * @var last              first trajectory step
+ * @var from              last trajectory step
+ * @var to                first trajectory step
  * @var cell              cell size
  * @var num_atoms         number of atoms
  * @var num_mol           number of molecules

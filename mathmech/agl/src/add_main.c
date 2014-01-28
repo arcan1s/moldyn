@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 
+#include "add_main.h"
 #include <mathmech/messages.h>
 #include <mathmech/var_types.h>
 

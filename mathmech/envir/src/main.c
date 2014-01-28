@@ -14,6 +14,7 @@
 #include <mathmech/messages.h>
 #include <mathmech/print_struct.h>
 #include <mathmech/set_center.h>
+#include <mathmech/var_types.h>
 
 
 /**
@@ -32,33 +33,31 @@ int main(int argc, char *argv[])
   int error, i, *tmp_int;
   FILE *f_inp, *f_log;
   
-  char *ch_type_atoms, input[256], logfile[256], output[256];
-  float cell[3], *centr_coords, *coords, rad;
-  int *label_mol, log, num_atoms, num_mol, num_needed_mol, num_of_mol, 
-      *needed_mol, quiet, *true_label_mol;
+  char input[256], logfile[256], output[256];
+  float *centr_coords, rad;
+  int log, num_needed_mol, num_of_mol, *needed_mol, quiet, *true_label_mol;
+  atom_info *_atom_info;
+  system_info _system_info;
   
-/* ch_type_atoms          massive of char atom types
- * input                  input file name
+/* input                  input file name
  * logfile                log file name
  * output                 output file name
  * 
- * cell                   massive of cell size
  * centr_coords           massive of centered coordinates
- * coords                 massive of coordinates
  * rad                    radius of environment sphere
  * 
- * label_mol              massive of numbers of molecule for atoms
  * log                    status of log-mode
- * num_atoms              number of atoms
- * num_mol                number of molecules
  * num_needed_mol         number of needed molecules
  * num_of_mol             number of molecule
  * needed_mol             massive of number of needed molecules
  * quiet                  status of quiet-mode
  * true_label_mol         massive of true numbers of molecule for atoms
+ * 
+ * _atom_info             atom information file
+ * _system_info           system information file
  */
   
-  set_defaults (cell, input, &log, &num_of_mol, output, &quiet, &rad);
+  set_defaults (&_system_info, input, &log, &num_of_mol, output, &quiet, &rad);
   
   for (i=1; i<argc; i++)
   {
@@ -93,7 +92,7 @@ int main(int argc, char *argv[])
     else if ((argv[i][0] == '-') && (argv[i][1] == 'c') && (argv[i][2] == '\0'))
 // cell size
     {
-      sscanf (argv[i+1], "%f,%f,%f", &cell[0], &cell[1], &cell[2]);
+      sscanf (argv[i+1], "%f,%f,%f", &_system_info.cell[0], &_system_info.cell[1], &_system_info.cell[2]);
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'o') && (argv[i][2] == '\0'))
@@ -140,7 +139,7 @@ int main(int argc, char *argv[])
   print_message (quiet, stdout, log, f_log, 1, argv[0]);
   
 // error check
-  error = error_checking (cell, input, output);
+  error = error_checking (_system_info, input, output);
   if (error != 0)
   {
     print_message (quiet, stderr, log, f_log, 17, argv[0]);
@@ -158,17 +157,13 @@ int main(int argc, char *argv[])
     print_message (quiet, stderr, log, f_log, 18, input);
     return 2;
   }
-  fscanf (f_inp, "%i", &num_atoms);
+  fscanf (f_inp, "%i", &_system_info.num_atoms);
   fclose (f_inp);
-  ch_type_atoms = (char *) malloc (2 * num_atoms * sizeof (char));
-  coords = (float *) malloc (3 * 8 * num_atoms * sizeof (float));
-  label_mol = (int *) malloc (8 * num_atoms * sizeof (int));
-  tmp_int = (int *) malloc (8 * num_atoms * sizeof (int));
-  true_label_mol = (int *) malloc (num_atoms * sizeof (int));
+  _atom_info = (atom_info *) malloc (8 * _system_info.num_atoms * sizeof (atom_info));
+  tmp_int = (int *) malloc (8 * _system_info.num_atoms * sizeof (int));
+  true_label_mol = (int *) malloc (_system_info.num_atoms * sizeof (int));
 // error checking
-  if ((ch_type_atoms == NULL) ||
-     (coords == NULL) || 
-     (label_mol == NULL) || 
+  if ((_atom_info == NULL) || 
      (tmp_int == NULL) || 
      (true_label_mol == NULL))
   {
@@ -177,8 +172,9 @@ int main(int argc, char *argv[])
   }
   sprintf (tmp_str, "%6cInput file: '%s';\n%6cOutput file: '%s';\n%6cLog: %i;\n\
 %6cQuiet: %i;\n%6cCell size: %.4f, %.4f, %.4f;\n%6cSelect molecule: %i;\n\
-%6cCriterion: %.1f\n", ' ', input, ' ', output, ' ', log, ' ', quiet, ' ', cell[0], 
-           cell[1], cell[2], ' ' , num_of_mol, ' ', rad);
+%6cCriterion: %.1f\n", ' ', input, ' ', output, ' ', log, ' ', quiet, ' ', 
+_system_info.cell[0], _system_info.cell[1], _system_info.cell[2], ' ' , num_of_mol, 
+' ', rad);
   print_message (quiet, stdout, log, f_log, 5, tmp_str);
   
   print_message (quiet, stdout, log, f_log, 6, argv[0]);
@@ -186,14 +182,14 @@ int main(int argc, char *argv[])
 // reading coordinates
   print_message (quiet, stdout, log, f_log, 7, input);
   error = 1;
-  error = reading_coords (1, input, tmp_int[0], tmp_int, cell, &num_mol, &num_atoms, 
-                          true_label_mol, label_mol, tmp_int, coords, ch_type_atoms);
-  centr_coords = (float *) malloc (3 * 8 * num_mol * sizeof (float));
-  needed_mol = (int *) malloc (num_mol * sizeof (int));
+  error = reading_coords (0, input, tmp_int[0], tmp_int, &_system_info, true_label_mol, 
+                          _atom_info);
+  centr_coords = (float *) malloc (3 * 8 * _system_info.num_mol * sizeof (float));
+  needed_mol = (int *) malloc (_system_info.num_mol * sizeof (int));
   if (error == 0)
   {
     sprintf (tmp_str, "%6cNumber of molecules: %i; %6cNumber of atoms: %i\n", 
-             ' ', num_mol, ' ', num_atoms);
+             ' ', _system_info.num_mol, ' ', _system_info.num_atoms);
     print_message (quiet, stdout, log, f_log, 8, tmp_str);
   }
 // error checking
@@ -208,21 +204,21 @@ int main(int argc, char *argv[])
   if (error == 0)
   {
     error = 1;
-    error = set_center (num_atoms, num_mol, label_mol, coords, centr_coords);
+    error = set_center (_system_info, _atom_info, centr_coords);
   }
   if (error == 0)
   {
     print_message (quiet, stderr, log, f_log, 20, argv[0]);
     error = 1;
-    error = search_envir (num_of_mol, num_mol, centr_coords, rad, needed_mol, 
+    error = search_envir (num_of_mol, _system_info, centr_coords, rad, needed_mol, 
                           &num_needed_mol);
   }
   if (error == 0)
   {
     print_message (quiet, stderr, log, f_log, 21, argv[0]);
     error = 1;
-    error = print_structure (output, num_needed_mol, needed_mol, num_atoms, 
-                              label_mol, ch_type_atoms, coords);
+    error = print_structure (output, num_needed_mol, needed_mol, _system_info, 
+                             _atom_info);
   }
   if (error == 0)
     print_message (quiet, stderr, log, f_log, 12, output);
@@ -231,10 +227,8 @@ int main(int argc, char *argv[])
   
   print_message (quiet, stdout, log, f_log, 15, argv[0]);
 // free memory
-  free (ch_type_atoms);
+  free (_atom_info);
   free (centr_coords);
-  free (coords);
-  free (label_mol);
   free (needed_mol);
   free (tmp_int);
   free (true_label_mol);
