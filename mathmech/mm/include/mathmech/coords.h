@@ -29,8 +29,8 @@ int reading_coords (const int mode, const char *filename, const int type_inter,
  *                 true_label_mol, _atom_info);
  * @endcode
  * 
- * @param mode            mode of reading; '1' is statgen, '2' is envir or 
- *                        frad, '3' is agl
+ * @param mode            mode of reading; '0' is statgen, '1' is envir or 
+ *                        frad, '2' is agl
  * @param filename        input file name
  * @param type_inter      number of needed atoms
  *                        (number of needed molecules)

@@ -190,7 +190,7 @@ _system_info.cell[0], _system_info.cell[1], _system_info.cell[2], ' ' , num_of_m
 // reading coordinates
   print_message (quiet, stdout, log, f_log, 7, input);
   error = 1;
-  error = reading_coords (0, input, tmp_int[0], tmp_int, &_system_info, true_label_mol, 
+  error = reading_coords (1, input, tmp_int[0], tmp_int, &_system_info, true_label_mol, 
                           _atom_info);
   centr_coords = (float *) malloc (3 * 8 * _system_info.num_mol * sizeof (float));
   needed_mol = (int *) malloc (_system_info.num_mol * sizeof (int));
