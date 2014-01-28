@@ -91,7 +91,7 @@ int main (int argc, char *argv[])
     {
       sprintf (tmp_str, "                                     mm_statgen\n");
       sprintf (tmp_str, "%sProgram for analyze molecular dynamic trajectories\n", tmp_str);
-      sprintf (tmp_str, "%sVersion : %s                                                    License : GPL\n", tmp_str, PROJ_VERSION);
+      sprintf (tmp_str, "%sVersion : %s                                               License : Beerware\n", tmp_str, PROJ_VERSION);
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);
@@ -102,10 +102,12 @@ int main (int argc, char *argv[])
       sprintf (tmp_str, "%s  -s          - trajectory steps (integer)\n", tmp_str);
       sprintf (tmp_str, "%s  -c          - cell size (float), A\n", tmp_str);
       sprintf (tmp_str, "%s  -a          - atom types (integer). Format: 'ATOM1' or 'ATOM1,ATOM2' or etc\n", tmp_str);
-      sprintf (tmp_str, "%s  -r          - criteria (float), A. Format: '0-0:2.4,0-1:3.0' means 0-0-interaction\n", tmp_str);
-      sprintf (tmp_str, "%s                (<2.4 A) and 0-1 (<3.0) are needed. This flag can be used multiple times\n", tmp_str);
+      sprintf (tmp_str, "%s  -r          - criteria (float), A. Format: '0-0:2.4,0-1:3.0' means 0-0\n", tmp_str);
+      sprintf (tmp_str, "%s                interaction (<2.4 A) and 0-1 (<3.0) are needed. This flag can be\n", tmp_str);
+      sprintf (tmp_str, "%s                used multiple times\n", tmp_str);
       sprintf (tmp_str, "%s  -o          - output file name\n", tmp_str);
-      sprintf (tmp_str, "%s  -g          - check graph isomorphism. DEPTH is max depth for check cycles (>= 3)\n", tmp_str);
+      sprintf (tmp_str, "%s  -g          - check graph isomorphism. DEPTH (integet) is max depth for check\n", tmp_str);
+      sprintf (tmp_str, "%s                cycles (>= 3)\n", tmp_str);
       sprintf (tmp_str, "%s  -l          - log enable\n", tmp_str);
       sprintf (tmp_str, "%s  -q          - quiet enable\n", tmp_str);
       sprintf (tmp_str, "%s  -h          - show this help and exit\n", tmp_str);

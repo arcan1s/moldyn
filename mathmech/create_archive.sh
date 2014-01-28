@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILES="docs mathmech mm agl envir radf statgen trj trj2pdb AUTHORS CHANGELOG CMakeLists.txt COPYING docs.cmake doxygen.conf.in INSTALL version.h.in"
+FILES="docs mathmech mm agl envir radf statgen trj trj2pdb AUTHORS CHANGELOG CMakeLists.txt docs.cmake doxygen.conf.in INSTALL LICENSE version.h.in"
 ARCHIVE="mathmech"
 VERSION=`grep -m1 PROJECT_VERSION_MAJOR CMakeLists.txt | awk '{print $3}' | cut -c 1`.\
 `grep -m1 PROJECT_VERSION_MINOR CMakeLists.txt | awk '{print $3}' | cut -c 1`.\

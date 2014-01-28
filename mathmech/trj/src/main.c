@@ -63,12 +63,12 @@ int main(int argc, char *argv[])
     {
       sprintf (tmp_str, "                                    mm_trj\n");
       sprintf (tmp_str, "%sProgram that generates trajectory files\n", tmp_str);
-      sprintf (tmp_str, "%sVersion : %s                                                    License : GPL\n", tmp_str, PROJ_VERSION);
+      sprintf (tmp_str, "%sVersion : %s                                               License : Beerware\n", tmp_str, PROJ_VERSION);
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);
-      sprintf (tmp_str, "%smm_trj -i INPUT_TRJ -t INPUT_TYPE -s NUMBER -a INPUT_ATOMS -o OUTPUT [ -tt TOTAL_TYPES ]\n", tmp_str);
-      sprintf (tmp_str, "%s                                                            [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
+      sprintf (tmp_str, "%smm_trj -i INPUT_TRJ -t INPUT_TYPE -s NUMBER -a INPUT_ATOMS -o OUTPUT\n", tmp_str);
+      sprintf (tmp_str, "%s                    [ -tt TOTAL_TYPES ] [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
       sprintf (tmp_str, "%sParametrs:\n", tmp_str);
       sprintf (tmp_str, "%s  -i          - input file name\n", tmp_str);
       sprintf (tmp_str, "%s  -t          - type of trajectory. Supported formats: gmx, puma\n", tmp_str);
