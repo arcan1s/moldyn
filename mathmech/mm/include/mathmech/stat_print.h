@@ -18,9 +18,8 @@ int printing_agl (const char *input, const char *output, const int *connect,
 /**
  * @brief function that prints agglomerates to output file
  * @code
- * printing_agl (input_file, output_file, number_of_molecules, true_label_molecules, 
- *               num_of_molecules_in_agglomerates, agglomerates, statistic, max_depth, 
- *               type_of_agglomerate);
+ * printing_agl (input, output, connect, _system_info, true_label_mol, num_mol_agl, 
+ *               agl, stat, max_depth, type_agl);
  * @endcode
  * 
  * @param input           input file name

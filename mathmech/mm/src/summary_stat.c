@@ -4,28 +4,15 @@
 
 #include <stdio.h>
 
+#include <mathmech/summary_stat.h>
+#include <mathmech/var_types.h>
+
 
 /**
  * @fn summary_statistic
  */
-int summary_statistic (const char *filename, const int step, const int num_mol, 
+int summary_statistic (const char *filename, const system_info _system_info, 
                        const int max_depth, const int *type_agl, const int *stat_all)
-/**
- * @brief function that prints summary statistic
- * @code
- * summary_statistic (filename, number_of_step, number_of_molecules, max_depth, 
- *                    type_of_agglomerate, summary_statistic);
- * @endcode
- * 
- * @param filename        output file name
- * @param step            number of steps
- * @param num_mol         number of molecules
- * @param max_depth       maximum depth for check cycles in graph analyze
- * @param type_agl        massive of number of agglomerate types
- * @param stat_all        massive of summary statistic
- * 
- * @return 0              - exit without errors
- */
 {
   float conc, p, pn, type[2], x, y;
   int i, index;
@@ -38,7 +25,7 @@ int summary_statistic (const char *filename, const int step, const int num_mol,
  */
   
   index = 0;
-  for (i=0; i<num_mol; i++)
+  for (i=0; i<_system_info.num_mol; i++)
     if (stat_all[i] != 0)
       index = i;
   
@@ -51,12 +38,12 @@ int summary_statistic (const char *filename, const int step, const int num_mol,
   {
 // calculating concentrates
     x = stat_all[i];
-    y = step;
+    y = _system_info.to - _system_info.from + 1;
     conc = x / y;
     
 // calculating probabilityes
     x = (i + 1) * stat_all[i];
-    y = step * num_mol;
+    y = (_system_info.to - _system_info.from + 1) * _system_info.num_mol;
     p = x / y;
     pn = (i + 1) * p;
     

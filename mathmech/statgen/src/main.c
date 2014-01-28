@@ -16,6 +16,7 @@
 #include <mathmech/stat_select.h>
 #include <mathmech/stat_sort.h>
 #include <mathmech/summary_stat.h>
+#include <mathmech/var_types.h>
 
 
 /**
@@ -36,42 +37,37 @@ int main (int argc, char *argv[])
   FILE *f_inp, *f_log;
   
   char input[256], logfile[256], output[256];
-  float cell[3], *coords, *crit;
-  int *agl, *connect, from, *label_atom, *label_mol, log, max_depth, num_atoms, 
-      num_mol, *num_mol_agl, num_of_inter, *stat, *stat_all, step, to, 
-      *true_label_mol, *type_agl, *type_atoms, type_inter, quiet;
+  float *crit;
+  int *agl, *connect, *label_atom, log, max_depth, *num_mol_agl, num_of_inter, *stat, 
+      *stat_all, *true_label_mol, *type_agl, type_inter, quiet;
+  atom_info *_atom_info;
+  system_info _system_info;
   
 /* input                  mask of trajectory files
  * logfile                log file name
  * output                 output file name
  * 
- * cell                   massive of cell size
- * coords                 massive of coordinates
  * crit                   massive of criteria
  * 
  * agl                    massive of agglomerates
  * connect                connectivity graph for all molecules
- * from                   first trajectory step
  * label_atom             massive of atom types for interactions
- * label_mol              massive of numbers of molecule for atoms
  * log                    status of log-mode
  * max_depth              maximum depth for check cycles in graph analyze
- * num_atoms              number of atoms
- * num_mol                number of molecules
  * num_mol_agl            massive of number of molecules in agglomerates
  * num_of_inter           number of different interactions
  * stat                   massive of statistic
  * stat_all               massive of summary statistic
- * step                   $(to - from + 1)
- * to                     last trajectory step
  * true_label_mol         massive of true numbers of molecule for atoms
  * type_agl               massive of number of agglomerate types
- * type_atoms             massive of atom types
  * type_inter             number of atoms for interactions
  * quiet                  status of quiet-mode
+ * 
+ * _atom_info             atom information structure
+ * _system_info           system information structure
  */
   
-  set_defaults (cell, &from, input, &log, &max_depth, &num_of_inter, output, &to, 
+  set_defaults (&_system_info, input, &log, &max_depth, &num_of_inter, output, 
                 &type_inter, &quiet);
   
 // reading number of interactions
@@ -125,20 +121,19 @@ int main (int argc, char *argv[])
     else if ((argv[i][0] == '-') && (argv[i][1] == 's') && (argv[i][2] == '\0'))
 // steps
     {
-      sscanf (argv[i+1], "%i,%i", &from, &to);
-      if (from > to)
+      sscanf (argv[i+1], "%i,%i", &_system_info.from, &_system_info.to);
+      if (_system_info.from > _system_info.to)
       {
-        to += from;
-        from = to - from;
-        to -= from;
+        _system_info.to += _system_info.from;
+        _system_info.from = _system_info.to - _system_info.from;
+        _system_info.to -= _system_info.from;
       }
-      step = to - from + 1;
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'c') && (argv[i][2] == '\0'))
 // cell size
     {
-      sscanf (argv[i+1], "%f,%f,%f", &cell[0], &cell[1], &cell[2]);
+      sscanf (argv[i+1], "%f,%f,%f", &_system_info.cell[0], &_system_info.cell[1], &_system_info.cell[2]);
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'a') && (argv[i][2] == '\0'))
@@ -227,7 +222,7 @@ int main (int argc, char *argv[])
   print_message (quiet, stdout, log, f_log, 1, argv[0]);
   
 // error checking
-  error = error_checking (cell, from, input, max_depth, num_of_inter, output, to, 
+  error = error_checking (_system_info, input, max_depth, num_of_inter, output, 
                           type_inter);
   if (error != 0)
   {
@@ -239,7 +234,7 @@ int main (int argc, char *argv[])
   
 // processing
 // initial variables
-  sprintf (filename, "%s.%03i", input, from);
+  sprintf (filename, "%s.%03i", input, _system_info.from);
   print_message (quiet, stdout, log, f_log, 3, filename);
   f_inp = fopen (filename, "r");
   if (f_inp == NULL)
@@ -247,13 +242,11 @@ int main (int argc, char *argv[])
     print_message (quiet, stderr, log, f_log, 18, filename);
     return 2;
   }
-  fscanf (f_inp, "%i", &num_atoms);
+  fscanf (f_inp, "%i", &_system_info.num_atoms);
   fclose (f_inp);
-  coords = (float *) malloc (3 * 8 * num_atoms * sizeof (float));
-  label_mol = (int *) malloc (8 * num_atoms * sizeof (int));
-  true_label_mol = (int *) malloc (num_atoms * sizeof (int));
+  _atom_info = (atom_info *) malloc (8 * _system_info.num_atoms * sizeof (atom_info));
+  true_label_mol = (int *) malloc (_system_info.num_atoms * sizeof (int));
   type_agl = (int *) malloc ((max_depth + 2) * sizeof (int));
-  type_atoms = (int *) malloc (8 * num_atoms * sizeof (int));
 // temporary declaration of variables
   agl = (int *) malloc (2 * 2 * sizeof (int));
   connect = (int *) malloc (2 * 2 * sizeof (int));
@@ -261,11 +254,9 @@ int main (int argc, char *argv[])
   stat = (int *) malloc (2 * sizeof (int));
   stat_all = (int *) malloc (2 * sizeof (int));
 // error checking
-  if ((coords == NULL) || 
-     (label_mol == NULL) || 
+  if ((_atom_info == NULL) || 
      (true_label_mol == NULL) || 
      (type_agl == NULL) || 
-     (type_atoms == NULL) || 
      (agl == NULL) || 
      (connect == NULL) || 
      (num_mol_agl == NULL) || 
@@ -280,8 +271,9 @@ int main (int argc, char *argv[])
     type_agl[i] = 0;
   sprintf (tmp_str, "%6cOutput file: '%s';\n%6cLog: %i;\n%6cQuiet: %i;\n\
 %6cMask: %s;\n%6cFirst step: %i;\n%6cLast step: %i;\n%6cCell size: %.4f, %.4f, %.4f;\n\
-%6cSelect atoms: %i", ' ', output, ' ', log, ' ', quiet, ' ', input, ' ', from, 
-' ' , to, ' ', cell[0], cell[1], cell[2], ' ' , label_atom[0]);
+%6cSelect atoms: %i", ' ', output, ' ', log, ' ', quiet, ' ', input, ' ', _system_info.from, 
+' ' , _system_info.to, ' ', _system_info.cell[0], _system_info.cell[1], _system_info.cell[2], 
+' ' , label_atom[0]);
   for (i=1; i<type_inter; i++)
     sprintf (tmp_str, "%s,%i", tmp_str, label_atom[i]);
   sprintf (tmp_str, "%s;\n", tmp_str);
@@ -298,35 +290,34 @@ int main (int argc, char *argv[])
   print_message (quiet, stdout, log, f_log, 5, tmp_str);
   
 // head
-  printing_head (output, log, quiet, input, from, to, cell, type_inter, label_atom, 
+  printing_head (output, log, quiet, input, _system_info, type_inter, label_atom, 
                  num_of_inter, crit, max_depth);
   
 // main cycle
   print_message (quiet, stdout, log, f_log, 6, argv[0]);
-  for (i=from; i<to+1; i++)
+  for (i=_system_info.from; i<_system_info.to+1; i++)
   {
 // reading coordinates
     sprintf (filename, "%s.%03i", input, i);
     print_message (quiet, stdout, log, f_log, 7, filename);
-    error = reading_coords (0, filename, type_inter, label_atom, cell, &num_mol, 
-                            &num_atoms, true_label_mol, label_mol, type_atoms, 
-                            coords, tmp_str);
+    error = reading_coords (0, filename, type_inter, label_atom, &_system_info, 
+                            true_label_mol, _atom_info);
     if (error == 0)
     {
       sprintf (tmp_str, "%6cNumber of molecules: %i; %6cNumber of atoms: %i\n", 
-               ' ', num_mol, ' ', num_atoms);
+               ' ', _system_info.num_mol, ' ', _system_info.num_atoms);
       print_message (quiet, stdout, log, f_log, 8, tmp_str);
     }
     
 // resize dynamic arrays
-    agl = (int *) realloc (agl, num_mol * num_mol * sizeof (int));
-    connect = (int *) realloc (connect, num_mol * num_mol * sizeof (int));
-    num_mol_agl = (int *) realloc (num_mol_agl, num_mol * sizeof (int));
-    stat = (int *) realloc (stat, num_mol * sizeof (int));
-    if (i == from)
+    agl = (int *) realloc (agl, _system_info.num_mol * _system_info.num_mol * sizeof (int));
+    connect = (int *) realloc (connect, _system_info.num_mol * _system_info.num_mol * sizeof (int));
+    num_mol_agl = (int *) realloc (num_mol_agl, _system_info.num_mol * sizeof (int));
+    stat = (int *) realloc (stat, _system_info.num_mol * sizeof (int));
+    if (i == _system_info.from)
     {
-      stat_all = (int *) realloc (stat_all, num_mol * sizeof (int));
-      for (j=0; j<num_mol; j++)
+      stat_all = (int *) realloc (stat_all, _system_info.num_mol * sizeof (int));
+      for (j=0; j<_system_info.num_mol; j++)
         stat_all[j] = 0;
     }
 // error checking
@@ -345,19 +336,18 @@ int main (int argc, char *argv[])
     if (error == 0)
     {
       error = 1;
-      error = create_matrix (num_mol, num_atoms, label_mol, type_atoms, coords, 
-                             num_of_inter, crit, connect);
+      error = create_matrix (_system_info, _atom_info, num_of_inter, crit, connect);
     }
     if (error == 0)
     {
       print_message (quiet, stdout, log, f_log, 10, argv[0]);
       error = 1;
-      error = proc_matrix (num_mol, connect, num_mol_agl, agl, stat, stat_all);
+      error = proc_matrix (_system_info, connect, num_mol_agl, agl, stat, stat_all);
     }
     if (error == 0)
     {
       print_message (quiet, stdout, log, f_log, 11, argv[0]);
-      error = printing_agl (filename, output, connect, num_mol, true_label_mol, 
+      error = printing_agl (filename, output, connect, _system_info, true_label_mol, 
                             num_mol_agl, agl, stat, max_depth, type_agl);
     }
     if (error == 0)
@@ -367,21 +357,19 @@ int main (int argc, char *argv[])
   print_message (quiet, stdout, log, f_log, 13, argv[0]);
   print_message (quiet, stdout, log, f_log, 14, output);
 // tail
-  summary_statistic (output, step, num_mol, max_depth, type_agl, stat_all);
+  summary_statistic (output, _system_info, max_depth, type_agl, stat_all);
   
   print_message (quiet, stdout, log, f_log, 15, argv[0]);
 // free memory
+  free (_atom_info);
   free (agl);
   free (connect);
-  free (coords);
   free (crit);
-  free (label_mol);
   free (num_mol_agl);
   free (stat);
   free (stat_all);
   free (true_label_mol);
   free (type_agl);
-  free (type_atoms);
   
   print_message (quiet, stdout, log, f_log, 16, argv[0]);
   

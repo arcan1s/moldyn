@@ -16,7 +16,7 @@ int create_matrix (const system_info _system_info, const atom_info *_atom_info,
 /**
  * @brief function that creates connectivity matrix
  * @code
- * int create_matrix (_system_info, _atom_info, num_of_inter, crit, connect);
+ * create_matrix (_system_info, _atom_info, num_of_inter, crit, connect);
  * @endcode
  * 
  * @param _system_info    system information structure
