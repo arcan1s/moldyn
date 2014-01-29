@@ -7,7 +7,11 @@ include (${SUBPROJECT}.cmake)
 set (LIBRARIES mm)
 foreach (LIBRARY ${LIBRARIES})
   include_directories (${CMAKE_CURRENT_SOURCE_DIR}/../${LIBRARY}/include/)
-  link_directories (${LIBRARY}/src/lib)
+  if (CMAKE_COMPILER_IS_GNUCXX)
+    link_directories (${LIBRARY}/src/lib)
+  elseif (CMAKE_COMPILER_IS_MSVC)
+    link_directories (${LIBRARY}/src/Release)
+  endif ()
 endforeach ()
 
 # additional targets

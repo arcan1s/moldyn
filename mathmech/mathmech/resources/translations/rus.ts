@@ -50,22 +50,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AgglWindow</name>
     <message>
-        <location filename="../../src/agglwindow.cpp" line="37"/>
+        <location filename="../../src/agglwindow.cpp" line="53"/>
         <source>Select file</source>
         <translation>Выбор файла</translation>
     </message>
     <message>
-        <location filename="../../src/agglwindow.cpp" line="39"/>
+        <location filename="../../src/agglwindow.cpp" line="55"/>
         <source>&apos;statgen&apos; output files (*.dat);;All files (*.*)</source>
         <translation>Файлы &apos;statgen&apos; (*.dat);;Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../../src/agglwindow.cpp" line="137"/>
+        <location filename="../../src/agglwindow.cpp" line="153"/>
         <source>Save file as...</source>
         <translation>Сохранить файл как...</translation>
     </message>
     <message>
-        <location filename="../../src/agglwindow.cpp" line="139"/>
+        <location filename="../../src/agglwindow.cpp" line="155"/>
         <source>Agglomerate files (*.agl);;All files (*.*)</source>
         <translation>Файл с агломератом (*.agl);Все файлы (*.*)</translation>
     </message>
@@ -155,13 +155,13 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AglAll</name>
     <message>
-        <location filename="../../src/aglallwindow.cpp" line="82"/>
-        <location filename="../../src/aglallwindow.cpp" line="83"/>
+        <location filename="../../src/aglallwindow.cpp" line="98"/>
+        <location filename="../../src/aglallwindow.cpp" line="99"/>
         <source>Processing &apos;agl&apos;...</source>
         <translation>Выполняется &apos;agl&apos;...</translation>
     </message>
     <message>
-        <location filename="../../src/aglallwindow.cpp" line="207"/>
+        <location filename="../../src/aglallwindow.cpp" line="223"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
@@ -169,27 +169,27 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AglAllWindow</name>
     <message>
-        <location filename="../../src/aglallwindow.cpp" line="44"/>
+        <location filename="../../src/aglallwindow.cpp" line="60"/>
         <source>Select work directory</source>
         <translation>Выбор рабочей директории</translation>
     </message>
     <message>
-        <location filename="../../src/aglallwindow.cpp" line="54"/>
+        <location filename="../../src/aglallwindow.cpp" line="70"/>
         <source>Select trajectory file</source>
         <translation>Выбор файла траектории</translation>
     </message>
     <message>
-        <location filename="../../src/aglallwindow.cpp" line="56"/>
+        <location filename="../../src/aglallwindow.cpp" line="72"/>
         <source>&apos;statgen&apos; output files (*.dat);;All files (*.*)</source>
         <translation>Файлы &apos;statgen&apos; (*.dat);;Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../../src/aglallwindow.cpp" line="65"/>
+        <location filename="../../src/aglallwindow.cpp" line="81"/>
         <source>Save file as...</source>
         <translation>Сохранить файл как...</translation>
     </message>
     <message>
-        <location filename="../../src/aglallwindow.cpp" line="67"/>
+        <location filename="../../src/aglallwindow.cpp" line="83"/>
         <source>PDB files (*.pdb);;All files (*.*)</source>
         <translation>PDB файлы (*.pdb);;Все файлы (*.*)</translation>
     </message>
@@ -315,9 +315,9 @@ p, li { white-space: pre-wrap; }
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../../src/atomtypeswindow.cpp" line="87"/>
-        <location filename="../../src/atomtypeswindow.cpp" line="100"/>
         <location filename="../../src/atomtypeswindow.cpp" line="103"/>
+        <location filename="../../src/atomtypeswindow.cpp" line="116"/>
+        <location filename="../../src/atomtypeswindow.cpp" line="119"/>
         <location filename="../../../build/mathmech/src/ui_atomtypeswindow.h" line="254"/>
         <source>Add new molecule</source>
         <translation>Добавить новую молекулу</translation>
@@ -413,12 +413,12 @@ p, li { white-space: pre-wrap; }
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../../src/atomtypeswindow.cpp" line="42"/>
+        <location filename="../../src/atomtypeswindow.cpp" line="58"/>
         <source>Save file as...</source>
         <translation>Сохранить файл как...</translation>
     </message>
     <message>
-        <location filename="../../src/atomtypeswindow.cpp" line="44"/>
+        <location filename="../../src/atomtypeswindow.cpp" line="60"/>
         <source>Atom types files (*.types);;All files (*.*)</source>
         <translation>Файл типов атомов (*.types);;Все файлы (*.*)</translation>
     </message>
@@ -426,72 +426,72 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ErrorWindow</name>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="22"/>
+        <location filename="../../src/errorwindow.cpp" line="38"/>
         <source>Work directory does not exists</source>
         <translation>Рабочая директория не существует</translation>
     </message>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="25"/>
+        <location filename="../../src/errorwindow.cpp" line="41"/>
         <source>Input file is not set</source>
         <translation>Входной файл не задан</translation>
     </message>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="28"/>
+        <location filename="../../src/errorwindow.cpp" line="44"/>
         <source>Atoms in plane must be different</source>
         <translation>Атомы, образующие плоскость, должны быть различными</translation>
     </message>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="31"/>
+        <location filename="../../src/errorwindow.cpp" line="47"/>
         <source>Atom types file is not set</source>
         <translation>Типы атомов не заданы</translation>
     </message>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="34"/>
+        <location filename="../../src/errorwindow.cpp" line="50"/>
         <source>Output file is not set</source>
         <translation>Выходной файл не задан</translation>
     </message>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="37"/>
+        <location filename="../../src/errorwindow.cpp" line="53"/>
         <source>Atom type must contain 2 characters</source>
         <translation>Тип атома должен содержать 2 символа</translation>
     </message>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="40"/>
+        <location filename="../../src/errorwindow.cpp" line="56"/>
         <source>Log file is not set</source>
         <translation>Лог файл не задан</translation>
     </message>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="43"/>
+        <location filename="../../src/errorwindow.cpp" line="59"/>
         <source>Component is not found</source>
         <translation>Компонент не найден</translation>
     </message>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="46"/>
+        <location filename="../../src/errorwindow.cpp" line="62"/>
         <source>Atom types is not set</source>
         <translation>Тип атома не задан</translation>
     </message>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="49"/>
+        <location filename="../../src/errorwindow.cpp" line="65"/>
         <source>Something wrong</source>
         <translation>Что то не так</translation>
     </message>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="52"/>
+        <location filename="../../src/errorwindow.cpp" line="68"/>
         <source>Interactions are not set</source>
         <translation>Взаимодействия не заданы</translation>
     </message>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="55"/>
+        <location filename="../../src/errorwindow.cpp" line="71"/>
         <source>Invalid file type</source>
         <translation>Неправильный тип файла</translation>
     </message>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="58"/>
+        <location filename="../../src/errorwindow.cpp" line="74"/>
         <source>Interaction step is not set</source>
         <translation>Шаг взаимодействия не задан</translation>
     </message>
     <message>
-        <location filename="../../src/errorwindow.cpp" line="61"/>
+        <location filename="../../src/errorwindow.cpp" line="77"/>
         <source>Unknown error</source>
         <translation>Неизвестная ошибка</translation>
     </message>
@@ -1108,7 +1108,7 @@ p, li { white-space: pre-wrap; }
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the maximum depth for search cycles, the log file and the graph generate if this needed.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;For the variation of geometric criteria you need specify the criteria step changes and the number of steps.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Liberation Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -1136,7 +1136,7 @@ p, li { white-space: pre-wrap; }
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Указать генерируемый файл.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;При необходимости указать максимальную глубину для проверки числа циклов в агломератах, файл лога и генерацию графика.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Для вариации геометрических критериев необходимо указать шаг изменения критериев и число шагов.&lt;/li&gt;
-&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Запустить приложение.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt; {3C?} {4.0/?} {3.?} {40/?} {1&quot;?} {10p?} {400;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {600;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {4.?} {0-0:2.4,0-1:3.0&amp;?} {0-0 ?} {2.4 ?} {0-1 ?} {3.0 ?} {3)?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {1;?} {12p?} {0p?} {0p?} {0p?} {0;?} {0p?} {1.1.0&amp;?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {1)?} {1)?} {1)?} {1)?} {1.0000,2.0000,3.0000)?} {1,2,3,4)?} {0, 0 ?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {001)?} {2 ?} {0000001 0000001 ?} {7 ?} {7 ?} {2=?} {1.3.4.?} {1 ?} {1.3.4.?} {0000001=?} {2,3,4,5,?} {1 ?} {7 ?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {2 ?} {0000001 0000002 000003.00 004.00000 0005.00000&lt;?} {7 ?} {7 ?} {9 ?} {2 ?} {9 ?} {5 ?} {10 ?} {5 ?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0.10000)?} {0.10000)?} {0.10000)?} {0.10000)?} {03=?} {0.10000)?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {1;?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {1;?} {12p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {12p?} {0p?} {0p?} {0;?} {0p?}</translation>
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Запустить приложение.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../../build/mathmech/src/ui_helpwindow.h" line="297"/>
@@ -1167,7 +1167,7 @@ p, li { white-space: pre-wrap; }
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set radial criteria. Set angular criteria if this needed.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the matrix output, the log file and the graph generate if this needed.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Run application.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Liberation Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -1193,7 +1193,7 @@ p, li { white-space: pre-wrap; }
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Указать искомые атомы.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Указать радиальные параметры функции в А. При необходимости указать угловые параметры функции в градусах.&lt;/li&gt;
 &lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;При необходимости указать печать в виде матрицы, файл лога и генерацию графика.&lt;/li&gt;
-&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Запустить приложение.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt; {3C?} {4.0/?} {3.?} {40/?} {1&quot;?} {10p?} {400;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {600;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {1-2&amp;?} {1,2,3-4,5,6&amp;?} {2.0 ?} {15.0&lt;?} {0.2&lt;?} {0.0 ?} {90.0&lt;?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {1;?} {12p?} {0p?} {0p?} {0p?} {0;?} {0p?} {1.1.0&amp;?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {1)?} {1)?} {1)?} {1)?} {1)?} {1.0000,2.0000,3.0000)?} {0)?} {0 ?} {1 ?} {2 ?} {0.100)?} {0.100)?} {0.100)?} {0.10)?} {0.10)?} {0.10)?} {1-2)?} {1,2,3-4,5,6)?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {2 ?} {0001.0000 2.0000e?} {01 000000003 04.000000&lt;?} {9 ?} {4 ?} {10 ?} {4 ?} {9 ?} {9 ?} {6 ?} {0001.0000 04.000000&lt;?} {9 ?} {4 ?} {9 ?} {6 ?} {0001.0000 000005.00 2.0000e?} {01 000000003 04.000000&lt;?} {9 ?} {4 ?} {9 ?} {2 ?} {10 ?} {4 ?} {9 ?} {9 ?} {6 ?} {9 ?} {2 ?} {0001.0000 04.000000 ?} {9 ?} {4 ?} {9 ?} {6 ?} {0p?} {12p?} {0p?} {0p?} {0;?} {0p?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {1;?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {1 ?} {4*?} {2*?} {1 ?} {4*?} {2*?} {12p?} {12p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {1;?} {12p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {0p?} {0p?} {0p?} {0;?} {0p?} {0p?} {12p?} {0p?} {0p?} {0;?} {0p?}</translation>
+&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Запустить приложение.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../../build/mathmech/src/ui_helpwindow.h" line="337"/>
@@ -1341,12 +1341,12 @@ p, li { white-space: pre-wrap; }
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../../src/helpwindow.cpp" line="36"/>
+        <location filename="../../src/helpwindow.cpp" line="52"/>
         <source>Save file as</source>
         <translation>Сохранить файл как</translation>
     </message>
     <message>
-        <location filename="../../src/helpwindow.cpp" line="38"/>
+        <location filename="../../src/helpwindow.cpp" line="54"/>
         <source>html files (*.html);;All files (*.*)</source>
         <translation>html файлы (*.html);;Все файлы (*.*)</translation>
     </message>
@@ -1358,159 +1358,159 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="27"/>
+        <location filename="../../src/mainwindow.cpp" line="43"/>
         <source>Ready</source>
         <translation>Готов</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="247"/>
-        <location filename="../../src/mainwindow.cpp" line="301"/>
-        <location filename="../../src/mainwindow.cpp" line="344"/>
-        <location filename="../../src/mainwindow.cpp" line="387"/>
-        <location filename="../../src/mainwindow.cpp" line="430"/>
+        <location filename="../../src/mainwindow.cpp" line="263"/>
+        <location filename="../../src/mainwindow.cpp" line="317"/>
+        <location filename="../../src/mainwindow.cpp" line="360"/>
+        <location filename="../../src/mainwindow.cpp" line="403"/>
+        <location filename="../../src/mainwindow.cpp" line="446"/>
         <source>Select work directory</source>
         <translation>Выбор рабочей директории</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="257"/>
-        <location filename="../../src/mainwindow.cpp" line="354"/>
-        <location filename="../../src/mainwindow.cpp" line="440"/>
+        <location filename="../../src/mainwindow.cpp" line="273"/>
+        <location filename="../../src/mainwindow.cpp" line="370"/>
+        <location filename="../../src/mainwindow.cpp" line="456"/>
         <source>Select trajectory file</source>
         <translation>Выбор файла траектории</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="259"/>
+        <location filename="../../src/mainwindow.cpp" line="275"/>
         <source>All files (*.*)</source>
         <translation>Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="268"/>
+        <location filename="../../src/mainwindow.cpp" line="284"/>
         <source>Select atom types file</source>
         <translation>Выбор файла типов атомов</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="270"/>
+        <location filename="../../src/mainwindow.cpp" line="286"/>
         <source>Atom types files (*.types);;All files (*.*)</source>
         <translation>Файл типов атомов (*.types);;Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="279"/>
+        <location filename="../../src/mainwindow.cpp" line="295"/>
         <source>Save files as</source>
         <translation>Сохранить файл как...</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="281"/>
+        <location filename="../../src/mainwindow.cpp" line="297"/>
         <source>Mask of trajectory files</source>
         <translation>Маска файлов траектории</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="290"/>
-        <location filename="../../src/mainwindow.cpp" line="333"/>
-        <location filename="../../src/mainwindow.cpp" line="376"/>
-        <location filename="../../src/mainwindow.cpp" line="419"/>
-        <location filename="../../src/mainwindow.cpp" line="473"/>
+        <location filename="../../src/mainwindow.cpp" line="306"/>
+        <location filename="../../src/mainwindow.cpp" line="349"/>
+        <location filename="../../src/mainwindow.cpp" line="392"/>
+        <location filename="../../src/mainwindow.cpp" line="435"/>
+        <location filename="../../src/mainwindow.cpp" line="489"/>
         <source>Save log file as...</source>
         <translation>Сохранить лог как...</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="292"/>
-        <location filename="../../src/mainwindow.cpp" line="335"/>
-        <location filename="../../src/mainwindow.cpp" line="378"/>
-        <location filename="../../src/mainwindow.cpp" line="421"/>
-        <location filename="../../src/mainwindow.cpp" line="475"/>
+        <location filename="../../src/mainwindow.cpp" line="308"/>
+        <location filename="../../src/mainwindow.cpp" line="351"/>
+        <location filename="../../src/mainwindow.cpp" line="394"/>
+        <location filename="../../src/mainwindow.cpp" line="437"/>
+        <location filename="../../src/mainwindow.cpp" line="491"/>
         <source>Log files (*.log)</source>
         <translation>Лог (*.log)</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="311"/>
-        <location filename="../../src/mainwindow.cpp" line="397"/>
+        <location filename="../../src/mainwindow.cpp" line="327"/>
+        <location filename="../../src/mainwindow.cpp" line="413"/>
         <source>Select trajectory files</source>
         <translation>Выбор файла траектории</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="313"/>
-        <location filename="../../src/mainwindow.cpp" line="356"/>
-        <location filename="../../src/mainwindow.cpp" line="399"/>
-        <location filename="../../src/mainwindow.cpp" line="442"/>
+        <location filename="../../src/mainwindow.cpp" line="329"/>
+        <location filename="../../src/mainwindow.cpp" line="372"/>
+        <location filename="../../src/mainwindow.cpp" line="415"/>
+        <location filename="../../src/mainwindow.cpp" line="458"/>
         <source>Trajectory files (*.*[0-9])</source>
         <translation>Файлы траектории (*.*[0-9])</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="322"/>
-        <location filename="../../src/mainwindow.cpp" line="408"/>
+        <location filename="../../src/mainwindow.cpp" line="338"/>
+        <location filename="../../src/mainwindow.cpp" line="424"/>
         <source>Save output file as...</source>
         <translation>Сохранить файл как...</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="324"/>
-        <location filename="../../src/mainwindow.cpp" line="410"/>
+        <location filename="../../src/mainwindow.cpp" line="340"/>
+        <location filename="../../src/mainwindow.cpp" line="426"/>
         <source>Output files (*.dat)</source>
         <translation>Выходной файл (*.dat)</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="365"/>
-        <location filename="../../src/mainwindow.cpp" line="462"/>
+        <location filename="../../src/mainwindow.cpp" line="381"/>
+        <location filename="../../src/mainwindow.cpp" line="478"/>
         <source>Save PDB file as...</source>
         <translation>Сохранить PDB как...</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="367"/>
-        <location filename="../../src/mainwindow.cpp" line="464"/>
+        <location filename="../../src/mainwindow.cpp" line="383"/>
+        <location filename="../../src/mainwindow.cpp" line="480"/>
         <source>PDB files (*.pdb)</source>
         <translation>PDB файл (*.pdb)</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="451"/>
+        <location filename="../../src/mainwindow.cpp" line="467"/>
         <source>Select agglomerate file</source>
         <translation>Выбор файла с агломератом</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="453"/>
+        <location filename="../../src/mainwindow.cpp" line="469"/>
         <source>Agglomerate files (*.agl);;All files (*.*)</source>
         <translation>Файл с агломератом (*.agl);Все файлы (*.*)</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="622"/>
-        <location filename="../../src/mainwindow.cpp" line="623"/>
+        <location filename="../../src/mainwindow.cpp" line="638"/>
+        <location filename="../../src/mainwindow.cpp" line="639"/>
         <source>Processing &apos;trj&apos;...</source>
         <translation>Выполняется &apos;trj&apos;...</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="633"/>
-        <location filename="../../src/mainwindow.cpp" line="718"/>
-        <location filename="../../src/mainwindow.cpp" line="766"/>
-        <location filename="../../src/mainwindow.cpp" line="836"/>
-        <location filename="../../src/mainwindow.cpp" line="904"/>
+        <location filename="../../src/mainwindow.cpp" line="649"/>
+        <location filename="../../src/mainwindow.cpp" line="734"/>
+        <location filename="../../src/mainwindow.cpp" line="782"/>
+        <location filename="../../src/mainwindow.cpp" line="852"/>
+        <location filename="../../src/mainwindow.cpp" line="920"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="690"/>
-        <location filename="../../src/mainwindow.cpp" line="691"/>
+        <location filename="../../src/mainwindow.cpp" line="706"/>
+        <location filename="../../src/mainwindow.cpp" line="707"/>
         <source>Processing &apos;statgen&apos;...</source>
         <translation>Выполняется &apos;statgen&apos;...</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="756"/>
-        <location filename="../../src/mainwindow.cpp" line="757"/>
+        <location filename="../../src/mainwindow.cpp" line="772"/>
+        <location filename="../../src/mainwindow.cpp" line="773"/>
         <source>Processing &apos;envir&apos;...</source>
         <translation>Выполняется &apos;envir&apos;...</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="822"/>
-        <location filename="../../src/mainwindow.cpp" line="823"/>
+        <location filename="../../src/mainwindow.cpp" line="838"/>
+        <location filename="../../src/mainwindow.cpp" line="839"/>
         <source>Processing &apos;radf&apos;...</source>
         <translation>Выполняется &apos;radf&apos;...</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="879"/>
-        <location filename="../../src/mainwindow.cpp" line="880"/>
+        <location filename="../../src/mainwindow.cpp" line="895"/>
+        <location filename="../../src/mainwindow.cpp" line="896"/>
         <source>Processing &apos;agl&apos;...</source>
         <translation>Выполняется &apos;agl&apos;...</translation>
     </message>
     <message>
-        <location filename="../../src/mainwindow.cpp" line="884"/>
-        <location filename="../../src/mainwindow.cpp" line="885"/>
+        <location filename="../../src/mainwindow.cpp" line="900"/>
+        <location filename="../../src/mainwindow.cpp" line="901"/>
         <source>Processing &apos;trj2pdb&apos;...</source>
         <translation>Выполняется &apos;trj2pdb&apos;...</translation>
     </message>
@@ -2181,22 +2181,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>SettingsWindow</name>
     <message>
-        <location filename="../../src/settingswindow.cpp" line="190"/>
-        <location filename="../../src/settingswindow.cpp" line="201"/>
-        <location filename="../../src/settingswindow.cpp" line="212"/>
-        <location filename="../../src/settingswindow.cpp" line="223"/>
-        <location filename="../../src/settingswindow.cpp" line="234"/>
-        <location filename="../../src/settingswindow.cpp" line="245"/>
+        <location filename="../../src/settingswindow.cpp" line="206"/>
+        <location filename="../../src/settingswindow.cpp" line="217"/>
+        <location filename="../../src/settingswindow.cpp" line="228"/>
+        <location filename="../../src/settingswindow.cpp" line="239"/>
+        <location filename="../../src/settingswindow.cpp" line="250"/>
+        <location filename="../../src/settingswindow.cpp" line="261"/>
         <source>Select component</source>
         <translation>Выбор компонента</translation>
     </message>
     <message>
-        <location filename="../../src/settingswindow.cpp" line="192"/>
-        <location filename="../../src/settingswindow.cpp" line="203"/>
-        <location filename="../../src/settingswindow.cpp" line="214"/>
-        <location filename="../../src/settingswindow.cpp" line="225"/>
-        <location filename="../../src/settingswindow.cpp" line="236"/>
-        <location filename="../../src/settingswindow.cpp" line="247"/>
+        <location filename="../../src/settingswindow.cpp" line="208"/>
+        <location filename="../../src/settingswindow.cpp" line="219"/>
+        <location filename="../../src/settingswindow.cpp" line="230"/>
+        <location filename="../../src/settingswindow.cpp" line="241"/>
+        <location filename="../../src/settingswindow.cpp" line="252"/>
+        <location filename="../../src/settingswindow.cpp" line="263"/>
         <source>All files (*)</source>
         <translation>Все файлы (*)</translation>
     </message>
@@ -2299,32 +2299,32 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>StatgenGraphWindow</name>
     <message>
-        <location filename="../../src/statgengraphwindow.cpp" line="54"/>
+        <location filename="../../src/statgengraphwindow.cpp" line="70"/>
         <source>N</source>
         <translation>N</translation>
     </message>
     <message>
-        <location filename="../../src/statgengraphwindow.cpp" line="55"/>
+        <location filename="../../src/statgengraphwindow.cpp" line="71"/>
         <source>p</source>
         <translation>p</translation>
     </message>
     <message>
-        <location filename="../../src/statgengraphwindow.cpp" line="72"/>
+        <location filename="../../src/statgengraphwindow.cpp" line="88"/>
         <source>r</source>
         <translation>r</translation>
     </message>
     <message>
-        <location filename="../../src/statgengraphwindow.cpp" line="73"/>
+        <location filename="../../src/statgengraphwindow.cpp" line="89"/>
         <source>g</source>
         <translation>g</translation>
     </message>
     <message>
-        <location filename="../../src/statgengraphwindow.cpp" line="147"/>
+        <location filename="../../src/statgengraphwindow.cpp" line="163"/>
         <source>Save image as...</source>
         <translation>Сохранить изображение как...</translation>
     </message>
     <message>
-        <location filename="../../src/statgengraphwindow.cpp" line="149"/>
+        <location filename="../../src/statgengraphwindow.cpp" line="165"/>
         <source>JPEG file (*.jpeg);;Portable Network Graphics file (*.png);;Bitmap file (*.bmp)</source>
         <translation>JPEG (*.jpeg);;Portable Network Graphics (*.png);;Bitmap (*.bmp)</translation>
     </message>

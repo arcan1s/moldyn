@@ -15,6 +15,7 @@ message (STATUS "${SUBPROJECT} HEADERS: ${HEADERS}")
 
 # link libraries and compile
 add_library (${SUBPROJECT} SHARED ${SOURCES} ${HEADERS})
+add_library (${SUBPROJECT} STATIC ${SOURCES} ${HEADERS})
 set_target_properties (${SUBPROJECT} PROPERTIES SOVERSION ${PROJECT_VERSION})
 target_link_libraries (${SUBPROJECT} ${ADDITIONAL_LIB})
 
