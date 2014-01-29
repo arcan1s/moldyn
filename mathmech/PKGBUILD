@@ -1,17 +1,17 @@
-# Author: Evgeniy "arcanis" Alexeev <esalexeev@gmail.com>
-# Maintainer: Evgeniy "arcanis" Alexeev <esalexeev@gmail.com>
+# Author: Evgeniy "arcanis" Alexeev <arcanis.arch at gmail dot com>
+# Maintainer: Evgeniy "arcanis" Alexeev <arcanis.arch at gmail dot com>
 
 pkgname=mathmech
 pkgver=1.2.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Software package for analysis of molecular dynamics trajectories"
-arch=(any)
+arch=('i686' 'x86_64')
 url="http://arcan1s.github.io/projects/moldyn"
 license=('Beerware')
-depends=('qt4' 'qwt')
+depends=('qwt')
 makedepends=('cmake' 'automoc4')
 source=(https://github.com/arcan1s/moldyn/releases/download/mm-${pkgver}/${pkgname}-${pkgver}-src.zip)
-md5sums=('f3f01c7eefdedf23b4eadfbf59058332')
+md5sums=('46d8e1a3d6bc30d5b0b57ccf485986b1')
 _cmakekeys="-DCMAKE_INSTALL_PREFIX=/usr
             -DQWT_INCLUDE_PATH=/usr/include/qwt
             -DQWT_LIBRARY_PATH=/usr/lib
@@ -25,7 +25,7 @@ prepare() {
   mkdir "${srcdir}/build"
 }
 
-build () {
+build() {
   cd "${srcdir}/build"
   cmake ${_cmakekeys} ../
   make
@@ -34,6 +34,6 @@ build () {
 package() {
   cd "${srcdir}/build"
   make DESTDIR="${pkgdir}" install
-  install -Dm644 "${srcdir}/COPYING" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  install -Dm644 "${srcdir}/COPYING" "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
 }
  
