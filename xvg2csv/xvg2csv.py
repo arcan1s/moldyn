@@ -144,11 +144,11 @@ def getData(fileList):
                 if (first):
                     type = defineType(file)
                 if (type == "rmsd"):
-                    rawData[system].append(getRmsdOutput(file, first))
+                    rawData[system] = rawData[system] + getRmsdOutput(file, first)
                 elif (type == "dist"):
                     rawData[system] = rawData[system] + getDistanceOutput(file, first)
                 elif (type == "angl"):
-                    rawData[system].append(getAngleOutput(file, first))
+                    rawData[system] = rawData[system] + getAngleOutput(file, first)
                 if (first):
                     first = False
     return rawData
@@ -157,6 +157,13 @@ def getData(fileList):
 def createCsv(directory, label, data, timeStep):
     """function to create *.csv file"""
     file = os.path.join(directory, label + ".csv")
+    iter = 0
+    suffix = ""
+    while (os.path.exists(file + suffix)):
+        suffix = ".%i" % (iter)
+        iter = iter + 1
+    if (suffix != ""):
+        os.rename(file, file + suffix)
     with open(file, "w") as output:
         output.write("t\t%s\n" % ('\t'.join(data.keys())))
         count = max([len(data[system]) for system in data.keys()])
@@ -173,6 +180,13 @@ def createCsv(directory, label, data, timeStep):
 def createQti(directory, label, data, timeStep):
     """function to create *.qti file"""
     file = os.path.join(directory, label + ".qti")
+    iter = 0
+    suffix = ""
+    while (os.path.exists(file + suffix)):
+        suffix = ".%i" % (iter)
+        iter = iter + 1
+    if (suffix != ""):
+        os.rename(file, file + suffix)
     with open(file, "w") as output:
         count = max([len(data[system]) for system in data.keys()])
         timestamp = datetime.datetime.now().strftime("%d.%m.%y %H:%M")
