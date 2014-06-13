@@ -231,7 +231,7 @@ if __name__ == "__main__":
     parser.add_argument('-nq', '--noqti', dest = 'noqti',
         help = 'Do not create *.qti file', action = 'store_true', default = False)
     parser.add_argument('-t', '--time', dest = 'time',
-        help = 'Averaging time', action = 'store', default = 100)
+        help = 'Averaging time', action = 'store', default = 1)
     parser.add_argument('-s', '--step', dest = 'step',
         help = 'Time step', action = 'store', default = 1.0)
     args = parser.parse_args()
