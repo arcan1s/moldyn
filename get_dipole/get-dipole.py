@@ -5,8 +5,8 @@ import argparse, math
 
 def get_aver_dipole(dipole):
     """function to get average dipole moment"""
-    aver_dipole = math.sqrt((dipole[0] * dipole[0] + 
-        dipole[1] * dipole[1] + 
+    aver_dipole = math.sqrt((dipole[0] * dipole[0] +
+        dipole[1] * dipole[1] +
         dipole[2] * dipole[2]))
     aver_dipole = round(aver_dipole, 4)
     return aver_dipole
@@ -56,15 +56,15 @@ if __name__ == "__main__":
     parser.add_argument('-v', '--vector', dest = 'vector',
         help = 'Return vector', action = 'store_true', default = False)
     args = parser.parse_args()
-    
+
     if ((not args.input) or (not args.coord)):
         print "Input files are not set"
-        exit
-    
+        exit()
+
     charges = get_charges(args.input)
     coords = get_coordinates(args.coord)
     if (args.vector):
         print get_dipole(charges, coords)
     else:
         print get_aver_dipole(get_dipole(charges, coords))
-    
+
