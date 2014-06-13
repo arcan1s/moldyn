@@ -83,7 +83,7 @@ if __name__ == "__main__":
     input = []
     if (args.dir):
         if (os.path.isdir(args.dir)):
-            input = [file for file in os.listdir(args.dir) if (os.path.splitext(file)[1] == ".qti")]
+            input = [os.path.join(args.dir, file) for file in os.listdir(args.dir) if (os.path.splitext(file)[1] == ".qti")]
     else:
         if (args.input):
             for file in args.input.split(','):
