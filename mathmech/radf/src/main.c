@@ -248,12 +248,12 @@ int main(int argc, char *argv[])
   _atom_info = (atom_info *) malloc (8 * _system_info.num_atoms * sizeof (atom_info));
   if (mode == 2)
   {
-    i = (_radf_info.r_max - _radf_info.r_min) / _radf_info.r_step;
-    j = (_radf_info.ang_max - _radf_info.ang_min) / _radf_info.ang_step;
+    i = 1 + (_radf_info.r_max - _radf_info.r_min) / _radf_info.r_step;
+    j = 1 + (_radf_info.ang_max - _radf_info.ang_min) / _radf_info.ang_step;
     i *= j;
   }
   else
-    i = (_radf_info.r_max - _radf_info.r_min) / _radf_info.r_step;
+    i = 1 + (_radf_info.r_max - _radf_info.r_min) / _radf_info.r_step;
   radf = (int *) malloc (i * sizeof (int));
   for (j=0; j<i; j++)
     radf[j] = 0;

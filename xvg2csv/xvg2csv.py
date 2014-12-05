@@ -27,7 +27,7 @@ def defineType(file):
             if (line[0] == '@') and (line.find("title") > -1):
                 if (line.find("RMSD") > -1):
                     type = "rmsd"
-                elif (line.find("distance") > -1):
+                elif (line.find("istance") > -1):
                     type = "dist"
                 elif (line.find("Angle") > -1):
                     type = "angl"
@@ -230,9 +230,9 @@ if __name__ == "__main__":
         help = 'Do not create *.csv file', action = 'store_true', default = False)
     parser.add_argument('-nq', '--noqti', dest = 'noqti',
         help = 'Do not create *.qti file', action = 'store_true', default = False)
-    parser.add_argument('-t', '--time', dest = 'time',
+    parser.add_argument('-t', '--time', dest = 'time', type = int,
         help = 'Averaging time', action = 'store', default = 1)
-    parser.add_argument('-s', '--step', dest = 'step',
+    parser.add_argument('-s', '--step', dest = 'step', type = float,
         help = 'Time step', action = 'store', default = 1.0)
     args = parser.parse_args()
 
