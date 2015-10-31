@@ -28,8 +28,6 @@
 int error_checking (const char *input, const int num_needed_at, const int *needed_at, 
                     const char *output, const system_info _system_info)
 {
-  if ((_system_info.cell[0] == 0.0) || (_system_info.cell[1] == 0.0) || (_system_info.cell[2] == 0.0))
-    return 11;
   if (input[0] == '#')
     return 12;
   if (output[0] == '#')

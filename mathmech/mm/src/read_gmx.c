@@ -126,7 +126,7 @@ int rw_gmx (const char *input, const int step, const char *output, const int num
     
 // write to output
     printing_trj (filename, atoms, num_types, num_mol, num_atoms, ch_atom_types, 
-                  atom_types, coords);
+                  atom_types, coords, cell);
   }
   
   fclose (f_inp);

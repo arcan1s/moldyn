@@ -81,13 +81,12 @@ int main(int argc, char *argv[])
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);
-      sprintf (tmp_str, "%smm_radf -i INPUT -s FIRST,LAST -c X,Y,Z -at ... -o OUTPUT [ -r MIN,MAX ]\n", tmp_str);
-      sprintf (tmp_str, "%s                   [ -rs R_STEP ] [ -a MIN,MAX ] [ -as ANG_STEP ] [ -m ]\n", tmp_str);
-      sprintf (tmp_str, "%s                                            [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
+      sprintf (tmp_str, "%smm_radf -i INPUT -s FIRST,LAST -at ... -o OUTPUT [ -r MIN,MAX ] [ -rs R_STEP ]\n", tmp_str);
+      sprintf (tmp_str, "%s                                        [ -a MIN,MAX ] [ -as ANG_STEP ] [ -m ]\n", tmp_str);
+      sprintf (tmp_str, "%s                                                  [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
       sprintf (tmp_str, "%sParametrs:\n", tmp_str);
       sprintf (tmp_str, "%s  -i          - mask of input files\n", tmp_str);
       sprintf (tmp_str, "%s  -s          - trajectory steps (integer)\n", tmp_str);
-      sprintf (tmp_str, "%s  -c          - cell size (float), A\n", tmp_str);
       sprintf (tmp_str, "%s  -at         - atom types (integer). Format: 'AT1-AT2' or 'A1,A2,A3-B1,B2,B3'\n", tmp_str);
       sprintf (tmp_str, "%s                (will enable RDF calculation for center mass automaticaly)\n", tmp_str);
       sprintf (tmp_str, "%s  -o          - output file name\n", tmp_str);
@@ -121,12 +120,6 @@ int main(int argc, char *argv[])
         _system_info.from = _system_info.to - _system_info.from;
         _system_info.to -= _system_info.from;
       }
-      i++;
-    }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'c') && (argv[i][2] == '\0'))
-// cell size
-    {
-      sscanf (argv[i+1], "%f,%f,%f", &_system_info.cell[0], &_system_info.cell[1], &_system_info.cell[2]);
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'a') && (argv[i][2] == 't') && (argv[i][3] == '\0'))

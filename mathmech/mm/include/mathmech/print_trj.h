@@ -33,12 +33,13 @@
  * @param ch_atom_types   massive of char atom types
  * @param atom_types      massive of atom types
  * @param coords          massive of coordinates
+ * @param cell            cell size
  * 
  * @return 0              - exit without errors
  */
 int printing_trj (const char *filename, const int atoms, const int num_types, const int *num_mol, 
                   const int *num_atoms, const char *ch_atom_types, const int *atom_types,
-                  const float *coords);
+                  const float *coords, const float *cell);
 
 
 #endif /* PRINT_TRJ_H */

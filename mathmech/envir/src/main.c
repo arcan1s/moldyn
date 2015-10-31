@@ -81,11 +81,10 @@ int main(int argc, char *argv[])
       sprintf (tmp_str, "%s                                                    Evgeniy Alekseev aka arcanis\n", tmp_str);
       sprintf (tmp_str, "%s                                                    E-mail : esalexeev@gmail.com\n\n", tmp_str);
       sprintf (tmp_str, "%sUsage:\n", tmp_str);
-      sprintf (tmp_str, "%smm_envir -i INPUT -c X,Y,Z -o OUTPUT [ -n NUM_OF_MOLECULE ] [ -r RADIUS ]\n", tmp_str);
-      sprintf (tmp_str, "%s                                             [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
+      sprintf (tmp_str, "%smm_envir -i INPUT -o OUTPUT [ -n NUM_OF_MOLECULE ] [ -r RADIUS ]\n", tmp_str);
+      sprintf (tmp_str, "%s                                    [ -l LOGFILE ] [ -q ] [ -h ]\n\n", tmp_str);
       sprintf (tmp_str, "%sParametrs:\n", tmp_str);
       sprintf (tmp_str, "%s  -i          - input file name\n", tmp_str);
-      sprintf (tmp_str, "%s  -c          - cell size (float), A\n", tmp_str);
       sprintf (tmp_str, "%s  -o          - output file name\n", tmp_str);
       sprintf (tmp_str, "%s  -n          - number of molecule for search (integer). Default is 1\n", tmp_str);
       sprintf (tmp_str, "%s  -r          - radius of environment (float). Default is 6.0\n", tmp_str);
@@ -99,12 +98,6 @@ int main(int argc, char *argv[])
 // input file
     {
       strcpy (input, argv[i+1]);
-      i++;
-    }
-    else if ((argv[i][0] == '-') && (argv[i][1] == 'c') && (argv[i][2] == '\0'))
-// cell size
-    {
-      sscanf (argv[i+1], "%f,%f,%f", &_system_info.cell[0], &_system_info.cell[1], &_system_info.cell[2]);
       i++;
     }
     else if ((argv[i][0] == '-') && (argv[i][1] == 'o') && (argv[i][2] == '\0'))

@@ -24,7 +24,7 @@
  */
 int printing_trj (const char *filename, const int atoms, const int num_types, const int *num_mol, 
                   const int *num_atoms, const char *ch_atom_types, const int *atom_types,
-                  const float *coords)
+                  const float *coords, const float *cell)
 {
   int cur_mol, cur_type[2], i, j, k, l;
   FILE *f_out;
@@ -60,6 +60,8 @@ coords[3*i+1], coords[3*i+2], atom_types[cur_type[1]], cur_mol);
       cur_type[0] += num_atoms[j];
     }
   }
+
+  fprintf (f_out, "%lf,%lf,%lf\n", cell[0], cell[1], cell[2]);
   
   fclose (f_out);
   

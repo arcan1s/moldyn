@@ -29,7 +29,7 @@ int reading_coords (const int mode, const char *filename, const int type_inter,
 {
   char at_symb[32], file_string[256];
   int atoms, cur_at_num, cur_at_type, cur_mol, i, j, tr_num_atoms, ref_mol, x, y;
-  float cur_coords[3], ref[3];
+  float cur_coords[3], ref[3], cur_cell[3];
   FILE *inp;
   
 /* cur_*                  temp variables
@@ -132,6 +132,13 @@ int reading_coords (const int mode, const char *filename, const int type_inter,
       default: return 2;
     }
   }
+  // cell sizes
+  fgets (file_string, 256, inp);
+  sscanf (file_string, "%f,%f,%f", &cur_cell[0], &cur_cell[1],
+          &cur_cell[2]);
+  (*_system_info).cell[0] = cur_cell[0];
+  (*_system_info).cell[1] = cur_cell[1];
+  (*_system_info).cell[2] = cur_cell[2];
   fclose (inp);
   
 /// <pre>   translation </pre>

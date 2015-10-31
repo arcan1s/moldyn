@@ -30,8 +30,6 @@ int error_checking (const system_info _system_info, const char *input, const int
 {
   if ((type_inter == 0) || (type_inter > 4))
     return 11;
-  if ((_system_info.cell[0] == 0.0) || (_system_info.cell[1] == 0.0) || (_system_info.cell[2] == 0.0))
-    return 12;
   if ((_system_info.to == -1) || (_system_info.from == -1))
     return 13;
   if (num_of_inter == 0)
