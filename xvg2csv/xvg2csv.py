@@ -31,6 +31,8 @@ def defineType(file):
                     type = "dist"
                 elif (line.find("Angle") > -1):
                     type = "angl"
+                elif (line.find("Number") > -1):
+                    type = "num"
                 break
     return type
 
@@ -62,6 +64,22 @@ def getDistanceOutput(file, first=True):
                 if ((not first) and (float(line.split()[0]) == 0.0)):
                     continue
                 data.append(float(line.split()[1]) * 10.0)
+            except:
+                pass
+    return data
+
+
+def getNumberOutput(file, first=True):
+    """function to parse distance file"""
+    data = []
+    with open(file, 'r') as input:
+        for line in input:
+            if ((line[0] == '@') or (line[0] == '#')):
+                continue
+            try:
+                if ((not first) and (float(line.split()[0]) == 0.0)):
+                    continue
+                data.append(float(line.split()[1]))
             except:
                 pass
     return data
@@ -149,6 +167,8 @@ def getData(fileList):
                     rawData[system] = rawData[system] + getDistanceOutput(file, first)
                 elif (type == "angl"):
                     rawData[system] = rawData[system] + getAngleOutput(file, first)
+                elif (type == "num"):
+                    rawData[system] = rawData[system] + getNumberOutput(file, first)
                 if (first):
                     first = False
     return rawData
